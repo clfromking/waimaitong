@@ -1,0 +1,62 @@
+.jw-index-banner{
+  width: 100%;
+  height: 300rpx;
+  background: red
+}
+.jw-small-nav-view view{
+  width: 160rpx;
+  /* height: 160rpx; */
+  /* background: aqua; */
+  display: inline-block;
+  margin-left: 22rpx
+}
+.jw-small-nav-img{
+  width:120rpx;
+  height: 120rpx;
+  display: block;
+  margin-left: 20rpx;
+  margin-top: 15rpx;
+  border-radius: 50%;
+  background: yellow
+}
+.jw-small-nav-text{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.jw-guess-body-view{
+  height: 200rpx;
+  background: #ccc;
+  margin-top: 40rpx;
+}
+.jw-guess-body-img{
+  height: 200rpx;
+  width: 350rpx;
+  background: blue;
+  display: block
+}
+.jw-index-guess-view .right{
+  height: 200rpx;
+  vertical-align: top;
+  width: 380rpx;
+  margin-left: 20rpx;
+  position: relative
+}
+.jw-guess-body-title{
+  display: block;
+  width: 380rpx;
+  font-size: 36rpx
+}
+.jw-guess-price-view text,.jw-guess-scope{
+  font-size: 26rpx
+}
+.jw-guess-scope{
+  position: absolute;
+  bottom: 10rpx;
+}
+.jw-guess-price-view{
+  position: absolute;
+  bottom: 50rpx 
+}
