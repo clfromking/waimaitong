@@ -21,7 +21,7 @@ Page({
               console.log(res1)
               var postData = { 'code': res.code, 'encryptedData': res1.encryptedData, 'iv': res1.iv }
              
-              app.postData('/weichat/login',postData).then((res)=>{
+              app.postData('/wechat/login',postData).then((res)=>{
                 console.log(res)
                 var timestamp = new Date().getTime();
                 if(res.data.code==200){
