@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    statusHeight: app.globalData.statusBarHeight,
+    navText:"首页",
     small_nav:[
       { "img": "", "text": "店铺海报" },
       { "img": "", "text": "店铺装修" },
@@ -22,11 +24,20 @@ Page({
     ]
   },
 
+  test:function(){
+    wx.navigateTo({
+      url: '../test/test',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     
+    
+    wx.navigateTo({
+      url: '../login/login',
+    })
   },
 
   /**

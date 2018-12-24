@@ -1,11 +1,13 @@
 // pages/my/my.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    statusHeight: app.globalData.statusBarHeight,
+    navText: "首页",
   },
 
   /**

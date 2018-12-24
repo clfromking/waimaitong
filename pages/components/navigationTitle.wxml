@@ -1,0 +1,21 @@
+<!-- pages/components/navigationTitle.wxml
+<text>pages/components/navigationTitle.wxml</text> -->
+<view class='navigationTitle' style="position:fixed;top:0;width:750rpx;">
+  <view class='statusBar' style='height:{{statusHeight}}px'></view>
+  <view class='navigationBar' style='height:{{navHeight}}px'>
+    {{navText}} 
+    <view wx:if='{{isshowNavback}}' class='navIcons' style='top:{{statusHeight+9}}px;' bindtap='navBack'>
+      <image class='navBackImg' src='../img/b12.png'></image>
+    </view>
+    <view wx:if='{{isshowOptions}}' class='navIcons' style='top:{{statusHeight+9}}px;' bindtap='navOtherRoute'>
+      <image class='navBackImg' src='../img/b12.png'></image>
+    </view>
+    <view wx:if='{{isshowHome}}' class='navIcons' style='top:{{statusHeight+9}}px;' bindtap='navHome'>
+      <image class='navBackImg' src='../img/b12.png'></image>
+    </view>
+  </view>
+</view>
+<view class='seat' style="">
+  <view class='seat' style='height:{{statusHeight}}px'></view>
+  <view class='seat' style='height:{{navHeight}}px'></view>
+</view>

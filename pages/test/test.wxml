@@ -1,2 +1,4 @@
 <!--pages/test/test.wxml-->
+<navtitle status-height="{{statusHeight}}" nav-text="{{navText}}"></navtitle>
+
 <text>pages/test/test.wxml</text>

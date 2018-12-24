@@ -1,11 +1,13 @@
 // pages/test/test.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    statusHeight: app.globalData.statusBarHeight,
+    navText: "首页",
   },
 
   /**
@@ -26,7 +28,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

@@ -3,6 +3,9 @@
   height: 300rpx;
   background: red
 }
+.jw-small-nav-view{
+  display: flex
+}
 .jw-small-nav-view view{
   width: 160rpx;
   /* height: 160rpx; */

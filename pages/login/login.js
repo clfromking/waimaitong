@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    statusHeight: app.globalData.statusBarHeight,
+    navText: "首页",
   },
 
   getuserinfo:function(e){
@@ -57,7 +58,23 @@ Page({
               })
             }
           })
+        },
+        fail:function(){
+          wx.showToast({
+            title: '授权失败，请重试！',
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
         }
+      })
+    }
+    else{
+      wx.showToast({
+        title: '授权失败，请重试！',
+        icon:'none',
+        mask:true,
+        duration:1500
       })
     }
   },

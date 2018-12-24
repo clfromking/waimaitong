@@ -1,4 +1,6 @@
-<image class="jw-index-banner"></image>
+<navtitle status-height="{{statusHeight}}" nav-text="{{navText}}"></navtitle>
+
+<image bindtap='test' class="jw-index-banner"></image>
 <view class='jw-small-nav-view'>
   <view wx:for="{{small_nav}}" wx:key="item">
     <image class='jw-small-nav-img' src='{{item.img}}'></image>
@@ -15,9 +17,10 @@
       <text class='jw-guess-body-title'>{{item.title}}</text>
       <view class='jw-guess-price-view'>
         <text decode="{{true}}">原价 ￥{{item.price}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会员 ￥{{item.member_price}}</text>
-        
+          
       </view>
       <text class='jw-guess-scope'>{{item.scope}}</text>
     </view>
   </view>
 </view>
+
