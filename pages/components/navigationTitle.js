@@ -54,9 +54,25 @@ Component({
     navBack:function(){
       // console.log(111)
       console.log(getCurrentPages()[getCurrentPages().length - 1].route)
-      if (getCurrentPages()[getCurrentPages().length - 1].route=='pages/test1/test'){
-        wx.showToast({
-          title: 'hahah',
+      if (getCurrentPages()[getCurrentPages().length - 1].route=='pages/test/test'){
+        wx.showModal({
+          title: 'asd',
+          content: 'hjaah',
+          success:function(res){
+            console.log(res)
+            if (res.confirm) {
+              console.log('用户点击确定')
+              wx.navigateBack({
+
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+            
+          },
+          fail:function(){
+
+          }
         })
       }
       else{

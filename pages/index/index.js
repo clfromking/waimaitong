@@ -35,9 +35,9 @@ Page({
   onLoad: function (options) {
     
     
-    wx.navigateTo({
-      url: '../login/login',
-    })
+    // wx.navigateTo({
+    //   url: '../login/login',
+    // })
   },
 
   /**
