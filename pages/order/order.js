@@ -6,7 +6,7 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "首页",
+    navText: "订单",
   },
 
   /**
