@@ -5,11 +5,12 @@
 }
 .navigationBar{
   text-align: center;
-  line-height:46px 
+  line-height:46px;
+  font-size: 30rpx
 }
 .navIcons{
   position: fixed;
-  margin-left: 8px
+  margin-left: 36rpx
 }
 .navBackImg{
   display: block;

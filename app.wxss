@@ -26,3 +26,9 @@
 .clear{
   zoom:1
 }
+.white{
+  color: #fff
+}
+.red{
+  color: #dd0000
+}

@@ -121,8 +121,6 @@ App({
     var that=this
     wx.getSystemInfo({
       success: function (res) {
-        console.log(res)
-        console.log((750/res.windowWidth))
         that.globalData.statusBarHeight = Number(res.statusBarHeight)
       }
     })
@@ -151,6 +149,7 @@ App({
       }
     })
   },
+
   globalData: {
     userInfo: null
   }

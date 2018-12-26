@@ -1,12 +1,51 @@
-<navtitle status-height="{{statusHeight}}" nav-text="{{navText}}"></navtitle>
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a"></navtitle>
 
-<image bindtap='test' class="jw-index-banner"></image>
+<view class='jw-index-title clear'>
+  <view class='jw-title-avatarurl-view left'>
+    <image class='jw-title-avatarurl-img'></image>
+  </view>
+  <view class='jw-title-hint-view left'>
+    <view class='jw-title-hint-top-text white'>
+      <text>请先登录</text>
+    </view>
+    <view class='jw-title-hint-bottom-text white'>
+      <text>您还不是会员</text>
+      <text style="margin-left:38rpx;font-size:24rpx" class='red'>开通会员>></text>
+    </view>
+  </view>
+</view>
+
+<view class='jw-banner-bgview'>
+  <view class='jw-banner-radius-bgview'>
+  </view>
+  <image src='http://pk1897l3c.bkt.clouddn.com/index_banner1.jpg' class='jw-banner'></image>
+</view>
+
+
+
 <view class='jw-small-nav-view'>
   <view wx:for="{{small_nav}}" wx:key="item">
     <image class='jw-small-nav-img' src='{{item.img}}'></image>
     <text class='jw-small-nav-text'>{{item.text}}</text>
   </view>
 </view>
+
+<view class='jw-rob-service'>
+  <view class='jw-rob-service-title'>
+    0元抢服务
+  </view>
+  <scroll-view class='jw-scroll-x clear' scroll-x="{{true}}">
+    <view wx:for="{{scrollX_msgs}}" wx:key="item" class='jw-scroll-view-item'>
+      <view class='jw-item-img-view'>
+        <image class='jw-item-img' mode='aspectFit' src=''></image>
+      </view>
+      <view class='jw-item-alt'>{{item.alt}}</view>
+      <view class='jw-item-btn'>{{item.btn_text}}</view>
+    </view>
+  </scroll-view>
+</view>
+
+
 <view class='jw-index-guess-view'>
   <text class='jw-index-guess-title'>{{guess_title}}</text>
   <view class='clear jw-guess-body-view' wx:for="{{guess_msgs}}" wx:key="item">
@@ -16,7 +55,9 @@
     <view class='right'>
       <text class='jw-guess-body-title'>{{item.title}}</text>
       <view class='jw-guess-price-view'>
-        <text decode="{{true}}">原价 ￥{{item.price}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会员 ￥{{item.member_price}}</text>
+        <!-- <text decode="{{true}}">原价 ￥{{item.price}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会员 ￥{{item.member_price}}</text> -->
+        <view>原价 ￥<text style='color:#9f0000'>{{item.price}}</text></view>
+        <view>会员 ￥<text style='color:#9f0000'>{{item.member_price}}</text></view>
           
       </view>
       <text class='jw-guess-scope'>{{item.scope}}</text>
@@ -24,3 +65,27 @@
   </view>
 </view>
 
+<view class='jw-cut'></view>
+
+<view class='jw-recommend-view'>
+  <text class='jw-index-guess-title'>{{recommend_title}}</text>
+  <image class='jw-recommend-img' mode="widthFix" src='{{recommend_img}}'></image>
+
+</view>
+<view class='jw-cut'></view>
+<view class='jw-recommend-view'>
+  <view class='clear jw-guess-body-view jw-recommend-item' wx:for="{{recommend_msgs}}" wx:key="item">
+    <view class='left'>
+      <image class='jw-guess-body-img' src='{{item.img_src}}'></image>
+    </view>
+    <view class='right'>
+      <text class='jw-guess-body-title'>{{item.title}}</text>
+      <view class='jw-guess-price-view'>
+         <!-- <text decode="{{true}}">原价 ￥{{item.price}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会员 ￥{{item.member_price}}</text> -->
+        <view>原价 ￥<text style='color:#9f0000'>{{item.price}}</text></view>
+        <view>会员 ￥<text style='color:#9f0000'>{{item.member_price}}</text></view>
+      </view>
+      <text class='jw-guess-scope'>{{item.scope}}</text>
+    </view>
+  </view>
+</view>

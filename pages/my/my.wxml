@@ -1,4 +1,21 @@
 <!--pages/my/my.wxml-->
-<navtitle status-height="{{statusHeight}}" nav-text="{{navText}}"></navtitle>
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a"></navtitle>
 
-<text>pages/my/my.wxml</text>
+<view class='jw-my-header'>
+  <view class='jw-user-msgs'>
+    <image class='jw-user-avatarurl' src=''></image>
+    <text class='login-alt'>请先登录</text>
+    <view class='dredge-member'>开通会员>></view>
+  </view>
+  <view class='user-moneys'>
+    <view class='moneys-item'>
+      <view>0</view>
+      <view>账户余额</view>
+    </view>
+    <view class='moneys-item'>
+      <view>0</view>
+      <view>分享金</view>
+    </view>
+  </view>
+</view>
+

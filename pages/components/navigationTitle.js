@@ -4,18 +4,32 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    navHeight:{
-      type: Number,
-      value: 46,
-    },
     statusHeight:{
       type:Number,
       value:20
+    },
+    statusBgcolor:{
+      type:String,
+      value:"#fff"
+    },
+    navHeight: {
+      type: Number,
+      value: 46,
+    },
+    navBgcolor: {
+      type: String,
+      value: "#fff"
     },
     navText:{
       type:String,
       value:""
     },
+    navTextcolor:{
+      type:String,
+      value:"#000"
+    }
+    
+
     
   },
 
@@ -65,8 +79,10 @@ Component({
               wx.navigateBack({
 
               })
-            } else if (res.cancel) {
+            } 
+            else if (res.cancel) {
               console.log('用户点击取消')
+              
             }
             
           },
@@ -74,6 +90,9 @@ Component({
 
           }
         })
+        // wx.navigateBack({
+          
+        // })
       }
       else{
         wx.navigateBack({

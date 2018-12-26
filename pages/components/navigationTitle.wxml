@@ -1,8 +1,8 @@
 <!-- pages/components/navigationTitle.wxml
 <text>pages/components/navigationTitle.wxml</text> -->
 <view class='navigationTitle' style="position:fixed;top:0;width:750rpx;">
-  <view class='statusBar' style='height:{{statusHeight}}px'></view>
-  <view class='navigationBar' style='height:{{navHeight}}px'>
+  <view class='statusBar' style='height:{{statusHeight}}px;background:{{statusBgcolor}}'></view>
+  <view class='navigationBar' style='height:{{navHeight}}px;background:{{navBgcolor}};color:{{navTextcolor}}'>
     {{navText}} 
     <view wx:if='{{isshowNavback}}' class='navIcons' style='top:{{statusHeight+9}}px;' bindtap='navBack'>
       <image class='navBackImg' src='../img/b12.png'></image>
@@ -13,7 +13,7 @@
     <view wx:if='{{isshowHome}}' class='navIcons' style='top:{{statusHeight+9}}px;' bindtap='navHome'>
       <image class='navBackImg' src='../img/b12.png'></image>
     </view>
-  </view>
+  </view> 
 </view>
 <view class='seat' style="">
   <view class='seat' style='height:{{statusHeight}}px'></view>

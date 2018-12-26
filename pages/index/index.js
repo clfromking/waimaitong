@@ -1,4 +1,5 @@
 const app=getApp()
+let sign=0
 Page({
 
   /**
@@ -8,25 +9,46 @@ Page({
     statusHeight: app.globalData.statusBarHeight,
     navText:"首页",
     small_nav:[
-      { "img": "", "text": "店铺海报" },
-      { "img": "", "text": "店铺装修" },
-      { "img": "", "text": "外卖运营" },
-      { "img": "", "text": "菜品拍摄" },
+      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "店铺海报" },
+      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_2.jpg", "text": "店铺装修" },
+      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_3.jpg", "text": "外卖运营" },
+      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_4.jpg", "text": "菜品拍摄" },
+    ],
+    scrollX_msgs: [
+      { "img_src": "", "alt": "限前200位用户限前200位用户限前200位用户", "btn_text": "店铺装修" },
+      { "img_src": "", "alt": "再来一次品牌升级", "btn_text": "定制海报" },
+      { "img_src": "", "alt": "订单搜搜赚翻天", "btn_text": "提升下单神器" },
+      { "img_src": "", "alt": "限前200位用户", "btn_text": "店铺装修" }
     ],
     guess_title:"猜你想要",
     guess_msgs:[
-      {"img_src":"","title":"我这里下雨了,你那里呢！","price":"9.50","member_price":"0.00","scope":"美团外卖、饿了么通用"},
-      { "img_src": "", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
-      { "img_src": "", "title": "我这里下雨了,你那里呢！", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
-      { "img_src": "", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
-      { "img_src": "", "title": "我这里下雨了,你那里呢！", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
-      { "img_src": "", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" }
-    ]
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_1.jpg", "title": "我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！","price":"9.50","member_price":"0.00","scope":"美团外卖、饿了么通用"},
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_2.jpg", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_1.jpg", "title": "我这里下雨了,你那里呢！", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_2.jpg", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_1.jpg", "title": "我这里下雨了,你那里呢！", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_2.jpg", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" }
+    ],
+    recommend_title:"智能推荐",
+    recommend_img:"http://pk1897l3c.bkt.clouddn.com/index_banner1.jpg",
+    recommend_msgs: [
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_1.jpg", "title": "我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_2.jpg", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_1.jpg", "title": "我这里下雨了,你那里呢！", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_2.jpg", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_1.jpg", "title": "我这里下雨了,你那里呢！", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
+      { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_2.jpg", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" }
+    ],
+
   },
 
   test:function(){
+    
     wx.navigateTo({
       url: '../test/test',
+      success:function(){
+        sign++
+      }
     })
   },
   /**
@@ -34,7 +56,7 @@ Page({
    */
   onLoad: function (options) {
     
-    
+    console.log(options)
     // wx.navigateTo({
     //   url: '../login/login',
     // })
@@ -51,7 +73,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    if(sign==1){
+      wx.navigateTo({
+        url: '../test/test',
+        success:function(){
+          sign++
+        }
+      })
+    }
   },
 
   /**

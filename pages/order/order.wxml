@@ -1,4 +1,47 @@
 <!--pages/order/order.wxml-->
-<navtitle status-height="{{statusHeight}}" nav-text="{{navText}}"></navtitle>
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a"></navtitle>
+<view class='jw-order-nav'>
+  <text>订单</text>
+</view>
 
-<text>pages/order/order.wxml</text>
+<view wx:if="{{!islogin}}" style='position:relative'>
+  <view class='jw-order-nologin'>
+    <image class='jw-nologin-img' src='http://pk1897l3c.bkt.clouddn.com/noLogin.jpg'></image>
+    <text class='jw-nologin-alt'>您还没有登录</text>
+    <view class='jw-nologin-btn'>去登录</view>
+  </view>
+</view>
+
+<view class='jw-orders-view' wx:if="{{islogin}}">
+  <view class='jw-order-item' wx:for="{{orders}}" wx:key="item">
+    <view class='jw-order-item-top clear'>
+      <view class='left jw-order-time'>{{item.order_time}}</view>
+      <view class=' right'>
+        <view class='jw-order-status'>{{item.order_status}}</view>
+        <view class='shu' style='display:inline-block'>丨</view>
+        <view class='jw-delete-btn'></view>
+      </view>
+    </view>
+    <view class='jw-order-item-lists clear' wx:for="{{item.order_list}}" wx:key="item1">
+      <view class='jw-lists-img-view left'>
+        <image class='jw-lists-img' mode="aspectFit" src='{{item.ware_img}}'></image>
+      </view>
+      <view class='jw-lists-msgs-view right clear'>
+        <text class='jw-lists-name left'>{{item.ware_name}}</text>
+        <text class='jw-lists-number right'>x{{item.ware_number}}</text>
+      </view>
+      
+    </view>
+    <view class='jw-order-price'>实付款￥<text style='color:#850000'>{{item.order_price}}</text>元</view>
+    <view class='fenge'></view>
+    <view class='jw-order-item-bottom clear'>
+      <view class='jw-order-number left'>
+        <text class=''>订单编号 {{item.order_number}}</text>
+      </view>
+      <view class='right' style='position:relative'>
+        <view class='jw-order-method_views jw-order-payMethod'>{{item.pay_method}}</view>
+        <view class='jw-order-method_views jw-order-detail'>订单详情</view>
+      </view>
+    </view>
+  </view>
+</view>
