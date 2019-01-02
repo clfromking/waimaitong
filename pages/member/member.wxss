@@ -1,1 +1,313 @@
 /* pages/member/member.wxss */
+page{
+  position: relative;
+  padding-bottom: 66rpx;
+  /* background-image: linear-gradient(94deg, 
+		#c0a069 0%, 
+		#d5bb8b 58%, 
+		#e9d5ac 100%);
+	box-shadow: 0px 10rpx 28rpx 0px 
+		rgba(195, 164, 110, 0.23); */
+    /* position: relative */
+}
+.jw-member-header{
+  height: 368rpx;
+  background-image: linear-gradient(94deg, 
+		#c0a069 0%, 
+		#d5bb8b 58%, 
+		#e9d5ac 100%);
+	box-shadow: 0px 10rpx 28rpx 0px 
+		rgba(195, 164, 110, 0.23);
+    /* position: relative */
+}
+.member-bg{
+  width:750rpx;
+  position: absolute;
+  top: 0;
+  height: 929.63rpx
+}
+.member-header{
+  width: 98rpx;
+  height: 84rpx;
+  position: absolute;
+  top:108rpx;
+  left: 326rpx;
+  
+}
+.member-header-text{
+  /* display: block; */
+  font-size: 48rpx;
+  background: linear-gradient(94deg, 
+		#c0a069 0%, 
+		#d5bb8b 58%, 
+		#e9d5ac 100%);
+	-webkit-background-clip: text;
+  color: transparent;
+  position: absolute;
+  top: 210rpx;
+  left: 286rpx;
+  /* right: 0;
+  bottom: 0;
+  margin: auto; */
+  font-weight: bold
+}
+.member-header-alt{
+  font-size: 22rpx;
+  color: #f1efef;
+	opacity: 0.3;
+  position: absolute;
+  top: 284rpx;
+  left: 226rpx;
+  /* right: 0;
+  bottom: 0;
+  margin: auto; */
+  font-weight: bold
+}
+.header-icons-item{
+  display: inline-block;
+  text-align: center;
+  margin-right: 98rpx
+}
+.header-icons-view{
+  width: 112rpx;
+  height: 112rpx;
+  background-image: linear-gradient(-18deg, 
+		#c0a069 0%, 
+		#d5bb8b 58%, 
+		#e9d5ac 100%), 
+	linear-gradient(
+		#eeeeee, 
+		#eeeeee);
+	background-blend-mode: normal, 
+		normal;
+	box-shadow: 0px 10rpx 28rpx 0px 
+		rgba(195, 164, 110, 0.23);
+  border-radius: 50%;
+  position: relative
+}
+.header-icons-view image{
+  width: 48rpx;
+  /* height: 48rpx; */
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto
+}
+.header-icons-text{
+  color: #575555;
+  font-size: 24rpx
+}
+.all-icons-item{
+  position: absolute;
+  top: 400rpx;
+  left: 112rpx;
+}
+.dredge-view{
+  width: 600rpx;
+  height: 190rpx;
+  background: url('http://pk1897l3c.bkt.clouddn.com/member/bg_black.png') no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 75rpx;
+  top: 600rpx
+}
+.dredge-text-title{
+  
+  font-size: 34rpx;
+  font-weight: bold;
+  letter-spacing:1rpx;
+  position: absolute;
+  top: 39rpx;
+  left: 28rpx
+}
+.dredge-text-alt{
+  color: #ffffff;
+	opacity: 0.5;
+  font-size: 20rpx;
+  position: absolute;
+  left: 80rpx;
+  top: 97rpx;
+  letter-spacing:1rpx;
+}
+.dredge-btn{
+  width: 198rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fcfcfc;
+  font-weight: bold;
+  border-radius: 36rpx;
+  background-image: linear-gradient(66deg, 
+		#c0a069 0%, 
+		#d8c6a2 100%);
+  position: absolute;
+  top: 60rpx;
+  left: 390rpx
+}
+.member-body{
+  margin-top: -40rpx
+}
+.liberty-title{
+  text-align: center;
+  font-size: 36rpx
+}
+.liberty-one-left{
+  width: 310rpx;
+  height: 122rpx;
+  background: url('http://pk1897l3c.bkt.clouddn.com/member/radiusbg_black.png') no-repeat;
+  background-size: 100% 100%;
+  margin-left: 22rpx;
+  position: relative
+}
+.liberty-one-right{
+  width: 310rpx;
+  height: 122rpx;
+  background: url('http://pk1897l3c.bkt.clouddn.com/member/radiusbg_other.png') no-repeat;
+  background-size: 100% 100%;
+  margin-right: 22rpx;
+  position: relative;
+  overflow: hidden
+}
+.liberty-one-body{
+  text-align: center;
+  margin-top: 34rpx
+}
+.vs{
+  display: inline-block;
+  height: 122rpx;
+  line-height: 122rpx;
+  font-size: 46rpx;
+  font-weight: bold;
+  width: 62rpx;
+  background: url('http://pk1897l3c.bkt.clouddn.com/member/vs.png') no-repeat;
+  background-size: 100% 100%
+}
+.liberty-left-alt{
+  display: inline-block;
+  width: 100rpx;
+  font-size: 32rpx;
+  color: #fff;
+  position: absolute;
+  /* top: 18rpx; */
+  left: 64rpx;
+  padding-top: 18rpx;
+  height: 100%;
+  border-right: 2rpx dashed #fff;
+  padding-right: 46rpx;
+   background: linear-gradient(94deg, 
+		#fff 0%, 
+		#d5bb8b 58%, 
+		#ccc 100%);
+	-webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 1rpx
+  /* font-weight: bold */
+}
+.liberty-left-alt1{
+  display: inline-block;
+  font-size: 22rpx;
+  width: 50rpx;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  left: 230rpx;
+  top: 30rpx
+}
+.liberty-right-alt{
+  display: inline-block;
+  color: #ffffff;
+	/* box-shadow: 1px 2px 5px 0px 
+		rgba(0, 0, 0, 0.2); */
+  font-size: 32rpx;
+  width: 128rpx;
+  text-align: left;
+  position: absolute;
+  left: 60rpx;
+  /* top: 18rpx; */
+  border-right: 2rpx dashed #000;
+  padding-right: 28rpx;
+  padding-top: 12rpx;
+  height: 100%;
+  overflow: hidden;
+  /* box-sizing: border-box */
+}
+.liberty-right-alt1{
+  display: inline-block;
+  font-size: 22rpx;
+  width: 50rpx;
+  color: #000;
+  font-weight: bold;
+  position: absolute;
+  left: 230rpx;
+  top: 30rpx
+}
+.liberty-one-view,.liberty-two-view{
+  margin-bottom: 66rpx
+}
+.liberty-two-body,.liberty-three-body{
+  width: 674rpx;
+  height: 138rpx;
+  margin-left: 38rpx;
+  margin-top: 34rpx;
+  background-image: linear-gradient(
+		#ffffff, 
+		#ffffff), 
+	linear-gradient(90deg, 
+		rgba(183, 123, 249, 0.93) 0%, 
+		rgba(136, 105, 164, 0.93) 0%, 
+		rgba(88, 87, 79, 0.93) 0%, 
+		rgba(91, 85, 81, 0.93) 100%), 
+	linear-gradient(
+		#6d43fb, 
+		#6d43fb);
+	background-blend-mode: normal, 
+		normal, 
+		normal;
+	box-shadow: 0px 24rpx 82rpx 0px 
+		rgba(103, 103, 103, 0.2);
+	border-radius: 18rpx;
+  padding-top: 27rpx;
+  box-sizing: border-box
+}
+.liberty-icon{
+  width: 84rpx;
+  height: 84rpx;
+  display: inline-block;
+  margin-left: 27rpx;
+  margin-right: 64rpx
+}
+.liberty-alts{
+  display: inline-block;
+  text-align: center;
+  width: 340rpx;
+  height: 100%;
+  vertical-align: top
+}
+.liberty-alts-title{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 14rpx;
+  display: block
+}
+.liberty-alts-small{
+  font-size: 20rpx;
+  color: #999;
+  display: block
+}
+
+
+
+.clip-text{
+  background: linear-gradient(94deg, 
+		#c0a069 0%, 
+		#d5bb8b 58%, 
+		#e9d5ac 100%);
+	-webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold
+}

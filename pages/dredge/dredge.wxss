@@ -1,0 +1,143 @@
+/* pages/dredge/dredge.wxss */
+page{
+  background: #eee;
+  
+}
+.container{
+  /* padding-bottom: 22rpx */
+}
+.header{
+  height: 460rpx;
+  background: #333
+}
+.title{
+  font-size: 30rpx;
+  text-align: center;
+  color: #fff;
+  font-weight: bold
+}
+.all-plan{
+  width: 682rpx;
+  margin: 0 auto;
+  height: 264rpx;
+  /* background: red; */
+  margin-top: 32rpx
+}
+.plan-item{
+  width: 216rpx;
+  height: 264rpx;
+  border: 6rpx solid #bf9e69;
+  border-radius: 20rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: 17rpx;
+}
+.plan-item:last-child{
+  margin-right: 0
+}
+.plan-title{
+  color: #f4f4f4;
+  margin-top: 36rpx
+}
+.plan-money{
+  color: #fffefe;
+  margin-top: 34rpx;
+  margin-bottom: 34rpx
+}
+.plan-alt{
+  font-size: 20rpx;
+  /* margin-top: 44rpx */
+}
+.alts{
+  width: 682rpx;
+  margin: 0 auto;
+  height: 264rpx;
+  margin-top: 32rpx;
+  /* background: red; */
+  font-size: 22rpx;
+  color: #fffefe
+}
+.alts-icon{
+  width: 46rpx;
+  margin-left: 14rpx
+}
+.fenge{
+  height: 20rpx;
+	background-color: #eeeeee;
+}
+.body{
+  height: 654rpx;
+  background: #fff;
+  font-size: 30rpx;
+  color: #333;
+  padding-top: 26rpx
+}
+.body-title{
+  text-align: center;
+  
+}
+.forms{
+  width: 698rpx;
+  margin: 0 auto
+}
+.forms-item{
+  height: 86rpx;
+  border-bottom: 2rpx solid #aaa
+}
+.forms-item:last-child{
+  border: none;
+}
+.forms-item view,.forms-item input{
+  display: inline-block;
+  line-height: 86rpx
+}
+.forms-item input{
+  height: 86rpx;
+  line-height: 86rpx;
+  /* width: 460rpx */
+}
+.forms-title{
+  line-height: 86rpx;
+  vertical-align: top;
+  margin-right: 50rpx
+}
+.go-address{
+  width: 16rpx;
+  height: 20rpx;
+  transform: rotate(180deg);
+  margin-top: 33rpx;
+  margin-right: 14rpx
+}
+.pay{
+  width: 274rpx;
+  height: 56rpx;
+  background: #abca9a;
+  border-radius: 28rpx;
+  text-align:center;
+  line-height: 56rpx;
+  color: #fffefe;
+  font-size: 30rpx;
+  margin: 60rpx auto 50rpx
+}
+.pay-hint{
+  font-size: 20rpx;
+  color: #666666;
+  text-align: center;
+  padding-bottom: 22rpx
+}
+
+
+
+.select-plan{
+  background-image: linear-gradient(61deg, 
+		#d6c39a 0%, 
+		#b79865 100%);
+  /* border: none */
+}
+.place-font{
+  color: #999;
+  font-size: 24rpx
+}

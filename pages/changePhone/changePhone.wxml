@@ -1,0 +1,19 @@
+<!--pages/changePhone/changePhone.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+
+<image src='http://pk1897l3c.bkt.clouddn.com/changePhone/safe.png' class='safe' mode='widthFix'></image> 
+<view class='safe-text'>为了保证您的账户安全 , 请验证身份</view>
+
+<view class='container'>
+  <view class='provings-view'>
+    <text  class='title'>手机号码</text>
+    <input maxlength='14' type='number'></input>
+  </view>
+  <view class='provings-view'>
+    <text class='title'>验证码</text>
+    <input class='codeInput' maxlength='6' type='number'></input>
+    <text class='getcode right'>获取验证码</text>
+  </view>
+</view>
+<button class='next' bindtap='next'>下一步</button> 
+<view class='no-proving'>手机无法验证？</view>

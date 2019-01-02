@@ -1,0 +1,30 @@
+<!--pages/memberIdentity/memberIdentity.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#333" nav-bgcolor="#333" nav-textcolor="#fff" nav-text="{{navText}}" ></navtitle>
+
+<view class='container'>
+  <view class='identity-item'>
+    <view class='identity-title'>未开通的会员身份</view>
+    <view class='card'>
+      <image src='http://pk1897l3c.bkt.clouddn.com/identity/identity_icon.png' class='identity-icon' mode='widthFix'></image>
+      <view class='identity-text'>月度会员卡</view>
+      <button class='identity-btn'>升级会员卡</button>
+    </view>
+  </view>
+  <view class='identity-item'>
+    <view class='identity-title'>未开通的会员身份</view>
+    <view class='card'>
+      <image src='http://pk1897l3c.bkt.clouddn.com/identity/identity_icon.png' class='identity-icon' mode='widthFix'></image>
+      <view class='identity-text'>季度会员卡</view>
+      <button class='identity-btn'>升级会员卡</button>
+    </view>
+  </view>
+  <view class='identity-item'>
+    <view class='identity-title'>已开通的会员身份</view>
+    <view class='card'>
+      <image src='http://pk1897l3c.bkt.clouddn.com/identity/identity_icon.png' class='identity-icon' mode='widthFix'></image>
+      <image src='http://pk1897l3c.bkt.clouddn.com/identity/identity_top.png' class='identity-top' mode='widthFix'></image>
+      <view class='identity-text'>年度会员卡</view>
+      <button class='identity-btn'>自动续费管理</button>
+    </view>
+  </view>
+</view>

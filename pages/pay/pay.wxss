@@ -1,0 +1,95 @@
+/* pages/pay/pay.wxss */
+.moneys-view{
+  font-size: 30rpx;
+  margin-top: 58rpx
+}
+.moneys-view .left{
+  margin-left: 66rpx
+}
+.moneys-view .right{
+  margin-right: 66rpx
+}
+.moneys-view:last-child{
+  color: #abca9a;
+  margin-bottom: 60rpx
+}
+.pay-hint{
+  width: 652rpx;
+  margin: 0 auto;
+  border-top: 2rpx solid #aaa;
+  border-bottom: 2rpx solid #aaa;
+  height: 100rpx
+}
+.pay-icon{
+  width: 38rpx;
+  margin-left: 16rpx;
+  margin-top: 33rpx;
+  margin-right: 10rpx
+}
+.pay-text{
+  font-size: 30rpx;
+  color: #333;
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  line-height: 104rpx;
+  vertical-align: top;
+
+}
+.pay-icon2{
+  width: 20rpx;
+  transform: rotate(180deg);
+  margin-right: 16rpx;
+  margin-top: 38rpx
+}
+.fact-pay{
+  color: #333;
+  font-size: 36rpx;
+  margin-top:84rpx;
+  text-align: center
+}
+.invite-view{
+  width: 652rpx;
+  height: 166rpx;
+  background-image: linear-gradient(61deg, 
+		#d6c39a 0%, 
+		#b79865 100%);
+	border-radius: 28rpx;
+  margin: 180rpx auto 0;
+
+}
+.invite-text{
+  font-size: 36rpx;
+  color: #fff;
+  display: inline-block;
+  height: 100%;
+  line-height: 166rpx;
+  margin-left: 44rpx
+}
+.invite-btn{
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  height: 60rpx;
+  width: 194rpx;
+  line-height: 60rpx;
+  background-image: linear-gradient(212deg, 
+		#d6c39a 0%, 
+		#b79866 100%);
+	box-shadow: 0px 0px 8rpx 0px 
+		rgba(41, 41, 41, 0.19);
+	border-radius: 30rpx;
+  display: inline-block;
+  margin-left: 102rpx
+}
+.pay{
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 80rpx;
+  height: 80rpx;
+  width: 504rpx;
+  margin: 180rpx auto 0;
+  background-color: #abca9a;
+	border-radius: 38rpx;
+  color: #fff
+}

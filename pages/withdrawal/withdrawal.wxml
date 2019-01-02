@@ -1,0 +1,12 @@
+<!--pages/withdrawal/withdrawal.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+<view class='withdrawal-view'>
+  <view class='title'>提现金额</view>
+  <view class='moneys'>
+    <text>￥</text>
+    <input type='number'></input>
+  </view>
+  <view class='total'>分享金账户金额  388.97元</view>
+</view>
+<view class='label'>分享金满300可提现</view>
+<button class='confirm' bindtap='confirmWithdrawal'>确认提现</button>

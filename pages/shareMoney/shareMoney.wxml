@@ -1,0 +1,25 @@
+<!--pages/shareMoney/shareMoney.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+<view class='container'>
+  <view class='header'>
+    <view class='title clear'>
+      <text class='left'>分享金账户</text>
+      <text class='right' style='font-size:30rpx'>明细</text>
+    </view>
+    <view class='total-money'><text style='font-size:36rpx'>￥</text>{{money}}</view>
+    <view class='notice'>
+      <image class='notice-img' src='http://pk1897l3c.bkt.clouddn.com/member/member_icon3.png'></image>
+      <text>分享金账户300元以上才可提现，每日邀请商户越多分享金可翻倍</text>
+    </view>
+    
+  </view>
+  <view class='withdrawal clear' bindtap='goWithdrawal'>
+    <view class='left'>
+      <image class='withdrawal-img' src='http://pk1897l3c.bkt.clouddn.com/member/member_icon3.png'></image>
+      <text class='withdrawal-text'>提现</text>
+    </view>
+    <view class='right'>
+      <image class='go' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+/* pages/introduce/introduce.wxss */
+.goIntroduce{
+  background: #eeeeee;
+  padding: 0 40rpx;
+  font-size: 30rpx;
+  color: #333;
+  height: 106rpx;
+  /* margin-top: 48rpx */
+}
+.go{
+  width: 22rpx;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto
+}
+.goIntroduce .left{
+  height: 106rpx;
+  line-height: 53rpx;
+
+}
+.goIntroduce .right{
+  height: 106rpx;
+  position: relative
+}

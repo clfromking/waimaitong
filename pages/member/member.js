@@ -6,7 +6,17 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "会员",
+    header_alts: [
+      { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon1.png", "text": "海量折扣" }, 
+      { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon2.png", "text": "低至0元" },
+      { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon3.png", "text": "外卖运营" }]
+
+  },
+
+  dredgeMember:function(){
+    wx.navigateTo({
+      url: '../dredge/dredge',
+    })
   },
 
   /**

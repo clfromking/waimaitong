@@ -1,0 +1,52 @@
+<!--pages/refund/refund.wxml-->
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}" status-bgcolor="#abca9a"></navtitle>
+<view class='container clear'>
+  <view class='order-lists clear' wx:for="{{order_msgs.order_list}}" wx:key="item">
+    <view class='order-list-img-view left'>
+      <image class='order-list-img' src='{{item.img}}' mode='aspectFit'></image>
+          
+    </view>
+    <view class='order-list-other left'>
+      <view class='order-name'>{{item.name}}</view>
+      <view class='order-num'>x{{item.num}}</view>
+      <view class='order-money'>￥{{item.money}}</view>
+    </view>
+    
+        <!-- {{item.name}} -->
+  </view>
+  <view class='fenge'></view>   
+  <view class='clear'>
+    <view class='right confirm-refund' bindtap='confirmRefund' hidden='{{isconfirm_refund}}'>申请退款</view>
+  </view>
+  <view class='body' hidden='{{!isconfirm_refund}}'>
+    <view class='refund-num-view clear'>
+      <text class='left'>申请数量</text>
+      <view class='right clear'>
+        <view class='sub left'>-</view>
+        <input class='number left' value="1" type="number"></input>
+        <view class='add left'>+</view>
+      </view>
+    </view>
+    <view class='fenge'></view>
+    <view class='refund-num-view clear'>
+      <text class='left'>申请退款金额</text>
+      <text class='right'>￥29.00</text>
+    </view>
+    <view class='fenge'></view>
+    <view class='refund-reason-view'>
+      <view class='reason-title'>退款申请原因（<text style="color:#920000">必填</text>）</view>
+      <textarea bindinput="bindinput" placeholder="请您吐槽您不满意的地方,我们将不断改进力争为您提供满意的服务" maxlength="150" placeholder-class="place-style"></textarea>
+      <text class="length-label">{{font_length}}/150字</text>
+    </view>
+    <view class='fenge'></view>
+    <view class='refund-img-view'>
+      <view class='img-title'>上传凭证（<text style="color:#920000">必选</text>）</view>
+      <view class='imgs-item'></view>
+      <view class='imgs-alt'>请上传您要退款的凭证，最多上传10张，以便我们快速审核，为您及时解决困惑</view>
+    </view>
+    <view class='fenge'></view>
+    <view class='submit-view'>
+      <button>提交申请</button>
+    </view>
+  </view>
+</view>

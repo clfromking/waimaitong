@@ -1,0 +1,33 @@
+<!--pages/intoMember/intoMember.wxml-->
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<view class='container'>
+  <view class='shade' hidden='{{!isshare}}' bindtap='cancelShare'></view>
+  <view class='main'>
+    <image class='avatarurl' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+    <text class='member-total'>恭喜您成为第<text style='color:#b79865'>{{member_num}}</text>位外卖通会员炫耀一下吧</text>
+  </view>
+  <view class='btns'>
+    <view class='noshare'>暂不炫耀</view>
+    <view class='share' bindtap='goShare'>炫耀一下</view>
+  </view>
+  <!-- <image mode='widthFix' style="width:850rpx;margin-left:-50rpx" src='http://pk1897l3c.bkt.clouddn.com/intoMemberbg.png'></image> -->
+</view>
+
+<view class='alert' bindtap='cancelShare' hidden='{{!isshare}}'>
+  <view class="container" bindtap='cancelShare'>
+    <view class='main alert-main'>
+      <image class='avatarurl' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+      <text class='member-total alert-member-total'>恭喜您成为第<text style='color:#b79865'>{{member_num}}</text>位餐饮加速器成员快来帮我提升加速值吧</text>
+      <view style='width:500rpx;height:2rpx;background:#fff;margin:50rpx auto 0'></view>
+      <view class='alert-alts clear'>
+        <image src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png' class='alert-avatarurl left'></image>
+        <text  class='right alert-alts-text'>长按小程序二维码帮我提升加速值</text>
+      </view>
+      
+    </view>
+    <view class='alert-btns'>
+      <view class='share-ring' catchtap='shareRing'>分享到朋友圈</view>
+      <view class='share-friend' catchtap='shareFriend'>分享给微信好友</view>
+    </view>
+  </view>
+</view>

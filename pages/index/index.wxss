@@ -1,3 +1,6 @@
+page{
+  padding-bottom: 44rpx
+}
 .jw-index-title{
   height: 78rpx;
   background: #abca9a;
@@ -185,6 +188,9 @@
 .jw-index-guess-view,.jw-recommend-view{
   width: 708rpx;
   margin: 52rpx auto 44rpx
+}
+.jw-recommend-view:last-child{
+  margin-bottom: 0
 }
 .jw-index-guess-view .right,.jw-recommend-view .right{
   height: 164rpx;

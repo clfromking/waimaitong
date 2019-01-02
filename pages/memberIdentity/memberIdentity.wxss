@@ -1,0 +1,84 @@
+/* pages/memberIdentity/memberIdentity.wxss */
+page{
+  background: #d2d2d2;
+
+}
+.container{
+  padding-bottom: 80rpx
+}
+.identity-item{
+  width: 656rpx;
+  /* height: 400rpx; */
+  margin: 0 auto;
+  margin-top: 40rpx
+}
+.identity-title{
+  font-size: 30rpx;
+  color: #999;
+  margin-bottom: 26rpx
+}
+.card{
+  width: 656rpx;
+  height: 400rpx;
+  border-radius: 20rpx;
+  position: relative
+}
+.identity-item:nth-child(1) .card{
+  background-image: linear-gradient(217deg, 
+		#7085a5 0%, 
+		#ccd7e9 100%);
+}
+.identity-item:nth-child(2) .card{
+  background-image: linear-gradient(61deg, 
+		#e6d1a4 0%, 
+		#bf9e69 100%);
+}
+.identity-item:nth-child(3) .card{
+  background-image: linear-gradient(222deg, 
+		#030000 0%, 
+		#7c7c7c 100%);
+}
+.identity-icon{
+  width: 208rpx;
+  display: block;
+  position: absolute;
+  top: 20rpx;
+  left: 28rpx
+}
+.identity-text{
+  font-size: 48rpx;
+  color: #f4f4f4;
+  text-align: center;
+  padding-top: 140rpx
+  /* margin-top: 140rpx */
+}
+.identity-btn{
+  width: 246rpx;
+  height: 50rpx;
+  margin: 60rpx auto 0;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  
+	border-radius: 10rpx;
+}
+.identity-item:nth-child(1) .identity-btn{
+  background-image: linear-gradient(221deg, 
+		#ccd7e9 0%, 
+		#7085a5 100%);
+}
+.identity-item:nth-child(2) .identity-btn{
+  background-image: linear-gradient(221deg, 
+		#e6d1a4 0%, 
+		#bf9e69 100%);
+}
+.identity-item:nth-child(3) .identity-btn{
+  background-image: linear-gradient(221deg, 
+		#7c7c7c 0%, 
+		#030001 100%);
+}
+.identity-top{
+  width: 100rpx;
+  position: absolute;
+  right: 26rpx
+}

@@ -1,0 +1,11 @@
+<!--pages/introduce/introduce.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<view class='goIntroduce clear' bindtap='goIntroduce'>
+  <view class='left'>
+    <view style="font-size:30rpx;color:#333">外卖通1.0版本功能更新</view>
+    <view style="font-size:24rpx;color:#999">2018年7月30日</view>
+  </view>
+  <view class='right'>
+    <image class='go'  mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+  </view>
+</view>

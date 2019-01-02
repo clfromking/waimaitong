@@ -40,7 +40,7 @@
       </view>
       <view class='right' style='position:relative'>
         <view class='jw-order-method_views jw-order-payMethod'>{{item.pay_method}}</view>
-        <view class='jw-order-method_views jw-order-detail'>订单详情</view>
+        <view class='jw-order-method_views jw-order-detail' bindtap='goOrderDetail'>订单详情</view>
       </view>
     </view>
   </view>

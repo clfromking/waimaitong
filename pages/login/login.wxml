@@ -1,3 +1,10 @@
-<navtitle status-height="{{statusHeight}}" nav-text="{{navText}}"></navtitle>
-
-<button open-type="getUserInfo" bindgetuserinfo="getuserinfo">请你授权</button>
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<view class='jw-art-logo'><image src="http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png"></image></view>
+<text class='jw-art-name'>外卖通</text>
+<view class='jw-fenge'></view>
+<view class='jw-author-body'>
+  <text class='jw-author-title'>请同意授权</text>
+  <text class='jw-author-alt'>· 以便外卖通为你提供更好的服务</text>
+  <button withCredentials='{{true}}' hidden='{{issaveImg}}' bindtap='loginTap' open-type='getUserInfo' bindgetuserinfo='getuserinfo' class='jw-author-btn'>确认授权</button>
+  <button withCredentials='{{true}}' hidden='{{!issaveImg}}' bindopensetting='openSettingTap' open-type='openSetting' class='jw-author-btn'>确认授权</button>
+</view>

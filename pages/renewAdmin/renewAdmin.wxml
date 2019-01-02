@@ -1,0 +1,63 @@
+<!--pages/renewAdmin/renewAdmin.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+
+<view class='container'>
+  <view class='title'>
+    <image src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'  class='avatarurl'></image>
+    <text class='uname'>狗小姐</text>
+    <view class='renew-alt'>自动续费服务<text style='color:#abca9a'>（已开通）</text></view>
+    <view class='fenge'></view>
+    <view class='renew-msgs clear'>
+      <view class='renew-msg-item left'>
+        <view class='top-text'>每次续费金额</view>
+        <view>398/季</view>
+      </view>
+      <view class='renew-msg-item left'>
+        <view class='top-text'>支付方式</view>
+        <view>微信支付</view>
+      </view>
+      <view class='renew-msg-item left'>
+        <view class='top-text'>付费金额</view>
+        <view>2018-07-09</view>
+      </view>
+    </view>
+  </view>
+  <view class='fenge2'></view>
+  <view class='promise'>
+    <view class='promise-title'>服务承诺</view>
+    <view class='promise-body clear'>
+      <view class='promise-item left'> 
+        <view class='promise-imgs-view'>
+          <image class='promise-item-img' mode='aspectFit' src='http://pk1897l3c.bkt.clouddn.com/renewAdmin/promise_icon1.png'></image>
+        </view>
+        <view class='promise-item-title'>安全无忧</view>
+        <view class='promise-item-alt'>会员到期时扣费</view>
+      </view>
+       <view class='promise-item left'> 
+        <view class='promise-imgs-view'>
+          <image class='promise-item-img' mode='aspectFit' src='http://pk1897l3c.bkt.clouddn.com/renewAdmin/promise_icon2.png'></image>
+        </view>
+        <view class='promise-item-title'>服务透明</view>
+        <view class='promise-item-alt'>自动扣费前消息提醒</view>
+      </view>
+       <view class='promise-item left'> 
+        <view class='promise-imgs-view'>
+          <image class='promise-item-img' mode='aspectFit' src='http://pk1897l3c.bkt.clouddn.com/renewAdmin/promise_icon3.png'></image>
+        </view>
+        <view class='promise-item-title'>随时取消</view>
+        <view class='promise-item-alt'>服务可随时取消</view>
+      </view>
+    </view>
+  </view>
+  <view class='fenge2'></view>
+  <view class='renew-total'>
+    <view class='renew-total-title'>已续费商户</view>
+    <view class='total'>5647898</view>
+  </view>
+  <view class='fenge2'></view>
+  <view class='agree'>自动续费协议</view>
+  <view class='fenge2'></view>
+  <view class='cancel-view'>
+    <button class='cancel'>取消</button>
+  </view>
+</view>

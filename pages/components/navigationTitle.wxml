@@ -1,21 +1,22 @@
 <!-- pages/components/navigationTitle.wxml
 <text>pages/components/navigationTitle.wxml</text> -->
 <view class='navigationTitle' style="position:fixed;top:0;width:750rpx;">
-  <view class='statusBar' style='height:{{statusHeight}}px;background:{{statusBgcolor}}'></view>
-  <view class='navigationBar' style='height:{{navHeight}}px;background:{{navBgcolor}};color:{{navTextcolor}}'>
-    {{navText}} 
-    <view wx:if='{{isshowNavback}}' class='navIcons' style='top:{{statusHeight+9}}px;' bindtap='navBack'>
-      <image class='navBackImg' src='../img/b12.png'></image>
+  <view class='statusBar' style='height:{{statusHeight}}px;background:{{statusBgcolor}};background-image:{{bgImg}}'></view>
+  <view class='navigationBar' style='height:{{navHeight}}px;background:{{navBgcolor}};color:{{navTextcolor}};background-image:{{bgImg}}'>
+    {{navText}}
+    <view wx:if='{{isshowNavback}}' class='navIcons' style='height:{{navHeight}}px;width:22rpx;top:{{statusHeight}}px;' bindtap='navBack'>
+      <image class='navBackImg' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/white_back.png'></image>
     </view>
-    <view wx:if='{{isshowOptions}}' class='navIcons' style='top:{{statusHeight+9}}px;' bindtap='navOtherRoute'>
-      <image class='navBackImg' src='../img/b12.png'></image>
+    <view wx:if='{{isshowOptions}}' class='navIcons' style='height:{{navHeight}}px;width:22rpx;top:{{statusHeight}}px;' bindtap='navOtherRoute'>
+      <image class='navBackImg' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/white_back.png'></image>
     </view>
-    <view wx:if='{{isshowHome}}' class='navIcons' style='top:{{statusHeight+9}}px;' bindtap='navHome'>
-      <image class='navBackImg' src='../img/b12.png'></image>
+    <view wx:if='{{isshowHome}}' class='navIcons' style='height:{{navHeight}}px;width:22rpx;top:{{statusHeight}}px;' bindtap='navHome'>
+    <!-- top:{{statusHeight+16}}px; -->
+      <image class='navBackImg' mode='widthFix' src='../img/b12.png'></image>
     </view>
   </view> 
 </view>
 <view class='seat' style="">
-  <view class='seat' style='height:{{statusHeight}}px'></view>
-  <view class='seat' style='height:{{navHeight}}px'></view>
+  <view class='seat' style='height:{{statusHeight}}px;background:{{statusBgcolor}};background-image:{{bgImg}}'></view>
+  <view class='seat' style='height:{{navHeight}}px;background:{{navBgcolor}};color:{{navTextcolor}};background-image:{{bgImg}}'></view>
 </view>

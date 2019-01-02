@@ -16,11 +16,37 @@ Page({
     ]
   },
 
+  goOrderDetail:function(){
+    wx.navigateTo({
+      url: '../orderDetail/orderDetail',
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '',
+      mask:true
+    })
+    wx.getStorage({
+      key: 'userInfo',
+      success: (res)=> {
+        console.log('dengl')
+        console.log(this.data.islogin)
+        this.setData({
+          islogin:true,
+          
+        })
+        wx.hideLoading()
+      },
+      fail:function(){
+        console.log('meidengl ')
+        wx.hideLoading()
+      }
+    })
   },
 
   /**

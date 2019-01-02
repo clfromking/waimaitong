@@ -4,17 +4,30 @@
 <view class='jw-my-header'>
   <view class='jw-user-msgs'>
     <image class='jw-user-avatarurl' src=''></image>
-    <text class='login-alt'>请先登录</text>
+    <text class='login-alt' bindtap='gologin'>请先登录</text>
     <view class='dredge-member'>开通会员>></view>
   </view>
   <view class='user-moneys'>
     <view class='moneys-item'>
-      <view>0</view>
-      <view>账户余额</view>
+      <view class='moneys-num'>0</view>
+      <view class='moneys-alt'>账户余额</view>
     </view>
+    <view class='fenge'></view>
     <view class='moneys-item'>
-      <view>0</view>
-      <view>分享金</view>
+      <view class='moneys-num'>0</view>
+      <view class='moneys-alt'>分享金</view>
+    </view>
+  </view>
+</view>
+<view class='jw-my-body'>
+  <view class='body-list-options clear' wx:for="{{options}}" wx:key="item">
+    <view class='left'>
+      <image class='options-icon' src='{{item.icon}}'></image>
+      <text class='options-text'>{{item.text}}</text>
+    </view>
+    <view class='right'>
+      <text class='options-other'>{{item.other}}</text>
+      <image class='options-go'></image>
     </view>
   </view>
 </view>

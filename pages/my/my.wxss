@@ -1,4 +1,8 @@
 /* pages/my/my.wxss */
+page{
+  background: #eee;
+  padding-bottom: 50rpx
+}
 .jw-my-header{
   height: 542rpx;
   background: #abca9a;
@@ -43,7 +47,7 @@
 }
 .user-moneys{
   height:166rpx;
-  background:red;
+  /* background:red; */
   position: absolute;
   bottom: 0;
   width: 100%
@@ -51,5 +55,53 @@
 .moneys-item{
   display: inline-block;
   text-align: center;
-  width: 375rpx
+  width: 373rpx;
+  /* margin-top: 10rpx */
+  /* height: 100% */
+}
+.moneys-num{
+  font-size: 48rpx;
+  color: #fff;
+  height: 90rpx;
+  line-height: 90rpx;
+  
+}
+.moneys-alt{
+  color: #fff;
+  font-size: 30rpx
+}
+.fenge{
+  width: 4rpx;
+  background: #fff;
+  height: 98rpx;
+  display: inline-block
+}
+.body-list-options{
+  height: 108rpx;
+  background: #fff;
+  margin-bottom: 18rpx
+}
+/* .body-list-options:last-child{
+  margin-bottom: 50rpx
+} */
+.options-icon{
+  width: 84rpx;
+  height: 84rpx;
+  margin: 10rpx 26rpx 0 28rpx
+}
+.options-text,.options-other{
+  display: inline-block;
+  height: 100%;
+  color: #333333;
+  font-size: 30rpx;
+  line-height: 108rpx;
+  vertical-align: top;
+
+}
+.options-go{
+  width: 16rpx;
+  height: 28rpx;
+  background: red;
+  margin: 40rpx 32rpx 0 44rpx;
+  display: inline-block
 }

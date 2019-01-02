@@ -1,0 +1,28 @@
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a"></navtitle>
+<view class='container'>
+  <view class='header'>
+    <view class='clear moneys-view'>
+      <text class='left'>本次服务总计</text>
+      <text class='right'>{{total_money}}元</text>
+    </view>
+    <view class='clear moneys-view'>
+      <text class='left'>新用户立减</text>
+      <text class='right'>{{sub_money}}元</text>
+    </view>
+  </view>
+  <view class='pay-hint clear'>
+    <view class='left'>
+      <image class='pay-icon' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png'></image>
+      <text class='pay-text'>微信支付</text>
+    </view>
+    <view class='right'>
+      <image class='pay-icon2' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+    </view>
+  </view>
+  <view class='fact-pay'>实付<text style='font-size:42rpx'>{{fact_pay_money}}</text>元</view>
+  <view class='invite-view'>
+    <text class='invite-text'>邀请商户赚加速金</text>
+    <view class='invite-btn'>去邀请</view>
+  </view>
+  <view class='pay'>确认支付{{fact_pay_money}}元</view>
+</view>

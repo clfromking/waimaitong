@@ -1,0 +1,30 @@
+<!--pages/feedback/feedback.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<view class='container'>
+  <view class='header'>
+    <view class='header-title'>会员体验反馈</view>
+    <view class='header-content'>感谢您参与会员体验计划，您在使用会员时，有什么感受，可以反馈给我们，我们将努力改进，您的意见我们都会采纳。</view>
+  </view>
+  <view class='body'>
+    <view class='body-title'>
+      <view><text style='color:red'>*</text> 1.在会员使用期间，您对我们提供的服务态度是?（单选）</view>
+      <!-- <image class='body-title-img' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png' mode='widthFix'></image> -->
+      
+    </view>
+    <view>
+      <view class='radios-item' wx:for="{{radio_options}}" wx:key="item">
+        <text class='radios {{item.isselect?"selectRadio":""}}' data-id='{{index}}' bindtap='selectRadio'></text>
+        <text class='option'>{{item.option}}</text>
+      </view>
+    </view>
+    <view class='body-title'>
+      <view><text style='color:red'>*</text> 2.基于以上选项，您能给我们那些建议，以便我们改正。</view>
+      <!-- <image class='body-title-img' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png' mode='widthFix'></image> -->
+      
+    </view>
+    <view class='textarea-view'>
+      <textarea placeholder='请输入您的建议' placeholder-style='font-size:30rpx;color:#999'></textarea>
+      <button class='submit'>提交</button>
+    </view>
+  </view>
+</view>

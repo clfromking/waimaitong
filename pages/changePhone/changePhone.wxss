@@ -1,0 +1,69 @@
+/* pages/changePhone/changePhone.wxss */
+.safe{
+  width: 186rpx;
+  display: block;
+  margin: 64rpx auto
+}
+.safe-text{
+  color: #333;
+  font-size: 30rpx;
+  text-align: center
+}
+.provings-view{
+  width: 542rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  border: 2rpx solid #7d7d7d;
+  margin: 0 auto
+}
+.provings-view .title{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  display: inline-block;
+  color: #999;
+  font-size: 30rpx;
+  padding-left: 40rpx;
+  vertical-align: top;
+  margin-right: 34rpx
+}
+.provings-view input{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx
+}
+.getcode{
+  color: #333;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+  margin-right: 34rpx
+}
+.codeInput{
+  width: 160rpx
+}
+.next{
+  width: 402rpx;
+	height: 58rpx;
+	background: #abca9a;
+	border-radius: 30rpx;
+  text-align: center;
+  line-height: 58rpx;
+  color: #fff;
+  font-size: 30rpx
+}
+.provings-view:last-child{
+  margin-bottom: 80rpx;
+}
+.provings-view:first-child{
+  margin: 60rpx auto 36rpx
+}
+.no-proving{
+  color: #93ad84;
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 70rpx
+}

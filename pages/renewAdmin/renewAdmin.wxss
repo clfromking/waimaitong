@@ -1,0 +1,133 @@
+/* pages/renewAdmin/renewAdmin.wxss */
+.title,.promise{
+  width: 726rpx;
+  /* height: 174rpx; */
+  margin: 22rpx auto 0
+}
+.avatarurl{
+  width: 174rpx;
+  height: 174rpx;
+  border-radius: 50%;
+  margin-right: 28rpx
+}
+.uname{
+  display: inline-block;
+  height: 174rpx;
+  line-height: 174rpx;
+  color: #333;
+  font-size: 30rpx;
+  vertical-align: top;
+  font-weight: bold
+}
+.renew-msgs{
+  padding: 40rpx 0
+}
+.renew-alt{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin: 44rpx 0;
+  
+}
+.fenge{
+  height: 2rpx;
+  background: #7d7d7d;
+  opacity: 0.5
+}
+.fenge2{
+  height: 20rpx;
+	background: #eeeeee;
+}
+.renew-msg-item{
+  width: 242rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333
+}
+.top-text{
+  margin-bottom: 30rpx
+}
+.promise{
+  margin-bottom: 32rpx
+}
+.promise-title{
+  font-weight: bold;
+  color: #333;
+  font-size: 30rpx
+}
+.promise-body{
+
+}
+.promise-item{
+  text-align: center;
+  width: 242rpx
+}
+.promise-imgs-view{
+  width: 162rpx;
+  height: 227rpx;
+  margin: 0 auto
+}
+.promise-item-img{
+  width: 100%;
+  height: 100%;
+  display: block
+}
+.promise-item-title{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20rpx
+}
+.promise-item-alt{
+  font-size: 24rpx;
+  color: #999
+}
+.renew-total{
+  position: relative;
+  background: #fff
+}
+.renew-total-title{
+  font-size: 30rpx;
+  color: #333;
+  position: absolute;
+  top: 32rpx;
+  left: 24rpx;
+  font-weight: bold
+}
+.total{
+  height: 290rpx;
+  display: inline-block;
+  line-height: 290rpx;
+  font-size: 60rpx;
+  color: #97b287;
+  text-align: center;
+  font-weight: bold;
+  width: 100%
+}
+.agree{
+  color: #333;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  height: 66rpx;
+  line-height: 66rpx
+}
+.cancel-view{
+  height: 122rpx;
+  position: relative
+}
+.cancel{
+  width: 220rpx;
+  height: 50rpx;
+  color: #333;
+  font-size: 24rpx;
+  background: #dcdcdc;
+  border-radius: 24rpx;
+  line-height: 50rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto
+}

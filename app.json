@@ -1,11 +1,30 @@
 {
-  "pages":["pages/my/my",
+  "pages":["pages/withdrawalProcess/withdrawalProcess","pages/withdrawal/withdrawal",
     "pages/index/index",
     "pages/member/member",
     "pages/order/order",
-    
+    "pages/my/my",
+    "pages/shareMoney/shareMoney",
     "pages/login/login",
-    "pages/test/test"
+    "pages/Qrcode/Qrcode",
+    "pages/dredge/dredge",
+    "pages/test/test",
+    "pages/about/about",
+    "pages/agreement/agreement",
+    "pages/introduce/introduce",
+    "pages/payRecode/payRecode",
+    "pages/balance/balance",
+    "pages/authCode/authCode",
+    "pages/changePassword/changePassword",
+    "pages/changePhone/changePhone",
+    "pages/memberIdentity/memberIdentity",
+    "pages/renewAdmin/renewAdmin",
+    "pages/feedback/feedback",
+    "pages/cancelRenewProving/cancelRenewProving",
+    "pages/refund/refund",
+    "pages/orderDetail/orderDetail",
+    "pages/intoMember/intoMember",
+    "pages/pay/pay"
     
   ],
   "window":{

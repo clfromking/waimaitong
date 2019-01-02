@@ -1,0 +1,11 @@
+/* pages/agreement/agreement.wxss */
+.container{
+  padding: 22rpx 25rpx
+}
+.container text{
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 46rpx;
+  text-indent:2em 
+}

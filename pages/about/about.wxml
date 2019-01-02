@@ -1,0 +1,10 @@
+<!--pages/about/about.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<image class='logo' src=''></image>
+<view class='version'>外卖通1.0版本</view>
+<view class='goIntroduce clear' bindtap='goIntroduce'>
+  <view class='left'>功能及版本介绍</view>
+  <view class='right'>
+    <image class='go'  mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+  </view>
+</view>

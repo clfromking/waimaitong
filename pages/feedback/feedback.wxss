@@ -1,0 +1,88 @@
+/* pages/feedback/feedback.wxss */
+.container{
+  
+}
+.header{
+  padding: 0 40rpx;
+  margin-bottom: 40rpx
+}
+.header-title{
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+  margin-top: 34rpx
+}
+.header-content{
+  font-size: 24rpx;
+  color: #333;
+  letter-spacing: 0rpx;
+  line-height: 40rpx;
+  margin-top: 44rpx
+}
+.body-title-img{
+  width: 14rpx
+}
+.body-title{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  padding: 20rpx 40rpx;
+  background: #eee;
+  /* width: 750rpx; */
+}
+.radios-item{
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 40rpx 40rpx 0;
+}
+.radios-item:last-child{
+  margin-bottom:40rpx
+}
+.radios{
+  width: 38rpx;
+  height: 38rpx;
+  border-radius: 50%;
+  border:2rpx solid #abca9a;
+  display: inline-block;
+  margin-top: 6rpx;
+  margin-right: 28rpx
+}
+.option{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: top
+}
+.textarea-view{
+  padding: 40rpx 0
+}
+textarea{
+  font-size: 30rpx;
+  width: 670rpx;
+	height: 244rpx;
+	background-color: #eeeeee;
+	border: solid 2rpx #626262;
+  margin: 0 auto;
+  padding: 16rpx 20rpx;
+  box-sizing: border-box;
+  font-weight: bold
+}
+.submit{
+  width: 336rpx;
+  height: 72rpx;
+  background: #abca9a;
+	border-radius: 36rpx;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 72rpx;
+  margin-top: 40rpx
+}
+
+
+
+.selectRadio{
+  background-image: url(http://pk1897l3c.bkt.clouddn.com/cancelRenew/right.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%
+}

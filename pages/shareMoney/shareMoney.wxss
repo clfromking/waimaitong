@@ -1,0 +1,63 @@
+/* pages/shareMoney/shareMoney.wxss */
+.header{
+  background: #abca9a
+}
+.title text{
+  display: inline-block;
+  color: #fff;
+  font-size: 36rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx
+}
+.total-money{
+  font-size: 48rpx;
+  color: #fff;
+  padding: 0 36rpx;
+  height: 150rpx;
+  line-height: 150rpx
+}
+.notice text{
+  font-size: 24rpx;
+  color: #fff;
+  display: inline-block;
+  height: 32rpx;
+  line-height: 32rpx;
+  vertical-align: top
+}
+.notice-img{
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: top;
+  margin-left: 14rpx;
+  margin-right: 8rpx
+}
+.withdrawal{
+  height: 44rpx;
+  padding: 24rpx 40rpx;
+  background: #eee;
+  margin-top: 26rpx
+}
+.withdrawal .left{
+  vertical-align: top
+}
+.withdrawal-img{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 14rpx
+}
+.withdrawal-text{
+  color: #333;
+  font-size: 36rpx;
+  display: inline-block;
+  height: 44rpx;
+  line-height: 44rpx;
+  vertical-align: top
+}
+.go{
+  transform: rotate(180deg);
+  width: 22rpx;
+  height: 34rpx;
+  display: block;
+  margin-top: 5rpx
+}

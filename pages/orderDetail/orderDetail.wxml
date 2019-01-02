@@ -1,0 +1,103 @@
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+
+<view class='container'>
+  <view class='header'>
+    <view class='title clear'>
+      <view class='left'>
+        <view class='order_status'>{{ispay?order_msgs.order_status:"未付款"}}</view>
+        <view class='order_alt'>{{ispay?order_msgs.order_alt:"您的订单已提交，请尽快支付"}}</view>
+      </view>
+      <view class='right'>
+        <view class='continue-btn' bindtap='continueOrpay'>{{ispay?order_msgs.order_btn:"付款"}}</view>
+      </view>  
+      
+    </view>
+    <view class='order-lists clear' wx:for="{{order_msgs.order_list}}" wx:key="item">
+      <view class='order-list-img-view left'>
+        <image class='order-list-img' src='{{item.img}}' mode='aspectFit'></image>
+        
+      </view>
+      <view class='order-list-other left'>
+        <view class='order-name'>{{item.name}}</view>
+        <view class='order-num'>x{{item.num}}</view>
+        <view class='order-money'>￥{{item.money}}</view>
+      </view>
+      
+      <!-- {{item.name}} -->
+    </view>
+  </view>
+
+  <view class='body'>
+    <view class='business-detail'>
+      <view class='business-detail-one'>
+        <image class='location' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/order_detail/location.png'></image>
+        <text>{{order_msgs.business_detail.businesser_name}}</text>
+        <text>{{order_msgs.business_detail.businesser_phone}}</text>
+      </view>
+      <view class='business-detail-two'>
+        <text>店名：  {{order_msgs.business_detail.business_name}}</text>
+      </view>
+      <view class='business-detail-three'>
+        <text>地址： {{order_msgs.business_detail.business_address}}</text>
+      </view>
+    </view>
+    <view class='order-detail'>
+      <view>
+        <text>订单编号；23456789789</text>
+      </view>
+      <view>
+        <text>支付编号；23456789789</text>
+      </view>
+      <view>
+        <text>创建时间；2018-07-20   12；30；20</text>
+      </view>
+      <view hidden='{{!ispay}}'>
+        <text>付款时间；2018-07-20   12；30；20</text>
+      </view>
+      <view hidden='{{!ispay}}'>
+        <text>接单时间；2018-07-20   12；30；20</text>
+      </view>
+      <view hidden='{{!ispay}}'>
+        <text>付款方式；余额支付</text>
+      </view>
+      <view hidden='{{!ispay}}'>
+        <text>商户类别；会员</text>
+      </view>
+    </view>
+    <view hidden='{{!ispay}}' class='server-detail'>
+      <view>
+        <text>服务工程师；杨小二</text>
+      </view>
+      <view>
+        <text>在职编号；12345</text>
+      </view>
+      <view>
+        <text>综合评分；</text>
+      </view>
+    </view>
+    <view hidden='{{!ispay}}' class='feedback'>
+      <view>
+        <text>综合服务打分</text>
+      </view>
+      <view>
+        <text>专业能力打分</text>
+      </view>
+      <view>
+        <text>响应速度打分</text>
+      </view>
+      <textarea></textarea>
+      <button class='submit-btn'>提交</button>
+    </view>
+  </view>
+  
+  <view hidden='{{!ispay}}' class='footer clear'>
+    <view class='left'>
+      <view class='charge-back' bindtap='goRefund'>申请退单</view>
+    </view>
+    <view class='right'>
+      <view>投诉？</view>
+      <view style='position:absolute;bottom:0;right:0'><text>联系工程师</text></view>
+    </view>
+  </view>
+
+</view>

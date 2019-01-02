@@ -27,6 +27,10 @@ Component({
     navTextcolor:{
       type:String,
       value:"#000"
+    },
+    bgImg:{
+      type:String,
+      value:""
     }
     
 

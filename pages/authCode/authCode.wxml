@@ -1,0 +1,14 @@
+<!--pages/authCode/authCode.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff"></navtitle>
+<view class='container'>
+  <input type='number' maxlength='6' focus='{{isFocus}}' value='{{password_val}}' bindinput='inputPassword' class='password'></input>
+  <view class='title'>{{title}}</view>
+  <view class="alt">{{alt}}</view>
+  <view class='showPassword-view clear'>
+    <view class='left showPassword-item' bindtap='gofocus' wx:for="{{password_length}}" wx:key="item">
+      {{password_val[index]}}
+    </view>
+  </view>
+  <view hidden='{{type!==""}}' class='forgetPassword'>{{minute}}秒后重发</view>
+  <button class='next' bindtap='next'>{{type=="again"?"完成":"下一步"}}</button>
+</view>

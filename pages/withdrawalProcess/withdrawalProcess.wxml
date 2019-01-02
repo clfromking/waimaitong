@@ -1,0 +1,2 @@
+<!--pages/withdrawalProcess/withdrawalProcess.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>

@@ -1,0 +1,56 @@
+/* pages/withdrawal/withdrawal.wxss */
+.withdrawal-view{
+  width: 680rpx;
+	height: 234rpx;
+	background-image: linear-gradient(202deg, 
+		#c1a06b 0%, 
+		#e5d1a3 100%);
+	/* border-style: solid;
+	border-width: 4rpx;
+	border-image-source: linear-gradient(214deg, 
+		#e5d1a3 0%, 
+		#c1a06b 100%);
+	border-image-slice: 1; */
+  border-radius: 30rpx;
+  margin: 42rpx auto;
+  color: #fff;
+  padding-left: 40rpx
+}
+.title{
+  font-size: 36rpx;
+  padding-top: 20rpx;
+  
+}
+.moneys{
+  font-size: 48rpx;
+  margin-top: 30rpx
+}
+.moneys input{
+  display: inline-block;
+  height: 62rpx;
+  min-height: 0;
+  vertical-align: top
+}
+.total{
+  font-size: 24rpx;
+  margin-top: 30rpx
+}
+.label{
+  text-align: center;
+  font-size: 26rpx;
+  background: linear-gradient(203deg, 
+		#c1a06b 0%, 
+		#e5d1a3 117%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.confirm{
+  width: 292rpx;
+	height: 72rpx;
+	background: #abca9a;
+	border-radius: 36rpx;
+  line-height: 72rpx;
+  color: #fff;
+  font-size: 36rpx;
+  margin-top:252rpx 
+}

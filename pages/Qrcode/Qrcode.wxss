@@ -1,0 +1,22 @@
+/* pages/Qrcode/Qrcode.wxss */
+.Qrcode{
+  width: 470rpx;
+  height: 470rpx;
+  display: block;
+  margin: 60rpx auto;
+  background: #7d7d7d
+}
+.downCode{
+  font-size: 30rpx;
+  color: #9ab58b;
+  text-align: center;
+  margin-top: 52rpx
+}
+.footer{
+  position: fixed;
+  bottom: 62rpx;
+  width: 750rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333
+}

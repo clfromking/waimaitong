@@ -1,0 +1,53 @@
+/* pages/payRecode/payRecode.wxss */
+page{
+  background: #eee
+}
+.container{
+  background: #fff
+}
+.body{
+  width: 680rpx;
+  margin: 0 auto
+}
+.title{
+  color: #333;
+  font-size: 26rpx;
+  border-bottom: 2rpx solid #7d7d7d
+}
+.title text{
+  display: inline-block;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+.content{
+  height: 115rpx;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #7d7d7d
+}
+.content-img{
+  width: 100rpx;
+  height: 115rpx;
+}
+.content text{
+  display: inline-block;
+  height: 115rpx;
+  line-height: 115rpx;
+  vertical-align: top;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333
+}
+.content .right{
+  font-size: 26rpx;
+  font-weight: normal
+}
+.foot{
+  font-size: 26rpx;
+  height: 100rpx;
+}
+.foot text{
+  height: 100rpx;
+  display: inline-block;
+  line-height: 100rpx;
+  color: #333
+}
