@@ -101,7 +101,8 @@ page{
 .options-go{
   width: 16rpx;
   height: 28rpx;
-  background: red;
+  /* background: red; */
   margin: 40rpx 32rpx 0 44rpx;
-  display: inline-block
+  display: inline-block;
+  transform: rotate(180deg)
 }

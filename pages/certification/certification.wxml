@@ -1,0 +1,18 @@
+<!--pages/certification/certification.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+
+<view>
+  <view class='certificationsItem clear'  wx:for="{{certifications_list}}" wx:key="item">
+    <view class='left'>
+      <image src='{{item.src}}' class='icons'></image>
+      <text>{{item.text}}</text>
+    </view>
+    <view class='right'>
+      <button bindtap='goStoreAuthor' data-id='{{index}}'>去授权</button>
+    </view>
+  </view>
+  <view class='labels'>
+    <view>温馨提示：</view>
+    <view style='text-indent: 2em'>依据外卖平台规则，商户在使用外卖通应用程序时，必须进行店铺认证授权操作，以保证商户为真实有效商户，请开通注册外卖通应用程序的商户进行店铺授权认证。</view>
+  </view>
+</view>

@@ -1,9 +1,16 @@
 {
-  "pages":["pages/withdrawalProcess/withdrawalProcess","pages/withdrawal/withdrawal",
+  "pages":[
     "pages/index/index",
     "pages/member/member",
     "pages/order/order",
     "pages/my/my",
+    "pages/certification/certification",
+    "pages/storeAuthor/storeAuthor",
+    "pages/coupons/coupons",
+    "pages/withdrawal/withdrawal",
+    "pages/moneyDetail/moneyDetail",
+    "pages/withdrawalDetail/withdrawalDetail",
+    "pages/withdrawalProcess/withdrawalProcess",
     "pages/shareMoney/shareMoney",
     "pages/login/login",
     "pages/Qrcode/Qrcode",

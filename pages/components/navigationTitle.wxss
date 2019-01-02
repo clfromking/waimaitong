@@ -20,7 +20,7 @@
 .navBackImg{
   display: block;
   width: 22rpx;
-  /* height: 17px; */
+  height: 34px;
   position: absolute;
   top: 0;
   left: 0;

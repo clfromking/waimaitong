@@ -13,21 +13,21 @@
       <view class='moneys-alt'>账户余额</view>
     </view>
     <view class='fenge'></view>
-    <view class='moneys-item'>
+    <view class='moneys-item' bindtap='goShareMoney'>
       <view class='moneys-num'>0</view>
       <view class='moneys-alt'>分享金</view>
     </view>
   </view>
 </view>
 <view class='jw-my-body'>
-  <view class='body-list-options clear' wx:for="{{options}}" wx:key="item">
+  <view class='body-list-options clear' bindtap='goOtherOption' data-id='{{index}}' wx:for="{{options}}" wx:key="item">
     <view class='left'>
       <image class='options-icon' src='{{item.icon}}'></image>
       <text class='options-text'>{{item.text}}</text>
     </view>
     <view class='right'>
       <text class='options-other'>{{item.other}}</text>
-      <image class='options-go'></image>
+      <image class='options-go' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
     </view>
   </view>
 </view>

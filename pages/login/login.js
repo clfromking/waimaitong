@@ -70,13 +70,17 @@ Page({
       })
     }
     else{
-      wx.showToast({
-        title: '授权失败，请重试！',
-        icon:'none',
-        mask:true,
-        duration:1500
-      })
+      // wx.showToast({
+      //   title: '授权失败，请重试！',
+      //   icon:'none',
+      //   mask:true,
+      //   duration:1500
+      // })
     }
+  },
+
+  getPhoneNumber:function(e){
+    console.log(e)
   },
 
   /**

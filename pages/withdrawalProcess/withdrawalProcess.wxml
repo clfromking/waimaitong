@@ -1,2 +1,34 @@
 <!--pages/withdrawalProcess/withdrawalProcess.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+<view class='container'>
+  <view class='clear header-view'>
+    <image class='icons left' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+    <view class='alts left'>已提交提现申请</view>
+  </view>
+  <view class='clear bigs header-view'>
+    <image class='icons left big-icon' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+    <view class='alts left'>
+      <view>微信处理中</view>
+      
+    </view>
+  </view>
+  <view class='clear header-view'>
+    <image class='icons left' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+    <view class='alts left'>提现成功</view>
+  </view>
+  <view class='division'></view>
+  <view class='content'>
+    <view class='clear'>
+      <view class='left'>提现金额</view>
+      <view class='right'>¥388.67</view>
+    </view>
+    <view class='clear'>
+      <view class='left'>微信提现手续费</view>
+      <view class='right'>¥1.66</view>
+    </view>
+    <view class='clear'>
+      <view class='left'>到账账户</view>
+      <view class='right'>微信账户 狗小姐</view>
+    </view>
+  </view>
+</view>

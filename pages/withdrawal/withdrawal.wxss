@@ -14,7 +14,8 @@
   border-radius: 30rpx;
   margin: 42rpx auto;
   color: #fff;
-  padding-left: 40rpx
+  padding-left: 40rpx;
+  padding-bottom: 10rpx
 }
 .title{
   font-size: 36rpx;

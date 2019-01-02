@@ -1,0 +1,59 @@
+/* pages/moneyDetail/moneyDetail.wxss */
+page{
+  background: #eee
+}
+.container{
+  /* padding: 0 24rpx */
+}
+.date-title{
+  height: 130rpx;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+  padding: 20rpx 36rpx 0
+}
+.months-title{
+  font-size: 30rpx;
+  color: #333
+}
+.months{
+  display: inline-block;
+  margin-right: 24rpx
+}
+.icon{
+  width: 18rpx;
+  transform: rotate(270deg)
+}
+.total{
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 20rpx
+}
+.date-details{
+  background: #fff;
+  
+}
+.details-item{
+  height: 106rpx;
+  font-size: 30rpx;
+  color: #333;
+  padding: 0 24rpx;
+  border-bottom: 2rpx solid #eee
+}
+.path{
+  margin-top: 16rpx
+}
+.icon2{
+  width: 56rpx;
+  height: 56rpx;
+  display: block;
+  margin-top: 25rpx;
+  margin-right: 14rpx
+}
+.dates{
+  font-size: 24rpx;
+  color: #999
+}
+.money-num{
+  height: 106rpx;
+  line-height: 106rpx
+}

@@ -1,0 +1,46 @@
+/* pages/certification/certification.wxss */
+page{
+  background: #eee
+}
+.certificationsItem{
+  height: 108rpx;
+  background: #fff;
+  padding: 0 40rpx;
+  margin-bottom: 10rpx
+}
+.certificationsItem:first-child{
+  margin-top: 40rpx
+}
+.icons{
+  width: 70rpx;
+  height: 70rpx;
+  margin-top: 19rpx
+}
+.certificationsItem text{
+  display: inline-block;
+  height: 108rpx;
+  line-height: 108rpx;
+  vertical-align: top;
+  margin-left: 14rpx;
+  font-size: 30rpx;
+  color: #333
+}
+button{
+  display: block;
+  width: 178rpx;
+  height: 58rpx;
+  background: #abca9a;
+  color: #Fff;
+  font-size: 30rpx;
+  line-height: 58rpx;
+  border-radius: 30rpx;
+  margin-top: 25rpx
+}
+.labels{
+  color: #333;
+  font-size: 24rpx;
+  padding: 0 40rpx;
+  margin-top: 40rpx;
+  line-height: 46rpx
+  
+}

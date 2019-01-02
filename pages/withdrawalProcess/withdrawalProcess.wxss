@@ -1,1 +1,45 @@
 /* pages/withdrawalProcess/withdrawalProcess.wxss */
+.container{
+  padding: 60rpx 50rpx 0
+}
+.container .header-view{
+  margin-bottom: 100rpx
+}
+.icons{
+  width: 42rpx;
+  height: 42rpx;
+  display: block;
+  margin-right: 56rpx
+}
+.alts{
+  display: block;
+  font-size: 30rpx;
+  color: #999;
+  height: 42rpx;
+  line-height: 42rpx;
+}
+.big-icon{
+  width: 90rpx;
+  height: 90rpx;
+  margin-left: -24rpx;
+  margin-right: 32rpx
+}
+.bigs .alts{
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #333
+}
+.division{
+  height: 2rpx;
+  background: #d2d2d2
+}
+.content{
+  font-size: 30rpx;
+  color: #333;
+  /* height: 50rpx;
+  line-height: 50rpx */
+ 
+}
+.content .clear{
+  margin-top: 46rpx
+}

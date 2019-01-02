@@ -16,6 +16,14 @@ Page({
       url: '../withdrawal/withdrawal',
     })
   },
+
+  goMoneyDetail:function(){
+    wx.navigateTo({
+      url: '../moneyDetail/moneyDetail',
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */

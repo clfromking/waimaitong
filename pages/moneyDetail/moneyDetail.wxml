@@ -1,0 +1,24 @@
+<!--pages/moneyDetail/moneyDetail.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+<view class='container'>
+  <view class='date-title'>
+    <view class='months-title'>
+      <text class='months'>2018年7月</text>
+      <image class='icon' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+    </view>
+    <view class='total'>本月提现总计 ¥ 48569.00</view>
+  </view>
+  <view class='date-details'>
+    <view class='details-item' bindtap='goWithdrawalDetail'>
+      <view class='left clear'>
+        <image class='icon2 left' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+        <view class='left path'>
+          <view>分享金提现至微信余额</view>
+          <view class='dates'>7月07日  12:30</view>
+        </view>
+      </view>
+      <view class='right money-num'>12345.00</view>    
+    </view>
+    
+  </view> 
+</view>

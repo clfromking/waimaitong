@@ -4,7 +4,7 @@
   <view class='header'>
     <view class='title clear'>
       <text class='left'>分享金账户</text>
-      <text class='right' style='font-size:30rpx'>明细</text>
+      <text class='right' bindtap='goMoneyDetail' style='font-size:30rpx'>明细</text>
     </view>
     <view class='total-money'><text style='font-size:36rpx'>￥</text>{{money}}</view>
     <view class='notice'>

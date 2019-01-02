@@ -1,0 +1,35 @@
+<!--pages/withdrawalDetail/withdrawalDetail.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+<view class='container'>
+  <view class='header'>
+    <image src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+    <view>分享金提现-微信账户（狗小姐）</view>
+    <view class='total'>123456.00</view>
+  </view>
+  <view class='body'>
+    <view class='clear item'>
+      <view class='left'>提现状态</view>
+      <view class='right'>已到账</view>
+    </view>
+    <view class='clear item'>
+      <view class='left'>提现金额</view>
+      <view class='right'>¥ 1.66</view>
+    </view>
+    <view class='clear item'>
+      <view class='left'>提现手续费</view>
+      <view class='right'>30.51</view>
+    </view>
+    <view class='clear item'>
+      <view class='left'>申请时间</view>
+      <view class='right'>2018-07-01  12:20:12</view>
+    </view>
+    <view class='clear item'>
+      <view class='left'>提现账户</view>
+      <view class='right'>微信账户狗小姐</view>
+    </view>
+    <view class='clear item'>
+      <view class='left'>提现单号</view>
+      <view class='right'>TX12456589645</view>
+    </view>
+  </view>
+</view>

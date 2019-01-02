@@ -1,4 +1,4 @@
-// pages/withdrawalProcess/withdrawalProcess.js
+// pages/withdrawalDetail/withdrawalDetail.js
 const app = getApp()
 Page({
 
@@ -7,7 +7,8 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "分享金提现",
+    navText: "提现详情",
+
   },
 
   /**

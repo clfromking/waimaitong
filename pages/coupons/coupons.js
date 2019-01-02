@@ -1,4 +1,4 @@
-// pages/withdrawalProcess/withdrawalProcess.js
+// pages/coupons/coupons.js
 const app = getApp()
 Page({
 
@@ -7,8 +7,19 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "分享金提现",
+    navText: "优惠卷",
+    nav: ['未使用','使用记录','已过期'],
+    isselect:0,
+    noUseList:[],
+    useRecardList:[],
+    overdueList:[]
   },
+  selectNav:function(e){
+    this.setData({
+      isselect:e.currentTarget.dataset.id
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

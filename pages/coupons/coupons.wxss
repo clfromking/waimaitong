@@ -1,0 +1,132 @@
+/* pages/coupons/coupons.wxss */
+.header-nav{
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  padding: 0 30rpx
+}
+.header-nav .left{
+  width:200rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin-right: 45rpx;
+  color: #333
+}
+.header-nav .left:nth-child(1){
+  text-align: left
+}
+.header-nav .left:nth-child(3){
+  text-align: right
+}
+.header-nav .left:last-child{
+  margin-right: 0
+}
+.noUse,.useRecard,.overdue{
+  width: 694rpx;
+  margin: 0 auto
+}
+.noUseItem{
+  height: 190rpx;
+  width: 690rpx;
+  background-color: #ffffff;
+  border:2rpx solid #c1a06b;
+  border-radius: 10rpx ;
+  margin-top: 20rpx
+}
+.useRecardItem{
+  border:2rpx solid #999;
+}
+.rule-view{
+  color: #999;
+  font-size: 24rpx
+}
+.rule-view text{
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx
+}
+.rule-icon{
+  height: 24rpx;
+  width: 16rpx;
+  transform: rotate(270deg);
+  float: left;
+  margin-top: 20rpx;
+  margin-left: 16rpx
+}
+.discounts,.discounts-alt-view{
+  display: inline-block;
+  height: 100%;
+  vertical-align: top
+}
+.discounts{
+  width: 220rpx;
+  line-height: 190rpx;
+  text-align: center;
+  font-size: 60rpx;
+  color: #fff;
+  background-image: linear-gradient(45deg, 
+		#e5d1a3 0%, 
+		#c1a06b 100%), 
+	linear-gradient(
+		#0088ff, 
+		#0088ff);
+	background-blend-mode: normal, 
+		normal;
+}
+.discounts-alt-view{
+  width: 470rpx;
+  padding-left: 28rpx;
+  box-sizing: border-box
+}
+.discounts-alt-view .right{
+  font-size: 44rpx;
+  background-image: linear-gradient(45deg, 
+		#dbc494 0%, 
+		#ccaf7c 150%);
+  -webkit-background-clip: text;
+  color: transparent;
+  width: 50rpx;
+  text-align: center;
+  margin-top: 6rpx;
+  margin-right: 36rpx
+}
+.alt-title{
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 18rpx;
+  margin-bottom:22rpx
+}
+.alt-date{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 14rpx
+}
+.useRecardImg{
+  width: 112rpx;
+  height: 112rpx;
+  display: block;
+}
+.useRecard .right{
+  width: 112rpx;
+  margin-right: 12rpx;
+  margin-top: 36rpx
+}
+.useRecard .discounts{
+  background: #999
+}
+.overdueImg{
+  width: 230rpx;
+  display: block;
+  margin: 120rpx auto 104rpx
+}
+.overdue{
+  font-size: 36rpx;
+  color: #333;
+  text-align: center
+}
+
+
+
+.isselect{
+  color: #9ab58c !important
+}

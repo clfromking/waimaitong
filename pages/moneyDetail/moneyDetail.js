@@ -1,4 +1,4 @@
-// pages/withdrawalProcess/withdrawalProcess.js
+// pages/moneyDetail/moneyDetail.js
 const app = getApp()
 Page({
 
@@ -7,9 +7,14 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "分享金提现",
-  },
+    navText: "分享金提现明细",
 
+  },
+  goWithdrawalDetail:function(){
+    wx.navigateTo({
+      url: '../withdrawalDetail/withdrawalDetail',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

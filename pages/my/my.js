@@ -25,6 +25,38 @@ Page({
     })
   },
 
+  goShareMoney:function(){
+    wx.navigateTo({
+      url: '../shareMoney/shareMoney',
+    })
+  },
+
+  goOtherOption:function(e){
+
+    switch (e.currentTarget.dataset.id){
+      case 0:
+        break;
+      case 1:
+        break;
+      case 2:
+        wx.navigateTo({
+          url: '../certification/certification',
+        })
+        break;
+      case 3:
+        break;
+      case 4:
+        wx.navigateTo({
+          url: '../coupons/coupons',
+        })
+        break;
+      case 5:
+        break;
+      case 6:
+        break;
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

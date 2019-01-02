@@ -1,0 +1,17 @@
+<!--pages/storeAuthor/storeAuthor.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+<view class='container'>
+  <image class="logo" src='{{logo}}'></image>
+  <input hidden='{{!(type==2)}}' class='msg-input' placeholder="请输入店铺老板真实姓名"></input>
+  <input hidden='{{type==2}}' placeholder='{{placeholder_user}}' type='number' class='msg-input'></input>
+  <input placeholder='{{placeholder_password}}' type='number' class='msg-input'></input>
+  <view  hidden='{{!(type==2)}}' class='code-view clear'>
+    <view class='left'>
+      <input placeholder='请输入验证码'></input>
+    </view>
+    <view class='right'>
+      <view class='button'>获取验证码</view>
+    </view>
+  </view>
+  <button>去授权</button>
+</view>

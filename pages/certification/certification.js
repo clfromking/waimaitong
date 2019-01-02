@@ -1,4 +1,4 @@
-// pages/withdrawalProcess/withdrawalProcess.js
+// pages/certification/certification.js
 const app = getApp()
 Page({
 
@@ -7,8 +7,18 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "分享金提现",
+    navText: "店铺认证授权",
+    certifications_list: [{ "src": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "text": "饿了么商家授权" }, { "src": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "text": "美团外卖商家授权" }, { "src": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "text": "商户老板手机号授权" }]
+
   },
+
+  goStoreAuthor:function(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../storeAuthor/storeAuthor?type=' + e.currentTarget.dataset.id,
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

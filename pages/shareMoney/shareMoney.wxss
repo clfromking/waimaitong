@@ -15,7 +15,7 @@
   color: #fff;
   padding: 0 36rpx;
   height: 150rpx;
-  line-height: 150rpx
+  line-height: 96rpx  
 }
 .notice text{
   font-size: 24rpx;

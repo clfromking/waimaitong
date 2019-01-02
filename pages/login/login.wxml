@@ -5,6 +5,7 @@
 <view class='jw-author-body'>
   <text class='jw-author-title'>请同意授权</text>
   <text class='jw-author-alt'>· 以便外卖通为你提供更好的服务</text>
-  <button withCredentials='{{true}}' hidden='{{issaveImg}}' bindtap='loginTap' open-type='getUserInfo' bindgetuserinfo='getuserinfo' class='jw-author-btn'>确认授权</button>
+  <!-- <button open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>获取手机号</button> -->
+  <button withCredentials='{{true}}' hidden='{{issaveImg}}'  open-type='getUserInfo' bindgetuserinfo='getuserinfo' class='jw-author-btn'>确认授权</button>
   <button withCredentials='{{true}}' hidden='{{!issaveImg}}' bindopensetting='openSettingTap' open-type='openSetting' class='jw-author-btn'>确认授权</button>
 </view>

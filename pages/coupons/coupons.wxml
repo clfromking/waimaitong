@@ -1,0 +1,48 @@
+<!--pages/coupons/coupons.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+<view class='container'>
+  <view class='header-nav clear'>
+    <view wx:for="{{nav}}" data-id='{{index}}' bindtap='selectNav' wx:key="item" class='left {{isselect==index?"isselect":""}}'>{{item}}</view>
+    
+  </view>
+  <view class='rout-view'>
+    <view class='noUse' hidden='{{isselect!==0}}'>
+      <view class='noUseItem'>
+        <view class='discounts'>8.5折</view>
+        <view class='discounts-alt-view clear'>
+          <view class='left'>
+            <view style='border-bottom:2rpx solid #d2d2d2'>
+              <view class='alt-title'>单店品牌加速劵</view>
+              <view class='alt-date'>2018-07-21  至 2018-09-25</view>
+            </view>
+            <view class='rule-view clear'>
+              <text class='left'>优惠劵使用规则</text>
+              <image class='rule-icon' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+            </view>
+          </view>
+          <view class='right'>未使用</view>
+        </view>
+      </view>
+    </view>
+    <view class='useRecard' hidden='{{isselect!==1}}'>
+      <view class='noUseItem useRecardItem'>
+        <view class='discounts'>8.5折</view>
+        <view class='discounts-alt-view clear'>
+          <view class='left'>
+            <view>
+              <view class='alt-title' style='margin-top:42rpx'>单店品牌加速劵</view>
+              <view class='alt-date'>2018-07-21  至 2018-09-25</view>
+            </view>
+          </view>
+          <view class='right'>
+            <image src='http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png' class='useRecardImg'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='overdue' hidden='{{isselect!==2}}'>
+      <image class='overdueImg' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png' mode='widthFix'></image>
+      <view class=''>没有过期的券</view>
+    </view>
+  </view>
+</view>
