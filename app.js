@@ -51,14 +51,18 @@ App({
           }
           
         },
+        fail:function(){
+          console.log('chucuo')
+        },  
         error: function (e) {
-          reject(e)
+         
           wx.showToast({
             title: '服务器错误，请重试！',
             icon: 'none',
             mask: true,
             duration: 1500
           })
+          reject(e)
         }
       })
     })
@@ -104,6 +108,9 @@ App({
             })
           }
         },
+        fail:function(){
+          console.log('错误')
+        },  
         error:function(e){
           reject(e)
           wx.showToast({
@@ -129,7 +136,7 @@ App({
     wx.getStorage({
       key: 'userInfo',
       success: function(res) {
-        console.log(res.data.tick)
+        that.globalData.accessToken=res.data.accessToken
         if ((new Date().getTime() - res.data.tick) / (24 * 60 * 60 * 1000)>30){
           wx.showToast({
             title: '您的登录已过期,请重新登录。',
@@ -151,6 +158,7 @@ App({
   },
 
   globalData: {
-    userInfo: null
+    userInfo: null,
+    accessToken:""
   }
 })

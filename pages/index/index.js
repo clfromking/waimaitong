@@ -9,7 +9,7 @@ Page({
     statusHeight: app.globalData.statusBarHeight,
     navText:"首页",
     small_nav:[
-      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "店铺海报" },
+      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "免租金开店" },
       { "img": "http://pk1897l3c.bkt.clouddn.com/icon_2.jpg", "text": "店铺装修" },
       { "img": "http://pk1897l3c.bkt.clouddn.com/icon_3.jpg", "text": "外卖运营" },
       { "img": "http://pk1897l3c.bkt.clouddn.com/icon_4.jpg", "text": "菜品拍摄" },
@@ -51,6 +51,32 @@ Page({
       }
     })
   },
+
+  goNav:function(e){
+    if(app.globalData.accessToken){
+      switch (e.currentTarget.dataset.id) {
+        case 0:
+          wx.navigateTo({
+            url: '../test/test',
+          })
+          break;
+        case 1:
+          break;
+        case 2:
+          break;
+        case 3:
+          break;
+      }
+    }
+    else{
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+    
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */

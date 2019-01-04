@@ -106,3 +106,13 @@ page{
   display: inline-block;
   transform: rotate(180deg)
 }
+
+.islogin{
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  /* background: #000; */
+  z-index: 999;
+  top: 0;
+  left: 0
+}

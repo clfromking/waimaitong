@@ -22,7 +22,7 @@ Page({
               console.log(res1)
               var postData = { 'code': res.code, 'encryptedData': res1.encryptedData, 'iv': res1.iv }
              
-              app.postData('/wechat/login',postData).then((res)=>{
+              app.postData('/wechat/test/login',postData).then((res)=>{
                 console.log(res)
                 var timestamp = new Date().getTime();
                 if(res.data.code==200){
@@ -36,9 +36,10 @@ Page({
                         mask:true,
                         duration:1500
                       })
+                      app.globalData.accessToken = res.data.data.accessToken
                       setTimeout(function(){
-                        wx.redirectTo({
-                          url: '../test/test',
+                        wx.navigateBack({
+                          
                         })
                       },1500)
                       
@@ -87,7 +88,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(new Date().getTime())
+    // app.getData('/go/form/get?accessToken=' + app.globalData.accessToken).then((res) => {
+    //   console.log(res)
+
+    // })
   },
 
   /**

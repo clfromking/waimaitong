@@ -32,7 +32,6 @@
     "pages/orderDetail/orderDetail",
     "pages/intoMember/intoMember",
     "pages/pay/pay"
-    
   ],
   "window":{
     "backgroundTextStyle":"light",

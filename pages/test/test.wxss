@@ -1,1 +1,11 @@
 /* pages/test/test.wxss */
+.radios{
+  border: 2rpx solid #000;
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+
+}
+.isselect-radio{
+  background: #000
+}

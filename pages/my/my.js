@@ -16,7 +16,8 @@ Page({
       { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "优惠卷", "other": "0张" },
       { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "我的收藏", "other": "" },
       { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "意见反馈", "other": "" }
-    ]
+    ],
+    islogin:false
   },
 
   gologin:function(){
@@ -39,9 +40,21 @@ Page({
       case 1:
         break;
       case 2:
-        wx.navigateTo({
-          url: '../certification/certification',
+        wx.getStorage({
+          key: 'userInfo',
+          success: function(res) {
+            console.log(res)
+            wx.navigateTo({
+              url: '../certification/certification',
+            })
+          },
+          fail:function(){
+            wx.navigateTo({
+              url: '../login/login',
+            })
+          }
         })
+       
         break;
       case 3:
         break;
@@ -62,7 +75,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getStorage({
+      key: 'userInfo',
+      success:(res)=>{
 
+      },
+      fail:()=>{
+        this.gologin()
+      }
+    })
   },
 
   /**
@@ -76,7 +97,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.getStorage({
+      key: 'userInfo',
+      success: (res) => {
+        this.setData({
+          islogin: true
+        })
+      },
+      fail: () => {
+        this.setData({
+          islogin: false
+        })
+      }
+    })
   },
 
   /**

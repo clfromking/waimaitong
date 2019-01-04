@@ -63,7 +63,7 @@ page{
 }
 .jw-small-nav-view view{
   display: inline-block;
-  margin-right: 98rpx;
+  margin-right: 84rpx;
   position: relative
 }
 .jw-small-nav-view view:last-child{

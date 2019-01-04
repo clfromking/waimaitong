@@ -24,7 +24,7 @@
 
 
 <view class='jw-small-nav-view'>
-  <view wx:for="{{small_nav}}" wx:key="item">
+  <view wx:for="{{small_nav}}" data-id='{{index}}' bindtap='goNav' wx:key="item">
     <image class='jw-small-nav-img' src='{{item.img}}'></image>
     <text class='jw-small-nav-text'>{{item.text}}</text>
   </view>
