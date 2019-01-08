@@ -12,7 +12,7 @@
 }
 .navIcons{
   position: fixed;
-  margin-left: 36rpx;
+  /* margin-left: 36rpx; */
   /* float: left;
   position: absolute;
   left: 0 */

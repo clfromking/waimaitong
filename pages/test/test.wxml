@@ -1,6 +1,10 @@
 <!--pages/test/test.wxml-->
 <navtitle status-height="{{statusHeight}}" nav-text="{{navText}}"></navtitle>
 
+<!-- <text>{{test?"抢购成功，请下单":"抢购中，请等待"}}</text>
+
+<view bindtap='test'>点击</view> -->
+
 <view>
   <text>品牌名：</text>
   <input bindinput='inputMsgs' data-id='0' value='{{brandName}}'></input>
@@ -65,6 +69,7 @@
 <view>
   <text>验证码</text>
   <input bindinput='inputMsgs' data-id='5' value='{{code}}'></input>
+  <button bindtap='getCode'>获取验证码</button>
 </view>
 
 <button bindtap='submit'>提交</button>

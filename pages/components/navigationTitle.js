@@ -109,9 +109,14 @@ Component({
     },
     navHome:function(){
       console.log('首页')
+      wx.reLaunch({
+        url: '../index/index',
+      })
     },
     navOtherRoute:function(){
-      console.log('qita luyou')
+      wx.navigateTo({
+        url: '../set/set',
+      })
     }
   }
 })

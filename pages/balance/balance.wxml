@@ -14,17 +14,17 @@
   <view class='body'>
     <view class='actual-money'>
       <view class='actual-money-item'>
-        <view>100</view>
+        <view>{{topUp}}</view>
         <view>充值</view>
       </view>
       <view  class='actual-money-item'>+</view>
       <view  class='actual-money-item'>
-        <view>10</view>
+        <view>{{returnMoney}}</view>
         <view>返赠</view>
       </view>
       <view  class='actual-money-item'>=</view>
       <view  class='actual-money-item'>
-        <view>110</view>
+        <view>{{topUp + returnMoney}}</view>
         <view>到账</view>
       </view>
     </view>
@@ -34,7 +34,7 @@
         {{item}}元
       </view>
       <view bindtap='selectMoney' class='btns-view-item {{isselectMoney==8?"isselectItem":""}}'>
-        <input placeholder='其他金额'></input>
+        <input placeholder='其他金额' bindblur='Blur' bindinput='inputMoney' value='{{inputMoney}}'></input>
       </view>
     </view>
     <view class='agreement'>点击立即充值，即表示您已阅读并同意<text style="color:#abca9a" bindtap='goAgreement'>《充值协议》</text></view>

@@ -16,9 +16,10 @@ Page({
     ]
   },
 
-  goOrderDetail:function(){
+  goOrderDetail:function(e){
+    console.log(e)
     wx.navigateTo({
-      url: '../orderDetail/orderDetail',
+      url: '../orderDetail/orderDetail?orderId=' + e.currentTarget.dataset.id,
     })
   },
 
@@ -35,23 +36,7 @@ Page({
   onLoad: function (options) {
     wx.showLoading({
       title: '',
-      mask:true
-    })
-    wx.getStorage({
-      key: 'userInfo',
-      success: (res)=> {
-        console.log('dengl')
-        console.log(this.data.islogin)
-        this.setData({
-          islogin:true,
-          
-        })
-        wx.hideLoading()
-      },
-      fail:function(){
-        console.log('meidengl ')
-        wx.hideLoading()
-      }
+      mask: true
     })
   },
 
@@ -66,7 +51,32 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
+    wx.getStorage({
+      key: 'userInfo',
+      success: (res) => {
+        this.setData({
+          islogin: true,
 
+        })
+        wx.hideLoading()
+        var postData = { "accessToken": res.data.accessToken}
+        app.postData('/order/my',postData).then((res) => {
+          console.log(res)
+          let orders = res.data.data
+          for (let i = 0; i < orders.length; i++) {
+            orders[i].payment = Number(orders[i].payment / 100).toFixed(2)
+          }
+          console.log(orders)
+          this.setData({
+            orders
+          })
+        })
+      },
+      fail: function () {
+        wx.hideLoading()
+      }
+    })
   },
 
   /**

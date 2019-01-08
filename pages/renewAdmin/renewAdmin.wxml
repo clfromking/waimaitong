@@ -58,6 +58,6 @@
   <view class='agree'>自动续费协议</view>
   <view class='fenge2'></view>
   <view class='cancel-view'>
-    <button class='cancel'>取消</button>
+    <button bindtap='cancel' class='cancel'>取消</button>
   </view>
 </view>

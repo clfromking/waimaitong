@@ -1,0 +1,4 @@
+<!--pages/set/set.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+
+<view wx:for="{{options}}" wx:key="item" data-id='{{index}}' bindtap='goOther'>{{item}}</view>

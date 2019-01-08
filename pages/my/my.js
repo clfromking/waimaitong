@@ -32,6 +32,12 @@ Page({
     })
   },
 
+  goBalance:function(){
+    wx.navigateTo({
+      url: '../balance/balance',
+    })
+  },
+
   goOtherOption:function(e){
 
     switch (e.currentTarget.dataset.id){

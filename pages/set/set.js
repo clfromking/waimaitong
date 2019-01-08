@@ -1,4 +1,4 @@
-// pages/renewAdmin/renewAdmin.js
+// pages/set/set.js
 const app = getApp()
 Page({
 
@@ -7,15 +7,36 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "自动续费管理",
-    iscancelRenew:false
+    navText: "设置",
+    options: ["会员信息设置", "店铺成员管理", "登录方式设置", "我的邀请二维码", "关于外卖通",]
   },
 
-  cancel:function(){
-    wx.navigateTo({
-      url: '../cancelRenewProving/cancelRenewProving',
-    })
+  goOther:function(e){
+    console.log(e.currentTarget.dataset.id)
+    switch(Number(e.currentTarget.dataset.id)){
+      case 0:
+        wx.navigateTo({
+          url: '../setMemberMsg/setMemberMsg',
+        })
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+      case 3:
+        wx.navigateTo({
+          url: '../Qrcode/Qrcode',
+        })
+        break;
+      case 4:
+        wx.navigateTo({
+          url: '../about/about',
+        })
+        break;
+
+    }
   },
+
 
   /**
    * 生命周期函数--监听页面加载

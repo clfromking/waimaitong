@@ -54,16 +54,18 @@
   vertical-align: top;
   color: #fff;
   text-align: center;
-  margin-left: 60rpx
+  /* margin-left: 60rpx */
 }
 .actual-money-item:nth-child(odd){
   font-size: 36rpx;
   padding-top: 10rpx;
-  box-sizing: border-box
+  box-sizing: border-box;
+  width: 196rpx
 }
 .actual-money-item:nth-child(even){
   line-height: 120rpx;
-  font-size: 60rpx
+  font-size: 60rpx;
+  width: 46rpx
 }
 .top-up-alt{
   font-size: 24rpx;

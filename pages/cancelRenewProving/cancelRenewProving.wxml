@@ -3,7 +3,7 @@
 <view hidden='{{iscancelRenew}}'>
   <view class='container'>
     <view class='provings-view'>
-      <text  class='title'>手机号码</text>
+      <text style='margin-right:2rpx' class='title'>手机号码</text>
       <input maxlength='14' type='number'></input>
     </view>
     <view class='provings-view'>

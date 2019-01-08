@@ -4,23 +4,23 @@
   <view class='header'>
     <view class='title clear'>
       <view class='left'>
-        <view class='order_status'>{{ispay?order_msgs.order_status:"未付款"}}</view>
-        <view class='order_alt'>{{ispay?order_msgs.order_alt:"您的订单已提交，请尽快支付"}}</view>
+        <view class='order_status'>{{payStatus==2?"已付款":"未付款"}}</view>
+        <view class='order_alt'>{{payStatus==2?"您的订单申请已提交成功":"您的订单已提交，请尽快支付"}}</view>
       </view>
       <view class='right'>
-        <view class='continue-btn' bindtap='continueOrpay'>{{ispay?order_msgs.order_btn:"付款"}}</view>
+        <view class='continue-btn' bindtap='continueOrpay'>{{payStatus==2?"继续下单":"付款"}}</view>
       </view>  
       
     </view>
-    <view class='order-lists clear' wx:for="{{order_msgs.order_list}}" wx:key="item">
+    <view class='order-lists clear' wx:for="{{itemList}}" wx:key="item">
       <view class='order-list-img-view left'>
-        <image class='order-list-img' src='{{item.img}}' mode='aspectFit'></image>
+        <image class='order-list-img' src='{{item.imgUrl}}' mode='aspectFit'></image>
         
       </view>
       <view class='order-list-other left'>
-        <view class='order-name'>{{item.name}}</view>
+        <view class='order-name'>{{item.goodsName}}</view>
         <view class='order-num'>x{{item.num}}</view>
-        <view class='order-money'>￥{{item.money}}</view>
+        <view class='order-money'>￥{{item.unitPrice}}</view>
       </view>
       
       <!-- {{item.name}} -->
@@ -43,54 +43,63 @@
     </view>
     <view class='order-detail'>
       <view>
-        <text>订单编号；23456789789</text>
+        <text>订单编号：{{orderId}}</text>
       </view>
-      <view>
+      <view hidden='{{payStatus!==2}}'>
         <text>支付编号；23456789789</text>
       </view>
       <view>
-        <text>创建时间；2018-07-20   12；30；20</text>
+        <text>创建时间：{{createTime}}</text>
       </view>
-      <view hidden='{{!ispay}}'>
-        <text>付款时间；2018-07-20   12；30；20</text>
+      <view hidden='{{payStatus!==2}}'>
+        <text>付款时间：{{payTime}}</text>
       </view>
-      <view hidden='{{!ispay}}'>
-        <text>接单时间；2018-07-20   12；30；20</text>
+      <view hidden='{{payStatus!==2}}'>
+        <text>接单时间：{{orderServiceData.createTime}}</text>
       </view>
-      <view hidden='{{!ispay}}'>
-        <text>付款方式；余额支付</text>
+      <view hidden='{{payStatus!==2||couponPaid==0}}'>
+        <text>优惠券扣减金额：{{couponPaid}}</text>
       </view>
-      <view hidden='{{!ispay}}'>
+      <view hidden='{{payStatus!==2||balancePaid==0}}'>
+        <text>余额扣减金额：{{balancePaid}}</text>
+      </view>
+      <view hidden='{{payStatus!==2||wechatPaid==0}}'>
+        <text>微信扣减金额：{{wechatPaid}}</text>
+      </view>
+      <view hidden='{{payStatus!==2}}'>
         <text>商户类别；会员</text>
       </view>
     </view>
-    <view hidden='{{!ispay}}' class='server-detail'>
+    <view hidden='{{payStatus!==2||serviceStatus==0}}' class='server-detail'>
       <view>
-        <text>服务工程师；杨小二</text>
+        <text>服务工程师：{{orderServiceData.servicerName}}</text>
       </view>
       <view>
-        <text>在职编号；12345</text>
+        <text>在职编号：{{orderServiceData.servicerId}}</text>
       </view>
       <view>
-        <text>综合评分；</text>
+        <text>综合评分：{{orderServiceData.totalScore}}</text>
       </view>
     </view>
-    <view hidden='{{!ispay}}' class='feedback'>
+    <view hidden='{{payStatus!==2||serviceStatus!==2}}' class='feedback'>
       <view>
         <text>综合服务打分</text>
+        <text bindtap='mark' data-id='0' data-index='{{index}}' class='scores {{item?"selectScore":""}}' wx:for="{{service_score}}" wx:key="item"></text>
       </view>
       <view>
         <text>专业能力打分</text>
+        <text bindtap='mark' data-id='1' data-index='{{index}}' class='scores {{item?"selectScore":""}}' wx:for="{{ability_score}}" wx:key="item"></text>
       </view>
       <view>
         <text>响应速度打分</text>
+        <text bindtap='mark' data-id='2' data-index='{{index}}' class='scores {{item?"selectScore":""}}' wx:for="{{speed_score}}" wx:key="item"></text>
       </view>
-      <textarea></textarea>
-      <button class='submit-btn'>提交</button>
+      <textarea bindinput='inputTextArea' disabled='{{orderServiceData.commentStatus==1}}' value='{{textArea}}'></textarea>
+      <button disabled='{{orderServiceData.commentStatus==1}}' bindtap='submit' class='submit-btn'>提交</button>
     </view>
   </view>
   
-  <view hidden='{{!ispay}}' class='footer clear'>
+  <view hidden='{{payStatus!==2}}' class='footer clear'>
     <view class='left'>
       <view class='charge-back' bindtap='goRefund'>申请退单</view>
     </view>

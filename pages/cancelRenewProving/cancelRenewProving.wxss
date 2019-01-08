@@ -15,7 +15,7 @@
   font-size: 30rpx;
   padding-left: 40rpx;
   vertical-align: top;
-  margin-right: 34rpx
+  margin-right: 36rpx
 }
 .provings-view input{
   display: inline-block;

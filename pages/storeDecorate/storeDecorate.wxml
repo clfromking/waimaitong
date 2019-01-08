@@ -1,0 +1,15 @@
+<!--pages/storeDecorate/storeDecorate.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+
+<view>
+  <view wx:for="{{decorate_options}}" wx:key="item" data-id='{{index}}'>
+    <image src='{{item.coverImg}}'></image>
+    <view>
+      <view>{{item.name}}</view>
+      <view>
+        <text>原价￥{{item.price}}</text>
+        <text>会员价￥{{item.mPrice}}</text>
+      </view>
+    </view>
+  </view>
+</view>

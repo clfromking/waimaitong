@@ -1,0 +1,4 @@
+<!--pages/authorization/authorization.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+
+<button  bindtap="openSetting">打开设置页</button>

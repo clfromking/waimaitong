@@ -13,6 +13,37 @@ Page({
 
   },
 
+  goOther:function(e){
+    console.log(e.currentTarget.dataset.id)
+    switch(Number(e.currentTarget.dataset.id)){
+      case 0:
+        wx.navigateTo({
+          url: '../memberIdentity/memberIdentity',
+        })
+        break;
+      case 1:
+        wx.navigateTo({
+          url: '../payRecord/payRecord',
+        })
+        break;
+      case 2:
+        wx.navigateTo({
+          url: '../renewAdmin/renewAdmin',
+        })
+        break;
+      case 3:
+        wx.navigateTo({
+          url: '../changePhone/changePhone',
+        })
+        break;
+      case 4:
+        wx.navigateTo({
+          url: '../feedback/feedback',
+        })
+        break;
+    }
+  },
+
   dredgeMember:function(){
     wx.navigateTo({
       url: '../dredge/dredge',

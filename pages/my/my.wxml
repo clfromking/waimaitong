@@ -8,7 +8,7 @@
     <view class='dredge-member'>开通会员>></view>
   </view>
   <view class='user-moneys'>
-    <view class='moneys-item'>
+    <view class='moneys-item' bindtap='goBalance'>
       <view class='moneys-num'>0</view>
       <view class='moneys-alt'>账户余额</view>
     </view>

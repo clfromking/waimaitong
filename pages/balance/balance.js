@@ -11,19 +11,36 @@ Page({
     top_up_moneys: ["100", "300", "500", "1000", "3000", "5000", "8000","10000"],
     isselectMoney:0,
     isshowAlert:false,
-    ischecked:false
+    ischecked:false,
+    topUp: '',
+    returnMoney:"",
+    inputMoney:""
   },
 
   selectMoney:function(e){
     console.log(e.currentTarget.dataset.id)
-    if (e.currentTarget.dataset.id){
+    if (e.currentTarget.dataset.id!==undefined){
       this.setData({
-        isselectMoney: e.currentTarget.dataset.id
+        isselectMoney: e.currentTarget.dataset.id,
+        topUp: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]),
+        returnMoney: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]) / 10
       })
+      
     }
     else{
+      console.log(this.data.inputMoney)
+      if (this.data.inputMoney){
+        this.setData({
+          isselectMoney: 8,
+          topUp: Number(this.data.inputMoney),
+          returnMoney: Number(this.data.inputMoney) / 10
+        })
+        return
+      }
       this.setData({
-        isselectMoney: 8
+        isselectMoney: 8,
+        topUp: 0,
+        returnMoney:0
       })
     }
     
@@ -61,12 +78,33 @@ Page({
     })
   },
 
+  inputMoney:function(e){
+    console.log(e.detail.value)
+    this.setData({
+      inputMoney: Number(e.detail.value),
+      topUp: Number(e.detail.value),
+      returnMoney: Number(e.detail.value) / 10
+    })
+  },
+
+  Blur:function(e){
+    console.log(e)
+    if(Number(e.detail.value)==0){
+      this.setData({
+        inputMoney:""
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      topUp:Number(this.data.top_up_moneys[this.data.isselectMoney]),
+      returnMoney: Number(this.data.top_up_moneys[this.data.isselectMoney])/10
+    })
+    console.log(this.data.topUp)
   },
 
   /**

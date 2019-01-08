@@ -23,7 +23,14 @@ Page({
     name:"",
     phone:"",
     code:"",
+    // test:false
   },
+
+  // test:function(){
+  //   this.setData({
+  //     test:!this.data.test
+  //   })
+  // },
 
   //地区选择器改变
   bindRegionChange(e) {
@@ -77,12 +84,46 @@ Page({
     })
   },
 
+  getCode:function(){
+    
+  },
+
+
   //提交
   submit:function(){
+    if (!this.data.brandName){
+      app.showToast('品牌名不能为空')
+      return
+    }
+    else if (!this.data.address){
+      app.showToast('详细地址不能为空')
+      return
+    }
+    else if (this.data.radio_select + 1<=0){
+      app.showToast('已上线外卖平台不能为空')
+      return
+    }
+    else if (!this.data.num){
+      app.showToast('品牌门店数量不能为空')
+      return
+    }
+    else if (!this.data.name){
+      app.showToast('姓名不能为空')
+      return
+    }
+    else if (!this.data.phone){
+      app.showToast('手机号码不能为空')
+      return
+    }
+    else if (!this.data.code){
+      app.showToast('验证码不能为空')
+      return
+    }
+    
     let dishCateId = arr[this.data.multiArray[0][this.data.multiIndex[0]]][this.data.multiIndex[1]].cateId
-    var postData = { "accessToken": app.globalData.accessToken,"brandName": this.data.brandName, "province": this.data.region[0], "city": this.data.region[1], "districts": this.data.region[2], "address": this.data.address, "platform": this.data.radio_select + 1, "poiType": this.data.index+1, "dishCateId": dishCateId, "amount": this.data.num, "contactName": this.data.name, "contactMobile": this.data.phone, "smsCode": this.data.code}
+    var postData = { "accessToken": app.globalData.accessToken,"brandName": this.data.brandName, "province": this.data.region[0], "city": this.data.region[1], "districts": this.data.region[2], "address": this.data.address, "platform": this.data.radio_select + 1, "poiType": this.data.index+1, "dishCateId": dishCateId, "amount": this.data.num, "contactName": this.data.name, "contactMobile": this.data.phone, "smsCode": this.data.code}  
     console.log(postData)
-    app.postData('/go/form/submit',postData).then((res)=>{
+    app.postData('/go/kaidian/submit',postData).then((res)=>{
       console.log(res)
     }).catch((error)=>{
       console.log(error)
@@ -120,7 +161,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getData('/go/form/get?accessToken=' + app.globalData.accessToken).then((res)=>{
+    app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res)=>{
       console.log(res)
       
     })
@@ -201,5 +242,8 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  
+
 })

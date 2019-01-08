@@ -2,11 +2,11 @@
 
 <view class='jw-index-title clear'>
   <view class='jw-title-avatarurl-view left'>
-    <image class='jw-title-avatarurl-img'></image>
+    <image src='{{avatarUrl}}' class='jw-title-avatarurl-img'></image>
   </view>
   <view class='jw-title-hint-view left'>
     <view class='jw-title-hint-top-text white'>
-      <text>请先登录</text>
+      <text>{{nickName==''?"请先登录":nickName}}</text>
     </view>
     <view class='jw-title-hint-bottom-text white'>
       <text>您还不是会员</text>

@@ -15,32 +15,32 @@
 <view class='jw-orders-view' wx:if="{{islogin}}">
   <view class='jw-order-item' wx:for="{{orders}}" wx:key="item">
     <view class='jw-order-item-top clear'>
-      <view class='left jw-order-time'>{{item.order_time}}</view>
+      <view class='left jw-order-time'>{{item.createTime}}</view>
       <view class=' right'>
-        <view class='jw-order-status'>{{item.order_status}}</view>
+        <view class='jw-order-status'>{{item.payStatus==1?"未付款":"已付款"}}</view>
         <view class='shu' style='display:inline-block'>丨</view>
         <view class='jw-delete-btn'></view>
       </view>
     </view>
-    <view class='jw-order-item-lists clear' wx:for="{{item.order_list}}" wx:key="item1">
+    <view class='jw-order-item-lists clear' wx:for="{{item.itemList}}" wx:key="item1">
       <view class='jw-lists-img-view left'>
-        <image class='jw-lists-img' mode="aspectFit" src='{{item.ware_img}}'></image>
+        <image class='jw-lists-img' mode="aspectFit" src='{{item.imgUrl}}'></image>
       </view>
       <view class='jw-lists-msgs-view right clear'>
-        <text class='jw-lists-name left'>{{item.ware_name}}</text>
-        <text class='jw-lists-number right'>x{{item.ware_number}}</text>
+        <text class='jw-lists-name left'>{{item.goodsName}}</text>
+        <text class='jw-lists-number right'>x{{item.num}}</text>
       </view>
       
     </view>
-    <view class='jw-order-price'>实付款￥<text style='color:#850000'>{{item.order_price}}</text>元</view>
+    <view class='jw-order-price'>实付款￥<text style='color:#850000'>{{item.payment}}</text>元</view>
     <view class='fenge'></view>
     <view class='jw-order-item-bottom clear'>
       <view class='jw-order-number left'>
-        <text class=''>订单编号 {{item.order_number}}</text>
+        <text class=''>订单编号 {{item.orderId}}</text>
       </view>
       <view class='right' style='position:relative'>
         <view class='jw-order-method_views jw-order-payMethod'>{{item.pay_method}}</view>
-        <view class='jw-order-method_views jw-order-detail' bindtap='goOrderDetail'>订单详情</view>
+        <view class='jw-order-method_views jw-order-detail' data-payStatus='{{item.payStatus}}' data-id='{{item.orderId}}' bindtap='goOrderDetail'>订单详情</view>
       </view>
     </view>
   </view>

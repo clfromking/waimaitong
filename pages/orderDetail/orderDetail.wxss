@@ -187,3 +187,15 @@ textarea{
 .body{
   /* padding: 0 35rpx */
 }
+
+.scores{
+  display: inline-block;
+  width: 38rpx;
+  height: 38rpx;
+  border:2rpx solid red;
+  margin-left: 10rpx
+}
+
+.selectScore{
+  background: red
+}

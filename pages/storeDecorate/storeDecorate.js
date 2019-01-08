@@ -1,4 +1,4 @@
-// pages/renewAdmin/renewAdmin.js
+// pages/storeDecorate/storeDecorate.js
 const app = getApp()
 Page({
 
@@ -7,21 +7,22 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "自动续费管理",
-    iscancelRenew:false
-  },
+    navText: "店铺装修",
+    decorate_options:[]
 
-  cancel:function(){
-    wx.navigateTo({
-      url: '../cancelRenewProving/cancelRenewProving',
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(this)
+    app.getData('/poi/material/list?accessToken=' + app.globalData.accessToken).then((res)=>{
+      console.log(res.data.data)
+      this.setData({
+        decorate_options:res.data.data
+      })
+    })
   },
 
   /**

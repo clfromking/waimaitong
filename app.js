@@ -124,8 +124,37 @@ App({
     })
     return promise
   },
+  chooseLocation:function(){
+    var promise=new Promise((resolve,reject)=>{
+      wx.chooseLocation({
+        success: function (res) {
+          resolve(res)
+        },
+        fail: function (res) {
+          wx.getSetting({
+            success(res) {
+              if (res.authSetting["scope.userLocation"]) {
+              }
+              else {
+                wx.navigateTo({
+                  url: '../authorization/authorization',
+                })
+              }
+            }
+          })
+
+        }
+      })
+    })
+    return promise
+  },
   onLaunch: function () {
     var that=this
+    let userInfo=wx.getStorageSync('userInfo')
+    console.log(userInfo)
+    if (userInfo){
+      that.globalData.accessToken = userInfo.accessToken
+    }
     wx.getSystemInfo({
       success: function (res) {
         that.globalData.statusBarHeight = Number(res.statusBarHeight)
@@ -133,27 +162,15 @@ App({
     })
 
 
-    wx.getStorage({
-      key: 'userInfo',
-      success: function(res) {
-        that.globalData.accessToken=res.data.accessToken
-        if ((new Date().getTime() - res.data.tick) / (24 * 60 * 60 * 1000)>30){
-          wx.showToast({
-            title: '您的登录已过期,请重新登录。',
-            icon:'none',
-            mask:'true',
-            duration:1500,
-          })
-          setTimeout(function(){
-            wx.redirectTo({
-              url: '../login/login',
-            })
-          },1500)
-        }
-      },
-      fail:function(){
-        console.log('没有')
-      }
+    
+  },
+
+  showToast: function (msg) {
+    wx.showToast({
+      title: msg,
+      icon: 'none',
+      mask: true,
+      duration: 1500
     })
   },
 

@@ -8,6 +8,8 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText:"首页",
+    nickName:"",
+    avatarUrl:"",
     small_nav:[
       { "img": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "免租金开店" },
       { "img": "http://pk1897l3c.bkt.clouddn.com/icon_2.jpg", "text": "店铺装修" },
@@ -61,6 +63,9 @@ Page({
           })
           break;
         case 1:
+          wx.navigateTo({
+            url: '../storeDecorate/storeDecorate',
+          })
           break;
         case 2:
           break;
@@ -107,6 +112,16 @@ Page({
         }
       })
     }
+    wx.getStorage({
+      key: 'userInfo',
+      success: (res)=>{
+        console.log(res)
+        this.setData({
+          nickName: res.data.nickName,
+          avatarUrl:res.data.avatarUrl
+        })
+      },
+    })
   },
 
   /**

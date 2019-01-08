@@ -1,4 +1,4 @@
-// pages/renewAdmin/renewAdmin.js
+// pages/authorization/authorization.js
 const app = getApp()
 Page({
 
@@ -7,13 +7,18 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "自动续费管理",
-    iscancelRenew:false
+    navText: "授权",
+
   },
 
-  cancel:function(){
-    wx.navigateTo({
-      url: '../cancelRenewProving/cancelRenewProving',
+  openSetting:function(){
+    wx.openSetting({
+      success:function(res){
+        console.log(res)
+        wx.navigateBack({
+          delta:1
+        })
+      }
     })
   },
 

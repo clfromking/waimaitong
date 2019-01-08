@@ -1,77 +1,145 @@
 <!--pages/member/member.wxml-->
 <!-- <scroll-view scroll-y style='height:100vh;position:fixed;top:0;margin-bottom:66rpx'> -->
 <navtitle status-height="{{statusHeight}}" bg-img="linear-gradient(94deg, #c0a069 0%, #d5bb8b 58%, #e9d5ac 100%);"></navtitle>
-<view style='position:relative'>
-  <view class='jw-member-header'>
-  </view>
-  <view style='height:561.63rpx'></view>
-  <image class='member-bg' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/member/member_bg.png'>
-  </image>
-  <image class='member-header' src='http://pk1897l3c.bkt.clouddn.com/member/member_header.png'></image>
-  <text class='member-header-text'>VIP会员</text>
-  <text class='member-header-alt' >给您的品牌开通一张专属会员卡</text>
-  
-  <view class='all-icons-item'>
-    <view class='header-icons-item' wx:for="{{header_alts}}" wx:key="item">
-      <view class='header-icons-view'>
-        <image mode='widthFix' src='{{item.icon}}'></image>
+<view hidden='true'>
+  <view style='position:relative'>
+    <view class='jw-member-header'>
+    </view>
+    <view style='height:561.63rpx'></view>
+    <image class='member-bg' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/member/member_bg.png'>
+    </image>
+    <image class='member-header' src='http://pk1897l3c.bkt.clouddn.com/member/member_header.png'></image>
+    <text class='member-header-text'>VIP会员</text>
+    <text class='member-header-alt' >给您的品牌开通一张专属会员卡</text>
+    
+    <view class='all-icons-item'>
+      <view class='header-icons-item' wx:for="{{header_alts}}" wx:key="item">
+        <view class='header-icons-view'>
+          <image mode='widthFix' src='{{item.icon}}'></image>
+        </view>
+        
+        <text class='header-icons-text'>{{item.text}}</text>
       </view>
-      
-      <text class='header-icons-text'>{{item.text}}</text>
+    </view>
+
+    <view class='dredge-view'>
+      <text class='dredge-text-title clip-text'>新用户开通立减100元</text>
+      <view class='dredge-text-alt'>每日仅限前<text style='font-size:30rpx'> 300 </text>位商户</view>
+      <view class='dredge-btn' bindtap='dredgeMember'>马上开通</view>
     </view>
   </view>
 
-  <view class='dredge-view'>
-    <text class='dredge-text-title clip-text'>新用户开通立减100元</text>
-    <view class='dredge-text-alt'>每日仅限前<text style='font-size:30rpx'> 300 </text>位商户</view>
-    <view class='dredge-btn' bindtap='dredgeMember'>马上开通</view>
+  <view class='member-body'>
+    <view class='liberty-one-view'>
+      <view class='liberty-title'>
+        <text class='clip-text' style='margin-right:26rpx'>特权一</text>
+        <text class='clip-text'>海量折扣</text>
+      </view>
+      <view class='liberty-one-body clear'>
+        <view class='left liberty-one-left'>
+          <text class='liberty-left-alt'>全额付无折扣</text>
+          <text class='liberty-left-alt1'>普通用户</text>
+        </view>
+        <text class='clip-text vs'>vs</text>
+        <view class='right liberty-one-right'>
+          <text class='liberty-right-alt'>部分低至<text style='font-size:44rpx'>一折</text></text>
+          <text class='liberty-right-alt1'>会员用户</text>
+        </view>
+      </view>
+    </view>
+    <view class='liberty-two-view'>
+      <view class='liberty-title'>
+        <text class='clip-text' style='margin-right:26rpx;margin-left:-14rpx'>特权二</text>
+        <text class='clip-text'>低至<text style='font-size:42rpx'>0</text>元</text>
+      </view>
+      <view class='liberty-two-body'>
+        <image class='liberty-icon' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png'></image>
+        <view class='liberty-alts'>
+          <text class='liberty-alts-title'>有机会获得 0元 店铺装修</text>
+          <text class='liberty-alts-small'>优秀的店铺装修可提升多倍营收</text>
+        </view>
+      </view>
+    </view>
+    <view class='liberty-three-view'>
+      <view class='liberty-title'>
+        <text class='clip-text' style='margin-right:26rpx'>特权三</text>
+        <text class='clip-text'>外卖运营</text>
+      </view>
+      <view class='liberty-three-body'>
+        <image class='liberty-icon' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+        <view class='liberty-alts'>
+          <text class='liberty-alts-title'>外卖运营即托管加速</text>
+          <text class='liberty-alts-small'>为您的品牌带来史无前例的线上收益</text>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
 
-<view class='member-body'>
-  <view class='liberty-one-view'>
-    <view class='liberty-title'>
-      <text class='clip-text' style='margin-right:26rpx'>特权一</text>
-      <text class='clip-text'>海量折扣</text>
-    </view>
-    <view class='liberty-one-body clear'>
-      <view class='left liberty-one-left'>
-        <text class='liberty-left-alt'>全额付无折扣</text>
-        <text class='liberty-left-alt1'>普通用户</text>
-      </view>
-      <text class='clip-text vs'>vs</text>
-      <view class='right liberty-one-right'>
-        <text class='liberty-right-alt'>部分低至<text style='font-size:44rpx'>一折</text></text>
-        <text class='liberty-right-alt1'>会员用户</text>
-      </view>
+<view>
+  <view style='position:relative;height:436rpx'>
+    <view class='header'></view>
+    <view class='memberMsg'>
+      <image class='memberImg'></image>
+      <text class='member-species'>月度会员</text>
+      <text class='member-number'>NO：032496672</text>
+      <text class='save-title'>已为您节省</text>
+      <text class='save-money'>¥148</text>
+      <text class='use-title'>使用时间</text>
+      <text class='use-time'>2018-07-01至2018-09-30</text>
+      <view class='renewal-btn'>会员续费</view>
     </view>
   </view>
-  <view class='liberty-two-view'>
-    <view class='liberty-title'>
-      <text class='clip-text' style='margin-right:26rpx;margin-left:-14rpx'>特权二</text>
-      <text class='clip-text'>低至<text style='font-size:42rpx'>0</text>元</text>
-    </view>
-    <view class='liberty-two-body'>
-      <image class='liberty-icon' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png'></image>
-      <view class='liberty-alts'>
-        <text class='liberty-alts-title'>有机会获得 0元 店铺装修</text>
-        <text class='liberty-alts-small'>优秀的店铺装修可提升多倍营收</text>
+  <view class='container'>
+    <view class='body'>
+      <image mode='widthFix' class='bodyImg'></image>
+      <view class='bodyTitle'>
+        <text class='invitation'>邀请商户赚加速金</text>
+        <view class='invitation-btn'>去邀请</view>
       </view>
-    </view>
-  </view>
-  <view class='liberty-three-view'>
-    <view class='liberty-title'>
-      <text class='clip-text' style='margin-right:26rpx'>特权三</text>
-      <text class='clip-text'>外卖运营</text>
-    </view>
-    <view class='liberty-three-body'>
-      <image class='liberty-icon' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
-      <view class='liberty-alts'>
-        <text class='liberty-alts-title'>外卖运营即托管加速</text>
-        <text class='liberty-alts-small'>为您的品牌带来史无前例的线上收益</text>
+      <view class='lists'>
+        <view bindtap='goOther' data-id='0' class='list-item clear'>
+          <view class='left clear'>
+            <image class='list-item-icon left'></image>
+            <text class='list-item-title left'>会员身份</text>
+          </view>
+          <view class='right'>
+            <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+          </view>
+        </view>
+        <view bindtap='goOther' data-id='1' class='list-item clear'>
+          <view class='left clear'>
+            <image class='list-item-icon left'></image>
+            <text class='list-item-title left'>购买记录</text>
+          </view>
+          <view class='right'>
+            <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+          </view>
+        </view>
+        <view bindtap='goOther' data-id='2' class='list-item clear'>
+          <view class='left clear'>
+            <image class='list-item-icon left'></image>
+            <text class='list-item-title left'>自动续费管理</text>
+          </view>
+          <view class='right'>
+            <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+          </view>
+        </view>
+        <view bindtap='goOther' data-id='3' class='list-item clear'>
+          <view class='left clear'>
+            <image class='list-item-icon left'></image>
+            <text class='list-item-title left'>绑定手机</text>
+          </view>
+          <view class='right'>
+            <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+          </view>
+        </view>
       </view>
+      <view bindtap='goOther' data-id='4' class='feedback-btn'>会员使用反馈</view>
+    </view>
+    <view class='footer'>
+      <image src='' mode='widthFix' class='footer-img'></image>
+      <view class='version'>V1.0 版本</view>
     </view>
   </view>
 </view>
-
-<!-- </scroll-view> -->
