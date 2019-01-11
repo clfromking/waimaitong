@@ -1,0 +1,11 @@
+<!--pages/goRecord/goRecord.wxml-->
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+
+<view class='clear'>
+  <image class='img left' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png'></image>
+  <view class='left alts'>
+    <view class='title'>{{navType=='freeShop'?'免租金开店':'外卖运营'}}</view>
+    <view class='time'>申请时间：2018-07-01</view>
+  </view>
+  <view class='goDetail right' bindtap='goDetail'>查看详情</view>
+</view>

@@ -2,14 +2,35 @@
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
 
 <view>
-  <view wx:for="{{decorate_options}}" wx:key="item" data-id='{{index}}'>
-    <image src='{{item.coverImg}}'></image>
-    <view>
-      <view>{{item.name}}</view>
-      <view>
-        <text>原价￥{{item.price}}</text>
-        <text>会员价￥{{item.mPrice}}</text>
+  <view class='notice clear'>
+    <image src='http://pk1897l3c.bkt.clouddn.com/storeDecorate/notice.png' class='noticeImg left'></image>
+    <text class='left'>店铺装修现支持单个类目装修和整店装修，请按需下单</text>
+  </view>
+  <view class='container'>
+    <view wx:for="{{decorate_options}}" class='item clear' wx:key="item" data-id='{{index}}'>
+      <view class='item-imgView left'>
+        <image mode='aspectFit' src='{{item.coverImg}}'></image>
+      </view>
+      
+      <view class='left'>
+        <view class='name'>{{item.name}}</view>
+        <view>
+          <view class='price'>原价￥{{item.price}}</view>
+          <view class='mPrice'>会员价￥{{item.memberPrice}}</view>
+        </view>
       </view>
     </view>
+
+    <view class='bottom'>优质的店面形象，可为您的店铺带来不少订单哦</view>
+  </view>
+  <view class='footer'>
+    <view class='PriceView'>
+      <view class='acPrice'>¥588.00</view>
+      <view class='disPrice'>会员已优惠¥2899.00</view>
+    </view>
+    <view class='submit-order'>提交订单</view>
+  </view>
+  <view class='add-btn'>
+    <view>一键添加</view>
   </view>
 </view>

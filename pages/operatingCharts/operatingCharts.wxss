@@ -1,0 +1,347 @@
+/* pages/operatingCharts/operatingCharts.wxss */
+page{
+  padding-bottom: 52rpx
+}
+.header-nav{
+  height: 88rpx;
+  width: 208rpx;
+  margin: 0 auto
+}
+.header-nav view{
+  font-size: 32rpx;
+  color: #b0b0b0;
+  line-height: 44rpx;
+  width: 96rpx;
+  height: 44rpx;
+  text-align: center;
+  margin-top: 22rpx;
+  border-radius: 8rpx
+}
+.body-nav{
+  /* display: flex; */
+  
+}
+.body{
+  overflow: hidden;
+  white-space: nowrap
+}
+scroll-view{
+  height: 92rpx;
+  width: 670rpx;
+  margin: 0 auto
+}
+scroll-view view{
+  display: inline-block;
+  /* width: 100rpx; */
+  height: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #b0b0b0;
+  margin-right: 37rpx
+}
+scroll-view view:last-child{
+  margin: 0
+}
+
+scroll-view view text{
+  height: 84rpx;
+  line-height: 88rpx;
+  display: inline-flex;
+  border-bottom: 4rpx solid #256ef6;
+}
+.store{
+  height: 88rpx;
+  width: 670rpx;
+  margin: 8rpx auto 0;
+  border-bottom: 4rpx solid #f8f8f8
+}
+.store .left{
+  font-size: 32rpx;
+  color: #2d2d2d;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: inline-block
+}
+.store image{
+  width: 56rpx;
+  height: 56rpx;
+  margin-top: 16rpx
+}
+.operating-survey-title{
+  height: 48rpx;
+  line-height: 48rpx;
+  width: 670rpx;
+  margin: 44rpx auto 19rpx
+}
+.operating-survey-title text{
+  display: inline-block;
+  height: 48rpx;
+
+}
+.operating-survey-title .left{
+  font-size: 32rpx;
+  color: #2d2d2d;
+  font-weight: bold
+}
+.operating-survey-title .right{
+  font-size: 20rpx;
+  color: #5a5a5a
+}
+.operating-survey{
+  width: 670rpx;
+  margin: 0 auto;
+  height: 208rpx;
+  background: url(http://pk1897l3c.bkt.clouddn.com/operatingCharts/survey_bg.png) no-repeat;
+  background-size: 100% 100%;
+  /* background: red; */
+  border-radius: 8rpx
+}
+.surver-title{
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  padding-top: 24rpx;
+  box-sizing: border-box
+}
+.surver-money{
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-top: 9rpx
+}
+.surver-money text:nth-child(1){
+  font-size: 36rpx;
+}
+.surver-money text:nth-child(2){
+  font-size: 64rpx;
+}
+.surver-point{
+  font-size: 20rpx;
+  color: #fcfcfc;
+  text-align: center;
+  margin-top: 8rpx
+}
+.detail{
+  width: 670rpx;
+  height: 426rpx;
+  border-radius: 8rpx;
+  background: #FFFFFF;
+  box-shadow: 0 0 12rpx 4rpx rgba(49,57,106,0.12);
+  margin: 32rpx auto 0
+}
+.detail .detail-options:nth-child(1){
+  height: 198rpx;
+  display: flex
+}
+.detail .detail-options:nth-child(1) view{
+  width: 100%
+}
+.logo{
+  width: 32rpx;
+  height: 32rpx;
+  display: block;
+  text-align: center;
+  margin: 36rpx auto 0
+}
+.yellow,.blue{
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 16rpx
+}
+.detail-money{
+  text-align: center;
+  color: #5a5a5a;
+  font-size: 28rpx;
+  margin-top: 12rpx
+}
+.all-total{
+  display: flex;
+  margin-top: 20rpx
+}
+.item-total{
+  height: 168rpx;
+  width: 100%;
+  margin-left: 40rpx
+}
+.item-total-title{
+  font-size: 24rpx;
+  color: #5a5a5a
+}
+.item-icon-green,.item-icon-blue{
+  width: 16rpx;
+  height: 16rpx;
+  display: inline-flex;
+  vertical-align: middle;
+  margin-right: 12rpx
+}
+.item-icon-green{
+  background: #13dec9;
+}
+.item-icon-blue{
+  background: #256ef6
+}
+.item-nums{
+  font-size: 20rpx;
+  color: #5a5a5a;
+  vertical-align: middle
+}
+.item-point-text{
+  font-size: 24rpx;
+/* color: #FF6959; */
+}
+.item-point-icon{
+  width: 12rpx;
+  height: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 9rpx
+}
+.charts-title{
+  font-size: 32rpx;
+  color: #2d2d2d;
+  font-weight: bold;
+  width: 670rpx;
+  margin: 40rpx auto 0
+}
+.canvas-view{
+  position: relative;
+  height: 580rpx
+}
+ec-canvas{
+  width: 720rpx;
+  height: 540rpx;
+  margin: 20rpx auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.brokerageMsg{
+  width: 670rpx;
+  height: 476rpx;
+  margin: 19rpx auto 40rpx;
+  box-shadow: 0 0 12rpx 0 rgba(49,57,106,0.12);
+  border-radius: 8rpx; 
+  padding-top: 64.5rpx;
+  box-sizing: border-box
+}
+.brokerageRadius{
+  width: 347rpx;
+  height: 347rpx;
+  margin: 0 auto;
+  background: url('http://pk1897l3c.bkt.clouddn.com/operatingCharts/brokerage_bg.png') no-repeat;
+  background-size: 100% 100% 
+}
+.brokerage-title{
+  font-size: 24rpx;
+  color: #2d2d2d;
+  text-align: center;
+  padding-top: 121rpx;
+  /* margin-top: 121rpx */
+}
+.brokerage-money{
+  font-size: 48rpx;
+  color: #ff4e4e;
+  text-align: center
+}
+.evaluate-body{
+  height: 608rpx;
+  width: 670rpx;
+  margin: 19rpx auto 10rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 0 12rpx 0 rgba(49,57,106,0.12);
+  padding-top: 40rpx;
+  box-sizing: border-box;
+  position: relative
+}
+.scores{
+  display: inline-block;
+  width: 48rpx;
+  height: 48rpx;
+  background: url('http://pk1897l3c.bkt.clouddn.com/all/nomark.png') no-repeat;
+  background-size: 100% 100%;
+  margin-left: 22rpx
+}
+.scores:nth-child(2){
+  margin-left: 30rpx
+}
+.selectScore{
+  background: url('http://pk1897l3c.bkt.clouddn.com/all/mark.png') no-repeat;
+  background-size: 100% 100%;
+}
+.scoresView{
+  width: 502rpx;
+  margin: 36rpx auto 0;
+  height: 48rpx
+}
+.scoresView:first-child{
+  margin: 0 auto
+}
+.scoreTitle{
+  font-size: 24rpx;
+  color: #5a5a5a;
+  height: 48rpx;
+  line-height: 48rpx;
+  display: inline-block;
+  vertical-align: top
+}
+textarea{
+  width: 502rpx;
+  height: 168rpx;
+  background: #fbfbfb;
+  margin: 40rpx auto 48rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  color: #5a5a5a;
+}
+.cover-view{
+  font-size: 20rpx;
+  color: #5a5a5a;
+  position: absolute;
+  right: 120rpx;
+  bottom: 152rpx
+}
+.submit{
+  width: 132rpx;
+  height: 56rpx;
+  text-align: center;
+  line-height: 56rpx;
+  color: #5a5a5a;
+  font-size: 28rpx;
+  background: #f2f2f2;
+  border-radius: 8rpx;
+  margin: 0 auto
+}
+.complain{
+  font-size: 24rpx;
+  color: #5a5a5a;
+  position: absolute;
+  bottom: 33rpx;
+  right: 84rpx
+}
+
+
+
+
+
+
+
+
+.selectHeaderNav{
+  background: #256ef6;
+  color: #fff !important
+}
+.division{
+  width: 706rpx;
+  height: 4rpx;
+  background: #f8f8f8;
+  margin: -8rpx auto 0
+}
+.division1{
+  width: 510rpx;
+  height: 4rpx;
+  background: #f8f8f8;
+  margin: 0 auto
+}

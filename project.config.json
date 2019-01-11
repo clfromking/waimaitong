@@ -9,13 +9,12 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"nodeModules": false,
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.2",
-	"appid": "wx1f98905336eff8dd",
-	"projectname": "waimaitong",
+	"libVersion": "2.5.0",
+	"appid": "wx35acf287e0fc1de7",
+	"projectname": "wmt_wechat",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

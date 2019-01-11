@@ -11,6 +11,12 @@ Page({
     iscancelRenew:false
   },
 
+  goAgree:function(){
+    wx.navigateTo({
+      url: '../renewAgreement/renewAgreement',
+    })
+  },
+
   cancel:function(){
     wx.navigateTo({
       url: '../cancelRenewProving/cancelRenewProving',

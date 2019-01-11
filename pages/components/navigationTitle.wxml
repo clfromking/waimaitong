@@ -1,5 +1,6 @@
 <!-- pages/components/navigationTitle.wxml
 <text>pages/components/navigationTitle.wxml</text> -->
+<view style='height:{{statusHeight+navHeight}}px;width:750rpx'>
 <view class='navigationTitle' style="position:fixed;top:0;width:750rpx;">
   <view class='statusBar' style='height:{{statusHeight}}px;background:{{statusBgcolor}};background-image:{{bgImg}}'></view>
   <view class='navigationBar' style='height:{{navHeight}}px;background:{{navBgcolor}};color:{{navTextcolor}};background-image:{{bgImg}}'>
@@ -19,4 +20,5 @@
 <view class='seat' style="">
   <view class='seat' style='height:{{statusHeight}}px;background:{{statusBgcolor}};background-image:{{bgImg}}'></view>
   <view class='seat' style='height:{{navHeight}}px;background:{{navBgcolor}};color:{{navTextcolor}};background-image:{{bgImg}}'></view>
+</view>
 </view>

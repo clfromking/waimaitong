@@ -30,18 +30,27 @@ Page({
                     key: 'userInfo',
                     data: res.data.data,
                     success:function(){
-                      wx.showToast({
-                        title: '登录成功',
-                        icon:'none',
-                        mask:true,
-                        duration:1500
+                      
+                      wx.getSystemInfo({
+                        success: function (res2) {
+                          app.globalData=res.data.data
+                          app.globalData.double=750/res2.screenWidth
+                          app.globalData.statusBarHeight = Number(res2.statusBarHeight)
+                          console.log(app.globalData)
+                          wx.showToast({
+                            title: '登录成功',
+                            icon: 'none',
+                            mask: true,
+                            duration: 1500
+                          })
+                          setTimeout(function () {
+                            wx.navigateBack({
+
+                            })
+                          }, 1500)
+                        }
                       })
-                      app.globalData.accessToken = res.data.data.accessToken
-                      setTimeout(function(){
-                        wx.navigateBack({
-                          
-                        })
-                      },1500)
+                      
                       
                     },
                     fail:function(){

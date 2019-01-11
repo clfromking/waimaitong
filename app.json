@@ -1,9 +1,19 @@
 {
-  "pages":["pages/member/member",
+  "pages":[
     "pages/index/index",
-    
+    "pages/member/member",
     "pages/order/order",
     "pages/my/my",
+    "pages/renewAgreement/renewAgreement",
+    "pages/operatingCharts/operatingCharts",
+    "pages/operatingState/operatingState",
+    "pages/identityVerify/identityVerify",
+    "pages/identityConfirm/identityConfirm",
+    "pages/freeshopApplyDetail/freeshopApplyDetail",
+    "pages/goRecord/goRecord",
+    "pages/applyFor/applyFor",
+    "pages/successApplyFor/successApplyFor",
+    "pages/freeShop/freeShop",
     "pages/certification/certification",
     "pages/storeAuthor/storeAuthor",
     "pages/coupons/coupons",

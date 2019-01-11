@@ -1,0 +1,2 @@
+<!--pages/freeShop/freeShop.wxml-->
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>

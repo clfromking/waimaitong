@@ -1,0 +1,22 @@
+<!--pages/operatingState/operatingState.wxml-->
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#256ef6" status-bgcolor="#256ef6" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<view class='header'>
+  <view class='h1'>欢迎参加品牌加速计划</view>
+  <view class='h3'>加速即夯实盈利</view>
+</view>
+
+<view class='body'>
+  <view><text class='blue'>98452</text><text class='postfix'>商户</text></view>
+  <view>正在运营会员品牌</view>
+  <view><text class='blue'>10,8408,483</text><text class='postfix'>元</text></view>
+  <view>运营品牌月营收总计</view>
+  <view><text class='blue'>53,467</text><text class='postfix'>元</text></view>
+  <view>每位商户月均营收</view>
+  <view class='body-title'>加入外卖通运营托管，成为品质商户</view>
+  <view class='body-state'>托管后外卖通为品牌量身打造整套店铺视觉体系，让品牌在竞争中脱颖而出，成为具备竞争力品牌</view>
+  <view class='body-title'>外卖通采用运营全托管模式，释放品牌方精力</view>
+  <view class='body-state'>托管期间品牌方只需做好出餐准备工作，其余工作均有外卖通完成帮助商户做好外卖是外卖通的使命</view>
+  <view class='body-title'>免基础服务费，按效果付费</view>
+  <view class='body-state'>外卖通采用双保模式，外买通智能测算系统，将会根据品牌方营业数据、品类、商圈等众多维度，进行智能测算自动给出未来盈利预测，外买通以系统预测数据为基准，托管期间为品牌方提升至预测数据则按月收取4%实际到账佣金，相反则不抽取任何费用</view>
+  <view class='submit-btn' bindtap='submit'>提交运营申请</view>
+</view>

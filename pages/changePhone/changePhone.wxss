@@ -27,6 +27,9 @@
   vertical-align: top;
   margin-right: 34rpx
 }
+.provings-view:nth-child(1) .title{
+  margin-right: 4rpx
+}
 .provings-view input{
   display: inline-block;
   height: 80rpx;

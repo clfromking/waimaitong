@@ -1,0 +1,144 @@
+<!--pages/operatingCharts/operatingCharts.wxml-->
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#256ef6" status-bgcolor="#256ef6" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<view class='header'>
+  <view class='header-nav clear'>
+    <view bindtap='changeHeaderNav' data-id='0' class='left {{selectHeaderNav==0?"selectHeaderNav":""}}'>日报</view>
+    <view bindtap='changeHeaderNav' data-id='1' class='right {{selectHeaderNav==1?"selectHeaderNav":""}}'>月报</view>
+  </view>
+</view>
+<view class='body'>
+
+  <scroll-view scroll-x="{{true}}" class='clear'>
+    <view wx:for="{{times}}"  wx:key="item">
+      <text>{{item}}</text>
+    </view>
+  </scroll-view>
+
+  <view class='division'></view>
+  <view class='store clear'>
+    <text class='left'>龙大虾（望京商业中心店）</text>
+    <image class='right' src='http://pk1897l3c.bkt.clouddn.com/all/arrows_blue.png'></image>
+  </view>
+
+  <view class='operating-survey-title clear'>
+    <text class='left'>运营概况</text>
+    <text class='right'>服务编号：LDX20180701177</text>
+  </view>
+
+  <view class='operating-survey'>
+    <view class='surver-title'>月总交易额</view>
+    <view class='surver-money'>
+      <text>¥</text>
+      <text>70664.00</text>
+    </view>
+    <view class='surver-point'>较上月上涨9%</view>
+  </view>
+
+  <view class='detail'>
+    <view class='detail-options'>
+      <view>
+        <image class='logo' src='http://pk1897l3c.bkt.clouddn.com/all/mtlogo.png'></image>
+        <view class='yellow'>美团外卖交易额</view>
+        <view class='detail-money'>¥1423.00</view>
+      </view>
+      <view>
+        <image class='logo' src='http://pk1897l3c.bkt.clouddn.com/all/elmlogo.png'></image>
+        <view class='blue'>饿了么交易额</view>
+        <view class='detail-money'>¥1423.00</view>
+      </view>
+    </view>
+    <view class='division1'></view>
+    <view class='all-total'>
+      <view class='item-total'>
+        <view class='item-total-title'>损单总计</view>
+        <view>
+          <text class='item-icon-green'></text>
+          <text class='item-nums'>10/260.00</text>
+        </view>
+        <view>
+          <text class='item-icon-blue'></text>
+          <text class='item-nums'>10/260.00</text>
+        </view>
+        <view>
+          <text class='item-point-text'>较上月1.21%</text>
+          <image class='item-point-icon' src='http://pk1897l3c.bkt.clouddn.com/all/icon_shang.png'></image>
+        </view>
+      </view>
+      <view class='item-total'>
+        <view class='item-total-title'>活动支出总计</view>
+        <view>
+          <text class='item-icon-green'></text>
+          <text class='item-nums'>10/260.00</text>
+        </view>
+        <view>
+          <text class='item-icon-blue'></text>
+          <text class='item-nums'>10/260.00</text>
+        </view>
+        <view>
+          <text class='item-point-text'>较上月1.21%</text>
+          <image class='item-point-icon' src='http://pk1897l3c.bkt.clouddn.com/all/icon_shang.png'></image>
+        </view>
+      </view>
+      <view class='item-total'>
+        <view class='item-total-title'>实际到账总计</view>
+        <view>
+          <text class='item-icon-green'></text>
+          <text class='item-nums'>10/260.00</text>
+        </view>
+        <view>
+          <text class='item-icon-blue'></text>
+          <text class='item-nums'>10/260.00</text>
+        </view>
+        <view>
+          <text class='item-point-text'>较上月1.21%</text>
+          <image class='item-point-icon' src='http://pk1897l3c.bkt.clouddn.com/all/icon_shang.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='charts'>
+    <view class='charts-title'>运营曲线</view>
+    <view class='charts-nav'>
+
+    </view>
+  </view>
+  <view class='canvas-view'>
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+  </view>       
+  
+  <view class='brokerage'>
+    <view class='charts-title'>佣金数据</view>
+    <view class='brokerageMsg'>
+      <view class='brokerageRadius'>
+        <view class='brokerage-title'>今日佣金</view>
+        <view class='brokerage-money'>¥581</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='evaluate'>
+    <view class='charts-title'>我要评价</view>
+    <view class='evaluate-body'>
+
+      <view class='scoresView'>
+        <text class='scoreTitle'>综合服务打分</text>
+        <text bindtap='mark' data-id='0' data-index='{{index}}' class='scores {{item?"selectScore":""}}' wx:for="{{service_score}}" wx:key="item"></text>
+      </view>
+      <view class='scoresView'>
+        <text class='scoreTitle'>专业能力打分</text>
+        <text bindtap='mark' data-id='1' data-index='{{index}}' class='scores {{item?"selectScore":""}}' wx:for="{{ability_score}}" wx:key="item"></text>
+      </view>
+      <view class='scoresView'>
+        <text class='scoreTitle'>响应速度打分</text>
+        <text bindtap='mark' data-id='2' data-index='{{index}}' class='scores {{item?"selectScore":""}}' wx:for="{{speed_score}}" wx:key="item"></text>
+      </view>
+
+      <textarea bindinput='inputTextArea' maxlength='200' value='{{textArea}}' placeholder='请您填写对运营经理的书面评价' placeholder-style='color:#ccc'></textarea>
+      <cover-view class='cover-view'>{{textArea.length}}/200</cover-view>
+      <view class='submit'>提交</view>
+      <view class='complain'>投诉</view>
+    </view>
+  </view>
+
+</view>

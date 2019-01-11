@@ -9,7 +9,16 @@ Page({
     header_alts: [
       { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon1.png", "text": "海量折扣" }, 
       { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon2.png", "text": "低至0元" },
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon3.png", "text": "外卖运营" }]
+      { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon3.png", "text": "外卖运营" }],
+    items: [
+      { name: 'USA', value: '美国' },
+      { name: 'CHN', value: '中国', checked: 'true' },
+      { name: 'BRA', value: '巴西' },
+      { name: 'JPN', value: '日本' },
+      { name: 'ENG', value: '英国' },
+      { name: 'TUR', value: '法国' },
+    ],
+    isMember:false
 
   },
 
@@ -45,9 +54,26 @@ Page({
   },
 
   dredgeMember:function(){
-    wx.navigateTo({
-      url: '../dredge/dredge',
-    })
+    console.log(app.globalData.accessToken)
+    app.globalData.isAuthDone=1
+    // app.globalData.accessToken=1
+    if(!app.globalData.accessToken){
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+    else if (app.globalData.isAuthDone==0){
+      wx.navigateTo({
+        url: '../identityConfirm/identityConfirm',
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '../dredge/dredge',
+      })
+    }
+    console.log(app.globalData.isAuthDone)
+    
   },
 
   /**
@@ -68,7 +94,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // app.globalData.isMember = 1
+    if(app.globalData.isMember==0||!app.globalData.isMember){
+      this.setData({
+        isMember:false
+      })
+    }
+    else{
+      this.setData({
+        isMember: true
+      })
+    }
   },
 
   /**

@@ -1,0 +1,8 @@
+/* pages/identityConfirm/identityConfirm.wxss */
+.itemImg{
+  width: 200rpx;
+  height: 200rpx;
+  display: block;
+  border-radius: 50%;
+  background: aqua
+}

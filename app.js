@@ -15,7 +15,8 @@ App({
           'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
-          // resolve(res)
+          resolve(res)
+          
           if(res.data.code==401){
             wx.showToast({
               title: '登陆超时，请重新登陆',
@@ -31,7 +32,7 @@ App({
             
           }
           else if (res.data.code == 200) {
-            resolve(res)
+            // resolve(res)
           }
           else if((Number(res.data.code)>=1&&Number(res.data.code)<=199)||(Number(res.data.code)>=500&&Number(res.data.code)<=9999)){
             wx.showToast({
@@ -42,6 +43,11 @@ App({
             })
           }
           else if (Number(res.data.code)>=300&&Number(res.data.code)<=499){
+            // resolve(res)
+            reject(res)
+            if (Number(res.data.code)==404){
+              return
+            }
             wx.showToast({
               title: res.data.msg,
               icon: 'none',
@@ -100,6 +106,10 @@ App({
             })
           }
           else if (Number(res.data.code) >= 300 && Number(res.data.code) <= 499) {
+            reject(res)
+            if (Number(res.data.code) == 404) {
+              return
+            }
             wx.showToast({
               title: res.data.msg,
               icon: 'none',
@@ -131,6 +141,7 @@ App({
           resolve(res)
         },
         fail: function (res) {
+          console.log(res)
           wx.getSetting({
             success(res) {
               if (res.authSetting["scope.userLocation"]) {
@@ -151,15 +162,29 @@ App({
   onLaunch: function () {
     var that=this
     let userInfo=wx.getStorageSync('userInfo')
-    console.log(userInfo)
+    // console.log(userInfo)
     if (userInfo){
       that.globalData.accessToken = userInfo.accessToken
+      let postData={"accessToken":userInfo.accessToken}
+      that.postData('/wechat/login/token',postData).then((res)=>{
+        that.globalData=res.data.data
+        wx.getSystemInfo({
+          success: function (res) {
+            that.globalData.double = 750 / res.screenWidth
+            that.globalData.statusBarHeight = Number(res.statusBarHeight)
+            // console.log(that.globalData)
+          }
+        })
+      })
     }
     wx.getSystemInfo({
       success: function (res) {
+        that.globalData.double = 750 / res.screenWidth
         that.globalData.statusBarHeight = Number(res.statusBarHeight)
+        // console.log(that.globalData)
       }
     })
+    
 
 
     
@@ -176,6 +201,9 @@ App({
 
   globalData: {
     userInfo: null,
-    accessToken:""
+    accessToken:"",
+    double:2
   }
 })
+
+

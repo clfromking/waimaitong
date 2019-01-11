@@ -1,0 +1,121 @@
+/* pages/operatingState/operatingState.wxss */
+page{
+  background: #f6f6f6;
+  position: relative
+}
+.header{
+  height: 508rpx;
+  background: url('http://pk1897l3c.bkt.clouddn.com/operatingState/state_bg1.png') no-repeat;
+  background-size: 100% 100%;
+  padding-top: 20rpx;
+  box-sizing: border-box
+} 
+.h1,.h3{
+  font-size: 60rpx;
+  color: #fff;
+  text-align: center;
+}
+.h3{
+  font-size: 36rpx;
+  margin-top: 18rpx
+}
+.body{
+  height: 1990rpx;
+  position: relative;
+  width: 670rpx;
+  top:-306rpx;
+  left: 40rpx;
+  background: url('http://pk1897l3c.bkt.clouddn.com/operatingState/state_bg2.png') no-repeat;
+  background-size: 100% 100%;
+  /* background: red; */
+}
+.body view{
+  display: inline-block;
+  position: absolute
+}
+.blue{
+  color: #256ef6;
+  font-size: 56rpx;
+  margin-right: 13rpx;
+  font-weight: bold
+}
+.postfix{
+  font-size: 24rpx;
+  color: #2d2d2d
+}
+.body view:nth-child(1){
+  top: 80rpx;
+  left: 80rpx
+}
+.body view:nth-child(2){
+  top: 152rpx;
+  left: 80rpx;
+  font-size: 24rpx
+}
+.body view:nth-child(3){
+  top: 206rpx;
+  left: 80rpx;
+
+}
+.body view:nth-child(4){
+  top: 294rpx;
+  left: 80rpx;
+  font-size: 24rpx
+}
+.body view:nth-child(5){
+  top: 348rpx;
+  left: 80rpx
+}
+.body view:nth-child(6){
+  top: 436rpx;
+  left: 80rpx;
+  font-size: 24rpx
+}
+.body-title{
+  font-size: 28rpx;
+  color: #2d2d2d;
+  font-weight: bold
+}
+.body-state{
+  font-size: 20rpx;
+  color: #5a5a5a;
+  width: 600rpx;
+  text-indent: 1em;
+  text-align: justify;
+}
+.body view:nth-child(7){
+  top: 866rpx;
+  left: 36rpx
+}
+.body view:nth-child(8){
+  top: 930rpx;
+  left: 36rpx
+}
+.body view:nth-child(9){
+  top: 1266rpx;
+  left: 36rpx
+}
+.body view:nth-child(10){
+  top: 1330rpx;
+  left: 36rpx
+}
+.body view:nth-child(11){
+  top: 1666rpx;
+  left: 36rpx
+}
+.body view:nth-child(12){
+  top: 1730rpx;
+  left: 36rpx
+}
+.submit-btn{
+  width: 606rpx;
+  height: 68rpx;
+  border-radius: 8rpx;
+  background: #256ef6;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  bottom: 40rpx;
+  left:36rpx;
+  line-height: 68rpx
+}

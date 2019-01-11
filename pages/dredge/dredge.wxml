@@ -17,7 +17,7 @@
         <view style='display:inline-block'>
           <view>到期自动续费包月卡</view>
           <view>
-            <text style='color:#afc7a2'>续费协议</text>可随时取消
+            <text style='color:#afc7a2' bindtap='goAgree'>续费协议</text>可随时取消
           </view>
         </view>
         <image class='alts-icon' mode='widthFix' src='../img/b12.png'></image>
@@ -31,50 +31,51 @@
 
       <view class='forms-item'>
         <view class='forms-title'>手机号码</view>
-        <input placeholder="13833344444"></input>
-        <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view>
+        <input disabled='{{true}}' value='{{mobile}}'></input>
+        <view hidden='{{true}}' style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view>
       </view>
 
       <view class='forms-item'>
         <view class='forms-title'>真实姓名</view>
-        <input placeholder-class="place-font" style='width:512rpx' placeholder="请输入您真实姓名，以便我们及时与您取得联系"></input>
+        <input disabled='{{true}}' placeholder-class="place-font" style='width:512rpx' value='{{name}}' placeholder="请输入您真实姓名，以便我们及时与您取得联系"></input>
         <!-- <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view> -->
       </view>
 
       <view class='forms-item'>
         <view class='forms-title'>所在地区</view>
-        <input placeholder-class="place-font" placeholder="请选择所在地区"></input>
-        <image class='go-address right' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+        <input disabled='{{true}}' style='width:512rpx' placeholder-class="place-font" value='{{poiBasicData.province}}{{poiBasicData.city}}{{poiBasicData.districts}}{{poiBasicData.street}}' placeholder="请选择所在地区"></input>
+        <image hidden='{{true}}' class='go-address right' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
       </view>
 
       <view class='forms-item'>
         <view class='forms-title'>店铺位置</view>
-        <input placeholder-class="place-font" placeholder="请输入店铺详细位置"></input>
+        <input disabled='{{true}}' placeholder-class="place-font" value='{{poiBasicData.address}}' placeholder="请输入店铺详细位置"></input>
         <!-- <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view> -->
       </view>
       
       <view class='forms-item'>
         <view class='forms-title'>品牌名称</view>
-        <input placeholder-class="place-font" placeholder="如 真功夫（中关村南路店）"></input>
+        <input disabled='{{true}}' placeholder-class="place-font" value='{{poiBasicData.brandName}}' placeholder="如 真功夫（中关村南路店）"></input>
         <!-- <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view> -->
       </view>
 
-      <view class='forms-item'>
+      <!-- <view class='forms-item'>
         <view class='forms-title'>品牌属性</view>
-        <input></input>
+        <input></input> -->
         <!-- <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view> -->
-      </view>
+      <!-- </view> -->
 
-      <view class='forms-item'>
+      <!-- <view class='forms-item'>
         <view class='forms-title'>经营品类</view>
-        <input></input> 
+        <input></input>  -->
         <!-- <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view> -->
-      </view>
+      <!-- </view> -->
 
 
     </view>
 
-    <view class="pay" bindtap='goPay'>立即支付{{pay_money}}元</view>
-    <view class='pay-hint'>开通即表示同意<text style='color:#96b187'>《外卖通会员协议》</text></view>
+    
   </view>
+  <view class="pay" bindtap='goPay'>立即支付{{pay_money}}元</view>
+  <view class='pay-hint'>开通即表示同意<text style='color:#96b187'>《外卖通会员协议》</text></view>
 </view>

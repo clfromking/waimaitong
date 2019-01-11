@@ -8,7 +8,14 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }  */
+navtitle{
+  /* position: fixed; */
+  /* top: 0  */
+}
 .container{
+}
+view[hidden]{
+  display: none !important
 }
 .left{
   float: left
@@ -31,6 +38,12 @@
 }
 .red{
   color: #dd0000
+}
+.blue{
+  color: #256ef6
+}
+.yellow{
+  color: #ffb92c
 }
 .showPassword-view{
   width: 478rpx;

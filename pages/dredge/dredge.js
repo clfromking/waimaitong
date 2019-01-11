@@ -31,12 +31,21 @@ Page({
     })
   },
 
+  goAgree: function () {
+    wx.navigateTo({
+      url: '../renewAgreement/renewAgreement',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(app.globalData)
+    this.setData(app.globalData)
+    app.getData('/card/list?accessToken='+app.globalData.accessToken).then((res)=>{
+      console.log(res)
+    })
   },
 
   /**

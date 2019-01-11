@@ -55,12 +55,38 @@ Page({
   },
 
   goNav:function(e){
-    if(app.globalData.accessToken){
+    app.globalData.isAuthDone = 1
+    // wx.navigateTo({
+    //   url: '../applyFor/applyFor?type=operating',
+    // })
+    // return
+    if(!app.globalData.accessToken){
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+    else if(app.globalData.accessToken&&app.globalData.isAuthDone==0){
+      wx.navigateTo({
+        url: '../identityConfirm/identityConfirm',
+      })
+    }
+    else if (app.globalData.accessToken && app.globalData.isAuthDone == 1){
       switch (e.currentTarget.dataset.id) {
         case 0:
-          wx.navigateTo({
-            url: '../test/test',
+          app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
+            console.log(res)
+            wx.navigateTo({
+              url: '../successApplyFor/successApplyFor?type=freeShop',
+            })
+            
+          }).catch((error) => {
+            console.log(error)
+            wx.navigateTo({
+              url: '../applyFor/applyFor?type=freeShop',
+            })
+            
           })
+
           break;
         case 1:
           wx.navigateTo({
@@ -68,15 +94,29 @@ Page({
           })
           break;
         case 2:
+          app.getData('/go/yunying/get?accessToken=' + app.globalData.accessToken).then((res) => {
+            if (res.data.data.auditStatus == 2) {
+              wx.navigateTo({
+                url: '../operatingCharts/operatingCharts',
+              })
+              return
+            }
+            wx.navigateTo({
+              url: '../successApplyFor/successApplyFor?type=operating',
+            })
+          }).catch((error) => {
+            console.log(error)
+            wx.navigateTo({
+              url: '../operatingState/operatingState',
+            })
+          })
+          // wx.navigateTo({
+          //   url: '../applyFor/applyFor?type=operating',
+          // })
           break;
         case 3:
           break;
-      }
-    }
-    else{
-      wx.navigateTo({
-        url: '../login/login',
-      })
+      }     
     }
     
   },
@@ -86,8 +126,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    console.log(options)
     // wx.navigateTo({
     //   url: '../login/login',
     // })
@@ -114,8 +152,7 @@ Page({
     }
     wx.getStorage({
       key: 'userInfo',
-      success: (res)=>{
-        console.log(res)
+      success: (res)=>{ 
         this.setData({
           nickName: res.data.nickName,
           avatarUrl:res.data.avatarUrl

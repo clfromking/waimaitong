@@ -69,7 +69,7 @@ page{
 	background-color: #eeeeee;
 }
 .body{
-  height: 654rpx;
+  /* height: 654rpx; */
   background: #fff;
   font-size: 30rpx;
   color: #333;

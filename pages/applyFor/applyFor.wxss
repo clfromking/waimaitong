@@ -1,0 +1,154 @@
+/* pages/applyFor/applyFor.wxss */
+page{
+  padding-bottom: 50rpx
+}
+.container{
+  padding: 0 40rpx
+}
+input{
+  display: inline-block;
+  /* background: aqua; */
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx
+}
+picker{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  width: 450rpx
+}
+.item{
+  height: 80rpx;
+  border-bottom: 2rpx solid #d2d2d2
+}
+.address{
+  display: block;
+  font-size: 24rpx
+}
+.item-title{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #5a5a5a;
+  vertical-align: top
+}
+.title{
+  color: #2d2d2d;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 20rpx 0;
+}
+.sub,.add{
+  width: 24rpx;
+  height: 24rpx;
+  display: inline-block;
+  border: 4rpx solid #abca9a;
+  border-radius: 50%;
+  vertical-align: top;
+  margin-top: 24rpx
+}
+.number-input{
+  font-size: 28rpx;
+  color: #ccc;
+  width: 80rpx;
+  text-align: center
+}
+.selectView view,.selectView text{
+  line-height: 80rpx;
+  font-size: 20rpx;
+  color: #ccc;
+  display: inline-block
+}
+.selectView-title{
+  font-size: 24rpx !important;
+  color: #5a5a5a !important;
+  margin-right: 38rpx
+}
+.item-picker-title{
+  margin-right: 20rpx
+}
+.numberView{
+  margin: 20rpx 0 40rpx;
+  border: none
+}
+.nameView input{
+  padding-left: 126rpx
+}
+.phoneView input{
+  padding-left: 70rpx
+}
+.codeView input{
+  padding-left: 42rpx
+}
+.nameView input,.phoneView input,.codeView input{
+  width: 300rpx
+}
+.getCode{
+  width: 146rpx;
+  height: 56rpx;
+  background: #abca9a;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 56rpx;
+  color: #fff;
+  font-size: 24rpx;
+  margin-top: 12rpx
+}
+.submit{
+  width: 100%;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 36rpx;
+  background: #abca9a;
+  border-radius: 16rpx;
+  margin-top:20rpx 
+}
+
+
+.radios{
+  border: 2rpx solid #d2d2d2;
+  display: inline-block;
+  width: 28rpx;
+  height: 28rpx;
+  position: relative;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 18rpx
+}
+.selectRadio{
+  width: 16rpx;
+  height: 16rpx;
+  display: inline-block;
+  background: #abca9a;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%
+}
+
+.item-radio{
+  display: inline-block;
+  margin-right: 40rpx
+}
+
+.item-radio:last-child{
+  margin: 0
+}
+.select{
+  font-size: 24rpx;
+  color: #000;
+  opacity: 0.2;
+  line-height: 80rpx
+}
+
+.submit-blue,.getCode-blue{
+  background: #256ef6
+}

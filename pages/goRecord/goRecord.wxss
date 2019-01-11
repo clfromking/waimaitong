@@ -1,0 +1,44 @@
+/* pages/goRecord/goRecord.wxss */
+.clear{
+  height: 176rpx;
+  background: #fcfcfc;
+  padding: 0 44rpx 0 52rpx;
+  /* box-sizing: border-box */
+}
+.img{
+  width: 60rpx;
+  height: 52rpx;
+  display: block;
+  padding-top: 62rpx
+  /* margin-top: 62rpx */
+}
+.alts{
+  height: 176rpx;
+  position: relative;
+  margin-left: 44rpx
+}
+.title{
+  position: absolute;
+  top: 58rpx;
+  font-size: 36rpx;
+  color: #2d2d2d;
+  width: 300rpx
+}
+.time{
+  position: absolute;
+  top: 106rpx;
+  font-size: 20rpx;
+  width: 300rpx;
+  color: #5a5a5a
+}
+.goDetail{
+  height: 44rpx;
+  width: 116rpx;
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 20rpx;
+  background: #abca9a;
+  margin-top: 66rpx;
+  text-align: center;
+  line-height: 44rpx
+}

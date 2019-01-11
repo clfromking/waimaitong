@@ -1,0 +1,141 @@
+/* pages/freeshopApplyDetail/freeshopApplyDetail.wxss */
+.container{
+  width: 670rpx;
+  margin: 0 auto;
+  /* height: 1000rpx; */
+  /* background: red */
+}
+.header,.header-bottom{
+  font-size: 24rpx;
+  color: #5a5a5a;
+  height: 188rpx;
+  border-bottom: 8rpx solid #f6f6f6
+}
+.header view,.header-bottom view{
+  margin-top: 14rpx
+}
+.header view:nth-child(1){
+  color: #2d2d2d;
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-top: 38rpx
+}
+.header view:nth-child(1) text:first-child{
+  margin-right: 32rpx
+}
+.header-bottom view:nth-child(1){
+  
+  font-size: 24rpx;
+  margin-top: 38rpx
+}
+.audit-view{
+  border-bottom: 8rpx solid #f6f6f6
+}
+.audit-view text{
+  display: inline-block;
+  height: 98rpx;
+  line-height: 98rpx;
+  font-size: 24rpx;
+  color: #5a5a5a
+}
+.reason{
+  height: 296rpx;
+  border-bottom: 8rpx solid #f6f6f6
+}
+.reason-title{
+  font-size: 28rpx;
+  color: #2d2d2d;
+  padding-top: 32rpx;
+  /* margin-top: 32rpx; */
+  font-weight: bold;
+  margin-bottom: 20rpx
+}
+.reason-body{
+  width: 100%;
+  height: 108rpx;
+  background: #abca9a;
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 24rpx;
+  position: relative;
+  /* box-sizing: border-box;
+  padding: 21rpx; */
+  
+}
+.reason-body view{
+  width: 630rpx;
+  height: 64rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.reason-alt{
+  color: #5a5a5a;
+  font-size: 20rpx;
+  width: 540rpx;
+  margin: 24rpx 0 0 20rpx
+}
+.answer-title{
+  font-size: 28rpx;
+  color: #2d2d2d;
+  font-weight: bold;
+  padding-top: 32rpx
+}
+.answer-content{
+  font-size: 20rpx;
+  letter-spacing: 1rpx;
+  color: #2d2d2d;
+  padding-bottom: 130rpx  ;
+  width: 610rpx
+}
+.answer-question{
+  margin-top: 20rpx
+}
+.Answer{
+  text-indent: 2em
+}
+.footer{
+  height: 96rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  background: #f6f6f6;
+}
+.footer .left{
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 28rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  margin-left: 40rpx
+
+  /* display: none */
+}
+.footer .right{
+  width: 128rpx;
+  height: 56rpx;
+  border-radius: 8rpx;
+  background: #abca9a;
+  text-align: center;
+  line-height: 56rpx;
+  font-size: 24rpx;
+  color: #2d2d2d;
+  z-index: 9999;
+  margin-right: 40rpx;
+  margin-top: 20rpx
+}
+.Green{
+  color: #ABCA9A !important;
+}
+.Red{
+  color: #FF6959 !important;
+}

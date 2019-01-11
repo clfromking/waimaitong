@@ -19,8 +19,13 @@ Page({
     console.log(this)
     app.getData('/poi/material/list?accessToken=' + app.globalData.accessToken).then((res)=>{
       console.log(res.data.data)
+      var data=res.data.data
+      for(let i=0;i<data.length;i++){
+        data[i].memberPrice=(Number(data[i].memberPrice)/100).toFixed(2)
+        data[i].price = (Number(data[i].price) / 100).toFixed(2)
+      }
       this.setData({
-        decorate_options:res.data.data
+        decorate_options:data
       })
     })
   },

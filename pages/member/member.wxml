@@ -1,7 +1,7 @@
 <!--pages/member/member.wxml-->
 <!-- <scroll-view scroll-y style='height:100vh;position:fixed;top:0;margin-bottom:66rpx'> -->
 <navtitle status-height="{{statusHeight}}" bg-img="linear-gradient(94deg, #c0a069 0%, #d5bb8b 58%, #e9d5ac 100%);"></navtitle>
-<view hidden='true'>
+<view hidden='{{isMember}}'>
   <view style='position:relative'>
     <view class='jw-member-header'>
     </view>
@@ -76,7 +76,9 @@
   </view>
 </view>
 
-<view>
+
+
+<view hidden='{{!isMember}}'>
   <view style='position:relative;height:436rpx'>
     <view class='header'></view>
     <view class='memberMsg'>
