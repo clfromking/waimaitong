@@ -10,7 +10,8 @@ Page({
     navText: "身份验证",
     name:"",
     phone:"",
-    smsCode:""
+    smsCode:"",
+    typeId:0
   },
 
   inputMsg:function(e){
@@ -58,7 +59,14 @@ Page({
     }
     else{
       var postData = { "accessToken": app.globalData.accessToken, "mobile": this.data.phone,"name":this.data.name,"smsCode":this.data.smsCode}
-      app.postData('/setting/auth/boss/mobile', postData).then((res) => {
+      var url=""
+      if(this.data.typeId==0){
+        url = "/setting/auth/boss/mobile"
+      }
+      else{
+        url = "/setting/auth/employee/mobile"
+      }
+      app.postData(url, postData).then((res) => {
         console.log(res)
       })
     }
@@ -68,7 +76,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.typeId)
+    this.setData({
+      typeId:options.typeId
+    })
   },
 
   /**

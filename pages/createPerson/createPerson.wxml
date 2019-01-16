@@ -1,0 +1,20 @@
+<!--pages/createPerson/createPerson.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+
+<view class='container' hidden='{{isSuccess}}'>
+  <view class='item'>
+    <view class='title'>成员真实姓名</view>
+    <input value='{{name}}' bindinput='inputMsg' data-id='0' placeholder='请填写' placeholder-style='color:#bababa'></input>
+  </view>
+  <view class='item'>
+    <view class='title'>成员手机号码</view>
+    <input value='{{mobile}}' bindinput='inputMsg' data-id='1' placeholder='请输入' type='number' maxlength='11' placeholder-style='color:#bababa'></input>
+  </view>
+  <view class='create' bindtap='createPerson'>完成创建</view>
+</view>
+
+<view class='success' hidden='{{!isSuccess}}'>
+  <image src='http://pk1897l3c.bkt.clouddn.com/createPerson/success.png' mode='widthFix' class='successImg'></image>
+  <view class='successTitle'>创建成功</view>
+  <view class='successAlt'>该成员登录时系统会自动验证其身份</view>
+</view>

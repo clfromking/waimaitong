@@ -12,7 +12,7 @@
   </view>
 </view>
 
-<view class='jw-orders-view' wx:if="{{islogin}}">
+<view class='jw-orders-view' wx:if="{{islogin&&!isNothing}}">
   <view class='jw-order-item' wx:for="{{orders}}" wx:key="item">
     <view class='jw-order-item-top clear'>
       <view class='left jw-order-time'>{{item.createTime}}</view>
@@ -44,4 +44,12 @@
       </view>
     </view>
   </view>
+</view>
+
+
+ 
+<view class='noOrder' wx:if="{{islogin&&isNothing}}">
+  <image class='nothing' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/order/nothing.png'></image>
+  <view class='nothing-title'>当前没有订单记录</view>
+  <view bindtap='placeOrder' class='nothing-btn'>现在下单</view>
 </view>

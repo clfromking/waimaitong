@@ -1,16 +1,17 @@
 {
-  "pages":[   "pages/identityConfirm/identityConfirm",
+  "pages":[   "pages/biddingTop/biddingTop","pages/biddingAgree/biddingAgree",
     "pages/index/index",
     "pages/member/member",
     "pages/order/order",
     "pages/my/my",
+    
     "pages/setMemberMsg/setMemberMsg",
     "pages/zeroRushAll/zeroRushAll",
     "pages/renewAgreement/renewAgreement",
     "pages/operatingCharts/operatingCharts",
     "pages/operatingState/operatingState",
     "pages/identityVerify/identityVerify",
-    
+    "pages/identityConfirm/identityConfirm",
     "pages/freeshopApplyDetail/freeshopApplyDetail",
     "pages/goRecord/goRecord",
     "pages/applyFor/applyFor",
@@ -29,6 +30,8 @@
     "pages/dredge/dredge",
     "pages/test/test",
     "pages/set/set",
+    "pages/personAdmin/personAdmin",
+    "pages/createPerson/createPerson",
     "pages/authorization/authorization",
     "pages/storeDecorate/storeDecorate",
     "pages/about/about",
@@ -61,8 +64,6 @@
     "navigationBarTitleText": "WeChat",
     "navigationStyle": "custom",
     "navigationBarTextStyle":"black"
-    
-
   },
   "tabBar":{
     "color":"#000",

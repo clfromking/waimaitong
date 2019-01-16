@@ -1,0 +1,35 @@
+<!--pages/personAdmin/personAdmin.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+
+<view class='container' hidden='{{isNothing}}'>
+  <view class='item clear' wx:for="{{person_list}}" wx:key="item">
+    <view class='left'>
+      <view class='mainView clear'>
+        <image src='{{item.avatarUrl}}' class='avatarUrl left'></image>
+        <view class='right'>
+          <view class='nameView'>
+            <text class='name'>{{item.name}}</text>
+            <image src='http://pk1897l3c.bkt.clouddn.com/personAdmin/dy.png' class='identity'></image>
+          </view>
+          <view class='login-type'>微信登录</view>
+        </view>
+      </view>
+      <view class='item-time'>{{item.createTime}} 创建</view>
+    </view>
+    <view class='right'>
+      <view class='btnsView'>
+        <view class='transfer' data-id='{{item.id}}' bindtap='transfer'>转让老板权</view>
+        <view class='remove' data-id='{{item.id}}' bindtap='remove'>移除此人</view>
+      </view>
+    </view>
+  </view>
+
+  <view bindtap='createPerson' class='createPerson'>创建店铺成员</view>
+</view>
+
+
+<view class='nothing' hidden='{{!isNothing}}'>
+  <image class='nothingImg' src='http://pk1897l3c.bkt.clouddn.com/personAdmin/nothing.png' mode='widthFix'></image>
+  <view class='nothingTitle'>还没有成员信息</view>
+  <view class='goCreate' bindtap='createPerson'>现在创建</view>
+</view>

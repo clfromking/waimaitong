@@ -1,0 +1,19 @@
+<!--pages/biddingTop/biddingTop.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+
+<view class='container'>
+  <view class='balance-title'>可用余额</view>
+  <view class='balance-money'><text>¥</text><text style='font-size:76rpx'>100元</text></view>
+  <view class='list clear'>
+    <view class='item left' bindtap='select' data-index='{{index}}' wx:for="{{money_list}}" wx:key="item">
+      <text  class='item-text {{isSelect==index?"isSelect":""}}' hidden='{{index==8}}'>{{item}}元</text>
+      <input value='{{money}}' placeholder='其他金额' placeholder-style='color:#b0b0b0' hidden='{{index!==8}}'></input>
+    </view>
+  </view>
+  <view class='hint'>*此充值尽可用作外卖店铺竞价推广</view>
+  <view class='footer'>
+    <view class='topRecord'>充值记录</view>
+    <view class='agreement'>点击立即购买，既表示您已阅读并同意<text style='color:#000029' bindtap='goBiddingAgree'>《外卖平台竞价排名充值协议》</text></view>
+    <view class='topBtn'>立即充值</view>
+  </view>
+</view>

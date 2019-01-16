@@ -1,0 +1,63 @@
+/* pages/createPerson/createPerson.wxss */
+.container{
+  width: 590rpx;
+  height: 576rpx;
+  padding: 0 40rpx;
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 44rpx 0 rgba(199,199,199,0.20);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto
+}
+.title{
+  font-size: 36rpx;
+  color: #2d2d2d;
+  font-weight: bold
+}
+input{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  margin-top: 18rpx
+}
+.item{
+  border-bottom: 4rpx solid #fbfbfb
+}
+.item:nth-child(1) .title{
+  margin-top: 40rpx
+}
+.item:nth-child(2) .title{
+  margin-top: 48rpx
+}
+.create{
+  width: 536rpx;
+  height: 90rpx;
+  border-radius: 8rpx;
+  background: #256ef6;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  text-align: center;
+  margin: 58rpx auto 0
+}
+
+.successImg{
+  width: 420rpx;
+  height: 520rpx;
+  display: block;
+  margin: 98rpx auto 104rpx
+}
+.successTitle{
+  font-size: 40rpx;
+  color: #a6c797;
+  text-align: center
+}
+.successAlt{
+  font-size: 24rpx;
+  color: #5a5a5a;
+  text-align: center;
+  margin-top: 36rpx
+}

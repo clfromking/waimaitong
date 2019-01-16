@@ -185,3 +185,25 @@ page{
   width: 148rpx;
   text-align: center
 }
+.nothing{
+  width: 491rpx;
+  height: 514rpx;
+  display: block;
+  margin: 98rpx auto 110rpx
+}
+.nothing-title{
+  color: #a6c797;
+  font-size: 40rpx;
+  text-align: center;
+}
+.nothing-btn{
+  width: 160rpx;
+  height: 48rpx;
+  border-radius: 8rpx;
+  background: #ffcc65;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 48rpx;
+  margin: 44rpx auto 0
+}

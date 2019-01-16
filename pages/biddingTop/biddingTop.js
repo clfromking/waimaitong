@@ -1,4 +1,4 @@
-// pages/identityConfirm/identityConfirm.js
+// pages/biddingTop/biddingTop.js
 const app = getApp()
 Page({
 
@@ -7,13 +7,22 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "身份选择",
+    navText: "竞价充值",
+    money_list: ["200", "300", "500", "1000", "3000", "5000", "10000", "20000", "",],
+    isSelect:0,
+    money:""
   },
 
-  goIdentity:function(e){
-    // console.log(e.currentTarget.dataset.id)
+  select:function(e){
+    this.setData({
+      isSelect:e.currentTarget.dataset.index,
+      money:""
+    })
+  },
+
+  goBiddingAgree:function(){
     wx.navigateTo({
-      url: '../identityVerify/identityVerify?typeId='+e.currentTarget.dataset.id,
+      url: '../biddingAgree/biddingAgree',
     })
   },
 

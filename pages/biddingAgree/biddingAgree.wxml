@@ -1,0 +1,37 @@
+<!--pages/biddingAgree/biddingAgree.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+
+<view class='container'>
+  <view class='content'>尊敬的商户，为保障您的合法权益，请您在点击“立即购买”按钮前，完整、仔细地阅读本购买协议。当您继续点击“立即购买”按钮，即视为您已阅读、理解本协议，并同意按本协议规定执行。</view>
+  <view class='title'>1、购买方式</view>
+  <view class='content'>您只能通过外卖通应用程序客户端在线购买，如您通过外卖通应用程序外其它渠道进行购买时，外卖通将默认您的购买为无效行为，外卖通有权停止您的店铺加速工作，且有权冻结您的外卖通账户，冻结期您的外卖通账户全部金额不予退还，如出现情节恶略者，外卖通有权向执法部门进行报案。</view>
+  <view class='title'>2、使用途径</view>
+  <view class='content'>您本次购买为外卖通竞价推广卡，该卡为外卖通为商户在品牌加速期间提供的，外卖平台购买品牌竞价排名所用。您购买此卡后，既表示外卖通可为您的店铺在外卖平台推广，做出合理推广计划，且推广金额由外卖通加速工作人员，按您品牌的加速计划进行外卖平台充值，保障您的推广利益最大化。</view>
+  <view class='title'>购买金额：您实际购买支付的金额（人民币）。</view>
+  <view class='content'>推广金额：您外卖通应用程序客户端竞价推广卡中当前显示的张数（一张为50元人民币整），竞价推广卡只能通过外卖通应用程序购买。</view>
+  <view class='title'>3、竞价推广卡仅可用于支付您的品牌在外卖通加速期间的外卖平台购买竞价排名所用，不可作为它用。</view>
+  <view class='title'>4、购买后，推广卡使用设有效期（既加速结束后无效），不能转移、转赠。</view>
+  <view class='title'>5、购买后，推广卡不能退还。请您根据品牌的实际情况购买，外卖通对购买次数不设限制。</view>
+  <view class='title'>6、发票金额根据外卖通已收到的充值金额开具。</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

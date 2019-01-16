@@ -28,3 +28,13 @@
   bottom: 0;
   margin: auto
 }
+.options{
+  width: 44rpx;
+  /* height: 44rpx; */
+}
+.optionsView,.homeView{
+  margin-left: 20rpx
+}
+.home{
+  width: 42rpx;
+}

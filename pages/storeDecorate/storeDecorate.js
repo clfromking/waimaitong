@@ -87,15 +87,28 @@ Page({
   },
 
   inputNum:function(e){
+    
     let decorate_options = this.data.decorate_options
     let append_list = this.data.append_list
-    decorate_options[e.currentTarget.dataset.id].append_num=e.detail.value
-    for (let i = 0; i < append_list.length; i++) {
-      if (decorate_options[e.currentTarget.dataset.id].id == append_list[i].id) {
-        append_list[i].append_num = e.detail.value
-        break
+    if (e.detail.value <= 0) {
+      decorate_options[e.currentTarget.dataset.id].append_num=1
+      for (let i = 0; i < append_list.length; i++) {
+        if (decorate_options[e.currentTarget.dataset.id].id == append_list[i].id) {
+          append_list[i].append_num = 1
+          break
+        }
       }
     }
+    else{
+      decorate_options[e.currentTarget.dataset.id].append_num = e.detail.value
+      for (let i = 0; i < append_list.length; i++) {
+        if (decorate_options[e.currentTarget.dataset.id].id == append_list[i].id) {
+          append_list[i].append_num = e.detail.value
+          break
+        }
+      }
+    }
+    
     this.setData({
       decorate_options,
       append_list
@@ -221,8 +234,8 @@ Page({
     })
     app.getData('/decoration/material/list?accessToken=' + app.globalData.accessToken).then((res)=>{
       var data=res.data.data
-      var data=""
-      data = [{ "id": 1, "name": "LOGO设计", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:55:07", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 1 }, { "id": 2, "name": "海报设计", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:56:07", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 2 }, { "id": 3, "name": "招牌设计", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:56:26", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 3 }, { "id": 4, "name": "菜单设置", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:56:44", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 4 }, { "id": 5, "name": "爆品梳理", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:57:07", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 5 }, { "id": 6, "name": "成本挨近", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:57:25", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 6 }, { "id": 7, "name": "主推菜品", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:57:44", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 7 }, { "id": 8, "name": "活动设置", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:58:06", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 8 }]
+      // var data=""
+      // data = [{ "id": 1, "name": "LOGO设计", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:55:07", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 1 }, { "id": 2, "name": "海报设计", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:56:07", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 2 }, { "id": 3, "name": "招牌设计", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:56:26", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 3 }, { "id": 4, "name": "菜单设置", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:56:44", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 4 }, { "id": 5, "name": "爆品梳理", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:57:07", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 5 }, { "id": 6, "name": "成本挨近", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:57:25", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 6 }, { "id": 7, "name": "主推菜品", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:57:44", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 7 }, { "id": 8, "name": "活动设置", "price": 69900, "memberPrice": 5900, "createTime": "2019-01-04 09:58:06", "coverImg": "https://pic.ibaotu.com/00/17/37/76r888piCqYe.jpg-0.jpg", "showSeq": 8 }]
       for(let i=0;i<data.length;i++){
         data[i].memberPrice=(Number(data[i].memberPrice)/100).toFixed(2)
         data[i].price = (Number(data[i].price) / 100).toFixed(2)
@@ -269,6 +282,8 @@ Page({
   onPullDownRefresh: function () {
 
   },
+
+  
 
   /**
    * 页面上拉触底事件的处理函数

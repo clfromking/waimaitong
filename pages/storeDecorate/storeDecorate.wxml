@@ -50,7 +50,7 @@
   </view>
 
   <view hidden='{{!isShowShade}}' class='alert'>
-    <view class='shade-bg' bindtap='closeShade'></view>
+    <view class='shade-bg' catchtouchmove='true' bindtap='closeShade'></view>
     <view class='append-list clear'>
       <view class='append-item' wx:for="{{append_list}}" wx:key="item">
         <view class='append-name'>{{item.name}}</view>

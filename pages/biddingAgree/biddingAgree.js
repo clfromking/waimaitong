@@ -1,4 +1,4 @@
-// pages/identityConfirm/identityConfirm.js
+// pages/biddingAgree/biddingAgree.js
 const app = getApp()
 Page({
 
@@ -7,14 +7,7 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "身份选择",
-  },
-
-  goIdentity:function(e){
-    // console.log(e.currentTarget.dataset.id)
-    wx.navigateTo({
-      url: '../identityVerify/identityVerify?typeId='+e.currentTarget.dataset.id,
-    })
+    navText: "竞价充值协议",
   },
 
   /**

@@ -25,7 +25,7 @@ Page({
   },
 
   goOther:function(e){
-    console.log(e.currentTarget.dataset.id)
+    // console.log(e.currentTarget.dataset.id)
     switch(Number(e.currentTarget.dataset.id)){
       case 0:
         wx.navigateTo({
@@ -56,7 +56,7 @@ Page({
   },
 
   dredgeMember:function(){
-    console.log(app.globalData.accessToken)
+    // console.log(app.globalData.accessToken)
     // app.globalData.isAuthDone=1
     // app.globalData.accessToken=1
     if(!app.globalData.accessToken){
@@ -102,6 +102,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // console.log(app.globalData)
     this.setData({
       mobile:app.globalData.mobile
     })

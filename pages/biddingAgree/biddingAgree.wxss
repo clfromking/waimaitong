@@ -1,0 +1,14 @@
+/* pages/biddingAgree/biddingAgree.wxss */
+page{
+  padding-bottom: 20rpx
+}
+.container{
+  width: 670rpx;
+  margin: 20rpx auto;
+  font-size: 28rpx;
+  color: #2d2d2d;
+  font-weight: bold
+}
+.title{
+  margin: 60rpx 0
+}

@@ -20,6 +20,9 @@ Page({
         })
         break;
       case 1:
+        wx.navigateTo({
+          url: '../personAdmin/personAdmin',
+        })
         break;
       case 2:
         wx.navigateTo({

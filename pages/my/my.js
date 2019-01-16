@@ -33,6 +33,12 @@ Page({
     
   },
 
+  goMember:function(){
+    wx.switchTab({
+      url: '../member/member',
+    })
+  },
+
   goShareMoney:function(){
     wx.navigateTo({
       url: '../shareMoney/shareMoney',

@@ -2,7 +2,8 @@
 App({
   data:{
     // url:'https://www.alpha.com',     //本地
-    url: 'https://www.beta.com'      //测试
+    // url: 'https://www.beta.com',      //测试
+    url:"https://www.waimaitong.xin"     //生产
   },
   postData:function(url,data){
     var that=this
@@ -44,10 +45,12 @@ App({
           }
           else if (Number(res.data.code)>=300&&Number(res.data.code)<=499){
             // resolve(res)
-            reject(res)
+            
             if (Number(res.data.code)==404){
+              wx.hideLoading()
               return
             }
+            reject(res)
             wx.showToast({
               title: res.data.msg,
               icon: 'none',
@@ -218,6 +221,13 @@ App({
       mask: true,
       duration: 1500
     })
+  },
+  onPageScroll: function (e) {
+    if (e.scrollTop < 0) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    }
   },
 
   globalData: {
