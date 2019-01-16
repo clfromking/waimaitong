@@ -1,0 +1,26 @@
+/* pages/sucAlter/sucAlter.wxss */
+.img{
+  width: 420rpx;
+  height: 520rpx;
+  display: block;
+  margin: 98rpx auto 46rpx
+}
+.title{
+  font-size: 32rpx;
+  color: #2d2d2d;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 19rpx
+}
+.alt{
+  font-size: 32rpx;
+  color: #2d2d2d;
+  margin-top: 18rpx;
+  text-align: center
+}
+.phone{
+  font-size: 44rpx;
+  color: #2d2d2d;
+  font-weight: bold;
+  text-align: center
+}

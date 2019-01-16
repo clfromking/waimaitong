@@ -1,5 +1,5 @@
 /* pages/changePhone/changePhone.wxss */
-.safe{
+/* .safe{
   width: 186rpx;
   display: block;
   margin: 64rpx auto
@@ -69,4 +69,95 @@
   font-size: 30rpx;
   text-align: center;
   margin-top: 70rpx
+} */
+
+page{
+  background: #f8f8f8
+}
+
+icon{
+  display: block;
+  margin: 32rpx auto 20rpx;
+  text-align: center
+}
+.changeTitle{
+  color: #2d2d2d;
+  font-size: 32rpx;
+  text-align: center;
+  font-weight: bold
+}
+.changeState{
+  color: #2d2d2d;
+  font-size: 24rpx;
+  text-align: center;
+  font-weight: bold
+}
+.mobile{
+  color: #2d2d2d;
+  font-size: 40rpx;
+  margin: 33rpx 0 42rpx;
+  text-align: center;
+  font-weight: bold
+}
+.codeView,.phoneView{
+  height: 84rpx;
+  background: #fff
+}
+.phoneView{
+  margin-bottom: 20rpx
+}
+.codeView text,.phoneView text{
+  font-size: 32rpx;
+  color: #2d2d2d;
+  display: inline-block;
+  height: 84rpx;
+  line-height: 84rpx;
+  padding-left: 40rpx;
+  font-weight: bold
+}
+.codeView input,.phoneView input{
+  width: 270rpx;
+  display: inline-block;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 32rpx;
+  padding-left: 60rpx
+}
+.phoneView input{
+  width: 370rpx
+}
+.getCode{
+  width: 220rpx;
+  height: 84rpx;
+  text-align: center;
+  line-height: 84rpx;
+  background: #abca9a;
+  color: #fff;
+  font-size: 32rpx
+}
+.next{
+  width: 606rpx;
+  height: 68rpx;
+  text-align: center;
+  line-height: 68rpx;
+  color: #fff;
+  font-size: 28rpx;
+  background: #abca9a;
+  margin: 62rpx auto 38rpx;
+}
+button[disabled]:not([type]){
+  background: #d7e4cf
+}
+.phoneIcon{
+  width: 104rpx;
+  height: 104rpx;
+  display: block;
+  margin: 60rpx auto 38rpx
+}
+.successTitle{
+  font-size: 28rpx;
+  color: #2d2d2d;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 62rpx
 }

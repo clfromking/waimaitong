@@ -1,0 +1,42 @@
+<!--pages/zeroRushAll/zeroRushAll.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
+
+<view>
+  <view class='header'>
+    <view class='header-item' wx:for="{{header_navs}}" wx:key="item" wx:if="item">
+      <view class='header-time {{item.status=="已开抢"?"istime":""}}'>{{item.time}}</view>
+      <view class='header-status {{item.status=="已开抢"?"istime":""}}'>{{item.status}}</view>
+    </view>
+  </view>
+  <view class='container'>
+    <view wx:for="{{decorate_options}}" class='item clear' wx:key="item" data-id='{{index}}'>
+      <view class='item-imgView left'>
+        <image mode='aspectFit' src='{{item.coverImg}}'></image>
+      </view>
+      
+      <view class='left'>
+        <view class='name'>{{item.name}}</view>
+        <view>
+          <!-- <view class='price'>¥{{item.price}}</view> -->
+          <view class='price'>¥0.00</view>
+          <view class='oPrice'>¥{{item.memberPrice}}</view>
+        </view>
+      </view>
+      <view class='right scrape-view'>
+        <view class='scrape-btn scrape-finish'>已结束</view>
+        <view class='scrape-btn scrape-now'>开抢</view>
+        <view class='scrape-btn scrape-will'>即将开抢</view>
+      </view>
+    </view>
+  </view>
+  <view class='footer'>
+    <view class='PriceView'>
+      <view class='acPrice'>¥588.00</view>
+      <view class='disPrice'>会员已优惠¥2899.00</view>
+    </view>
+    <view class='submit-order'>提交订单</view>
+  </view>
+  <view class='add-btn'>
+    <view>一键添加</view>
+  </view>
+</view>

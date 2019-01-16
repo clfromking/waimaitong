@@ -1,5 +1,75 @@
 /* pages/setMemberMsg/setMemberMsg.wxss */
 picker,input{
   display: inline-block;
-  margin-left: 10px
+  /* margin-left: 40px */
+}
+.container{
+  width: 670rpx;
+  margin: 0 auto
+}
+.item{
+  height: 80rpx
+}
+.item{
+  font-size: 24rpx;
+  color: #2d2d2d;
+  border-bottom: 2rpx solid #f6f6f6
+}
+
+.item text{
+  font-size: 28rpx;
+  color: #5a5a5a;
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  vertical-align: top;
+  margin-right: 40rpx
+}
+.location{
+  font-size: 24rpx !important;
+  color: #2d2d2d !important;
+  margin-right: 0 !important;
+  width: 450rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.item input{
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 400rpx;
+  color: #2d2d2d
+}
+picker{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  color: #2d2d2d
+}
+.changeBtn{
+  width: 404rpx;
+  height: 64rpx;
+  background: #f2f2f2;
+  font-size: 28rpx;
+  color: #2d2d2d;
+  text-align: center;
+  line-height: 64rpx;
+  position: fixed;
+  bottom: 40rpx;
+  left: 173rpx
+}
+image{
+  /* width: 19.8rpx; */
+  display: block
+}
+.go{
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 24rpx
+}
+.close{
+  width: 19.8rpx;
+  height: 19.8rpx;
+  margin-top: 30.1rpx;
+  margin-right: 6.1rpx
 }

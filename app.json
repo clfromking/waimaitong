@@ -1,14 +1,16 @@
 {
-  "pages":[
+  "pages":[   "pages/identityConfirm/identityConfirm",
     "pages/index/index",
     "pages/member/member",
     "pages/order/order",
     "pages/my/my",
+    "pages/setMemberMsg/setMemberMsg",
+    "pages/zeroRushAll/zeroRushAll",
     "pages/renewAgreement/renewAgreement",
     "pages/operatingCharts/operatingCharts",
     "pages/operatingState/operatingState",
     "pages/identityVerify/identityVerify",
-    "pages/identityConfirm/identityConfirm",
+    
     "pages/freeshopApplyDetail/freeshopApplyDetail",
     "pages/goRecord/goRecord",
     "pages/applyFor/applyFor",
@@ -27,7 +29,6 @@
     "pages/dredge/dredge",
     "pages/test/test",
     "pages/set/set",
-    "pages/setMemberMsg/setMemberMsg",
     "pages/authorization/authorization",
     "pages/storeDecorate/storeDecorate",
     "pages/about/about",
@@ -38,15 +39,22 @@
     "pages/authCode/authCode",
     "pages/changePassword/changePassword",
     "pages/changePhone/changePhone",
+    "pages/sucAlter/sucAlter",
     "pages/memberIdentity/memberIdentity",
     "pages/renewAdmin/renewAdmin",
     "pages/feedback/feedback",
     "pages/cancelRenewProving/cancelRenewProving",
     "pages/refund/refund",
     "pages/orderDetail/orderDetail",
-    "pages/intoMember/intoMember",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/intoMember/intoMember"
+    
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于店铺信息展示"
+    }
+  },
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
@@ -78,5 +86,9 @@
       }  
       
     ]
-  }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxbd687630cd02ce1d", 
+    "wx5e73c65404eee268" 
+  ]
 }

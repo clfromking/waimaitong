@@ -8,14 +8,67 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "开通会员",
-
+    identity_list:[],
+    isin:0
   },
+
+  upgradeCard:function(e){
+    console.log(e.currentTarget.dataset.id)
+    console.log(this.data.isin)
+    if (e.currentTarget.dataset.id == this.data.isin){
+      wx.navigateTo({
+        url: '../renewAdmin/renewAdmin',
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '../dredge/dredge?type=upgrade&id='+e.currentTarget.dataset.id,
+      })
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.getData('/card/list?accessToken='+app.globalData.accessToken).then(res=>{
+      console.log(res)
+      for(let i=0;i<res.data.data.length;i++){
+        if (res.data.data[i].durationUnit=="DAY"){
+          res.data.data[i].name = "日度会员卡"
+        }
+        else if (res.data.data[i].durationUnit == "WEEK"){
+          res.data.data[i].name = "周度会员卡"
+        }
+        else if (res.data.data[i].durationUnit == "MONTH" && res.data.data[i].duration !==3 ){
+          res.data.data[i].name = "月度会员卡"
+        }
+        else if (res.data.data[i].durationUnit == "MONTH" && res.data.data[i].duration == 3){
+          res.data.data[i].name = "季度会员卡"
+        }
+        else if (res.data.data[i].durationUnit == "YEAR"){
+          res.data.data[i].name = "年度会员卡"
+        }
+      }
+      this.setData({
+        identity_list:res.data.data
+      })
+      app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then(res1=>{
+        console.log(res1)
+        // res1.data.data.poiMemberData.duration = 3
+        // res1.data.data.poiMemberData.durationUnit = "YEAR"
+        for(let i=0;i<res.data.data.length;i++){
+          if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration){
+            this.setData({
+              isin:i
+            })
+            console.log(i)
+            break
+          }
+        }
+      })
+    })
   },
 
   /**

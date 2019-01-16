@@ -3,15 +3,32 @@
   <view class='header'>
     <view class='title'>会员特惠</view>
     <view class='all-plan clear'>
-      <view class='plan-item left {{item.isselect?"select-plan":""}}' bindtap='selectPlan' data-id='{{index}}' wx:for="{{plans}}" wx:key="item">
-        <view class='plan-title'>{{item.title}}</view>
-        <view class='plan-money'>￥{{item.money}}</view>
-        <view class='plan-alt'>{{item.alt}}</view>
+      <view class='plan-item plan-item1 left clear' wx:for="{{plans}}" wx:key="item" >
+        <view bindtap='selectPlan' class='plan-item left {{isselect==index?"select-plan":""}}' data-id='{{index}}'>
+          <view class='plan-title'>{{item.name}}</view>
+          <view class='plan-money'>￥{{item.price/100}}</view>
+          <view class='plan-alt' hidden='{{isselect!==index||!newbie||type!==""}}'>新用户立减{{item.newDiscount/100}}元</view>
+          <!-- <text class='plan-alt' hidden='{{type!=="renew"}}' style='{{type=="renew"?"display:block":""}}'>{{item.mainRecmd==1?"推荐":""}}</text> -->
+          <text class='plan-alt Cred' hidden='{{type!=="renew"||isin!==index}}'>{{expire_time}}天后到期</text>
+        </view>
+        <view hidden='{{type!=="renew"||isin==index}}' class='plan-alert'>
+          <view class='plan-shade'></view>
+          <view class="plan-shade-text">
+            您无法选择
+          </view>
+        </view>
+        <view hidden='{{type!=="upgrade"||isselect==index}}' class='plan-alert'>
+          <view class='plan-shade'></view>
+          <view class="plan-shade-text">
+            您无法选择
+          </view>
+        </view>
       </view>
     </view>
     <view class='alts clear'>
       <view class='left'>
-        <text>新用户首次298元</text>
+        <text hidden='{{!newbie||type!==""}}'>新用户首次{{pay_money}}元</text>
+        <text hidden='{{type!=="renew"}}'>续费应支付{{pay_money}}元</text>
       </view>
       <view class='right'>
         <view style='display:inline-block'>

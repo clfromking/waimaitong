@@ -1,7 +1,7 @@
 <!--pages/storeDecorate/storeDecorate.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
 
-<view>
+<view class='{{!isShowShade?"":"showShade"}}'>
   <view class='notice clear'>
     <image src='http://pk1897l3c.bkt.clouddn.com/storeDecorate/notice.png' class='noticeImg left'></image>
     <text class='left'>店铺装修现支持单个类目装修和整店装修，请按需下单</text>
@@ -18,19 +18,53 @@
           <view class='price'>原价￥{{item.price}}</view>
           <view class='mPrice'>会员价￥{{item.memberPrice}}</view>
         </view>
+        
       </view>
+
+      <view class='right btns-view'>
+        <view hidden='{{item.id==2&&item.isappend}}' bindtap='appendItem'  data-id='{{index}}' class='appendBtn {{item.isappend?"isappend":""}}'>{{item.isappend?"已添加":"请添加"}}</view>
+
+        <view hidden='{{!(item.id==2&&item.isappend)}}' class='numsView'>
+          <image bindtap='sub' data-id='{{index}}' class='btns subBtn' src='http://pk1897l3c.bkt.clouddn.com/storeDecorate/sub.png'></image>
+          <input type='number' data-id='{{index}}' bindinput='inputNum' value='{{item.append_num}}'></input>
+          <image bindtap='add' data-id='{{index}}' class='btns addBtn' src='http://pk1897l3c.bkt.clouddn.com/storeDecorate/add.png'></image>
+        </view>
+        
+      </view>
+
     </view>
 
     <view class='bottom'>优质的店面形象，可为您的店铺带来不少订单哦</view>
   </view>
   <view class='footer'>
-    <view class='PriceView'>
-      <view class='acPrice'>¥588.00</view>
-      <view class='disPrice'>会员已优惠¥2899.00</view>
+    <view class='PriceView {{isShowShade?"leftView":""}}'>
+      <view class='acPrice'>¥{{isMember==0?totalPrice:totalMemberPrice}}</view>
+      <view class='disPrice'>会员{{isMember==0?"可":"已"}}优惠¥{{discounts}}</view>
     </view>
     <view class='submit-order'>提交订单</view>
   </view>
-  <view class='add-btn'>
-    <view>一键添加</view>
+
+  <view hidden='{{isShowShade}}' class='add-btn'>
+    <view bindtap='append' class='append-btn {{append_list.length==0?"":"isAppend"}}'>{{append_list.length==0?"一键添加":"已添加"}}</view>
+    <view hidden='{{append_list.length==0}}' class='list-num'>{{append_list.length}}</view>
   </view>
+
+  <view hidden='{{!isShowShade}}' class='alert'>
+    <view class='shade-bg' bindtap='closeShade'></view>
+    <view class='append-list clear'>
+      <view class='append-item' wx:for="{{append_list}}" wx:key="item">
+        <view class='append-name'>{{item.name}}</view>
+        <view class='append-money'>¥{{isMember==0?item.price:item.memberPrice}}</view>
+        <view class='xView right'>
+          <image bindtap='deleteItem' data-id="{{index}}" hidden='{{item.id==2}}' src='http://pk1897l3c.bkt.clouddn.com/storeDecorate/x.png' mode='widthFix' class='xImg'></image>
+          <view hidden='{{item.id !==2}}' class='numsView numsView1'>
+            <image bindtap='subSelect' data-id='{{index}}' class='btns subBtn' src='http://pk1897l3c.bkt.clouddn.com/storeDecorate/sub.png'></image>
+            <input type='number' data-id='{{index}}' bindinput='inputNum' value='{{item.append_num}}'></input>
+            <image bindtap='addSelect' data-id='{{index}}' class='btns addBtn' src='http://pk1897l3c.bkt.clouddn.com/storeDecorate/add.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
 </view>

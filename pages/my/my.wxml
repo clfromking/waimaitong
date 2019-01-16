@@ -4,7 +4,8 @@
 <view class='jw-my-header'>
   <view class='jw-user-msgs'>
     <image class='jw-user-avatarurl' src=''></image>
-    <text class='login-alt' bindtap='gologin'>请先登录</text>
+    <text class='login-alt' hidden="{{islogin}}" bindtap='gologin'>请先登录</text>
+    <open-data class='login-alt' hidden="{{!islogin}}" type="userNickName"></open-data>
     <view class='dredge-member'>开通会员>></view>
   </view>
   <view class='user-moneys'>

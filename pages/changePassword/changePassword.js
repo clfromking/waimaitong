@@ -38,9 +38,29 @@ Page({
     }
     else if (this.data.type=="next"){
       wx.redirectTo({
-        url: '../changePassword/changePassword?type=again',
+        url: '../changePassword/changePassword?type=again&value='+this.data.password_val,
       })
     }
+    else{
+      if(this.data.password_val==this.data.beforePassword){
+        app.showToast('设置成功')
+        setTimeout(function(){
+          wx.navigateBack({
+            
+          })
+        },1500)
+      }
+      else {
+        app.showToast('两次密码不一致，请重新输入')
+        setTimeout(function(){
+          wx.redirectTo({
+            url: '../changePassword/changePassword?type=next',
+          })
+        },1500)
+        
+      }
+    }
+    
     
   },
 
@@ -54,7 +74,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {  
-
+    if(options.value){
+      this.setData({
+        beforePassword:options.value
+      })
+    }
     this.setData({
       type: options.type||""
     })

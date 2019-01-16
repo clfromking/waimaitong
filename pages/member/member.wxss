@@ -509,3 +509,12 @@ page{
   color: #e2e2e2;
   font-size: 18rpx;
 }
+.mobile{
+  display: block;
+  float: right;
+  margin-right: 36rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  color: #5a5a5a;
+  font-size: 26rpx
+}

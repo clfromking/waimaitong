@@ -1,1 +1,18 @@
 /* pages/set/set.wxss */
+.item{
+  height: 96rpx;
+  border-bottom: 2rpx solid #f2f2f2;
+  padding: 0 40rpx
+}
+.item text{
+  display: inline-block;
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  color: #2d2d2d;
+}
+.item image{
+  width: 32rpx;
+  display: block;
+  margin-top: 32rpx
+}

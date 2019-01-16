@@ -15,7 +15,7 @@ App({
           'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
-          resolve(res)
+          // resolve(res)
           
           if(res.data.code==401){
             wx.showToast({
@@ -32,7 +32,7 @@ App({
             
           }
           else if (res.data.code == 200) {
-            // resolve(res)
+            resolve(res)
           }
           else if((Number(res.data.code)>=1&&Number(res.data.code)<=199)||(Number(res.data.code)>=500&&Number(res.data.code)<=9999)){
             wx.showToast({
@@ -136,14 +136,35 @@ App({
   },
   chooseLocation:function(){
     var promise=new Promise((resolve,reject)=>{
-      wx.chooseLocation({
-        success: function (res) {
-          resolve(res)
+      wx.authorize({
+        scope: 'scope.userLocation',
+        success:function(res){
+          console.log(res)
+          wx.chooseLocation({
+            success: function (res) {
+              resolve(res)
+            },
+            fail: function (res) {
+              console.log(res)
+              wx.getSetting({
+                success(res) {
+                  if (res.authSetting["scope.userLocation"]) {
+                  }
+                  else {
+                    wx.navigateTo({
+                      url: '../authorization/authorization',
+                    })
+                  }
+                }
+              })
+            }
+          })
         },
-        fail: function (res) {
+        fail:function(res){
           console.log(res)
           wx.getSetting({
             success(res) {
+              console.log(res)
               if (res.authSetting["scope.userLocation"]) {
               }
               else {
@@ -153,9 +174,9 @@ App({
               }
             }
           })
-
         }
       })
+      
     })
     return promise
   },

@@ -1,4 +1,4 @@
-// pages/set/set.js
+// pages/zeroRushAll/zeroRushAll.js
 const app = getApp()
 Page({
 
@@ -7,40 +7,27 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "设置",
-    options: ["会员信息设置", "店铺成员管理", "我的邀请二维码", "关于外卖通",]
+    navText: "0元抢服务",
+    decorate_options: [],
+    header_navs: [{ "time": "10:00", "status": "开抢结束" }, { "time": "15:00", "status": "已开抢" }, { "time": "10:00", "status": "即将开始" }, { "time": "10:00", "status": "即将开始" }]
   },
-
-  goOther:function(e){
-    console.log(e.currentTarget.dataset.id)
-    switch(Number(e.currentTarget.dataset.id)){
-      case 0:
-        wx.navigateTo({
-          url: '../setMemberMsg/setMemberMsg',
-        })
-        break;
-      case 1:
-        break;
-      case 2:
-        wx.navigateTo({
-          url: '../Qrcode/Qrcode',
-        })
-        break;
-      case 3:
-        wx.navigateTo({
-          url: '../about/about',
-        })
-        break;
-
-    }
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(this)
+    app.getData('/decoration/material/list?accessToken=' + app.globalData.accessToken).then((res) => {
+      console.log(res.data.data)
+      var data = res.data.data
+      for (let i = 0; i < data.length; i++) {
+        data[i].memberPrice = (Number(data[i].memberPrice) / 100).toFixed(2)
+        data[i].price = (Number(data[i].price) / 100).toFixed(2)
+      }
+      this.setData({
+        decorate_options: data
+      })
+    })
   },
 
   /**

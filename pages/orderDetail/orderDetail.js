@@ -31,8 +31,6 @@ Page({
   },
 
   mark:function(e){
-    console.log(e.currentTarget.dataset.id)
-    console.log(e.currentTarget.dataset.index)
     let id = e.currentTarget.dataset.id
     let index = e.currentTarget.dataset.index
     let score_arr = [false,false,false,false,false]
@@ -108,8 +106,8 @@ Page({
     app.postData('/order/detail', postData).then((res)=>{
       console.log(res)
       var data=res.data.data
-      data.payStatus=2
-      data.serviceStatus=2
+      // data.payStatus=2
+      // data.serviceStatus=2
       // data.orderServiceData.commentStatus =1
       for(let i=0;i<data.itemList.length;i++){
         data.itemList[i].unitPrice = (Number(data.itemList[i].unitPrice)/100).toFixed(2)

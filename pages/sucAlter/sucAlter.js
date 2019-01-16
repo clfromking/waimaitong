@@ -1,4 +1,4 @@
-// pages/set/set.js
+// pages/sucAlter/sucAlter.js
 const app = getApp()
 Page({
 
@@ -7,40 +7,18 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "设置",
-    options: ["会员信息设置", "店铺成员管理", "我的邀请二维码", "关于外卖通",]
+    navText: "新手机号更换成功",
+    phone:""
   },
-
-  goOther:function(e){
-    console.log(e.currentTarget.dataset.id)
-    switch(Number(e.currentTarget.dataset.id)){
-      case 0:
-        wx.navigateTo({
-          url: '../setMemberMsg/setMemberMsg',
-        })
-        break;
-      case 1:
-        break;
-      case 2:
-        wx.navigateTo({
-          url: '../Qrcode/Qrcode',
-        })
-        break;
-      case 3:
-        wx.navigateTo({
-          url: '../about/about',
-        })
-        break;
-
-    }
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      phone:options.phone
+    })
   },
 
   /**

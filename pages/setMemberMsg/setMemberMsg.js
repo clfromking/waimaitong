@@ -14,7 +14,7 @@ Page({
     memberName:"",
     poiBrandName:"",
     poiAddress:"",
-    region: [],
+    area: '',
     customItem: '全部',
     multiArray: [[], []],
     multiIndex: [0, 0],
@@ -22,19 +22,53 @@ Page({
 
   },
 
-  chooseLocation:function(){
+  changePhone:function(){
+    if(this.data.isdisabled){
+      return
+    }
+    wx.navigateTo({
+      url: '../changePhone/changePhone?mobile=' + this.data.memberMobile,
+    })
+  },
+
+
+  location:function(){
+   
     if (this.data.isdisabled){
      return 
     }
-    app.chooseLocation().then((res)=>{
-      console.log(res)
+    app.chooseLocation().then(res=>{
+      this.setData({
+        area: res.address,
+        poiAddress: res.name
+      })
     })
+
+  
   },
 
   changeAll:function(){
     this.setData({
       isdisabled: !this.data.isdisabled
     })
+    if(this.data.isdisabled){
+      console.log(arr)
+      console.log(allArr)
+      console.log(this.data.multiArray[0][this.data.multiIndex[0]])
+      console.log(this.data.multiArray[1][this.data.multiIndex[1]])
+      for (var i = 0 ; i < allArr.length ; i++){
+        if (allArr[i].name == this.data.multiArray[0][this.data.multiIndex[0]] && allArr[i].subName == this.data.multiArray[1][this.data.multiIndex[1]]){
+          break
+        }
+      }
+      console.log(allArr[i].cateId)
+
+      //保存时提交
+      // let postData={}
+      // app.postData("/setting/poi/basic/set",postData).then(res)=>{
+      //   console.log(res)
+      // }
+    }
   },
 
   //地区选择器改变
@@ -73,9 +107,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
     app.getData('/dish/allcate?accessToken=' + app.globalData.accessToken).then((res) => {
-      allArr=res.data.data
+      allArr = res.data.data
       for (let i = 0; i < res.data.data.length; i++) {
         if (arr[res.data.data[i].name] == null) {
           arr[res.data.data[i].name] = new Array()
@@ -96,7 +129,48 @@ Page({
       this.setData({
         multiArray
       })
+
+      app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then((res) => {
+        var data1 = {
+          multiArray: this.data.multiArray,
+          multiIndex: this.data.multiIndex
+        };
+        let area = ''
+        area += res.data.data.poiProvince + " "
+        area += res.data.data.poiCity + " "
+        area += res.data.data.poiDistricts + " "
+        area += res.data.data.poiStreet
+        let data = {
+          "memberMobile": res.data.data.memberMobile,
+          "memberName": res.data.data.memberName,
+          "poiAddress": res.data.data.poiAddress,
+          "poiBrandName": res.data.data.poiBrandName,
+          "area": area,
+
+        }
+        for (let i = 0; i < allArr.length; i++) {
+          if (Number(res.data.data.poiCateId) == Number(allArr[i].cateId)) {
+            // if (11 == Number(allArr[i].cateId)) {
+            data1.multiIndex[0] = this.data.multiArray[0].indexOf(allArr[i].name)
+            var arr1 = []
+            for (let j = 0; j < arr[allArr[i].name].length; j++) {
+              arr1.push(arr[allArr[i].name][j].subName)
+            }
+
+            data1.multiArray[1] = arr1
+            data1.multiIndex[1] = this.data.multiArray[1].indexOf(allArr[i].subName)
+            break;
+          }
+        }
+        this.setData({
+          multiArray: data1.multiArray,
+          multiIndex: data1.multiIndex
+        })
+        this.setData(data)
+      })
+
     })
+    
   },
 
   /**
@@ -110,42 +184,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then((res) => {
-      var data1 = {
-        multiArray: this.data.multiArray,
-        multiIndex: this.data.multiIndex
-      };
-      let region=[]
-      region.push(res.data.data.poiProvince+'市')
-      region.push(res.data.data.poiCity)
-      region.push(res.data.data.poiDistricts)
-      let data={
-        "memberMobile": res.data.data.memberMobile,
-        "memberName": res.data.data.memberName,
-        "poiAddress": res.data.data.poiAddress,
-        "poiBrandName": res.data.data.poiBrandName,
-        "region":region,
-
-      }
-      for(let i=0;i<allArr.length;i++){
-        if (Number(res.data.data.poiCateId)==Number(allArr[i].cateId)){
-        // if (11 == Number(allArr[i].cateId)) {
-          data1.multiIndex[0] = this.data.multiArray[0].indexOf(allArr[i].name)
-          var arr1 = []
-          for (let j = 0; j < arr[allArr[i].name].length; j++) {
-            arr1.push(arr[allArr[i].name][j].subName)
-          }
-        
-          data1.multiArray[1] = arr1
-          data1.multiIndex[1] = this.data.multiArray[1].indexOf(allArr[i].subName)
-          break;
-        }
-      }
+    app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then((res)=>{
       this.setData({
-        multiArray: data1.multiArray,
-        multiIndex: data1.multiIndex
+        "memberMobile": res.data.data.memberMobile,
       })
-      this.setData(data)
     })
   },
 

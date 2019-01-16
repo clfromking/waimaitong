@@ -53,7 +53,8 @@
 }
 .mPrice{
   font-size: 28rpx;
-  color: #ff6959
+  color: #ff6959;
+  margin-top: 2rpx
 }
 .bottom{
   height: 70rpx;
@@ -69,7 +70,8 @@
   width: 750rpx;
   bottom: 0;
   left: 0;
-  background: #abca9a
+  background: #abca9a;
+  z-index: 1
 }
 .add-btn{
   width: 156rpx;
@@ -82,9 +84,10 @@
   font-weight: bold;
   position: fixed;
   bottom: 26rpx;
-  left: 40rpx
+  left: 40rpx;
+  z-index: 2
 }
-.add-btn view{
+.add-btn .append-btn{
   position: absolute;
   top: 0;
   left: 0;
@@ -116,4 +119,127 @@
   font-weight: bold;
   position: absolute;
   right: 50rpx
+}
+.isAppend{
+  width: 100% !important;
+  line-height: 100rpx
+}
+.list-num{
+  width: 44rpx;
+  height: 44rpx;
+  background: #ff7373;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 44rpx;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 10rpx;
+  right: 0
+}
+.shade-bg{
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  opacity: 0.1;
+  position: fixed;
+  top: 0;
+  left: 0
+}
+.append-list{
+  max-height: 432rpx;
+  background: #fff;
+  position: fixed;
+  width: 750rpx;
+  bottom: 104rpx;
+  left: 0;
+  overflow-y: auto
+}
+.append-item{
+  height: 108rpx;
+  border-bottom: 2rpx solid #f6f6f6;
+  padding: 0 40rpx
+}
+.append-name,.append-money{
+  display: inline-block;
+  height: 108rpx;
+  line-height: 108rpx;
+
+}
+.append-name{
+  font-size: 28rpx;
+  color: #2d2d2d;
+  width: 212rpx
+}
+.append-money{
+  font-size: 24rpx;
+  color: #f53958
+}
+.btns-view{
+  height: 192rpx
+}
+.appendBtn{
+  width: 124rpx;
+  height: 40rpx;
+  border-radius: 8rpx;
+  background: #abca9a;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 40rpx;
+  margin-top: 132rpx;
+  margin-right: 24rpx
+}
+.numsView{
+  width: 144rpx;
+  height: 36rpx;
+  margin-top: 136rpx;
+  /* background: red; */
+}
+.numsView input{
+  width: 60rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  color: #5a5a5a;
+  font-size: 36rpx;
+  text-align: center;
+  display: inline-block;
+  min-height: 36rpx;
+  vertical-align: top;
+  margin: 0 6rpx
+}
+.btns{
+  width: 36rpx;
+  height: 36rpx;
+  display: inline-block;
+  vertical-align: top
+
+  /* margin-top: 136rpx */
+}
+.xView{
+  height: 108rpx;
+}
+.xImg{
+  width: 44rpx;
+  height: 44rpx;
+  display: block;
+  margin-top: 32rpx
+}
+.numsView1{
+  margin-top: 36rpx
+}
+
+
+
+
+.leftView{
+  left: 40rpx
+}
+
+.isappend{
+  background: #FFCC65;
+}
+.showShade{
+  height: 80vh;
+  overflow: hidden
 }

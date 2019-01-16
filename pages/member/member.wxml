@@ -83,13 +83,13 @@
     <view class='header'></view>
     <view class='memberMsg'>
       <image class='memberImg'></image>
-      <text class='member-species'>月度会员</text>
-      <text class='member-number'>NO：032496672</text>
+      <text class='member-species'>{{poiMemberData.name}}</text>
+      <text class='member-number'>NO：{{poiMemberData.memberId}}</text>
       <text class='save-title'>已为您节省</text>
-      <text class='save-money'>¥148</text>
+      <text class='save-money'>¥{{poiMemberData.costSave/100}}</text>
       <text class='use-title'>使用时间</text>
-      <text class='use-time'>2018-07-01至2018-09-30</text>
-      <view class='renewal-btn'>会员续费</view>
+      <text class='use-time'>{{poiMemberData.buyTime}}至{{poiMemberData.expiredAt}}</text>
+      <view class='renewal-btn' bindtap='renewal'>会员续费</view>
     </view>
   </view>
   <view class='container'>
@@ -132,7 +132,8 @@
             <image class='list-item-icon left'></image>
             <text class='list-item-title left'>绑定手机</text>
           </view>
-          <view class='right'>
+          <view class='right clear'>
+            <text class='mobile left'>{{mobile}}</text>
             <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
           </view>
         </view>

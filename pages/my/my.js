@@ -21,9 +21,16 @@ Page({
   },
 
   gologin:function(){
-    wx.navigateTo({
-      url: '../login/login',
-    })
+    console.log(app.globalData.accessToken)
+    if (app.globalData.accessToken){
+
+    }
+    else{
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+    
   },
 
   goShareMoney:function(){

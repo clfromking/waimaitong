@@ -63,7 +63,7 @@ Page({
         var postData = { "accessToken": res.data.accessToken}
         app.postData('/order/my',postData).then((res) => {
           console.log(res)
-          let orders = res.data.data
+          let orders = res.data.data.list
           for (let i = 0; i < orders.length; i++) {
             orders[i].payment = Number(orders[i].payment / 100).toFixed(2)
           }

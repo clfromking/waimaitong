@@ -15,7 +15,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.postData('/member/bought/rd/list',{"accessToken":app.globalData.accessToken,"index":0,"pageSize":20}).then((res)=>{
+      console.log(res)
+      for(let i=0;i<res.data.data.list.length;i++){
+        // res.data.data.list[i].duration=3
+        if (res.data.data.list[i].durationUnit =="DAY"){
+          res.data.data.list[i].name="日度会员卡"
+        }
+        else if (res.data.data.list[i].durationUnit == "WEEK"){
+          res.data.data.list[i].name = "周度会员卡"
+        }
+        else if (res.data.data.list[i].durationUnit == "MONTH" && res.data.data.list[i].duration !== 3) {
+          res.data.data.list[i].name = "月度会员卡"
+        }
+        else if (res.data.data.list[i].durationUnit == "MONTH" && res.data.data.list[i].duration==3){
+          res.data.data.list[i].name = "季度会员卡"
+        }
+        else if (res.data.data.list[i].durationUnit == "YEAR") {
+          res.data.data.list[i].name = "年度会员卡"
+        }
+        res.data.data.list[i].total = (Number(res.data.data.list[i].total)/100).toFixed(2)
+        res.data.data.list[i].payment = (Number(res.data.data.list[i].payment) / 100).toFixed(2)
+      }
+      this.setData(res.data.data)
+    }).catch((error)=>{
+      console.log(error)
+    })
   },
 
   /**

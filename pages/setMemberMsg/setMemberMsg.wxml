@@ -1,52 +1,59 @@
 <!--pages/setMemberMsg/setMemberMsg.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
-<view>
-  <text>手机号码</text>
-  <input disabled='{{isdisabled}}' value='{{memberMobile}}'></input>
+<view class='container'>
+  <view class='item'>
+    <text>手机号码：</text>
+    <input bindtap='changePhone' disabled='{{true}}' value='{{memberMobile}}'></input>
+    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/set/go.png' ></image>
+  </view>
+  <view class='item'>
+    <text>真实姓名：</text>
+    <input disabled='{{isdisabled}}' value='{{memberName}}'></input>
+    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
+  </view>
+
+  <view class="section item" bindtap='location'>
+    <text class="section__title">所在地区：</text>
+    <text disabled='{{isdisabled}}' class='location' >{{area}}</text>
+    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/set/go.png' ></image>
+  </view>
+
+  <!-- <view class="section">
+    <text class="section__title">所在地区</text>
+    <picker disabled='{{isdisabled}}'
+      mode="region"
+      bindchange="bindRegionChange"
+      value="{{region}}"
+      custom-item="{{customItem}}"
+    >
+      <view class="picker">
+      {{region[0]}}，{{region[1]}}，{{region[2]}}
+        
+      </view>
+    </picker>
+  </view> -->
+
+
+
+  <view class='item'>
+    <text>店铺位置：</text>
+    <input disabled='{{isdisabled}}' value='{{poiAddress}}'></input>
+    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
+  </view>
+  <view class='item'>
+    <text>品牌名称：</text>
+    <input disabled='{{isdisabled}}' value='{{poiBrandName}}'></input>
+    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
+  </view>
+
+  <view class="section item">
+    <text class="section__title">经营品类：</text>
+    <picker disabled='{{isdisabled}}' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+      </view>
+    </picker>
+    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/set/go.png' ></image>
+  </view>
+  <button class='changeBtn' bindtap='changeAll'>{{isdisabled?"编辑":"保存"}}</button>
 </view>
-<view>
-  <text>真实姓名</text>
-  <input disabled='{{isdisabled}}' value='{{memberName}}'></input>
-</view>
-
-<view class="section">
-  <text class="section__title">所在地区</text>
-  <text disabled='{{isdisabled}}' bindtap='chooseLocation'>{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
-</view>
-
-<!-- <view class="section">
-  <text class="section__title">所在地区</text>
-  <picker disabled='{{isdisabled}}'
-    mode="region"
-    bindchange="bindRegionChange"
-    value="{{region}}"
-    custom-item="{{customItem}}"
-  >
-    <view class="picker">
-    {{region[0]}}，{{region[1]}}，{{region[2]}}
-      
-    </view>
-  </picker>
-</view> -->
-
-
-
-<view>
-  <text>店铺位置</text>
-  <input disabled='{{isdisabled}}' value='{{poiAddress}}'></input>
-</view>
-<view>
-  <text>品牌名称</text>
-  <input disabled='{{isdisabled}}' value='{{poiBrandName}}'></input>
-</view>
-
-<view class="section">
-  <view class="section__title">多列选择器</view>
-  <picker disabled='{{isdisabled}}' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-    <view class="picker">
-      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
-    </view>
-  </picker>
-</view>
-
-<button bindtap='changeAll'>更改</button>

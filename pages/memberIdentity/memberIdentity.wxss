@@ -23,21 +23,36 @@ page{
   border-radius: 20rpx;
   position: relative
 }
-.identity-item:nth-child(1) .card{
+/* .identity-item:nth-child(1) .card{
+  background-image: linear-gradient(217deg, 
+		#7085a5 0%, 
+		#ccd7e9 100%);
+} */
+.cardOne{
   background-image: linear-gradient(217deg, 
 		#7085a5 0%, 
 		#ccd7e9 100%);
 }
-.identity-item:nth-child(2) .card{
+.cardTwo{
   background-image: linear-gradient(61deg, 
 		#e6d1a4 0%, 
 		#bf9e69 100%);
 }
-.identity-item:nth-child(3) .card{
+/* .identity-item:nth-child(2) .card{
+  background-image: linear-gradient(61deg, 
+		#e6d1a4 0%, 
+		#bf9e69 100%);
+} */
+.cardThree{
   background-image: linear-gradient(222deg, 
 		#030000 0%, 
 		#7c7c7c 100%);
 }
+/* .identity-item:nth-child(3) .card{
+  background-image: linear-gradient(222deg, 
+		#030000 0%, 
+		#7c7c7c 100%);
+} */
 .identity-icon{
   width: 208rpx;
   display: block;
@@ -62,23 +77,31 @@ page{
   
 	border-radius: 10rpx;
 }
-.identity-item:nth-child(1) .identity-btn{
+
+.ibtnOne{
   background-image: linear-gradient(221deg, 
 		#ccd7e9 0%, 
 		#7085a5 100%);
 }
-.identity-item:nth-child(2) .identity-btn{
+
+.ibtnTwo{
   background-image: linear-gradient(221deg, 
 		#e6d1a4 0%, 
 		#bf9e69 100%);
 }
-.identity-item:nth-child(3) .identity-btn{
+.ibtnThree{
   background-image: linear-gradient(221deg, 
 		#7c7c7c 0%, 
 		#030001 100%);
 }
+
 .identity-top{
   width: 100rpx;
   position: absolute;
   right: 26rpx
+}
+
+button[disabled]:not([type]){
+  color: #fff !important;
+  background: #ccc !important
 }

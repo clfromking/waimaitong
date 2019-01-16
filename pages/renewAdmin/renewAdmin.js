@@ -27,7 +27,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then((res)=>{
+      console.log(res)
+      res.data.data.poiMemberData.expiredAt = res.data.data.poiMemberData.expiredAt.substr(0, res.data.data.poiMemberData.expiredAt.indexOf(" "))
+      // res.data.data.poiMemberData.autoFeeRenew=1
+      if(res.data.data.isMember){
+        this.setData(res.data.data)
+      }
+    })
   },
 
   /**

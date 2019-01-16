@@ -10,7 +10,7 @@
     </view>
     <view class='jw-title-hint-bottom-text white'>
       <text>您还不是会员</text>
-      <text style="margin-left:38rpx;font-size:24rpx" class='red'>开通会员>></text>
+      <text bindtap='goMember' style="margin-left:38rpx;font-size:24rpx" class='red'>开通会员>></text>
     </view>
   </view>
 </view>
@@ -35,7 +35,7 @@
     0元抢服务
   </view>
   <scroll-view class='jw-scroll-x clear' scroll-x="{{true}}">
-    <view wx:for="{{scrollX_msgs}}" wx:key="item" class='jw-scroll-view-item'>
+    <view data-id='{{index}}' bindtap='goZero' wx:for="{{scrollX_msgs}}" wx:key="item" class='jw-scroll-view-item'>
       <view class='jw-item-img-view'>
         <image class='jw-item-img' mode='aspectFit' src=''></image>
       </view>

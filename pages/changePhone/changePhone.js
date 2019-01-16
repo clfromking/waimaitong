@@ -7,14 +7,121 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "会员手机修改",
-
+    navText: "安全监测",
+    mobile:"",
+    smsCode:"",
+    getCode_msg:"获取验证码",
+    type:"",
+    phone:"",
+    beforeSmsCode:""
   },
+
+  inputPhone:function(e){
+    this.setData({
+      phone:e.detail.value
+    })
+  },
+
+  inputCode:function(e){
+    this.setData({
+      smsCode:e.detail.value
+    })
+  },
+
+  getSmsCode:function(){
+    console.log(this.data.full_mobille)
+    if(this.data.type=="next"){
+      if(!this.data.phone){
+        app.showToast("手机号不能为空")
+      }
+      else if(this.data.phone.length<11){
+        app.showToast("手机号格式不正确")
+      }
+      else{
+        var postData = { "accessToken": app.globalData.accessToken, "mobile": this.data.phone }
+        app.postData('/setting/sms/auth',postData).then((res)=>{
+          console.log(res)
+          for (let i = 60; i >= 0; i--) {
+            setTimeout(() => {
+              console.log(i)
+              this.setData({
+                getCode_msg: i + "S"
+              })
+              if (i == 0) {
+                this.setData({
+                  getCode_msg: "获取验证码"
+                })
+              }
+            }, 1000 * (60 - i))
+          }
+        })
+        
+      }
+    }
+    else{
+      var postData = { "accessToken": app.globalData.accessToken, "mobile": this.data.full_mobille }
+      app.postData('/setting/sms/auth', postData).then((res) => {
+        console.log(res)
+        for (let i = 60; i >= 0; i--) {
+          setTimeout(() => {
+            console.log(i)
+            this.setData({
+              getCode_msg: i + "S"
+            })
+            if (i == 0) {
+              this.setData({
+                getCode_msg: "获取验证码"
+              })
+            }
+          }, 1000 * (60 - i))
+        }
+      })
+    }
+    
+    
+  },
+
+  next:function(){
+    if(this.data.type=="next"){
+      console.log(this.data.beforeSmsCode)
+      console.log(this.data.smsCode)
+      var postData = { "accessToken": app.globalData.accessToken, "newMobile": this.data.phone, "oldSMSCode": this.data.beforeSmsCode, "newSMSCode": this.data.smsCode }
+      wx.redirectTo({
+        url: '../sucAlter/sucAlter?phone=' + this.data.phone,
+      })
+      // app.postData('/setting/mobile/replace',postData).then(res=>{
+
+      // })
+    }
+    else{
+      wx.redirectTo({
+        url: '../changePhone/changePhone?type=next&smsCode=' + this.data.smsCode,
+      })
+    }
+    
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.type=="next"){
+      this.setData({
+        type:options.type,
+        beforeSmsCode:options.smsCode,
+        navText:"更换会员手机号"
+      })
+    }
+    else{
+      // options.mobile = "15210257790"
+      var mobile = options.mobile
+      mobile = mobile.substr(0, 3) + "****" + mobile.substr(7)
+      this.setData({
+        mobile,
+        full_mobille: options.mobile
+      })
+    }
 
   },
 

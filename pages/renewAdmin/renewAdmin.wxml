@@ -5,20 +5,20 @@
   <view class='title'>
     <image src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'  class='avatarurl'></image>
     <text class='uname'>狗小姐</text>
-    <view class='renew-alt'>自动续费服务<text style='color:#abca9a'>（已开通）</text></view>
+    <view class='renew-alt'>自动续费服务<text style='color:#abca9a'>（{{poiMemberData.autoFeeRenew==0?"未开通":"已开通"}}）</text></view>
     <view class='fenge'></view>
     <view class='renew-msgs clear'>
       <view class='renew-msg-item left'>
         <view class='top-text'>每次续费金额</view>
-        <view>398/季</view>
+        <view>{{poiMemberData.autoFee/100}}/季</view>
       </view>
       <view class='renew-msg-item left'>
         <view class='top-text'>支付方式</view>
         <view>微信支付</view>
       </view>
       <view class='renew-msg-item left'>
-        <view class='top-text'>付费金额</view>
-        <view>2018-07-09</view>
+        <view class='top-text'>续费时间</view>
+        <view>{{poiMemberData.expiredAt}}</view>
       </view>
     </view>
   </view>
@@ -52,12 +52,12 @@
   <view class='fenge2'></view>
   <view class='renew-total'>
     <view class='renew-total-title'>已续费商户</view>
-    <view class='total'>5647898</view>
+    <view class='total'>{{hasBeenFeeNum}}</view>
   </view>
   <view class='fenge2'></view>
   <view class='agree' bindtap='goAgree'>自动续费协议</view>
   <view class='fenge2'></view>
-  <view class='cancel-view'>
+  <view class='cancel-view' hidden='{{poiMemberData.autoFeeRenew==0}}'>
     <button bindtap='cancel' class='cancel'>取消</button>
   </view>
 </view>

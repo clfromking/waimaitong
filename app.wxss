@@ -43,7 +43,7 @@ view[hidden]{
   color: #256ef6
 }
 .yellow{
-  color: #ffb92c
+  color: #13dec9
 }
 .showPassword-view{
   width: 478rpx;

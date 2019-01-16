@@ -114,6 +114,9 @@ page{
   padding: 0 35rpx;
 
 }
+.feedback text{
+  vertical-align: top
+}
 .feedback view{
   color: #333;
   font-size: 28rpx;
@@ -192,10 +195,12 @@ textarea{
   display: inline-block;
   width: 38rpx;
   height: 38rpx;
-  border:2rpx solid red;
+  background: url('http://pk1897l3c.bkt.clouddn.com/all/nomark.png') no-repeat;
+  background-size: 100% 100%;
   margin-left: 10rpx
 }
 
 .selectScore{
-  background: red
+  background: url('http://pk1897l3c.bkt.clouddn.com/all/mark.png') no-repeat;
+  background-size: 100% 100%;
 }

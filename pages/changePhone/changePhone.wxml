@@ -1,7 +1,7 @@
 <!--pages/changePhone/changePhone.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
 
-<image src='http://pk1897l3c.bkt.clouddn.com/changePhone/safe.png' class='safe' mode='widthFix'></image> 
+<!-- <image src='http://pk1897l3c.bkt.clouddn.com/changePhone/safe.png' class='safe' mode='widthFix'></image> 
 <view class='safe-text'>为了保证您的账户安全 , 请验证身份</view>
 
 <view class='container'>
@@ -16,4 +16,24 @@
   </view>
 </view>
 <button class='next' bindtap='next'>下一步</button> 
-<view class='no-proving'>手机无法验证？</view>
+<view class='no-proving'>手机无法验证？</view> -->
+
+<icon hidden='{{type=="next"}}' type='info' size='40rpx' color="#F63F5D"></icon>
+<image hidden='{{type!=="next"}}' src='http://pk1897l3c.bkt.clouddn.com/changePhone/icon_phone.png' class='phoneIcon'></image>
+<view hidden='{{type!=="next"}}' class='successTitle'>请填写您要更换的手机号码</view>
+<view hidden='{{type=="next"}}' class='changeTitle'>为确保是您本人操作，请完成以下验证</view>
+<view hidden='{{type=="next"}}' class='changeState'>我们已经发送了短信验证码至您手机：</view>
+<view hidden='{{type=="next"}}' class='mobile'>{{mobile}}</view>
+
+<view hidden='{{type!=="next"}}' class='phoneView clear'>
+  <text class='left'>手机号码</text>
+  <input type='number' value='{{phone}}' bindinput='inputPhone' maxlength='11' placeholder='请输入手机号' ></input>
+</view>
+
+<view class='codeView clear'>
+  <text class='left'>验证码：</text>
+  <input value='{{smsCode}}' bindinput='inputCode' type='number' maxlength='6' placeholder='请输入短信验证码' placeholder-class='color:#ccc' class='left'></input>
+  <button bindtap='getSmsCode' disabled='{{getCode_msg!=="获取验证码"}}'  class='getCode right'>{{getCode_msg}}</button>
+</view>
+
+<button bindtap='next' disabled='{{smsCode.length<6}}' class="next">下一步</button>

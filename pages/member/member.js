@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    mobile: app.globalData.mobile,
     statusHeight: app.globalData.statusBarHeight,
     header_alts: [
       { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon1.png", "text": "海量折扣" }, 
@@ -18,7 +19,8 @@ Page({
       { name: 'ENG', value: '英国' },
       { name: 'TUR', value: '法国' },
     ],
-    isMember:false
+    isMember:false,
+    
 
   },
 
@@ -42,7 +44,7 @@ Page({
         break;
       case 3:
         wx.navigateTo({
-          url: '../changePhone/changePhone',
+          url: '../changePhone/changePhone?mobile='+this.data.mobile,
         })
         break;
       case 4:
@@ -55,25 +57,31 @@ Page({
 
   dredgeMember:function(){
     console.log(app.globalData.accessToken)
-    app.globalData.isAuthDone=1
+    // app.globalData.isAuthDone=1
     // app.globalData.accessToken=1
     if(!app.globalData.accessToken){
       wx.navigateTo({
         url: '../login/login',
       })
     }
-    else if (app.globalData.isAuthDone==0){
+    else if (app.globalData.isAuthDone == 0 || app.globalData.isAuthDone==undefined){
       wx.navigateTo({
         url: '../identityConfirm/identityConfirm',
       })
     }
     else{
       wx.navigateTo({
-        url: '../dredge/dredge',
+        url: '../dredge/dredge?type=""',
       })
     }
     console.log(app.globalData.isAuthDone)
     
+  },
+
+  renewal:function(){
+    wx.navigateTo({
+      url: '../dredge/dredge?type=renew',
+    })
   },
 
   /**
@@ -94,6 +102,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      mobile:app.globalData.mobile
+    })
     // app.globalData.isMember = 1
     if(app.globalData.isMember==0||!app.globalData.isMember){
       this.setData({
@@ -101,6 +112,29 @@ Page({
       })
     }
     else{
+      app.postData('/member/my/get', { "accessToken": app.globalData.accessToken }).then(res => {
+        console.log(res.data.data.poiMemberData.buyTime)
+        console.log(res.data.data.poiMemberData.expiredAt)
+        res.data.data.poiMemberData.buyTime= res.data.data.poiMemberData.buyTime.substr(0, res.data.data.poiMemberData.buyTime.indexOf(" "))
+        res.data.data.poiMemberData.expiredAt = res.data.data.poiMemberData.expiredAt.substr(0, res.data.data.poiMemberData.expiredAt.indexOf(" "))
+        // res.data.data.poiMemberData.duration=3
+        if (res.data.data.poiMemberData.durationUnit=="DAY"){
+          res.data.data.poiMemberData.name="日度会员"
+        }
+        else if (res.data.data.poiMemberData.durationUnit == "WEEK"){
+          res.data.data.poiMemberData.name = "周度会员"
+        }
+        else if (res.data.data.poiMemberData.durationUnit == "MONTH" && res.data.data.poiMemberData.duration !== 3){
+          res.data.data.poiMemberData.name = "月度会员"
+        }
+        else if (res.data.data.poiMemberData.durationUnit == "MONTH" && res.data.data.poiMemberData.duration == 3) {
+          res.data.data.poiMemberData.name = "季度会员"
+        }
+        else if (res.data.data.poiMemberData.durationUnit == "YEAR"){
+          res.data.data.poiMemberData.name = "年度会员"
+        }
+        this.setData(res.data.data)
+      })
       this.setData({
         isMember: true
       })

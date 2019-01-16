@@ -44,6 +44,13 @@ Page({
 
   },
 
+  goMember:function(){
+    wx.switchTab({
+      url: '../member/member',
+    })
+  },
+
+
   test:function(){
     
     wx.navigateTo({
@@ -55,11 +62,7 @@ Page({
   },
 
   goNav:function(e){
-    app.globalData.isAuthDone = 1
-    // wx.navigateTo({
-    //   url: '../applyFor/applyFor?type=operating',
-    // })
-    // return
+    // app.globalData.isAuthDone = 1
     if(!app.globalData.accessToken){
       wx.navigateTo({
         url: '../login/login',
@@ -83,10 +86,8 @@ Page({
             console.log(error)
             wx.navigateTo({
               url: '../applyFor/applyFor?type=freeShop',
-            })
-            
+            })           
           })
-
           break;
         case 1:
           wx.navigateTo({
@@ -121,11 +122,33 @@ Page({
     
   },
 
+  goZero:function(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../zeroRushAll/zeroRushAll',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // var data = {}
+    // wx.navigateToMiniProgram({
+    //   appId: 'wxbd687630cd02ce1d', //固定值，这个是填写微信官方签约小程序的id
+    //   extraData: data,
+    //   path: 'pages/index/index',
+    //   success(res) {
+    //     wx.setStorageSync('contract_id', "");
+    //     // me.globalData.contract_id = "";
+    //     // 成功跳转到签约小程序 
+    //   },
+    //   fail(res) {
+    //     console.log(res);
+    //     // 未成功跳转到签约小程序 
+    //   }
+    // });
+    // return
     // wx.navigateTo({
     //   url: '../login/login',
     // })
