@@ -29,6 +29,17 @@ Page({
   onLoad: function (options) {
     app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then((res)=>{
       console.log(res)
+      // res.data.data.isMember = true
+      // res.data.data.poiMemberData = {
+      //   "costSave": 0,
+      //   "durationUnit": "MONTH",
+      //   "duration": 0,
+      //   "buyTime": "2019-01-11 16:31:17",
+      //   "expiredAt": "2019-02-10 23:59:59",
+      //   "autoFeeRenew": 1,
+      //   "autoFee": 38800,
+      //   "memberId": 1
+      // }
       res.data.data.poiMemberData.expiredAt = res.data.data.poiMemberData.expiredAt.substr(0, res.data.data.poiMemberData.expiredAt.indexOf(" "))
       // res.data.data.poiMemberData.autoFeeRenew=1
       if(res.data.data.isMember){

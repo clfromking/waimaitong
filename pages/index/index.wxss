@@ -60,18 +60,12 @@ page{
 }
 .jw-small-nav-view{
   margin-top: 56rpx;
+  display: flex
 }
 .jw-small-nav-view view{
-  display: inline-block;
-  margin-right: 84rpx;
-  position: relative
+  width: 100%
 }
-.jw-small-nav-view view:last-child{
-  margin-right: 0
-}
-.jw-small-nav-view view:first-child{
-  margin-left: 36rpx
-}
+
 .jw-small-nav-img{
   width:84rpx;
   height: 84rpx;

@@ -13,6 +13,12 @@ Page({
     money:""
   },
 
+  goRecord:function(){
+    wx.navigateTo({
+      url: '../biddingRecord/biddingRecord',
+    })
+  },
+
   select:function(e){
     this.setData({
       isSelect:e.currentTarget.dataset.index,

@@ -23,7 +23,9 @@ Page({
     phone: "",
     code: "",
     area:"",
-    isdisabled:false
+    isdisabled:false,
+    smsCodeText:"获取验证码",
+    isGetCode:true
   },
 
   chooseLocation:function(){
@@ -96,7 +98,39 @@ Page({
   },
 
   getCode: function () {
+    // console.log(this.data.smsCodeText)
+    if(this.data.smsCodeText!=="获取验证码"){
+      return
+    }
+    if(!this.data.phone){
+      app.showToast('手机号码不能为空')
+    }
+    else if(this.data.phone.length<11){
+      app.showToast('手机号码格式不正确')
+    }
+    else{
+      var postData = { "accessToken": app.globalData.accessToken,"mobile":this.data.phone}
+      app.postData('/setting/sms/go',postData).then((res)=>{
+        if(res.data.code==200){
+          for (let i = 60; i >= 0; i--) {
+            var timeOut=setTimeout(() => {
+              // console.log(i)
+              if (i < 1) {
+                this.setData({
+                  smsCodeText: "获取验证码"
+                })
+              }
+              else {
+                this.setData({
+                  smsCodeText: i + "S"
+                })
+              }
 
+            }, (60 - i) * 1000)
+          }
+        }
+      })
+    }
   },
 
   sub:function(){
@@ -118,10 +152,10 @@ Page({
 
   //提交
   submit: function () {
-    wx.redirectTo({
-      url: '../successApplyFor/successApplyFor?type='+this.data.navType,
-    })
-    return
+    // wx.redirectTo({
+    //   url: '../successApplyFor/successApplyFor?type='+this.data.navType,
+    // })
+    // return
     var platform = "0"
     if (this.data.radios[0].isselect == true && this.data.radios[1].isselect == false){
       platform = "1"
@@ -160,8 +194,16 @@ Page({
       app.showToast('手机号码不能为空')
       return
     }
+    else if(this.data.phone.length<11){
+      app.showToast('手机号码格式不正确')
+      return
+    }
     else if (!this.data.code) {
       app.showToast('验证码不能为空')
+      return
+    }
+    else if(this.data.code.length<6){
+      app.showToast('验证码格式不正确')
       return
     }
 
@@ -171,6 +213,11 @@ Page({
       console.log(postData)
       app.postData('/go/kaidian/submit', postData).then((res) => {
         console.log(res)
+        if(res.data.code==200){
+          wx.redirectTo({
+            url: '../successApplyFor/successApplyFor?type=freeShop',
+          })
+        }
       }).catch((error) => {
         console.log(error)
       })
@@ -180,6 +227,11 @@ Page({
       console.log(postData)
       app.postData('/go/yunying/submit', postData).then((res) => {
         console.log(res)
+        if (res.data.code == 200) {
+          wx.redirectTo({
+            url: '../successApplyFor/successApplyFor?type=operating',
+          })
+        }
       }).catch((error) => {
         console.log(error)
       })
@@ -288,14 +340,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    // clearTimeout(timeOut)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // clearTimeout(timeOut)
   },
 
   /**

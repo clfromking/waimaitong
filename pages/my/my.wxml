@@ -21,7 +21,7 @@
   </view>
 </view>
 <view class='jw-my-body'>
-  <view class='body-list-options clear' bindtap='goOtherOption' data-id='{{index}}' wx:for="{{options}}" wx:key="item">
+  <view class='body-list-options clear' hidden='{{index==1||index>=3}}' bindtap='goOtherOption' data-id='{{index}}' wx:for="{{options}}" wx:key="item">
     <view class='left'>
       <image class='options-icon' src='{{item.icon}}'></image>
       <text class='options-text'>{{item.text}}</text>

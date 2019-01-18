@@ -8,7 +8,8 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "设置",
-    options: ["会员信息设置", "店铺成员管理", "我的邀请二维码", "关于外卖通",]
+    options: ["会员信息设置", "店铺成员管理", "我的邀请二维码", "关于外卖通",],
+    isMaster:false
   },
 
   goOther:function(e){
@@ -57,7 +58,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(app.globalData)
+    if(app.globalData.isMaster==2){
+      this.setData({
+        isMaster:true
+      })
+    }
+    else{
+      this.setData({
+        isMaster:false
+      })
+    }
   },
 
   /**

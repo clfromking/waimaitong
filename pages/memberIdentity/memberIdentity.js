@@ -56,7 +56,18 @@ Page({
       })
       app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then(res1=>{
         console.log(res1)
-        // res1.data.data.poiMemberData.duration = 3
+        // res1.data.data.isMember = true
+        // res1.data.data.poiMemberData = {
+        //   "costSave": 0,
+        //   "durationUnit": "MONTH",
+        //   "duration": 0,
+        //   "buyTime": "2019-01-11 16:31:17",
+        //   "expiredAt": "2019-02-10 23:59:59",
+        //   "autoFeeRenew": 1,
+        //   "autoFee": 38800,
+        //   "memberId": 1
+        // }
+        // res1.data.data.poiMemberData.duration = 1
         // res1.data.data.poiMemberData.durationUnit = "YEAR"
         for(let i=0;i<res.data.data.length;i++){
           if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration){

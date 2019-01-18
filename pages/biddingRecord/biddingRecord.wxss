@@ -1,0 +1,85 @@
+/* pages/biddingRecord/biddingRecord.wxss */
+.navs{
+  background: #abca9a;
+  text-align: center
+}
+.nav{
+  display: inline-block;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 24rpx;
+  color: #e7f3e1
+}
+.nav:first-child{
+  margin-right: 56rpx
+}
+.container{
+  width: 670rpx;
+  margin: 0 auto
+}
+.item{
+  height: 168rpx;
+  margin-bottom: 4rpx
+}
+.topView{
+  height: 94rpx;
+
+}
+.top-up{
+  width: 52rpx;
+  height: 52rpx;
+  margin-top: 21rpx;
+  /* background: #f63f5d; */
+  margin-right: 20rpx
+}
+.top-title{
+  font-size: 32rpx;
+  color: #2d2d2d;
+  height: 94rpx;
+  line-height: 94rpx
+}
+.top-money{
+  font-size: 28rpx;
+  color: #f63f5d;
+  height: 94rpx;
+  line-height: 94rpx
+}
+.bottomView{
+  margin-top: 2rpx;
+  height: 72rpx
+}
+.top-time{
+  font-size: 28rpx;
+  color: #b0b0b0;
+  height: 72rpx;
+  line-height: 72rpx
+}
+.top-id{
+  font-size: 24rpx;
+  color: #b0b0b0;
+  height: 72rpx;
+  line-height: 72rpx
+}
+.logo{
+  width: 36rpx;
+  height: 36rpx;
+  margin: 29rpx 20rpx 0 40rpx
+}
+.logo-text{
+  font-size: 32rpx;
+  color: #2d2d2d;
+  height: 94rpx;
+  line-height: 94rpx
+}
+
+
+
+
+.isSelectNav{
+  font-size: 28rpx;
+  color: #fff
+}
+
+.isOut{
+  color: #abca9a
+}

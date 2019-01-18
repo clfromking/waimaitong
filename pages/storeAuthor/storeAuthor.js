@@ -12,6 +12,63 @@ Page({
     type:0,
     placeholder_user:"",
     placeholder_password:"",
+    account:"",
+    password:""
+  },
+
+  inputMsg:function(e){
+    if(e.currentTarget.dataset.index==0){
+      this.setData({
+        account:e.detail.value
+      })
+    }
+    else{
+      this.setData({
+        password: e.detail.value
+      })
+    }
+  },
+
+  author:function(){
+    if(!this.data.account){
+      app.showToast('账号不能为空')
+    }
+    else if(!this.data.password){
+      app.showToast('密码不能为空')
+    }
+    else{
+      console.log(app.globalData)
+      var double=app.globalData.double
+      var statusBarHeight=app.globalData.statusBarHeight
+      var url=""
+      if(this.data.type==0){
+        url ="/setting/poi/auth/ele"
+      }
+      else{
+        url = "/setting/poi/auth/mt"
+      } 
+      var postData = { "accountName": this.data.account,"accountPwd":this.data.password,"accessToken":app.globalData.accessToken}
+      app.postData(url,postData).then((res)=>{
+        console.log(res)
+        if(res.data.code==200&&res.data.data){
+          app.globalData.poiBasicData=res.data.data
+          if (this.data.type == 0){
+            app.globalData.eleAuth = true
+          }
+          else{
+            app.globalData.mtAuth = true
+          }
+          app.showToast('认证成功')      
+          console.log(app.globalData)
+          setTimeout(function(){
+            wx.switchTab({
+              url: '../index/index',
+            })
+          },1500)
+          
+        }
+      })
+    }
   },
 
   /**
@@ -19,6 +76,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.type)
+    // options.type=1
     let src=""
     let placeholder_user =''
     let placeholder_password =''

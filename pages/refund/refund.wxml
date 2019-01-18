@@ -1,15 +1,15 @@
 <!--pages/refund/refund.wxml-->
 <navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}" status-bgcolor="#abca9a"></navtitle>
 <view class='container clear'>
-  <view class='order-lists clear' wx:for="{{order_msgs.order_list}}" wx:key="item">
+  <view class='order-lists clear' wx:for="{{itemList}}" wx:key="item">
     <view class='order-list-img-view left'>
-      <image class='order-list-img' src='{{item.img}}' mode='aspectFit'></image>
+      <image class='order-list-img' src='{{item.imgUrl}}' mode='aspectFit'></image>
           
     </view>
     <view class='order-list-other left'>
-      <view class='order-name'>{{item.name}}</view>
+      <view class='order-name'>{{item.goodsName}}</view>
       <view class='order-num'>x{{item.num}}</view>
-      <view class='order-money'>￥{{item.money}}</view>
+      <view class='order-money'>￥{{item.unitPrice}}</view>
     </view>
     
         <!-- {{item.name}} -->
@@ -36,7 +36,7 @@
     <view class='refund-reason-view'>
       <view class='reason-title'>退款申请原因（<text style="color:#920000">必填</text>）</view>
       <textarea bindinput="bindinput" placeholder="请您吐槽您不满意的地方,我们将不断改进力争为您提供满意的服务" maxlength="150" placeholder-class="place-style"></textarea>
-      <text class="length-label">{{font_length}}/150字</text>
+      <cover-view class="length-label">{{font_length}}/150字</cover-view>
     </view>
     <view class='fenge'></view>
     <view class='refund-img-view'>

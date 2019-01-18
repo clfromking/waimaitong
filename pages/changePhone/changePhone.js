@@ -43,7 +43,7 @@ Page({
           console.log(res)
           for (let i = 60; i >= 0; i--) {
             setTimeout(() => {
-              console.log(i)
+              // console.log(i)
               this.setData({
                 getCode_msg: i + "S"
               })
@@ -64,7 +64,7 @@ Page({
         console.log(res)
         for (let i = 60; i >= 0; i--) {
           setTimeout(() => {
-            console.log(i)
+            // console.log(i)
             this.setData({
               getCode_msg: i + "S"
             })
@@ -86,12 +86,19 @@ Page({
       console.log(this.data.beforeSmsCode)
       console.log(this.data.smsCode)
       var postData = { "accessToken": app.globalData.accessToken, "newMobile": this.data.phone, "oldSMSCode": this.data.beforeSmsCode, "newSMSCode": this.data.smsCode }
-      wx.redirectTo({
-        url: '../sucAlter/sucAlter?phone=' + this.data.phone,
+      
+      app.postData('/setting/mobile/replace',postData).then(res=>{
+        if(res.data.code==200){
+          app.globalData.mobile=this.data.phone
+          console.log(app.globalData)
+          wx.redirectTo({
+            url: '../sucAlter/sucAlter?phone=' + this.data.phone,
+          })
+        }
+        else{
+          // setTimeout
+        }
       })
-      // app.postData('/setting/mobile/replace',postData).then(res=>{
-
-      // })
     }
     else{
       wx.redirectTo({

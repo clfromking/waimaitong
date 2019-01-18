@@ -74,7 +74,8 @@
   text-align: center;
   margin: 0 auto;
   line-height: 68rpx;
-  color: #fff
+  color: #fff;
+  font-size: 28rpx
 }
 
 

@@ -1,4 +1,5 @@
 // pages/components/navigationTitle.js
+const app=getApp()
 Component({
   /**
    * 组件的属性列表
@@ -114,9 +115,23 @@ Component({
       })
     },
     navOtherRoute:function(){
-      wx.navigateTo({
-        url: '../set/set',
-      })
+      console.log(app.globalData)
+      if(!app.globalData.accessToken){
+        wx.navigateTo({
+          url: '../login/login',
+        })
+      }
+      // else if(app.globalData.eleAuth==false&&app.globalData.mtAuth==false){
+      //   wx.navigateTo({
+      //     url: '../identityConfirm/identityConfirm',
+      //   })
+      // }
+      else{
+        wx.navigateTo({
+          url: '../set/set',
+        })
+      }
+      
     }
   }
 })

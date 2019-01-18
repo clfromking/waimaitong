@@ -224,14 +224,47 @@ Page({
     })
   },
 
+  submitOrder:function(){
+    // console.log(this.data.append_list.length)
+    if (!this.data.append_list.length){
+      app.showToast('请先添加服务')
+      return
+    }
+    // console.log(this.data.append_list)
+    var orderItemList = []
+    for(var i=0;i<this.data.append_list.length;i++){
+      orderItemList.push({ "goodsId": this.data.append_list[i].id,"num":this.data.append_list[i].append_num})
+    }
+    console.log(orderItemList)
+    // var postData = { "accessToken": app.globalData.accessToken, "goodsType": 2, "orderItemList": orderItemList}
+    var postData = {"goodsType": 2, "orderItemList": orderItemList }
+    console.log(postData)
+    app.postData('/order/submit?accessToken=' + app.globalData.accessToken, postData, "application/json; charset=utf-8").then((res)=>{
+      console.log(res)
+      if(res.data.code==200){
+        wx.redirectTo({
+          url: '../pay/pay',
+        })
+      }
+    })
+    
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      isMember:app.globalData.isMember
+    app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then(res=>{
+      console.log(res)
+      if(res.data.code==200){
+        this.setData({
+          isMember:res.data.data.isMember
+        })
+      }
     })
+    // this.setData({
+    //   isMember:app.globalData.isMember
+    // })
     app.getData('/decoration/material/list?accessToken=' + app.globalData.accessToken).then((res)=>{
       var data=res.data.data
       // var data=""

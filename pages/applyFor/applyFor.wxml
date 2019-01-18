@@ -9,7 +9,7 @@
   </view>
   <view class='item clear' bindtap='chooseLocation'>
     <text class="section__title item-title left">店铺地址：</text>
-    <view class='{{area?"left":"right"}} select'>{{area?area:"请选择"}}</view>
+    <view class='{{area?"left":"right grey"}} select'>{{area?area:"请选择"}}</view>
   </view>
   <!-- <view class="section item">
     <text class="section__title item-title">店铺地址</text>
@@ -74,13 +74,13 @@
 
   <view class='item phoneView'>
     <text class='item-title'>手机号码</text>
-    <input type='number' disabled='{{isdisabled}}' bindinput='inputMsgs' data-id='4' value='{{phone}}'></input>
+    <input type='number' maxlength='11' disabled='{{isdisabled}}' bindinput='inputMsgs' data-id='4' value='{{phone}}'></input>
   </view>
 
   <view class='item codeView'>
     <text class='item-title'>手机验证码</text>
-    <input type='number' bindinput='inputMsgs' data-id='5' value='{{code}}'></input>
-    <view class='getCode right {{navType=="freeShop"?"":"getCode-blue"}}' bindtap='getCode'>获取验证码</view>
+    <input type='number' maxlength='6' bindinput='inputMsgs' data-id='5' value='{{code}}'></input>
+    <view class='getCode right {{navType=="freeShop"?"":"getCode-blue"}}' bindtap='getCode'>{{smsCodeText}}</view>
   </view>
 
   <view class='submit {{navType=="freeShop"?"":"submit-blue"}}' bindtap='submit'>提交申请</view>

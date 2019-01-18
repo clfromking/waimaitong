@@ -1,0 +1,24 @@
+<!--pages/biddingRecord/biddingRecord.wxml-->
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<view class='navs'>
+  <text bindtap='changeNav' data-index='0' class='nav {{isSelect==0?"isSelectNav":""}}'>充值记录</text>
+  <text bindtap='changeNav' data-index='1' class='nav {{isSelect==1?"isSelectNav":""}}'>消费记录</text>
+</view>
+<view class='container'>
+  <view class='item' wx:for="{{list}}" wx:key="item">
+    <view class='topView clear'>
+      <image hidden='{{isSelect==1}}' src='http://pk1897l3c.bkt.clouddn.com/biddingRecord/top.png' class='top-up left'></image>
+      <image hidden='{{isSelect==0}}' src='{{item.platform==1?"http://pk1897l3c.bkt.clouddn.com/biddingRecord/xf_mt.png":"http://pk1897l3c.bkt.clouddn.com/biddingRecord/xf_ele.png"}}' class='top-up left'></image>
+      <view class='left top-title'>{{isSelect==0?"消费":"充值"}}</view>
+      <view class='left clear' hidden='{{isSelect==0}}'>
+        <image class='logo left' src='{{item.platform==1?"http://pk1897l3c.bkt.clouddn.com/biddingRecord/mt.png":"http://pk1897l3c.bkt.clouddn.com/biddingRecord/ele.png"}}'></image>
+        <view class='logo-text left'>{{item.platform==1?"美团外卖":"饿了么"}}</view>
+      </view>
+      <view class='right top-money {{isSelect==0?"":"isOut"}}'>{{isSelect==0?"+":"-"}}{{item.amount/100}}元</view>
+    </view>
+    <view class='bottomView clear'>
+      <view class='left top-time'>{{item.createTime}}</view>
+      <view class='right top-id'>充值单号：{{item.rechargeNo}}</view>
+    </view>
+  </view>
+</view>

@@ -31,14 +31,14 @@
     <view class='business-detail'>
       <view class='business-detail-one'>
         <image class='location' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/order_detail/location.png'></image>
-        <text>{{order_msgs.business_detail.businesser_name}}</text>
-        <text>{{order_msgs.business_detail.businesser_phone}}</text>
+        <text>{{nickName}}</text>
+        <text>{{mobile}}</text>
       </view>
       <view class='business-detail-two'>
-        <text>店名：  {{order_msgs.business_detail.business_name}}</text>
+        <text>店名：  {{brandName}}</text>
       </view>
       <view class='business-detail-three'>
-        <text>地址： {{order_msgs.business_detail.business_address}}</text>
+        <text>地址： {{address}}</text>
       </view>
     </view>
     <view class='order-detail'>
@@ -67,7 +67,7 @@
         <text>微信扣减金额：{{wechatPaid}}</text>
       </view>
       <view hidden='{{payStatus!==2}}'>
-        <text>商户类别；会员</text>
+        <text>商户类别：{{isMember?"会员":"非会员"}}</text>
       </view>
     </view>
     <view hidden='{{payStatus!==2||serviceStatus==0}}' class='server-detail'>
@@ -94,7 +94,7 @@
         <text>响应速度打分</text>
         <text bindtap='mark' data-id='2' data-index='{{index}}' class='scores {{item?"selectScore":""}}' wx:for="{{speed_score}}" wx:key="item"></text>
       </view>
-      <textarea bindinput='inputTextArea' disabled='{{orderServiceData.commentStatus==1}}' value='{{textArea}}'></textarea>
+      <textarea placeholder='请输入评价内容' maxlength='150' placeholder-class='color:#a7a7a7' bindinput='inputTextArea' disabled='{{orderServiceData.commentStatus==1}}' value='{{textArea}}'></textarea>
       <button disabled='{{orderServiceData.commentStatus==1}}' bindtap='submit' class='submit-btn'>提交</button>
     </view>
   </view>

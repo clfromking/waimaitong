@@ -12,9 +12,27 @@ Page({
 
   goIdentity:function(e){
     // console.log(e.currentTarget.dataset.id)
-    wx.navigateTo({
-      url: '../identityVerify/identityVerify?typeId='+e.currentTarget.dataset.id,
-    })
+    // app.globalData.isMaster = 1
+    
+    if(e.currentTarget.dataset.id==0){
+      console.log(app.globalData.isMaster)
+      if(app.globalData.isMaster==2){
+        wx.navigateTo({
+          url: '../certification/certification',
+        })
+      } 
+      else{
+        wx.navigateTo({
+          url: '../identityVerify/identityVerify?typeId=' + e.currentTarget.dataset.id,
+        })
+      }
+    }
+    else{
+      wx.navigateTo({
+        url: '../identityVerify/identityVerify?typeId=' + e.currentTarget.dataset.id,
+      })
+    }
+    
   },
 
   /**

@@ -25,13 +25,17 @@ Page({
     })
   },
   next:function(){
-    // wx.showLoading({
-    //   title: '授权中',
-    //   mask:true
-    // })
-    console.log(this.data.type)
+    console.log(this.data.password_val)
+    if(!this.data.password_val){
+      app.showToast('余额密码不能为空')
+      return
+    }
+    else if(this.data.password_val.length<6){
+      app.showToast('余额密码不得少于6位')
+      return
+    }
+    
     if (this.data.type==''){
-      console.log(11)
       wx.redirectTo({
         url: '../changePassword/changePassword?type=next',
       })
@@ -43,12 +47,20 @@ Page({
     }
     else{
       if(this.data.password_val==this.data.beforePassword){
-        app.showToast('设置成功')
-        setTimeout(function(){
-          wx.navigateBack({
-            
-          })
-        },1500)
+        app.postData('/setting/poi/balance/pwd/set', { "accessToken": app.globalData.accessToken,"pwd":this.data.password_val}).then(res=>{
+          console.log(res)
+          if(res.data.code==200){
+            app.globalData.poiBasicData.balancePwdSet=true   
+            console.log(app.globalData)       
+            app.showToast('设置成功')
+            setTimeout(function () {
+              wx.navigateBack({
+
+              })
+            }, 1500)
+          }
+        })
+        
       }
       else {
         app.showToast('两次密码不一致，请重新输入')

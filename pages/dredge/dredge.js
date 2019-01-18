@@ -13,7 +13,8 @@ Page({
     isselect:0,
     type:"",
     expire_time:0,
-    isin:0
+    isin:0,
+    poiBasicData:""
   },
 
   selectPlan:function(e){
@@ -27,22 +28,33 @@ Page({
     console.log(pay_money)
     this.setData({
       isselect:e.currentTarget.dataset.id,
+      isin:e.currentTarget.dataset.id,
       pay_money
     })
   },
 
   //去支付
   goPay:function(){
-    console.log(app.globalData.isBalancePwdSet)
-    if (app.globalData.isBalancePwdSet == 0 || app.globalData.isBalancePwdSet==undefined){
+    console.log(app.globalData.poiBasicData.balancePwdSet)
+    if (!app.globalData.poiBasicData.balancePwdSet){
       wx.navigateTo({
         url: '../changePassword/changePassword?type=next',
       })
     }
     else{
-      wx.navigateTo({
-        url: '../pay/pay',
+      console.log(this.data.plans)
+      console.log(this.data.isin)
+      console.log(this.data.isselect)
+      let postData = { "accessToken": app.globalData.accessToken, "memberCardId": this.data.plans[this.data.isselect].id, "feeRenew": 1 }
+      app.postData('/member/buy', postData).then(res=>{
+        console.log(res)
+        if(res.data.code==200){
+          wx.navigateTo({
+            url: '../pay/pay',
+          })
+        }
       })
+      
     }
     
   },
@@ -63,14 +75,26 @@ Page({
     })
     this.setData(app.globalData)
     app.postData('/member/my/get', { "accessToken": app.globalData.accessToken }).then(res1 => {
-      // res1.data.data.newbie=true
+      console.log(app.globalData)
+      // res1.data.data.newbie = false
+      // res1.data.data.isMember = true
+      // res1.data.data.poiMemberData = {
+      //   "costSave": 0,
+      //   "durationUnit": "MONTH",
+      //   "duration": 0,
+      //   "buyTime": "2019-01-11 16:31:17",
+      //   "expiredAt": "2019-02-10 23:59:59",
+      //   "autoFeeRenew": 1,
+      //   "autoFee": 38800,
+      //   "memberId":1
+      // }
       this.setData(res1.data.data)
       app.getData('/card/list?accessToken=' + app.globalData.accessToken).then(res => {
         let data = res.data.data
         if (options.type == "renew") {
           var expiredAt = new Date(res1.data.data.poiMemberData.expiredAt).valueOf()
           var date = Date.parse(new Date());
-          // res1.data.data.poiMemberData.duration = 3
+          // res1.data.data.poiMemberData.duration = 1
           for (let i = 0; i < res.data.data.length; i++) {
             if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration) {
               this.setData({
@@ -88,10 +112,11 @@ Page({
           })
         }
         else if (options.type == "upgrade"){
-          // res1.data.data.poiMemberData.duration = 1
+          // res1.data.data.poiMemberData.duration = 3
           // res1.data.data.poiMemberData.durationUnit="YEAR"
           for (let i = 0; i < res.data.data.length; i++) {
             if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration) {
+              console.log(i)
               this.setData({
                 isin: i,
                 // isselect: i
@@ -105,6 +130,8 @@ Page({
           })
         }
         var pay_money = this.data.pay_money
+        var poiBasicData=app.globalData.poiBasicData
+        
         if (res1.data.data.newbie) {
           pay_money = (data[0].price - data[0].newDiscount) / 100
         }
@@ -118,7 +145,8 @@ Page({
         
         this.setData({
           plans: data,
-          pay_money
+          pay_money,
+          poiBasicData
         })
       })
     })

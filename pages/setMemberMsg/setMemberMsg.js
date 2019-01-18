@@ -52,10 +52,6 @@ Page({
       isdisabled: !this.data.isdisabled
     })
     if(this.data.isdisabled){
-      console.log(arr)
-      console.log(allArr)
-      console.log(this.data.multiArray[0][this.data.multiIndex[0]])
-      console.log(this.data.multiArray[1][this.data.multiIndex[1]])
       for (var i = 0 ; i < allArr.length ; i++){
         if (allArr[i].name == this.data.multiArray[0][this.data.multiIndex[0]] && allArr[i].subName == this.data.multiArray[1][this.data.multiIndex[1]]){
           break
@@ -131,25 +127,27 @@ Page({
       })
 
       app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then((res) => {
+        console.log(res)
         var data1 = {
           multiArray: this.data.multiArray,
           multiIndex: this.data.multiIndex
         };
+        // res.data.data.cateId=3
         let area = ''
-        area += res.data.data.poiProvince + " "
-        area += res.data.data.poiCity + " "
-        area += res.data.data.poiDistricts + " "
-        area += res.data.data.poiStreet
+        area += res.data.data.province + " "
+        area += res.data.data.city + " "
+        area += res.data.data.districts + " "
+        area += res.data.data.street
         let data = {
-          "memberMobile": res.data.data.memberMobile,
-          "memberName": res.data.data.memberName,
-          "poiAddress": res.data.data.poiAddress,
-          "poiBrandName": res.data.data.poiBrandName,
+          "memberMobile": app.globalData.mobile,
+          "memberName": app.globalData.name,
+          "poiAddress": res.data.data.address,
+          "poiBrandName": res.data.data.brandName,
           "area": area,
 
         }
         for (let i = 0; i < allArr.length; i++) {
-          if (Number(res.data.data.poiCateId) == Number(allArr[i].cateId)) {
+          if (Number(res.data.data.cateId) == Number(allArr[i].cateId)) {
             // if (11 == Number(allArr[i].cateId)) {
             data1.multiIndex[0] = this.data.multiArray[0].indexOf(allArr[i].name)
             var arr1 = []
@@ -184,10 +182,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      "memberMobile":app.globalData.mobile,
+    })
     app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then((res)=>{
-      this.setData({
-        "memberMobile": res.data.data.memberMobile,
-      })
+     
     })
   },
 

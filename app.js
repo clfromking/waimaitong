@@ -5,7 +5,7 @@ App({
     // url: 'https://www.beta.com',      //测试
     url:"https://www.waimaitong.xin"     //生产
   },
-  postData:function(url,data){
+  postData:function(url,data,header){
     var that=this
     var promise=new Promise((resolve,reject)=>{
       wx.request({
@@ -13,7 +13,7 @@ App({
         data:data,
         method:'POST',
         header: {
-          'content-type': 'application/x-www-form-urlencoded'
+          'content-type': header || 'application/x-www-form-urlencoded'
         },
         success: function (res) {
           // resolve(res)
@@ -44,24 +44,30 @@ App({
             })
           }
           else if (Number(res.data.code)>=300&&Number(res.data.code)<=499){
-            // resolve(res)
+            resolve(res)
             
             if (Number(res.data.code)==404){
               wx.hideLoading()
               return
             }
-            reject(res)
+            // reject(res)
             wx.showToast({
               title: res.data.msg,
               icon: 'none',
               mask: true,
               duration: 1500
             })
+            // setTimeout(function () {
+            //   wx.navigateBack({
+
+            //   })
+            // }, 1500)
           }
           
         },
         fail:function(){
           console.log('chucuo')
+          that.showToast('网络错误，请重试')
         },  
         error: function (e) {
          
@@ -109,7 +115,7 @@ App({
             })
           }
           else if (Number(res.data.code) >= 300 && Number(res.data.code) <= 499) {
-            reject(res)
+            resolve(res)
             if (Number(res.data.code) == 404) {
               return
             }
@@ -119,10 +125,16 @@ App({
               mask: true,
               duration: 1500
             })
+            // setTimeout(function(){
+            //   wx.navigateBack({
+                
+            //   })
+            // },1500)
           }
         },
         fail:function(){
           console.log('错误')
+          that.showToast('网络错误，请重试')
         },  
         error:function(e){
           reject(e)
@@ -191,6 +203,7 @@ App({
       that.globalData.accessToken = userInfo.accessToken
       let postData={"accessToken":userInfo.accessToken}
       that.postData('/wechat/login/token',postData).then((res)=>{
+        console.log(res)
         that.globalData=res.data.data
         wx.getSystemInfo({
           success: function (res) {

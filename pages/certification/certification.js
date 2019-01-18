@@ -8,7 +8,8 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "店铺认证授权",
-    certifications_list: [{ "src": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "text": "饿了么商家授权" }, { "src": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "text": "美团外卖商家授权" }]
+    certifications_list: [{ "src": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "text": "饿了么商家授权" }, { "src": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "text": "美团外卖商家授权" }],
+    isAuthor:[false,false]
 
   },
 
@@ -24,7 +25,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(app.globalData.eleAuth)
+    var isAuthor=[app.globalData.eleAuth,app.globalData.mtAuth]
+    this.setData({
+      isAuthor
+    })
   },
 
   /**

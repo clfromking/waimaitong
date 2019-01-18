@@ -14,7 +14,7 @@ Page({
       { "img": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "免租金开店" },
       { "img": "http://pk1897l3c.bkt.clouddn.com/icon_2.jpg", "text": "店铺装修" },
       { "img": "http://pk1897l3c.bkt.clouddn.com/icon_3.jpg", "text": "外卖运营" },
-      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_4.jpg", "text": "菜品拍摄" },
+      // { "img": "http://pk1897l3c.bkt.clouddn.com/icon_4.jpg", "text": "菜品拍摄" },
     ],
     scrollX_msgs: [
       { "img_src": "", "alt": "限前200位用户限前200位用户限前200位用户", "btn_text": "店铺装修" },
@@ -63,30 +63,38 @@ Page({
 
   goNav:function(e){
     // app.globalData.isAuthDone = 1
+    // app.globalData.eleAuth=false
+    // app.globalData.mtAuth=false
     if(!app.globalData.accessToken){
       wx.navigateTo({
         url: '../login/login',
       })
     }
-    else if(app.globalData.accessToken&&app.globalData.isAuthDone==0){
+    else if (app.globalData.accessToken && !app.globalData.eleAuth && !app.globalData.mtAuth){
       wx.navigateTo({
         url: '../identityConfirm/identityConfirm',
       })
     }
-    else if (app.globalData.accessToken && app.globalData.isAuthDone == 1){
+    else if (app.globalData.accessToken && (app.globalData.eleAuth || app.globalData.mtAuth)){
       switch (e.currentTarget.dataset.id) {
         case 0:
           app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
             console.log(res)
-            wx.navigateTo({
-              url: '../successApplyFor/successApplyFor?type=freeShop',
-            })
+            if(res.data.code==404){
+              wx.navigateTo({
+                url: '../applyFor/applyFor?type=freeShop',
+              }) 
+            }
+            else if(res.data.code==200){
+              wx.navigateTo({
+                url: '../successApplyFor/successApplyFor?type=freeShop',
+              })
+            }
+            
             
           }).catch((error) => {
             console.log(error)
-            wx.navigateTo({
-              url: '../applyFor/applyFor?type=freeShop',
-            })           
+                      
           })
           break;
         case 1:
@@ -96,20 +104,26 @@ Page({
           break;
         case 2:
           app.getData('/go/yunying/get?accessToken=' + app.globalData.accessToken).then((res) => {
-            if (res.data.data.auditStatus == 2) {
+            if(res.data.code==404){
               wx.navigateTo({
-                url: '../operatingCharts/operatingCharts',
+                url: '../operatingState/operatingState',
               })
-              return
             }
-            wx.navigateTo({
-              url: '../successApplyFor/successApplyFor?type=operating',
-            })
+            else if(res.data.code==200){
+              if (res.data.data.auditStatus == 2) {
+                wx.navigateTo({
+                  url: '../operatingCharts/operatingCharts',
+                })
+                return
+              }
+              wx.navigateTo({
+                url: '../successApplyFor/successApplyFor?type=operating',
+              })
+            }
+            
           }).catch((error) => {
             console.log(error)
-            wx.navigateTo({
-              url: '../operatingState/operatingState',
-            })
+            
           })
           // wx.navigateTo({
           //   url: '../applyFor/applyFor?type=operating',

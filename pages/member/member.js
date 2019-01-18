@@ -56,26 +56,22 @@ Page({
   },
 
   dredgeMember:function(){
-    // console.log(app.globalData.accessToken)
-    // app.globalData.isAuthDone=1
-    // app.globalData.accessToken=1
+
     if(!app.globalData.accessToken){
       wx.navigateTo({
         url: '../login/login',
       })
     }
-    else if (app.globalData.isAuthDone == 0 || app.globalData.isAuthDone==undefined){
+    else if (!app.globalData.eleAuth && !app.globalData.mtAuth){
       wx.navigateTo({
         url: '../identityConfirm/identityConfirm',
       })
     }
     else{
       wx.navigateTo({
-        url: '../dredge/dredge?type=""',
+        url: '../dredge/dredge?type=',
       })
     }
-    console.log(app.globalData.isAuthDone)
-    
   },
 
   renewal:function(){
@@ -104,42 +100,65 @@ Page({
   onShow: function () {
     // console.log(app.globalData)
     this.setData({
-      mobile:app.globalData.mobile
+      mobile:app.globalData.mobile||""
     })
     // app.globalData.isMember = 1
-    if(app.globalData.isMember==0||!app.globalData.isMember){
-      this.setData({
-        isMember:false
-      })
-    }
-    else{
+      if(!app.globalData.accessToken){
+        return
+      }
       app.postData('/member/my/get', { "accessToken": app.globalData.accessToken }).then(res => {
-        console.log(res.data.data.poiMemberData.buyTime)
-        console.log(res.data.data.poiMemberData.expiredAt)
-        res.data.data.poiMemberData.buyTime= res.data.data.poiMemberData.buyTime.substr(0, res.data.data.poiMemberData.buyTime.indexOf(" "))
-        res.data.data.poiMemberData.expiredAt = res.data.data.poiMemberData.expiredAt.substr(0, res.data.data.poiMemberData.expiredAt.indexOf(" "))
-        // res.data.data.poiMemberData.duration=3
-        if (res.data.data.poiMemberData.durationUnit=="DAY"){
-          res.data.data.poiMemberData.name="日度会员"
+        console.log(res.data)
+        
+        if(res.data.code==403){
+          this.setData({
+            isMember: false
+          })
         }
-        else if (res.data.data.poiMemberData.durationUnit == "WEEK"){
-          res.data.data.poiMemberData.name = "周度会员"
+        else if(res.data.code==200){
+          if(res.data.data.isMember==false){
+            this.setData({
+              isMember: false
+            })
+            return
+          }
+          // res.data.data.isMember = true
+          // res.data.data.poiMemberData = {
+          //   "costSave": 0,
+          //   "durationUnit": "MONTH",
+          //   "duration": 0,
+          //   "buyTime": "2019-01-11 16:31:17",
+          //   "expiredAt": "2019-02-10 23:59:59",
+          //   "autoFeeRenew": 1,
+          //   "autoFee": 38800,
+          //   "memberId": 1
+          // }
+          res.data.data.poiMemberData.buyTime = res.data.data.poiMemberData.buyTime.substr(0, res.data.data.poiMemberData.buyTime.indexOf(" "))
+          res.data.data.poiMemberData.expiredAt = res.data.data.poiMemberData.expiredAt.substr(0, res.data.data.poiMemberData.expiredAt.indexOf(" "))
+          // res.data.data.poiMemberData.duration=3
+          if (res.data.data.poiMemberData.durationUnit == "DAY") {
+            res.data.data.poiMemberData.name = "日度会员"
+          }
+          else if (res.data.data.poiMemberData.durationUnit == "WEEK") {
+            res.data.data.poiMemberData.name = "周度会员"
+          }
+          else if (res.data.data.poiMemberData.durationUnit == "MONTH" && res.data.data.poiMemberData.duration !== 3) {
+            res.data.data.poiMemberData.name = "月度会员"
+          }
+          else if (res.data.data.poiMemberData.durationUnit == "MONTH" && res.data.data.poiMemberData.duration == 3) {
+            res.data.data.poiMemberData.name = "季度会员"
+          }
+          else if (res.data.data.poiMemberData.durationUnit == "YEAR") {
+            res.data.data.poiMemberData.name = "年度会员"
+          }
+          this.setData(res.data.data)
+          this.setData({
+            isMember: true
+          })
         }
-        else if (res.data.data.poiMemberData.durationUnit == "MONTH" && res.data.data.poiMemberData.duration !== 3){
-          res.data.data.poiMemberData.name = "月度会员"
-        }
-        else if (res.data.data.poiMemberData.durationUnit == "MONTH" && res.data.data.poiMemberData.duration == 3) {
-          res.data.data.poiMemberData.name = "季度会员"
-        }
-        else if (res.data.data.poiMemberData.durationUnit == "YEAR"){
-          res.data.data.poiMemberData.name = "年度会员"
-        }
-        this.setData(res.data.data)
+        
       })
-      this.setData({
-        isMember: true
-      })
-    }
+      
+    
   },
 
   /**

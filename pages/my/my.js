@@ -17,7 +17,8 @@ Page({
       { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "我的收藏", "other": "" },
       { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "意见反馈", "other": "" }
     ],
-    islogin:false
+    islogin:false,
+    isAuthDone:0
   },
 
   gologin:function(){
@@ -46,15 +47,31 @@ Page({
   },
 
   goBalance:function(){
+    // console.log(app.globalData.isAuthDone)
+    if (!app.globalData.eleAuth && !app.globalData.mtAuth){
+      wx.navigateTo({
+        url: '../identityConfirm/identityConfirm',
+      })
+      return
+    }
     wx.navigateTo({
       url: '../balance/balance',
     })
   },
 
   goOtherOption:function(e){
-
+    // app.globalData.isAuthDone=1
+    if (!app.globalData.eleAuth && !app.globalData.mtAuth) {
+      wx.navigateTo({
+        url: '../identityConfirm/identityConfirm',
+      })
+      return
+    }
     switch (e.currentTarget.dataset.id){
       case 0:
+        wx.navigateTo({
+          url: '../biddingTop/biddingTop',
+        })
         break;
       case 1:
         break;
@@ -116,6 +133,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // app.globalData.isAuthDone=1
     wx.getStorage({
       key: 'userInfo',
       success: (res) => {
@@ -129,6 +147,20 @@ Page({
         })
       }
     })
+    let options=this.data.options
+
+    if (!app.globalData.eleAuth && !app.globalData.mtAuth){
+      options[2].other="未认证"
+    }
+    else {
+      options[2].other = "已认证"
+
+    }
+    this.setData({
+      // isAuthDone: app.globalData.isAuthDone,
+      options
+    })
+    // console.log(app.globalData.isAuthDone)
   },
 
   /**

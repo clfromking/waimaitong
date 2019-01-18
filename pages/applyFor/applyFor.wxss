@@ -145,10 +145,13 @@ picker{
 .select{
   font-size: 24rpx;
   color: #000;
-  opacity: 0.2;
+  /* opacity: 0.2; */
   line-height: 80rpx
 }
 
 .submit-blue,.getCode-blue{
   background: #256ef6
+}
+.grey{
+  opacity: 0.2
 }

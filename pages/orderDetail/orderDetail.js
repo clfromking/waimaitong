@@ -20,8 +20,12 @@ Page({
     service_score:[false,false,false,false,false],
     ability_score: [false, false, false, false, false],
     speed_score: [false, false, false, false, false],
-    textArea:""
-
+    textArea:"",
+    isMember:false,
+    nickName:"",
+    mobile:"",
+    brandName: "",
+    address:""
   },
 
   inputTextArea:function(e){
@@ -31,6 +35,11 @@ Page({
   },
 
   mark:function(e){
+    console.log(this.data.orderServiceData.commentStatus)
+    if (this.data.orderServiceData.commentStatus==1){
+      app.showToast('您已完成评价')
+      return
+    }
     let id = e.currentTarget.dataset.id
     let index = e.currentTarget.dataset.index
     let score_arr = [false,false,false,false,false]
@@ -58,13 +67,15 @@ Page({
 
   goRefund:function(){
     wx.navigateTo({
-      url: '../refund/refund',
+      url: '../refund/refund?orderId='+this.data.orderId,
     })
   },
 
   continueOrpay:function(){
-    if(this.data.ispay){
-
+    if (this.data.payStatus==2){
+      wx.switchTab({
+        url: '../index/index',
+      })
     }
     else{
       wx.navigateTo({
@@ -93,6 +104,15 @@ Page({
       
       app.postData('/order/comment/submit',postData).then((res)=>{
         console.log(res)
+        if(res.data.code==200){
+          app.showToast('评价成功')
+          setTimeout(function(){
+            wx.redirectTo({
+              url: '../order/order',
+            })
+          },1500)
+          
+        }
       })
     }
   },
@@ -105,33 +125,209 @@ Page({
     var postData = { "accessToken": app.globalData.accessToken, "orderId":options.orderId }
     app.postData('/order/detail', postData).then((res)=>{
       console.log(res)
-      var data=res.data.data
-      // data.payStatus=2
-      // data.serviceStatus=2
-      // data.orderServiceData.commentStatus =1
-      for(let i=0;i<data.itemList.length;i++){
-        data.itemList[i].unitPrice = (Number(data.itemList[i].unitPrice)/100).toFixed(2)
-      }
-      if (Number(data.couponPaid)==0){
+      // res.data.code=200
+      if(res.data.code==404){
+        app.showToast('请求的订单不存在')
+        setTimeout(function(){
+          wx.navigateBack({
 
+          })
+        },1500)
+        
       }
-      else{
-        data.couponPaid = (Number(data.couponPaid) / 100).toFixed(2)
-      }
-      if (Number(data.balancePaid) == 0) {
+      else if(res.data.code==200){
+        var data = res.data.data
+        // data = {
+        //   "orderId": "20190107094396062010",
+        //   "goodsType": 2,
+        //   "createTime": "2019-01-01 11:31:35",
+        //   "payStatus": 1,
+        //   "payment": 69900,
+        //   "serviceStatus": 1,
+        //   "itemList": [
+        //     {
+        //       "id": 1,
+        //       "goodsType": 2,
+        //       "orderId": "20190107094396062010",
+        //       "goodsId": "1",
+        //       "goodsName": "LOGO设计",
+        //       "imgUrl": "",
+        //       "num": 1,
+        //       "unitPrice": 5900,
+        //       "total": 5900
+        //     },
+        //     {
+        //       "id": 2,
+        //       "goodsType": 2,
+        //       "orderId": "20190107094396062010",
+        //       "goodsId": "2",
+        //       "goodsName": "海报设计",
+        //       "imgUrl": "",
+        //       "num": 1,
+        //       "unitPrice": 5900,
+        //       "total": 5900
+        //     },
+        //     {
+        //       "id": 3,
+        //       "goodsType": 2,
+        //       "orderId": "20190107094396062010",
+        //       "goodsId": "3",
+        //       "goodsName": "招牌设计",
+        //       "imgUrl": "",
+        //       "num": 1,
+        //       "unitPrice": 5900,
+        //       "total": 5900
+        //     },
+        //     {
+        //       "id": 4,
+        //       "goodsType": 2,
+        //       "orderId": "20190107094396062010",
+        //       "goodsId": "4",
+        //       "goodsName": "菜单设计",
+        //       "imgUrl": "",
+        //       "num": 1,
+        //       "unitPrice": 5900,
+        //       "total": 5900
+        //     },
+        //     {
+        //       "id": 5,
+        //       "goodsType": 2,
+        //       "orderId": "20190107094396062010",
+        //       "goodsId": "5",
+        //       "goodsName": "爆品梳理",
+        //       "imgUrl": "",
+        //       "num": 1,
+        //       "unitPrice": 5900,
+        //       "total": 5900
+        //     },
+        //     {
+        //       "id": 6,
+        //       "goodsType": 2,
+        //       "orderId": "20190107094396062010",
+        //       "goodsId": "6",
+        //       "goodsName": "成本把控",
+        //       "imgUrl": "",
+        //       "num": 1,
+        //       "unitPrice": 5900,
+        //       "total": 5900
+        //     },
+        //     {
+        //       "id": 7,
+        //       "goodsType": 2,
+        //       "orderId": "20190107094396062010",
+        //       "goodsId": "7",
+        //       "goodsName": "主推菜品",
+        //       "imgUrl": "",
+        //       "num": 1,
+        //       "unitPrice": 5900,
+        //       "total": 5900
+        //     },
+        //     {
+        //       "id": 8,
+        //       "goodsType": 2,
+        //       "orderId": "20190107094396062010",
+        //       "goodsId": "8",
+        //       "goodsName": "活动设置",
+        //       "imgUrl": "",
+        //       "num": 1,
+        //       "unitPrice": 5900,
+        //       "total": 5900
+        //     }
+        //   ],
+        //   "total": 0,
+        //   "couponPaid": 0,
+        //   "balancePaid": 1,
+        //   "wechatPaid": 1,
+        //   "orderServiceData": {
+        //     "orderId": "20190107094396062010",
+        //     "servicerId": 1222,
+        //     "servicerName": "周仓",
+        //     "createTime": "2019-01-07 13:16:16",
+        //     "commentStatus": 0,
+        //     "scoreService": 3,
+        //     "scoreProfess": 2,
+        //     "scoreResponse": 4,
+        //     "commentText": "jajajaja",
+        //     "commentUserId": null,
+        //     "commentTime": null,
+        //     "totalScore": 266
+        //   }
+        // }
+        // data.payStatus=2 
+        // data.serviceStatus=2
+        // data.orderServiceData.commentStatus =1
 
-      }
-      else {
-        data.balancePaid = (Number(data.balancePaid) / 100).toFixed(2)
-      }
-      if (Number(data.wechatPaid) == 0) {
+        
+        if (data.orderServiceData){
+          if (data.orderServiceData.commentStatus == 1) {
 
-      }
-      else {
-        data.wechatPaid = (Number(data.wechatPaid) / 100).toFixed(2)
+            var score = [false, false, false, false, false]
+            for (let i = 0; i < data.orderServiceData.scoreService; i++) {
+              score[i] = true
+            }
+            this.setData({
+              service_score: score
+            })
+            score = [false, false, false, false, false]
+
+            for (let i = 0; i < data.orderServiceData.scoreProfess; i++) {
+              score[i] = true
+            }
+            this.setData({
+              ability_score: score
+            })
+            score = [false, false, false, false, false]
+
+            for (let i = 0; i < data.orderServiceData.scoreResponse; i++) {
+              score[i] = true
+            }
+            this.setData({
+              speed_score: score
+            })
+            this.setData({
+              textArea: data.orderServiceData.commentText || ""
+            })
+            // console.log(this.data.textArea)
+          }
+        }
+
+        for (let i = 0; i < data.itemList.length; i++) {
+          data.itemList[i].unitPrice = (Number(data.itemList[i].unitPrice) / 100).toFixed(2)
+        }
+        if (Number(data.couponPaid) == 0) {
+
+        }
+        else {
+          data.couponPaid = (Number(data.couponPaid) / 100).toFixed(2)
+        }
+        if (Number(data.balancePaid) == 0) {
+
+        }
+        else {
+          data.balancePaid = (Number(data.balancePaid) / 100).toFixed(2)
+        }
+        if (Number(data.wechatPaid) == 0) {
+
+        }
+        else {
+          data.wechatPaid = (Number(data.wechatPaid) / 100).toFixed(2)
+        }
+        data.nickName=app.globalData.nickName
+        data.mobile=app.globalData.mobile
+        data.brandName=app.globalData.poiBasicData.brandName
+        data.address=app.globalData.poiBasicData.address
+        this.setData(data)
+        console.log(app.globalData)
       }
       
-      this.setData(data)
+      app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then(res=>{
+        if(res.data.code==200){
+          this.setData({
+            isMember:res.data.data.isMember
+          })
+        }
+      })
+
     })
   },
 

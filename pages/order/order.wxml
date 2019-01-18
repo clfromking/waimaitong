@@ -19,7 +19,7 @@
       <view class=' right'>
         <view class='jw-order-status'>{{item.payStatus==1?"未付款":"已付款"}}</view>
         <view class='shu' style='display:inline-block'>丨</view>
-        <view class='jw-delete-btn'></view>
+        <view bindtap='deleteItem' data-index='{{index}}' class='jw-delete-btn'></view>
       </view>
     </view>
     <view class='jw-order-item-lists clear' wx:for="{{item.itemList}}" wx:key="item1">

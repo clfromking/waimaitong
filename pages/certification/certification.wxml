@@ -8,7 +8,7 @@
       <text>{{item.text}}</text>
     </view>
     <view class='right'>
-      <button bindtap='goStoreAuthor' data-id='{{index}}'>去授权</button>
+      <button bindtap='goStoreAuthor' disabled='{{isAuthor[index]}}'  data-id='{{index}}'>{{isAuthor[index]?"已授权":"去授权"}}</button>
     </view>
   </view>
   <view class='labels'>

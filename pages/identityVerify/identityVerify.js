@@ -68,6 +68,19 @@ Page({
       }
       app.postData(url, postData).then((res) => {
         console.log(res)
+        if(res.data.code==200){
+          if (this.data.typeId == 0) {
+            app.globalData.isMaster = 2
+            wx.redirectTo({
+              url: '../certification/certification',
+            })
+          }
+          else{
+            app.showToast("认证成功")
+            app.globalData.isMaster=1
+          }
+        }
+ 
       })
     }
   },
