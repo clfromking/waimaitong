@@ -11,7 +11,8 @@ Page({
     name:"",
     phone:"",
     smsCode:"",
-    typeId:0
+    typeId:0,
+    getCodeMsg:"获取验证码"
   },
 
   inputMsg:function(e){
@@ -35,15 +36,31 @@ Page({
   },
 
   getCode:function(){
-    console.log(this.data.phone)
-    console.log(this.data.phone.length)
+    if (this.data.getCodeMsg!=="获取验证码"){
+      return
+    }
     if (this.data.phone.length<11){
       app.showToast("手机号不能少于11位")
       return
-    }
+    }   
     var postData = { "accessToken": app.globalData.accessToken,"mobile":this.data.phone}
     app.postData('/setting/sms/auth',postData).then((res)=>{
       console.log(res)
+      if(res.data.code==200){
+        for (let i = 60; i >= 0; i--) {
+          setTimeout(() => {
+            // console.log(i)
+            this.setData({
+              getCode_msg: i + "S"
+            })
+            if (i == 0) {
+              this.setData({
+                getCodeMsg: "获取验证码"
+              })
+            }
+          }, 1000 * (60 - i))
+        }
+      }
     })
   },
 
@@ -78,6 +95,9 @@ Page({
           else{
             app.showToast("认证成功")
             app.globalData.isMaster=1
+            wx.switchTab({
+              url: '../index/index',
+            })
           }
         }
  

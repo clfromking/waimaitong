@@ -41,7 +41,7 @@ Page({
       { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_1.jpg", "title": "我这里下雨了,你那里呢！", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" },
       { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_2.jpg", "title": "六一儿童节,回忆一下你的同年", "price": "9.50", "member_price": "0.00", "scope": "美团外卖、饿了么通用" }
     ],
-
+    isMember:2
   },
 
   goMember:function(){
@@ -79,7 +79,7 @@ Page({
       switch (e.currentTarget.dataset.id) {
         case 0:
           app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
-            console.log(res)
+            // console.log(res)
             if(res.data.code==404){
               wx.navigateTo({
                 url: '../applyFor/applyFor?type=freeShop',
@@ -110,6 +110,7 @@ Page({
               })
             }
             else if(res.data.code==200){
+              // res.data.data.auditStatus=2
               if (res.data.data.auditStatus == 2) {
                 wx.navigateTo({
                   url: '../operatingCharts/operatingCharts',
@@ -147,6 +148,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData)
+    
     // var data = {}
     // wx.navigateToMiniProgram({
     //   appId: 'wxbd687630cd02ce1d', //固定值，这个是填写微信官方签约小程序的id
@@ -179,6 +182,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(!app.globalData.accessToken){
+      this.setData({
+        isMember:false
+      })
+      return
+    }
+    app.postData('/member/my/get', { "accessToken": app.globalData.accessToken }).then(res => {
+      if (res.data.code == 200) {
+        this.setData({
+          isMember: res.data.data.isMember
+        })
+      }
+    })
     if(sign==1){
       wx.navigateTo({
         url: '../test/test',

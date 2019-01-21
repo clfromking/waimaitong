@@ -8,18 +8,18 @@
   </view>
   <view class='item'>
     <text>真实姓名：</text>
-    <input disabled='{{isdisabled}}' value='{{memberName}}'></input>
+    <input disabled='{{isdisabled}}' data-id='0' bindinput='bindInput' value='{{memberName}}'></input>
     <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
   </view>
 
-  <view class="section item" bindtap='location'>
+  <!-- <view class="section item" bindtap='location'>
     <text class="section__title">所在地区：</text>
     <text disabled='{{isdisabled}}' class='location' >{{area}}</text>
     <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/set/go.png' ></image>
-  </view>
+  </view> -->
 
-  <!-- <view class="section">
-    <text class="section__title">所在地区</text>
+  <view class="section item">
+    <text class="section__title">所在地区：</text>
     <picker disabled='{{isdisabled}}'
       mode="region"
       bindchange="bindRegionChange"
@@ -27,22 +27,22 @@
       custom-item="{{customItem}}"
     >
       <view class="picker">
-      {{region[0]}}，{{region[1]}}，{{region[2]}}
+      {{region[0]}} {{region[1]}} {{region[2]}}
         
       </view>
     </picker>
-  </view> -->
+  </view>
 
 
 
   <view class='item'>
     <text>店铺位置：</text>
-    <input disabled='{{isdisabled}}' value='{{poiAddress}}'></input>
+    <input disabled='{{isdisabled}}' data-id='1' bindinput='bindInput' value='{{poiAddress}}'></input>
     <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
   </view>
   <view class='item'>
     <text>品牌名称：</text>
-    <input disabled='{{isdisabled}}' value='{{poiBrandName}}'></input>
+    <input disabled='{{isdisabled}}' data-id='2' bindinput='bindInput' value='{{poiBrandName}}'></input>
     <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
   </view>
 

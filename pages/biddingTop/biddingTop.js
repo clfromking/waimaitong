@@ -10,7 +10,8 @@ Page({
     navText: "竞价充值",
     money_list: ["200", "300", "500", "1000", "3000", "5000", "10000", "20000", "",],
     isSelect:0,
-    money:""
+    money:"",
+    curBiddingBalance:0
   },
 
   goRecord:function(){
@@ -26,9 +27,37 @@ Page({
     })
   },
 
+  bindInput:function(e){
+    this.setData({
+      money:e.detail.value
+    })
+  },
+
   goBiddingAgree:function(){
     wx.navigateTo({
       url: '../biddingAgree/biddingAgree',
+    })
+  },
+
+  topUp:function(){
+    // console.log(this.data.isSelect)
+    var amount=0
+    if(this.data.isSelect==8){
+      // console.log(this.data.money)
+      amount=Number(this.data.money)*100
+    }
+    else{
+      // console.log(this.data.money_list[this.data.isSelect])
+      amount = Number(this.data.money_list[this.data.isSelect]) * 100
+    }
+    console.log(amount)
+    var postData={"accessToken":app.globalData.accessToken,"amount":amount}
+    app.postData('/bidding/recharge/in',postData).then(res=>{
+      if(res.data.code==200){
+        wx.navigateTo({
+          url: '../pay/pay',
+        })
+      }
     })
   },
 

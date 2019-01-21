@@ -7,12 +7,12 @@
     <text class='item-title'>品牌名：</text>
     <input disabled='{{isdisabled}}' placeholder='请填写' placeholder-style='color:#ccc' bindinput='inputMsgs' data-id='0' value='{{brandName}}'></input>
   </view>
-  <view class='item clear' bindtap='chooseLocation'>
+  <!-- <view class='item clear' bindtap='chooseLocation'>
     <text class="section__title item-title left">店铺地址：</text>
     <view class='{{area?"left":"right grey"}} select'>{{area?area:"请选择"}}</view>
-  </view>
-  <!-- <view class="section item">
-    <text class="section__title item-title">店铺地址</text>
+  </view> -->
+  <view class="section item">
+    <text class="section__title item-title">店铺地址：</text>
     <picker
       mode="region"
       bindchange="bindRegionChange"
@@ -20,11 +20,10 @@
       custom-item="{{customItem}}"
     >
       <view class="picker">
-        请选择
-       
+        {{region[0]}} {{region[1]}} {{region[2]}}
       </view>
     </picker>
-  </view> -->
+  </view>
   <view class='item'>
     <input  disabled='{{isdisabled}}' bindinput='inputMsgs' placeholder='请填写详细地址' placeholder-style='font-size:20rpx;color:#ccc' class='address' data-id='1' value='{{address}}'></input>
   </view>

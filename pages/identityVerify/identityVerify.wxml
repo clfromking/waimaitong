@@ -7,7 +7,7 @@
 <view class='container'>
 <view class='provings-view'>
     <text  class='title'>真实姓名</text>
-    <input value='{{name}}' bindinput='inputMsg' data-id='0' maxlength='14' type='number'></input>
+    <input value='{{name}}' bindinput='inputMsg' data-id='0' maxlength='14'></input>
   </view>
   <view class='provings-view'>
     <text  class='title'>手机号码</text>
@@ -16,7 +16,7 @@
   <view class='provings-view'>
     <text class='title'>验证码</text>
     <input class='codeInput' bindinput='inputMsg' data-id='2' value='{{smsCode}}' maxlength='6' type='number'></input>
-    <text class='getcode right' bindtap='getCode'>获取验证码</text>
+    <text class='getcode right' bindtap='getCode'>{{getCodeMsg}}</text>
   </view>
 </view>
 <button class='next' bindtap='next'>下一步</button> 

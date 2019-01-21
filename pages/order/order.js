@@ -11,7 +11,7 @@ Page({
     orders:[],
     isNothing:true,
     index:0,
-    pageSize:2,
+    pageSize:20,
     total:0
   },
 

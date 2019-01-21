@@ -11,6 +11,21 @@ Page({
     isthrough:false
   },
 
+  applyAgain:function(){
+    console.log(this.data.id)
+    app.postData('/go/requestform/resubmit',{"accessToken":app.globalData.accessToken,"id":this.data.id}).then(res=>{
+      if(res.data.code==200){
+        app.showToast('重新提交成功')
+        setTimeout(function(){
+          wx.switchTab({
+            url: '../index/index',
+          })
+        },1500)
+        
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

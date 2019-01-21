@@ -32,6 +32,7 @@ Page({
     if (options.type=="freeShop"){
       app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
         console.log(res)
+        // res.data.data.auditStatus=1
         if(res.data.data.auditStatus==0){
           this.setData({
             isprocess:true
@@ -45,6 +46,7 @@ Page({
     else{
       app.getData('/go/yunying/get?accessToken=' + app.globalData.accessToken).then((res) => {
         console.log(res)
+        // res.data.data.auditStatus=1
         if (res.data.data.auditStatus == 1) {
           this.setData({
             isfail: true

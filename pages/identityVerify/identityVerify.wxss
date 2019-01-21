@@ -25,16 +25,17 @@
   font-size: 30rpx;
   padding-left: 40rpx;
   vertical-align: top;
-  margin-right: 34rpx
+  margin-right: 54rpx
 }
 .provings-view:nth-child(1) .title,.provings-view:nth-child(2) .title{
-  margin-right: 4rpx
+  margin-right: 24rpx
 }
 .provings-view input{
   display: inline-block;
   height: 80rpx;
   line-height: 80rpx;
-  font-size: 30rpx
+  font-size: 30rpx;
+  width: 300rpx
 }
 .getcode{
   color: #333;
@@ -46,7 +47,7 @@
   margin-right: 34rpx
 }
 .codeInput{
-  width: 160rpx
+  width: 160rpx !important
 }
 .next{
   width: 402rpx;

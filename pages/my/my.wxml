@@ -6,16 +6,16 @@
     <image class='jw-user-avatarurl' src=''></image>
     <text class='login-alt' hidden="{{islogin}}" bindtap='gologin'>请先登录</text>
     <open-data class='login-alt' hidden="{{!islogin}}" type="userNickName"></open-data>
-    <view class='dredge-member' bindtap='goMember'>开通会员>></view>
+    <view class='dredge-member' bindtap='goMember'>{{isMember?"会员续费":"开通会员"}}>></view>
   </view>
   <view class='user-moneys'>
     <view class='moneys-item' bindtap='goBalance'>
-      <view class='moneys-num'>0</view>
+      <view class='moneys-num'>{{curBalance}}</view>
       <view class='moneys-alt'>账户余额</view>
     </view>
     <view class='fenge'></view>
     <view class='moneys-item' bindtap='goShareMoney'>
-      <view class='moneys-num'>0</view>
+      <view class='moneys-num'>{{currShareBalance}}</view>
       <view class='moneys-alt'>分享金</view>
     </view>
   </view>

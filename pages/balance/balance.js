@@ -14,7 +14,8 @@ Page({
     ischecked:false,
     topUp: '',
     returnMoney:"",
-    inputMoney:""
+    inputMoney:"",
+    curBalance:"0.00"
   },
 
   selectMoney:function(e){
@@ -23,7 +24,8 @@ Page({
       this.setData({
         isselectMoney: e.currentTarget.dataset.id,
         topUp: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]),
-        returnMoney: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]) / 10
+        returnMoney: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]) / 10,
+        inputMoney:""
       })
       
     }
@@ -73,9 +75,17 @@ Page({
   },
 
   changePassword:function(){
-    wx.navigateTo({
-      url: '../changePassword/changePassword',
-    })
+    if (!app.globalData.poiBasicData.balancePwdSet) {
+      wx.navigateTo({
+        url: '../changePassword/changePassword?type=next&all=false&other=',
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '../changePassword/changePassword?all=true&other=',
+      })
+    }
+    
   },
 
   inputMoney:function(e){
@@ -92,6 +102,23 @@ Page({
     if(Number(e.detail.value)==0){
       this.setData({
         inputMoney:""
+      })
+    }
+  },
+
+  topUp:function(){
+    console.log(this.data.topUp)
+    if(this.data.topUp<=0){
+      app.showToast('充值金额不能少于0元')
+    }
+    else{
+      var postData = { "accessToken": app.globalData.accessToken,"amount":this.data.topUp*100}
+      app.postData('/balance/recharge/in', postData).then(res=>{
+        if(res.data.code==200){
+          wx.navigateTo({
+            url: '../pay/pay',
+          })
+        }
       })
     }
   },
@@ -118,8 +145,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
+    // app.globalData.poiBasicData.curBalance=500
+    this.setData({
+      curBalance: (Number(app.globalData.poiBasicData.curBalance)/100).toFixed(2)||"0.00"
+    })
+  },  
 
   /**
    * 生命周期函数--监听页面隐藏

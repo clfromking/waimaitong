@@ -62,6 +62,6 @@
   </view>
   <view hidden='{{auditStatus==2}}' class='footer clear'>
     <view class='left'>距离重新申请还有78天</view>
-    <view class='right'>重新申请</view>
+    <view class='right' bindtap='applyAgain'>重新申请</view>
   </view>
 </view>

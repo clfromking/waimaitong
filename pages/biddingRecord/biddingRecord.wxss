@@ -1,7 +1,8 @@
 /* pages/biddingRecord/biddingRecord.wxss */
 .navs{
   background: #abca9a;
-  text-align: center
+  text-align: left;
+  padding-left: 40rpx
 }
 .nav{
   display: inline-block;

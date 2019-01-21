@@ -10,7 +10,7 @@ Page({
     statusHeight: app.globalData.statusBarHeight,
     navType:"",
     region: ['北京市', '北京市', '东城区'],
-    customItem: '全部',
+    // customItem: '全部',
     radios: [{ "name": '美团', "isselect": false }, { "name": '饿了么', "isselect": false }],
     array: ['单店自创品牌', '连锁加盟店', '连锁直营店'],
     index: 0,

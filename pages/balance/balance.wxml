@@ -7,8 +7,8 @@
       <text class='right'>充值记录</text>
     </view>
     <view class='header-money'>
-      <text>￥</text>
-      <text>0.00</text>
+      <text>¥</text>
+      <text>{{curBalance}}</text>
     </view>
   </view>
   <view class='body'>
@@ -38,7 +38,7 @@
       </view>
     </view>
     <view class='agreement'>点击立即充值，即表示您已阅读并同意<text style="color:#abca9a" bindtap='goAgreement'>《充值协议》</text></view>
-    <button class='top-up-btn'>立即充值</button>
+    <button class='top-up-btn' bindtap='topUp'>立即充值</button>
   </view>
   <view class='footer'>
     <view class='fenge'></view>

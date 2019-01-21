@@ -14,7 +14,7 @@ Page({
 
 
   createPerson:function(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../createPerson/createPerson',
     })
   },
@@ -31,9 +31,19 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           var postData = { "accessToken": app.globalData.accessToken, "userId": e.currentTarget.dataset.id }
-          // app.postData('/setting/poi/boss/transfer',postData).then(res=>{
-          //   console.log(res)
-          // })
+          app.postData('/setting/poi/boss/transfer',postData).then(res=>{
+            console.log(res)
+            if(res.data.code==200){
+              app.showToast('转让成功')
+              app.globalData.isMaster=1
+              setTimeout(function(){
+                wx.switchTab({
+                  url: '../my/my',
+                })
+              },1500)
+            }
+            
+          })
         }
         else if (res.cancel) {
           console.log('用户点击取消')
@@ -45,6 +55,7 @@ Page({
   //移除
   remove:function(e){
     console.log(e.currentTarget.dataset.id)
+    var that = this
     wx.showModal({
       title: '提示',
       content: '您确定要将此人从店铺成员中移除么?',
@@ -54,9 +65,13 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           var postData={"accessToken":app.globalData.accessToken,"userId":e.currentTarget.dataset.id}
-          // app.postData('/setting/poi/employee/rm',postData).then(res=>{
-          //   console.log(res)
-          // })
+          app.postData('/setting/poi/employee/rm',postData).then(res=>{
+            console.log(res)
+            if(res.data.code==200){
+              app.showToast('删除成功')
+              that.showPerson()
+            }
+          })
         } 
         else if (res.cancel) {
           console.log('用户点击取消')
@@ -64,6 +79,30 @@ Page({
       }
     })
   },
+
+  showPerson:function(){
+    app.postData('/setting/poi/employee/list', { "accessToken": app.globalData.accessToken }).then((res) => {
+      console.log(res)
+      // res.data.data = [{ "id": 0, "name": "张三", "nickName": "啦啦啦", "avatarUrl": "", "createTime": "2018-07-06 12:45" },
+      //   { "id": 1, "name": "李四", "nickName": "哈哈哈", "avatarUrl": "", "createTime": "2018-07-07 12:45" },
+      //   { "id": 2, "name": "王二麻子王二麻子王二麻子", "nickName": "呵呵呵", "avatarUrl": "", "createTime": "2018-07-08 12:45" }]
+      if (res.data.data.length) {
+        let person_list = this.data.person_list
+        person_list = res.data.data
+        this.setData({
+          isNothing: false,
+          person_list
+        })
+      }
+      else {
+        console.log('meiyou')
+        this.setData({
+          isNothing: true
+        })
+      }
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -83,26 +122,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.postData('/setting/poi/employee/list', { "accessToken": app.globalData.accessToken }).then((res) => {
-      console.log(res)
-      // res.data.data = [{ "id": 0, "name": "张三", "nickName": "啦啦啦", "avatarUrl": "", "createTime": "2018-07-06 12:45" },
-      //   { "id": 1, "name": "李四", "nickName": "哈哈哈", "avatarUrl": "", "createTime": "2018-07-07 12:45" },
-      //   { "id": 2, "name": "王二麻子王二麻子王二麻子", "nickName": "呵呵呵", "avatarUrl": "", "createTime": "2018-07-08 12:45" }]
-      if(res.data.data.length){
-        let person_list=this.data.person_list
-        person_list=res.data.data
-        this.setData({
-          isNothing: false,
-          person_list
-        })
-      }
-      else{
-        console.log('meiyou')
-        this.setData({
-          isNothing:true
-        })
-      }
-    })
+    this.showPerson()
   },
 
   /**

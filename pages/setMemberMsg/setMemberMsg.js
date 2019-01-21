@@ -15,7 +15,8 @@ Page({
     poiBrandName:"",
     poiAddress:"",
     area: '',
-    customItem: '全部',
+    region:["","",""],
+    // customItem: '全部',
     multiArray: [[], []],
     multiIndex: [0, 0],
     isdisabled:true
@@ -47,23 +48,80 @@ Page({
   
   },
 
+  bindInput:function(e){
+    // console.log(e.detail.value)
+    switch(Number(e.currentTarget.dataset.id)){
+      case 0:
+        this.setData({
+          memberName:e.detail.value
+        })
+        break;
+      case 1:
+        this.setData({
+          poiAddress: e.detail.value
+        })
+        // console.log(11)
+        break;
+      case 2:
+        this.setData({
+          poiBrandName: e.detail.value
+        })
+        break;
+    }
+  },
+
   changeAll:function(){
-    this.setData({
-      isdisabled: !this.data.isdisabled
-    })
-    if(this.data.isdisabled){
+    
+    if (this.data.isdisabled==true){
+      this.setData({
+        isdisabled: false
+      })
+    }
+    else{
+      // console.log(this.data.poiAddress)
+      // return
       for (var i = 0 ; i < allArr.length ; i++){
         if (allArr[i].name == this.data.multiArray[0][this.data.multiIndex[0]] && allArr[i].subName == this.data.multiArray[1][this.data.multiIndex[1]]){
           break
         }
       }
-      console.log(allArr[i].cateId)
+      // console.log(allArr[i].cateId)
+      // console.log(this.data.region)
+      if (!this.data.memberName){
+        app.showToast('真实姓名不能为空')
+        return
+      }
+      else if (!this.data.poiAddress){
+        app.showToast('店铺位置不能为空')
+        return
+      }
+      else if (!this.data.poiBrandName){
+        app.showToast('品牌名称不能为空')
+        return
+      }
+      else{
+        wx.showLoading({
+          title: '保存中',
+        })
+        var postData = { "accessToken": app.globalData.accessToken, "poiBrandName": this.data.poiBrandName, "poiCateId": allArr[i].cateId, "poiProvince": this.data.region[0], "poiCity": this.data.region[1], "poiDistricts": this.data.region[2], "poiStreet": "", "poiAddress": this.data.poiAddress, "memberName": this.data.memberName}
+        console.log(postData)
+        app.postData("/setting/poi/basic/set", postData).then(res=>{
+          if(res.data.code==200){
+            wx.hideLoading()
+            app.showToast('保存成功')
+            app.globalData.poiBasicData.address = this.data.poiAddress
+            app.globalData.poiBasicData.brandName = this.data.poiBrandName
+            app.globalData.poiBasicData.province = this.data.region[0]
+            app.globalData.poiBasicData.city = this.data.region[1]
+            app.globalData.poiBasicData.districts = this.data.region[2]
+            app.globalData.name = this.data.memberName
+            this.setData({
+              isdisabled: true
+            })
+          }
+        })
+      }
 
-      //保存时提交
-      // let postData={}
-      // app.postData("/setting/poi/basic/set",postData).then(res)=>{
-      //   console.log(res)
-      // }
     }
   },
 
@@ -96,6 +154,7 @@ Page({
         data.multiArray[1].push(arr[data.multiArray[0][e.detail.value]][i].subName)
       }
     }
+    console.log(data)
     this.setData(data)
   },
 
@@ -138,12 +197,17 @@ Page({
         area += res.data.data.city + " "
         area += res.data.data.districts + " "
         area += res.data.data.street
+        let region=[]
+        region[0]=res.data.data.province||"北京市"
+        region[1]=res.data.data.city||"北京市"
+        region[2]=res.data.data.districts||"朝阳区"
         let data = {
           "memberMobile": app.globalData.mobile,
           "memberName": app.globalData.name,
-          "poiAddress": res.data.data.address,
-          "poiBrandName": res.data.data.brandName,
+          "poiAddress": res.data.data.address||"测试测试",
+          "poiBrandName": res.data.data.brandName||"测试",
           "area": area,
+          "region": region
 
         }
         for (let i = 0; i < allArr.length; i++) {
@@ -185,23 +249,23 @@ Page({
     this.setData({
       "memberMobile":app.globalData.mobile,
     })
-    app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then((res)=>{
-     
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    arr=[]
+    allArr=[]
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    arr = []
+    allArr = []
   },
 
   /**

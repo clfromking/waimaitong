@@ -10,7 +10,7 @@ Page({
     password_length: 6,
     password_val: "",
     title: "请输入验证码",
-    alt: "验证码已发送至 138****4328",
+    alt: "",
     type: "",
     isFocus: true,  //聚焦 
     minute:60
@@ -26,11 +26,46 @@ Page({
     })
   },
 
+  sendAgain:function(){
+    if(this.data.minute=='重新发送'){
+      this.sendPsw()
+    }
+  },
+
+  next:function(){
+    console.log(this.data.password_val)
+    if(!this.data.password_val){
+      app.showToast('验证码不能为空')
+      return
+    }
+    else if(this.data.password_val<6){
+      app.showToast('验证码格式不正确')
+      return
+    }
+    else{
+      //发送请求 判断验证码对不对
+      app.postData('/setting/poi/balance/forget/sms', { "accessToken": app.globalData.accessToken, "smsCode": this.data.password_val}).then(res=>{
+        if(res.data.code==200){
+          wx.redirectTo({
+            url: '../changePassword/changePassword?type=next&all=false&other=newSet',
+          })
+        }
+      })
+      
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(app.globalData.mobile)
+    var mobile = app.globalData.mobile.substr(0, 3) + "****" + app.globalData.mobile.substr(7)
+    // console.log(mobile)
+    this.setData({
+      alt:mobile
+    })
+    this.sendPsw()
   },
 
   /**
@@ -80,5 +115,34 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  sendPsw:function(){
+    var that = this
+    app.postData('/setting/sms/auth', { "accessToken": app.globalData.accessToken,"mobile":app.globalData.mobile }).then(res=>{
+      if(res.data.code==200){
+        for (let i = 60; i >= 0; i--) {
+          setTimeout(() => {
+            if (i == 0) {
+              that.setData({
+                minute: '重新发送'
+              })
+              // i=60
+            }
+            else {
+              that.setData({
+                minute: i + '秒后重发'
+              })
+            }
+
+          }, 1000 * (60 - i))
+        }
+      }
+      else if(res.data.code==402){
+        that.setData({
+          minute:"重新发送"
+        })
+      }
+    })
+    
+  },
 })

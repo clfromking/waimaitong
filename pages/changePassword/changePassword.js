@@ -1,5 +1,7 @@
 // pages/changePassword/changePassword.js
 const app = getApp()
+let now_password=""
+// let all=false
 Page({
 
   /**
@@ -36,37 +38,86 @@ Page({
     }
     
     if (this.data.type==''){
+      now_password=this.data.password_val
+      
       wx.redirectTo({
-        url: '../changePassword/changePassword?type=next',
+        url: '../changePassword/changePassword?type=next&all='+this.data.all+'&other='+this.data.other,
       })
     }
     else if (this.data.type=="next"){
       wx.redirectTo({
-        url: '../changePassword/changePassword?type=again&value='+this.data.password_val,
+        url: '../changePassword/changePassword?type=again&value=' + this.data.password_val + '&all=' + this.data.all + '&other=' + this.data.other,
       })
     }
     else{
       if(this.data.password_val==this.data.beforePassword){
-        app.postData('/setting/poi/balance/pwd/set', { "accessToken": app.globalData.accessToken,"pwd":this.data.password_val}).then(res=>{
-          console.log(res)
-          if(res.data.code==200){
-            app.globalData.poiBasicData.balancePwdSet=true   
-            console.log(app.globalData)       
-            app.showToast('设置成功')
-            setTimeout(function () {
-              wx.navigateBack({
+        console.log(this.data.all)
+        console.log(now_password)
+        if(this.data.all==true||this.data.all=='true'){
+          console.log('全的')
+          var postData = { "accessToken":app.globalData.accessToken, "oldPwd": now_password, "newPwd": this.data.password_val}
+          app.postData('/setting/poi/balance/pwd/reset',postData).then(res=>{
+            if(res.data.code==200){
+              app.showToast('修改成功')
+              setTimeout(function(){
+                wx.navigateBack({
+                  
+                })
+              },1500)
+            }
+            else if(res.data.code==406){
+              setTimeout(function(){
+                wx.redirectTo({
+                  url: '../changePassword/changePassword?all=true&other=',
+                })
+              },1500)
+            }
+          })
 
-              })
-            }, 1500)
+        }
+        else{
+          console.log('不全')
+          console.log(this.data.other)
+          if(this.data.other=='newSet'){
+            console.log('忘记了设置')
+            app.postData('/setting/poi/balance/forget/set', { "accessToken": app.globalData.accessToken, "newPwd": this.data.password_val}).then(res=>{
+              if(res.data.code==200){
+                app.showToast('设置成功')
+                setTimeout(function () {
+                  wx.redirectTo({
+                    url: '../balance/balance',
+                  })
+                }, 1500)
+              }
+            })
           }
-        })
+          else{
+            console.log('初次设置')
+            app.postData('/setting/poi/balance/pwd/set', { "accessToken": app.globalData.accessToken, "pwd": this.data.password_val }).then(res => {
+              console.log(res)
+              if (res.data.code == 200) {
+                app.globalData.poiBasicData.balancePwdSet = true
+                console.log(app.globalData)
+                app.showToast('设置成功')
+                setTimeout(function () {
+                  wx.navigateBack({
+
+                  })
+                }, 1500)
+              }
+            })
+          }
+          
+        }
+        // return
+        
         
       }
       else {
         app.showToast('两次密码不一致，请重新输入')
         setTimeout(function(){
           wx.redirectTo({
-            url: '../changePassword/changePassword?type=next',
+            url: '../changePassword/changePassword?type=next&all=' + this.data.all + '&other=' + this.data.other,
           })
         },1500)
         
@@ -77,7 +128,7 @@ Page({
   },
 
   forgetPassword:function(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../authCode/authCode',
     })
   },
@@ -86,6 +137,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {  
+    console.log(options)
+    this.setData({
+      all:options.all,
+      other:options.other
+    })
     if(options.value){
       this.setData({
         beforePassword:options.value
@@ -121,7 +177,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

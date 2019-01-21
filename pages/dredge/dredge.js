@@ -38,7 +38,7 @@ Page({
     console.log(app.globalData.poiBasicData.balancePwdSet)
     if (!app.globalData.poiBasicData.balancePwdSet){
       wx.navigateTo({
-        url: '../changePassword/changePassword?type=next',
+        url: '../changePassword/changePassword?type=next&all=false&other=',
       })
     }
     else{
