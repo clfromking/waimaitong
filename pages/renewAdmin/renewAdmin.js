@@ -8,7 +8,9 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "自动续费管理",
-    iscancelRenew:false
+    iscancelRenew:false,
+    avatarUrl:"",
+    nickName:""
   },
 
   goAgree:function(){
@@ -27,6 +29,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      avatarUrl:app.globalData.avatarUrl,
+      nickName:app.globalData.nickName
+    })
     app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then((res)=>{
       console.log(res)
       // res.data.data.isMember = true

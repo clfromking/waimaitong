@@ -8,9 +8,9 @@ Page({
     mobile: app.globalData.mobile,
     statusHeight: app.globalData.statusBarHeight,
     header_alts: [
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon1.png", "text": "海量折扣" }, 
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon2.png", "text": "低至0元" },
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/member/member_icon3.png", "text": "外卖运营" }],
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/member_icon1.png", "text": "海量折扣" }, 
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/member_icon2.png", "text": "低至0元" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/member_icon3.png", "text": "外卖运营" }],
     items: [
       { name: 'USA', value: '美国' },
       { name: 'CHN', value: '中国', checked: 'true' },
@@ -19,8 +19,8 @@ Page({
       { name: 'ENG', value: '英国' },
       { name: 'TUR', value: '法国' },
     ],
-    isMember:false,
-    
+    isMember:2,
+    // alert:true
 
   },
 
@@ -84,7 +84,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
   },
 
   /**
@@ -99,11 +102,16 @@ Page({
    */
   onShow: function () {
     // console.log(app.globalData)
+    // return
     this.setData({
       mobile:app.globalData.mobile||""
     })
     // app.globalData.isMember = 1
       if(!app.globalData.accessToken){
+        wx.hideLoading()
+        this.setData({
+          isMember: false,
+        })
         return
       }
       app.postData('/member/my/get', { "accessToken": app.globalData.accessToken }).then(res => {
@@ -111,27 +119,18 @@ Page({
         
         if(res.data.code==403){
           this.setData({
-            isMember: false
+            isMember: false,
           })
+          wx.hideLoading()
         }
         else if(res.data.code==200){
           if(res.data.data.isMember==false){
             this.setData({
-              isMember: false
+              isMember: false,
             })
+            wx.hideLoading()
             return
           }
-          // res.data.data.isMember = true
-          // res.data.data.poiMemberData = {
-          //   "costSave": 0,
-          //   "durationUnit": "MONTH",
-          //   "duration": 0,
-          //   "buyTime": "2019-01-11 16:31:17",
-          //   "expiredAt": "2019-02-10 23:59:59",
-          //   "autoFeeRenew": 1,
-          //   "autoFee": 38800,
-          //   "memberId": 1
-          // }
           res.data.data.poiMemberData.buyTime = res.data.data.poiMemberData.buyTime.substr(0, res.data.data.poiMemberData.buyTime.indexOf(" "))
           res.data.data.poiMemberData.expiredAt = res.data.data.poiMemberData.expiredAt.substr(0, res.data.data.poiMemberData.expiredAt.indexOf(" "))
           // res.data.data.poiMemberData.duration=3
@@ -152,8 +151,9 @@ Page({
           }
           this.setData(res.data.data)
           this.setData({
-            isMember: true
+            isMember: true,
           })
+          wx.hideLoading()
         }
         
       })

@@ -2,18 +2,18 @@
 <text>pages/components/navigationTitle.wxml</text> -->
 <view style='height:{{statusHeight+navHeight}}px;width:750rpx'>
 <view class='navigationTitle' style="position:fixed;top:0;width:750rpx;">
-  <view class='statusBar' style='height:{{statusHeight}}px;background:{{statusBgcolor}};background-image:{{bgImg}}'></view>
-  <view class='navigationBar' style='height:{{navHeight}}px;background:{{navBgcolor}};color:{{navTextcolor}};background-image:{{bgImg}}'>
+  <view class='statusBar' style='height:{{statusHeight}}px;background:{{statusBgcolor}};background-image:{{bgImg}};top:0;'></view>
+  <view class='navigationBar' style='height:{{navHeight}}px;background:{{navBgcolor}};color:{{navTextcolor}};background-image:{{bgImg}};top:{{statusHeight}}px;'>
     {{navText}}
     <view wx:if='{{isshowNavback}}' class='navIcons' style='height:{{navHeight}}px;width:80rpx;top:{{statusHeight}}px;' bindtap='navBack'>
-      <image class='navBackImg' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/white_back.png'></image>
+      <image class='navBackImg' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/white_back.png'></image>
     </view>
     <view wx:if='{{isshowOptions}}' class='navIcons optionsView' style='height:{{navHeight}}px;width:80rpx;top:{{statusHeight}}px;' bindtap='navOtherRoute'>
-      <image class='navBackImg options' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/set.png'></image>
+      <image class='navBackImg options' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/set.png'></image>
     </view>
     <view wx:if='{{isshowHome}}' class='navIcons homeView' style='height:{{navHeight}}px;width:80rpx;top:{{statusHeight}}px;' bindtap='navHome'>
     <!-- top:{{statusHeight+16}}px; -->
-      <image class='navBackImg home' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/home.png'></image>
+      <image class='navBackImg home' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/home.png'></image>
     </view>
   </view> 
 </view>

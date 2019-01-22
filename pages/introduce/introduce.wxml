@@ -6,6 +6,6 @@
     <view style="font-size:24rpx;color:#999">2018年7月30日</view>
   </view>
   <view class='right'>
-    <image class='go'  mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+    <image class='go'  mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
   </view>
 </view>

@@ -1,7 +1,7 @@
 <!--pages/changePhone/changePhone.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
 
-<!-- <image src='http://pk1897l3c.bkt.clouddn.com/changePhone/safe.png' class='safe' mode='widthFix'></image> 
+<!-- <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/changePhone/safe.png' class='safe' mode='widthFix'></image> 
 <view class='safe-text'>为了保证您的账户安全 , 请验证身份</view>
 
 <view class='container'>
@@ -19,7 +19,7 @@
 <view class='no-proving'>手机无法验证？</view> -->
 
 <icon hidden='{{type=="next"}}' type='info' size='40rpx' color="#F63F5D"></icon>
-<image hidden='{{type!=="next"}}' src='http://pk1897l3c.bkt.clouddn.com/changePhone/icon_phone.png' class='phoneIcon'></image>
+<image hidden='{{type!=="next"}}' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/changePhone/icon_phone.png' class='phoneIcon'></image>
 <view hidden='{{type!=="next"}}' class='successTitle'>请填写您要更换的手机号码</view>
 <view hidden='{{type=="next"}}' class='changeTitle'>为确保是您本人操作，请完成以下验证</view>
 <view hidden='{{type=="next"}}' class='changeState'>我们已经发送了短信验证码至您手机：</view>

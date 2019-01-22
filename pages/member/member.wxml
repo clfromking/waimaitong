@@ -1,14 +1,14 @@
 <!--pages/member/member.wxml-->
 <!-- <scroll-view scroll-y style='height:100vh;position:fixed;top:0;margin-bottom:66rpx'> -->
 <navtitle status-height="{{statusHeight}}" bg-img="linear-gradient(94deg, #c0a069 0%, #d5bb8b 58%, #e9d5ac 100%);"></navtitle>
-<view hidden='{{isMember}}'>
+<view hidden='{{isMember==true||isMember==2}}'>
   <view style='position:relative'>
     <view class='jw-member-header'>
     </view>
     <view style='height:561.63rpx'></view>
-    <image class='member-bg' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/member/member_bg.png'>
+    <image class='member-bg' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/member_bg.png'>
     </image>
-    <image class='member-header' src='http://pk1897l3c.bkt.clouddn.com/member/member_header.png'></image>
+    <image class='member-header' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/member_header.png'></image>
     <text class='member-header-text'>VIP会员</text>
     <text class='member-header-alt' >给您的品牌开通一张专属会员卡</text>
     
@@ -53,7 +53,7 @@
         <text class='clip-text'>低至<text style='font-size:42rpx'>0</text>元</text>
       </view>
       <view class='liberty-two-body'>
-        <image class='liberty-icon' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png'></image>
+        <image class='liberty-icon' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/liberty_two_icon.png'></image>
         <view class='liberty-alts'>
           <text class='liberty-alts-title'>有机会获得 0元 店铺装修</text>
           <text class='liberty-alts-small'>优秀的店铺装修可提升多倍营收</text>
@@ -66,7 +66,7 @@
         <text class='clip-text'>外卖运营</text>
       </view>
       <view class='liberty-three-body'>
-        <image class='liberty-icon' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
+        <image class='liberty-icon' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/liberty_three_icon.png'></image>
         <view class='liberty-alts'>
           <text class='liberty-alts-title'>外卖运营即托管加速</text>
           <text class='liberty-alts-small'>为您的品牌带来史无前例的线上收益</text>
@@ -78,7 +78,7 @@
 
 
 
-<view hidden='{{!isMember}}'>
+<view hidden='{{isMember==false||isMember==2}}'>
   <view style='position:relative;height:436rpx'>
     <view class='header'></view>
     <view class='memberMsg'>
@@ -87,6 +87,7 @@
       <text class='member-number'>NO：{{poiMemberData.memberId}}</text>
       <text class='save-title'>已为您节省</text>
       <text class='save-money'>¥{{poiMemberData.costSave/100}}</text>
+      <view class='shu'></view>
       <text class='use-title'>使用时间</text>
       <text class='use-time'>{{poiMemberData.buyTime}}至{{poiMemberData.expiredAt}}</text>
       <view class='renewal-btn' bindtap='renewal'>会员续费</view>
@@ -102,39 +103,39 @@
       <view class='lists'>
         <view bindtap='goOther' data-id='0' class='list-item clear'>
           <view class='left clear'>
-            <image class='list-item-icon left'></image>
+            <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/list_icon1.png' class='list-item-icon left'></image>
             <text class='list-item-title left'>会员身份</text>
           </view>
           <view class='right'>
-            <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+            <image class='list-item-go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
           </view>
         </view>
         <view bindtap='goOther' data-id='1' class='list-item clear'>
           <view class='left clear'>
-            <image class='list-item-icon left'></image>
+            <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/list_icon2.png' class='list-item-icon left'></image>
             <text class='list-item-title left'>购买记录</text>
           </view>
           <view class='right'>
-            <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+            <image class='list-item-go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
           </view>
         </view>
         <view bindtap='goOther' data-id='2' class='list-item clear'>
           <view class='left clear'>
-            <image class='list-item-icon left'></image>
+            <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/list_icon3.png' class='list-item-icon left'></image>
             <text class='list-item-title left'>自动续费管理</text>
           </view>
           <view class='right'>
-            <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+            <image class='list-item-go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
           </view>
         </view>
         <view bindtap='goOther' data-id='3' class='list-item clear'>
           <view class='left clear'>
-            <image class='list-item-icon left'></image>
+            <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/list_icon4.png' class='list-item-icon left'></image>
             <text class='list-item-title left'>绑定手机</text>
           </view>
           <view class='right clear'>
             <text class='mobile left'>{{mobile}}</text>
-            <image class='list-item-go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+            <image class='list-item-go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
           </view>
         </view>
       </view>
@@ -146,3 +147,6 @@
     </view>
   </view>
 </view>
+
+
+<!-- <view class='alert' hidden='{{!alert}}'></view> -->

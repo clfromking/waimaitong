@@ -76,12 +76,12 @@ page{
 }
 
 .jw-delete-btn{
-  width: 28rpx;
-  height: 28rpx;
+  width: 36rpx;
+  height: 36rpx;
   display: inline-block;
-  background: url('http://pk1897l3c.bkt.clouddn.com/delete.jpg') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/delete.png') no-repeat;
   background-size: 100% 100%;
-  margin-top: 12rpx;
+  margin-top: 8rpx;
   /* margin-right: 26rpx */
 }
 .shu{

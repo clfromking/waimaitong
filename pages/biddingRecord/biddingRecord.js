@@ -32,22 +32,7 @@ Page({
     }
     else{
       url = "/bidding/recharge/out/list"
-      // var data = {
-      //   "total": 1,
-      //   "list": [
-      //     {
-      //       "id": 1,
-      //       "poiId": "c7ea3c983fd849fea7bcdb4e8db74343",
-      //       "servicerId": "1222",
-      //       "servicerName": "郭嘉",
-      //       "platform": "1",
-      //       "amount": 10000,
-      //       "consumeNo": "",
-      //       "createTime": "2019-01-08 19:44:39",
-      //       "balance": 85000
-      //     }
-      //   ]
-      // }
+      
       
     }
     var postData = { "accessToken": app.globalData.accessToken, "index": this.data.index, "pageSize": this.data.pageSize }

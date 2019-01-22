@@ -3,9 +3,9 @@
 <view style='position:relative'>
 <view class='jw-my-header'>
   <view class='jw-user-msgs'>
-    <image class='jw-user-avatarurl' src=''></image>
-    <text class='login-alt' hidden="{{islogin}}" bindtap='gologin'>请先登录</text>
-    <open-data class='login-alt' hidden="{{!islogin}}" type="userNickName"></open-data>
+    <image class='jw-user-avatarurl' src='{{islogin?avatarUrl||"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png"}}'></image>
+    <text class='login-alt' bindtap='gologin'>{{islogin?nickName:"请先登录"}}</text>
+    <!-- <open-data class='login-alt' hidden="{{!islogin}}" type="userNickName"></open-data> -->
     <view class='dredge-member' bindtap='goMember'>{{isMember?"会员续费":"开通会员"}}>></view>
   </view>
   <view class='user-moneys'>
@@ -21,14 +21,15 @@
   </view>
 </view>
 <view class='jw-my-body'>
-  <view class='body-list-options clear' hidden='{{index==1||index>=3}}' bindtap='goOtherOption' data-id='{{index}}' wx:for="{{options}}" wx:key="item">
+  <!-- <view class='body-list-options clear' hidden='{{index==1||index>=3}}' bindtap='goOtherOption' data-id='{{index}}' wx:for="{{options}}" wx:key="item"> -->
+  <view class='body-list-options clear' bindtap='goOtherOption' data-id='{{index}}' wx:for="{{options}}" wx:key="item">
     <view class='left'>
       <image class='options-icon' src='{{item.icon}}'></image>
       <text class='options-text'>{{item.text}}</text>
     </view>
     <view class='right'>
       <text class='options-other'>{{item.other}}</text>
-      <image class='options-go' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+      <image class='options-go' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
     </view>
   </view>
 </view>

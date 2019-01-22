@@ -4,18 +4,18 @@
   <view class='item'>
     <text>手机号码：</text>
     <input bindtap='changePhone' disabled='{{true}}' value='{{memberMobile}}'></input>
-    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/set/go.png' ></image>
+    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/set/go.png' ></image>
   </view>
   <view class='item'>
     <text>真实姓名：</text>
     <input disabled='{{isdisabled}}' data-id='0' bindinput='bindInput' value='{{memberName}}'></input>
-    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
+    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
   </view>
 
   <!-- <view class="section item" bindtap='location'>
     <text class="section__title">所在地区：</text>
     <text disabled='{{isdisabled}}' class='location' >{{area}}</text>
-    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/set/go.png' ></image>
+    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/set/go.png' ></image>
   </view> -->
 
   <view class="section item">
@@ -38,12 +38,12 @@
   <view class='item'>
     <text>店铺位置：</text>
     <input disabled='{{isdisabled}}' data-id='1' bindinput='bindInput' value='{{poiAddress}}'></input>
-    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
+    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
   </view>
   <view class='item'>
     <text>品牌名称：</text>
     <input disabled='{{isdisabled}}' data-id='2' bindinput='bindInput' value='{{poiBrandName}}'></input>
-    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/close.png'></image>
+    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
   </view>
 
   <view class="section item">
@@ -53,7 +53,7 @@
         {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
       </view>
     </picker>
-    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/set/go.png' ></image>
+    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/set/go.png' ></image>
   </view>
   <button class='changeBtn' bindtap='changeAll'>{{isdisabled?"编辑":"保存"}}</button>
 </view>

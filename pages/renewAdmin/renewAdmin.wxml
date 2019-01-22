@@ -3,8 +3,8 @@
 
 <view class='container'>
   <view class='title'>
-    <image src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'  class='avatarurl'></image>
-    <text class='uname'>狗小姐</text>
+    <image src='{{avatarUrl||"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png"}}'  class='avatarurl'></image>
+    <text class='uname'>{{nickName}}</text>
     <view class='renew-alt'>自动续费服务<text style='color:#abca9a'>（{{poiMemberData.autoFeeRenew==0?"未开通":"已开通"}}）</text></view>
     <view class='fenge'></view>
     <view class='renew-msgs clear'>
@@ -28,21 +28,21 @@
     <view class='promise-body clear'>
       <view class='promise-item left'> 
         <view class='promise-imgs-view'>
-          <image class='promise-item-img' mode='aspectFit' src='http://pk1897l3c.bkt.clouddn.com/renewAdmin/promise_icon1.png'></image>
+          <image class='promise-item-img' mode='aspectFit' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/renewAdmin/promise_icon1.png'></image>
         </view>
         <view class='promise-item-title'>安全无忧</view>
         <view class='promise-item-alt'>会员到期时扣费</view>
       </view>
        <view class='promise-item left'> 
         <view class='promise-imgs-view'>
-          <image class='promise-item-img' mode='aspectFit' src='http://pk1897l3c.bkt.clouddn.com/renewAdmin/promise_icon2.png'></image>
+          <image class='promise-item-img' mode='aspectFit' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/renewAdmin/promise_icon2.png'></image>
         </view>
         <view class='promise-item-title'>服务透明</view>
         <view class='promise-item-alt'>自动扣费前消息提醒</view>
       </view>
        <view class='promise-item left'> 
         <view class='promise-imgs-view'>
-          <image class='promise-item-img' mode='aspectFit' src='http://pk1897l3c.bkt.clouddn.com/renewAdmin/promise_icon3.png'></image>
+          <image class='promise-item-img' mode='aspectFit' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/renewAdmin/promise_icon3.png'></image>
         </view>
         <view class='promise-item-title'>随时取消</view>
         <view class='promise-item-alt'>服务可随时取消</view>

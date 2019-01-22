@@ -30,7 +30,7 @@
   <view class='body'>
     <view class='business-detail'>
       <view class='business-detail-one'>
-        <image class='location' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/order_detail/location.png'></image>
+        <image class='location' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order_detail/location.png'></image>
         <text>{{nickName}}</text>
         <text>{{mobile}}</text>
       </view>

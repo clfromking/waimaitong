@@ -11,16 +11,16 @@ Page({
     nickName:"",
     avatarUrl:"",
     small_nav:[
-      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "免租金开店" },
-      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_2.jpg", "text": "店铺装修" },
-      { "img": "http://pk1897l3c.bkt.clouddn.com/icon_3.jpg", "text": "外卖运营" },
+      { "img": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/freeShop.png", "text": "免租金开店" },
+      { "img": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/storeDecorate.png", "text": "店铺装修" },
+      { "img": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/operating.png", "text": "外卖运营" },
       // { "img": "http://pk1897l3c.bkt.clouddn.com/icon_4.jpg", "text": "菜品拍摄" },
     ],
     scrollX_msgs: [
-      { "img_src": "", "alt": "限前200位用户限前200位用户限前200位用户", "btn_text": "店铺装修" },
-      { "img_src": "", "alt": "再来一次品牌升级", "btn_text": "定制海报" },
-      { "img_src": "", "alt": "订单搜搜赚翻天", "btn_text": "提升下单神器" },
-      { "img_src": "", "alt": "限前200位用户", "btn_text": "店铺装修" }
+      { "img_src": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/storeDecorate.png", "alt": "限前200位用户限前200位用户限前200位用户", "btn_text": "店铺装修" },
+      { "img_src": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/zero_2.png", "alt": "再来一次品牌升级", "btn_text": "定制海报" },
+      { "img_src": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/zero_3.png", "alt": "订单搜搜赚翻天", "btn_text": "提升下单神器" },
+      { "img_src": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/zero_4.png", "alt": "限前200位用户", "btn_text": "店铺装修" }
     ],
     guess_title:"猜你想要",
     guess_msgs:[
@@ -50,6 +50,16 @@ Page({
     })
   },
 
+  gologin:function(){
+    if (app.globalData.accessToken) {
+
+    }
+    else {
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+  },
 
   test:function(){
     
@@ -80,6 +90,7 @@ Page({
         case 0:
           app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
             // console.log(res)
+            // res.data.code=404
             if(res.data.code==404){
               wx.navigateTo({
                 url: '../applyFor/applyFor?type=freeShop',
@@ -104,6 +115,7 @@ Page({
           break;
         case 2:
           app.getData('/go/yunying/get?accessToken=' + app.globalData.accessToken).then((res) => {
+            // res.data.code=404
             if(res.data.code==404){
               wx.navigateTo({
                 url: '../operatingState/operatingState',
@@ -192,6 +204,11 @@ Page({
       if (res.data.code == 200) {
         this.setData({
           isMember: res.data.data.isMember
+        })
+      }
+      else{
+        this.setData({
+          isMember: false
         })
       }
     })

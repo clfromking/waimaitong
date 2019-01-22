@@ -5,6 +5,6 @@
 <view class='goIntroduce clear' bindtap='goIntroduce'>
   <view class='left'>功能及版本介绍</view>
   <view class='right'>
-    <image class='go'  mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+    <image class='go'  mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
   </view>
 </view>

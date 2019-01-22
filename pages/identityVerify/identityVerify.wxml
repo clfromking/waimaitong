@@ -1,7 +1,7 @@
 <!--pages/identityVerify/identityVerify.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
 
-<image src='http://pk1897l3c.bkt.clouddn.com/changePhone/safe.png' class='safe' mode='widthFix'></image> 
+<image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/changePhone/safe.png' class='safe' mode='widthFix'></image> 
 <view class='safe-text'>为了保证您的账户安全 , 请验证身份</view>
 
 <view class='container'>

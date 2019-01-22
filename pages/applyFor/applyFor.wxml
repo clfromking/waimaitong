@@ -60,9 +60,9 @@
   <view class='item numberView clear'> 
     <text class='item-title'>门店品牌数量</text>
     <view class='right'>
-      <text class='sub' bindtap='sub'></text>
+      <image class='sub' src='{{navType=="freeShop"?"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/sub_free.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/sub_operating.png"}}' bindtap='sub'></image>
       <input type='number' class='number-input' bindinput='inputMsgs' data-id='2' value='{{num}}'></input>
-      <text class='add' bindtap='add'></text>
+      <image class='add' src='{{navType=="freeShop"?"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/add_free.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/add_operating.png"}}' bindtap='add'></image>
     </view>
   </view>
 

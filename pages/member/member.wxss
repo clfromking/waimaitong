@@ -108,7 +108,7 @@ page{
 .dredge-view{
   width: 600rpx;
   height: 190rpx;
-  background: url('http://pk1897l3c.bkt.clouddn.com/member/bg_black.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/bg_black.png') no-repeat;
   background-size: 100% 100%;
   position: absolute;
   left: 75rpx;
@@ -158,7 +158,7 @@ page{
 .liberty-one-left{
   width: 310rpx;
   height: 122rpx;
-  background: url('http://pk1897l3c.bkt.clouddn.com/member/radiusbg_black.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/radiusbg_black.png') no-repeat;
   background-size: 100% 100%;
   margin-left: 22rpx;
   position: relative
@@ -166,7 +166,7 @@ page{
 .liberty-one-right{
   width: 310rpx;
   height: 122rpx;
-  background: url('http://pk1897l3c.bkt.clouddn.com/member/radiusbg_other.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/radiusbg_other.png') no-repeat;
   background-size: 100% 100%;
   margin-right: 22rpx;
   position: relative;
@@ -183,7 +183,7 @@ page{
   font-size: 46rpx;
   font-weight: bold;
   width: 62rpx;
-  background: url('http://pk1897l3c.bkt.clouddn.com/member/vs.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/vs.png') no-repeat;
   background-size: 100% 100%
 }
 .liberty-left-alt{
@@ -325,7 +325,8 @@ page{
   border-bottom-right-radius: 160%
 }
 .memberMsg{
-  background: #000;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/card_bg.png') no-repeat;
+  background-size: 100% 100%;
   height: 376rpx;
   width: 670rpx;
   position: absolute;
@@ -335,7 +336,7 @@ page{
   box-shadow: 0px 10rpx 28rpx 0px 
 		rgba(0, 0, 0, 0.23);
 }
-.memberImg{
+.memberImg{ 
   position: absolute;
   width: 116rpx;
   height: 116rpx;
@@ -409,12 +410,14 @@ page{
   height: 60rpx;
   display: block;
   margin: 40rpx auto;
-  background: red
+  background:url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/zhuanqu.png') no-repeat;
+  background-size: 100% 100%;
 }
 .bodyTitle{
   width: 100%;
   height: 176rpx;
-  background: red;
+  background:url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/ban_bg.png') no-repeat;
+  background-size: 100% 100%;
   position: relative;
   border-radius: 10rpx;
   margin-bottom: 40rpx
@@ -435,7 +438,8 @@ page{
   font-size: 24rpx;
   text-align: center;
   border-radius: 8rpx;
-  background: orange;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/ban_btn.png') no-repeat;
+  background-size: 100% 100%;
   position: absolute;
   top: 64rpx;
   right: 40rpx;
@@ -499,7 +503,8 @@ page{
   width: 98rpx;
   height: 98rpx;
   display: block;
-  background: red;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/crow.png') no-repeat;
+  background-size: 100% 100%;
   margin: 40rpx auto 0;
   border-radius: 50%
 }
@@ -517,4 +522,23 @@ page{
   line-height: 96rpx;
   color: #5a5a5a;
   font-size: 26rpx
+}
+.shu{
+  width: 2rpx;
+  height: 82rpx;
+  background: #d2B686;
+  position: absolute;
+  top: 196rpx;
+  left: 334rpx
+}
+
+.alert{
+  width: 750rpx;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 2;
+  opacity: 0.8
 }

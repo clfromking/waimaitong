@@ -41,18 +41,20 @@ Page({
         var postData = { "accessToken": app.globalData.accessToken, "mobile": this.data.phone }
         app.postData('/setting/sms/auth',postData).then((res)=>{
           console.log(res)
-          for (let i = 60; i >= 0; i--) {
-            setTimeout(() => {
-              // console.log(i)
-              this.setData({
-                getCode_msg: i + "S"
-              })
-              if (i == 0) {
+          if(res.data.code==200){
+            for (let i = 60; i >= 0; i--) {
+              setTimeout(() => {
+                // console.log(i)
                 this.setData({
-                  getCode_msg: "获取验证码"
+                  getCode_msg: i + "S"
                 })
-              }
-            }, 1000 * (60 - i))
+                if (i == 0) {
+                  this.setData({
+                    getCode_msg: "获取验证码"
+                  })
+                }
+              }, 1000 * (60 - i))
+            }
           }
         })
         

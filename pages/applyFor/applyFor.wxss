@@ -42,14 +42,22 @@ picker{
   padding: 20rpx 0;
 }
 .sub,.add{
-  width: 24rpx;
-  height: 24rpx;
+  width: 32rpx;
+  height: 32rpx;
   display: inline-block;
-  border: 4rpx solid #abca9a;
+  /* border: 4rpx solid #abca9a; */
   border-radius: 50%;
   vertical-align: top;
   margin-top: 24rpx
 }
+/* .add{
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/add_free.png') no-repeat;
+  background-size: 100% 100%;
+}
+.sub{
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/sub_free.png') no-repeat;
+  background-size: 100% 100%;
+} */
 .number-input{
   font-size: 28rpx;
   color: #ccc;

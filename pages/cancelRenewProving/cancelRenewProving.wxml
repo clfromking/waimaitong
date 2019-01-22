@@ -16,7 +16,7 @@
 </view>
 
 <view hidden='{{!iscancelRenew}}'>
-  <image class='right-img' src='http://pk1897l3c.bkt.clouddn.com/cancelRenew/right.png' mode='widthFix'></image>
+  <image class='right-img' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/cancelRenew/right.png' mode='widthFix'></image>
   <view class='label'>您已成功取消自动续费功能</view>
   <view class='gorenew-view'>
     <text class='gorenew-label'>如需开通请点击</text>

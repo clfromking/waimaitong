@@ -51,7 +51,7 @@ Page({
           setTimeout(() => {
             // console.log(i)
             this.setData({
-              getCode_msg: i + "S"
+              getCodeMsg: i + "S"
             })
             if (i == 0) {
               this.setData({

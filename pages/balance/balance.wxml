@@ -47,7 +47,7 @@
         <text>修改密码</text>
       </view>
       <view class='right'>
-        <image class='goChangePhone-icon' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+        <image class='goChangePhone-icon' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
       </view>
     </view>
     <view class='fenge'></view>

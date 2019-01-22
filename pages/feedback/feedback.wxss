@@ -82,7 +82,7 @@ textarea{
 
 
 .selectRadio{
-  background-image: url(http://pk1897l3c.bkt.clouddn.com/cancelRenew/right.png);
+  background-image: url(https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/cancelRenew/right.png);
   background-repeat: no-repeat;
   background-size: 100% 100%
 }

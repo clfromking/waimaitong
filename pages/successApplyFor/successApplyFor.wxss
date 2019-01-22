@@ -2,7 +2,7 @@
 .img{
   display: block;
   width: 420rpx;
-  height: 520rpx;
+  /* height: 520rpx; */
   margin: 98rpx auto 104rpx
 }
 .status{
@@ -47,4 +47,9 @@ icon{
 
 .status-yellow{
   color: #FFC965
+}
+
+.failImg{
+  width: 521.5rpx;
+  margin: 234.3rpx 81.6rpx 204.2rpx 146.9rpx
 }

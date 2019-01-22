@@ -1,7 +1,12 @@
 <!--pages/successApplyFor/successApplyFor.wxml-->
 <navtitle status-height="{{statusHeight}}" nav-bgcolor="{{navType=='freeShop'?'#abca9a':'#256ef6'}}" status-bgcolor="{{navType=='freeShop'?'#abca9a':'#256ef6'}}" nav-textcolor="#fff" nav-text="{{navType=='freeShop'?'免租金开店申请':'外卖运营申请'}}"></navtitle>
 
-<image src='' class='img'></image>
+<image hidden='{{navType=="operating"}}' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/successApplyFor/success_free.png' class='img'></image>
+
+<image hidden='{{navType=="freeShop"||isfail==true}}' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/successApplyFor/success_operating.png' class='img successImg'></image>
+
+<image hidden='{{navType=="freeShop"||isfail==false}}' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/successApplyFor/fail_operating.png' class='img failImg'></image>
+
 <view class='status {{navType=="operating"?"status-blue":""}} {{isfail?"status-yellow":""}}'>{{isfail?"很遗憾！申请未能通过":"申请提交成功"}}</view>
 <view class='alt'>{{isfail?"30天后可再次申请":navType=="freeShop"?"7-10个工作日工作人员会与您取得联系请保持手机畅通":"1-3个工作日工作人员会与您取得联系请保持手机畅通"}}</view>
 <view class='lookRecord {{isprocess?"CCC":""}}' hidden='{{navType=="operating"}}'  bindtap='freeShopRecord'><icon size='40rpx' hidden='{{!isprocess}}' color='green' type="waiting"></icon>{{isprocess?"审核中":"查看申请记录"}}</view>

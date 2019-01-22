@@ -10,6 +10,10 @@
   font-weight: bold;
   position: relative
 }
+.statusBar,.navigationBar{
+  position: fixed !important;
+  width:750rpx 
+}
 .navIcons{
   position: fixed;
   /* margin-left: 36rpx; */

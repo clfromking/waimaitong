@@ -91,7 +91,7 @@ scroll-view view text{
   width: 670rpx;
   margin: 0 auto;
   height: 208rpx;
-  background: url(http://pk1897l3c.bkt.clouddn.com/operatingCharts/survey_bg.png) no-repeat;
+  background: url(https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/operatingCharts/survey_bg.png) no-repeat;
   background-size: 100% 100%;
   /* background: red; */
   border-radius: 8rpx
@@ -143,7 +143,7 @@ scroll-view view text{
   text-align: center;
   margin: 36rpx auto 0
 }
-.yellow,.blue{
+.green,.blue{
   font-size: 28rpx;
   text-align: center;
   margin-top: 16rpx
@@ -230,7 +230,7 @@ ec-canvas{
   width: 347rpx;
   height: 347rpx;
   margin: 0 auto;
-  background: url('http://pk1897l3c.bkt.clouddn.com/operatingCharts/brokerage_bg.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/operatingCharts/brokerage_bg.png') no-repeat;
   background-size: 100% 100% 
 }
 .brokerage-title{
@@ -259,7 +259,7 @@ ec-canvas{
   display: inline-block;
   width: 48rpx;
   height: 48rpx;
-  background: url('http://pk1897l3c.bkt.clouddn.com/all/nomark.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/nomark.png') no-repeat;
   background-size: 100% 100%;
   margin-left: 22rpx
 }
@@ -267,7 +267,7 @@ ec-canvas{
   margin-left: 30rpx
 }
 .selectScore{
-  background: url('http://pk1897l3c.bkt.clouddn.com/all/mark.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/mark.png') no-repeat;
   background-size: 100% 100%;
 }
 .scoresView{

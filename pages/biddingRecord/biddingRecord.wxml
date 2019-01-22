@@ -7,11 +7,11 @@
 <view class='container'>
   <view class='item' wx:for="{{list}}" wx:key="item">
     <view class='topView clear'>
-      <image hidden='{{isSelect==1}}' src='http://pk1897l3c.bkt.clouddn.com/biddingRecord/top.png' class='top-up left'></image>
-      <image hidden='{{isSelect==0}}' src='{{item.platform==1?"http://pk1897l3c.bkt.clouddn.com/biddingRecord/xf_mt.png":"http://pk1897l3c.bkt.clouddn.com/biddingRecord/xf_ele.png"}}' class='top-up left'></image>
+      <image hidden='{{isSelect==1}}' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/biddingRecord/top.png' class='top-up left'></image>
+      <image hidden='{{isSelect==0}}' src='{{item.platform==1?"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/biddingRecord/xf_mt.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/biddingRecord/xf_ele.png"}}' class='top-up left'></image>
       <view class='left top-title'>{{isSelect==0?"消费":"充值"}}</view>
       <view class='left clear' hidden='{{isSelect==0}}'>
-        <image class='logo left' src='{{item.platform==1?"http://pk1897l3c.bkt.clouddn.com/biddingRecord/mt.png":"http://pk1897l3c.bkt.clouddn.com/biddingRecord/ele.png"}}'></image>
+        <image class='logo left' src='{{item.platform==1?"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/biddingRecord/mt.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/biddingRecord/ele.png"}}'></image>
         <view class='logo-text left'>{{item.platform==1?"美团外卖":"饿了么"}}</view>
       </view>
       <view class='right top-money {{isSelect==0?"":"isOut"}}'>{{isSelect==0?"+":"-"}}{{item.amount/100}}元</view>

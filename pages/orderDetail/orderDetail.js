@@ -35,7 +35,7 @@ Page({
   },
 
   mark:function(e){
-    console.log(this.data.orderServiceData.commentStatus)
+    // console.log(this.data.orderServiceData.commentStatus)
     if (this.data.orderServiceData.commentStatus==1){
       app.showToast('您已完成评价')
       return
@@ -137,122 +137,6 @@ Page({
       }
       else if(res.data.code==200){
         var data = res.data.data
-        // data = {
-        //   "orderId": "20190107094396062010",
-        //   "goodsType": 2,
-        //   "createTime": "2019-01-01 11:31:35",
-        //   "payStatus": 1,
-        //   "payment": 69900,
-        //   "serviceStatus": 1,
-        //   "itemList": [
-        //     {
-        //       "id": 1,
-        //       "goodsType": 2,
-        //       "orderId": "20190107094396062010",
-        //       "goodsId": "1",
-        //       "goodsName": "LOGO设计",
-        //       "imgUrl": "",
-        //       "num": 1,
-        //       "unitPrice": 5900,
-        //       "total": 5900
-        //     },
-        //     {
-        //       "id": 2,
-        //       "goodsType": 2,
-        //       "orderId": "20190107094396062010",
-        //       "goodsId": "2",
-        //       "goodsName": "海报设计",
-        //       "imgUrl": "",
-        //       "num": 1,
-        //       "unitPrice": 5900,
-        //       "total": 5900
-        //     },
-        //     {
-        //       "id": 3,
-        //       "goodsType": 2,
-        //       "orderId": "20190107094396062010",
-        //       "goodsId": "3",
-        //       "goodsName": "招牌设计",
-        //       "imgUrl": "",
-        //       "num": 1,
-        //       "unitPrice": 5900,
-        //       "total": 5900
-        //     },
-        //     {
-        //       "id": 4,
-        //       "goodsType": 2,
-        //       "orderId": "20190107094396062010",
-        //       "goodsId": "4",
-        //       "goodsName": "菜单设计",
-        //       "imgUrl": "",
-        //       "num": 1,
-        //       "unitPrice": 5900,
-        //       "total": 5900
-        //     },
-        //     {
-        //       "id": 5,
-        //       "goodsType": 2,
-        //       "orderId": "20190107094396062010",
-        //       "goodsId": "5",
-        //       "goodsName": "爆品梳理",
-        //       "imgUrl": "",
-        //       "num": 1,
-        //       "unitPrice": 5900,
-        //       "total": 5900
-        //     },
-        //     {
-        //       "id": 6,
-        //       "goodsType": 2,
-        //       "orderId": "20190107094396062010",
-        //       "goodsId": "6",
-        //       "goodsName": "成本把控",
-        //       "imgUrl": "",
-        //       "num": 1,
-        //       "unitPrice": 5900,
-        //       "total": 5900
-        //     },
-        //     {
-        //       "id": 7,
-        //       "goodsType": 2,
-        //       "orderId": "20190107094396062010",
-        //       "goodsId": "7",
-        //       "goodsName": "主推菜品",
-        //       "imgUrl": "",
-        //       "num": 1,
-        //       "unitPrice": 5900,
-        //       "total": 5900
-        //     },
-        //     {
-        //       "id": 8,
-        //       "goodsType": 2,
-        //       "orderId": "20190107094396062010",
-        //       "goodsId": "8",
-        //       "goodsName": "活动设置",
-        //       "imgUrl": "",
-        //       "num": 1,
-        //       "unitPrice": 5900,
-        //       "total": 5900
-        //     }
-        //   ],
-        //   "total": 0,
-        //   "couponPaid": 0,
-        //   "balancePaid": 1,
-        //   "wechatPaid": 1,
-        //   "orderServiceData": {
-        //     "orderId": "20190107094396062010",
-        //     "servicerId": 1222,
-        //     "servicerName": "周仓",
-        //     "createTime": "2019-01-07 13:16:16",
-        //     "commentStatus": 0,
-        //     "scoreService": 3,
-        //     "scoreProfess": 2,
-        //     "scoreResponse": 4,
-        //     "commentText": "jajajaja",
-        //     "commentUserId": null,
-        //     "commentTime": null,
-        //     "totalScore": 266
-        //   }
-        // }
         // data.payStatus=2 
         // data.serviceStatus=2
         // data.orderServiceData.commentStatus =1

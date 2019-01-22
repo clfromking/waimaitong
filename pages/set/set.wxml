@@ -3,5 +3,5 @@
 
 <view class='item clear' wx:for="{{options}}" hidden='{{(index==0&&isMaster==false)||(index==1&&isMaster==false)}}' wx:key="item" data-id='{{index}}' bindtap='goOther'>
   <text class='left'>{{item}}</text>
-  <image mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/set/go.png' class='right'></image>
+  <image mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/set/go.png' class='right'></image>
 </view>

@@ -3,11 +3,11 @@
 
 <view class='clear'>
   <view bindtap='goIdentity' data-id='0' class='item left'>
-    <image src='http://pk1897l3c.bkt.clouddn.com/identityConfirm/boss.png' mode='widthFix' class='itemImg'></image>
+    <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/identityConfirm/boss.png' mode='widthFix' class='itemImg'></image>
     <text>我是老板</text>
   </view>
   <view bindtap='goIdentity' data-id='1' class='item left'>
-    <image  src='http://pk1897l3c.bkt.clouddn.com/identityConfirm/dy.png' mode='widthFix' class='itemImg'></image>
+    <image  src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/identityConfirm/dy.png' mode='widthFix' class='itemImg'></image>
     <text>我是店员</text>
   </view>
 </view>

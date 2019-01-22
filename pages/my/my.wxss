@@ -89,6 +89,11 @@ page{
   height: 84rpx;
   margin: 10rpx 26rpx 0 28rpx
 }
+.options-icon{
+  width: 64rpx;
+  height: 64rpx;
+  margin: 20rpx 36rpx 0 38rpx
+}
 .options-text,.options-other{
   display: inline-block;
   height: 100%;

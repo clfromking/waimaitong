@@ -23,7 +23,7 @@
 .pay-icon{
   width: 38rpx;
   margin-left: 16rpx;
-  margin-top: 33rpx;
+  margin-top: 36rpx;
   margin-right: 10rpx
 }
 .pay-text{

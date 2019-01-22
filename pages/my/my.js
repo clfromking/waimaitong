@@ -9,23 +9,24 @@ Page({
     statusHeight: app.globalData.statusBarHeight,
     navText: "我的",
     options: [
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text":"外卖平台竞价排名充值","other":"¥0.00元"},
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "免密支付", "other": "" },
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "店铺认证", "other": "未认证" },
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "邀请商户领现金", "other": "已邀请0位" },
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "优惠卷", "other": "0张" },
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "我的收藏", "other": "" },
-      { "icon": "http://pk1897l3c.bkt.clouddn.com/icon_1.jpg", "text": "意见反馈", "other": "" }
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/bidding.png", "text":"外卖平台竞价排名充值","other":"¥0.00元"},
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/admin.png", "text": "店铺管理", "other": "" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/author.png", "text": "店铺认证", "other": "未认证" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/invite.png", "text": "邀请商户领现金", "other": "已邀请0位" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/coupons.png", "text": "优惠卷", "other": "0张" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/collect.png", "text": "我的收藏", "other": "" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/feedback.png", "text": "意见反馈", "other": "" }
     ],
     islogin:false,
     isAuthDone:0,
     curBalance:0,
     currShareBalance:0,
-    isMember:false
+    isMember:false,
+    nickName:"",
+    avatarUrl:""
   },
 
   gologin:function(){
-    console.log(app.globalData.accessToken)
     if (app.globalData.accessToken){
 
     }
@@ -136,6 +137,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.getStorage({
+      key: 'userInfo',
+      success: (res) => {
+        this.setData({
+          islogin: true,
+          nickName: app.globalData.nickName,
+          avatarUrl: app.globalData.avatarUrl
+        })
+      },
+      fail: () => {
+        this.setData({
+          islogin: false
+        })
+      }
+    })
     if (!app.globalData.accessToken){
       this.setData({
         isMember:false
@@ -149,46 +165,35 @@ Page({
           })
         }
       })
+      app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then(res => {
+        let options = this.data.options
+
+        if (!app.globalData.eleAuth && !app.globalData.mtAuth) {
+          options[2].other = "未认证"
+        }
+        else {
+          options[2].other = "已认证"
+
+        }
+        if (res.data.code == 200) {
+          options[0].other = (Number(res.data.data.curBiddingBalance) / 100).toFixed(2) || 0.00
+          options[0].other = "¥" + options[0].other + "元"
+          this.setData({
+            options,
+            currShareBalance: Number(res.data.data.currShareBalance) / 100,
+            curBalance: Number(res.data.data.curBalance) / 100,
+            
+          })
+        }
+      })
     }
     
     // app.globalData.isAuthDone=1
-    wx.getStorage({
-      key: 'userInfo',
-      success: (res) => {
-        this.setData({
-          islogin: true
-        })
-      },
-      fail: () => {
-        this.setData({
-          islogin: false
-        })
-      }
-    })
-    let options=this.data.options
-
-    if (!app.globalData.eleAuth && !app.globalData.mtAuth){
-      options[2].other="未认证"
-    }
-    else {
-      options[2].other = "已认证"
-
-    }
-    // app.globalData.curBiddingBalance=null
-    console.log((Number(app.globalData.poiBasicData.curBiddingBalance) / 100).toFixed(2) || 0.00)
-    options[0].other = (Number(app.globalData.poiBasicData.curBiddingBalance)/100).toFixed(2)||0.00
-    options[0].other = "¥" + options[0].other + "元"
     
-    let isMember = this.data.isMember
-    // console.log(options[0].other+"元")
-
-    this.setData({
-      // isAuthDone: app.globalData.isAuthDone,
-      options,
-      currShareBalance: app.globalData.poiBasicData.currShareBalance,
-      curBalance: app.globalData.poiBasicData.curBalance
-    })
-    // console.log(app.globalData.isAuthDone)
+    
+    // app.globalData.curBiddingBalance=null
+    
+    
   },
 
   /**

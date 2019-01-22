@@ -1,5 +1,5 @@
 <navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
-<view class='jw-art-logo'><image src="http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png"></image></view>
+<view class='jw-art-logo'><image src="https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/logo.png"></image></view>
 <text class='jw-art-name'>外卖通</text>
 <view class='jw-fenge'></view>
 <view class='jw-author-body'>

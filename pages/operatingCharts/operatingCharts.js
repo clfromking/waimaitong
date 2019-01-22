@@ -32,7 +32,7 @@ Page({
   // 点击按钮后初始化图表
   init: function () {
     this.ecComponent.init((canvas, width, height) => {
-      console.log(height)
+      // console.log(height)
       // 获取组件的 canvas、width、height 后的回调函数
       // 在这里初始化图表
       const chart = echarts.init(canvas, null, {
@@ -62,8 +62,8 @@ Page({
   },
 
   mark: function (e) {
-    console.log(e.currentTarget.dataset.id)
-    console.log(e.currentTarget.dataset.index)
+    // console.log(e.currentTarget.dataset.id)
+    // console.log(e.currentTarget.dataset.index)
     let id = e.currentTarget.dataset.id
     let index = e.currentTarget.dataset.index
     let score_arr = [false, false, false, false, false]
@@ -219,8 +219,8 @@ function setOption(chart) {
         areaStyle: {
           normal: {//设置线下面部分颜色渐变
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1,
-              [{ offset: 0, color: 'red' },
-                { offset: 1, color: 'yellow' }
+              [{ offset: 0, color: '#3188FF' },
+                { offset: 1, color: '#31C5FF' }
               ])
           }
         },

@@ -7,7 +7,7 @@
       <text class='right'>{{item.payStatus==1?"未付款":"成功"}}</text>
     </view>
     <view class='content'>
-      <image class='content-img' src="http://pk1897l3c.bkt.clouddn.com/identity/identity_top.png" mode='widthFix'></image>
+      <image class='content-img' src="https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/identity/identity_top.png" mode='widthFix'></image>
       <text>{{item.name}}</text>
       <text class='right'>¥{{item.total}}元</text>
     </view>

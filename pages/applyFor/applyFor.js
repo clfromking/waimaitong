@@ -134,7 +134,6 @@ Page({
   },
 
   sub:function(){
-    console.log(this.data.num)
     if(this.data.num==1){
       return
     }
@@ -144,7 +143,6 @@ Page({
   },
 
   add:function(){
-    console.log(this.data.num)
     this.setData({
       num: this.data.num+1
     })

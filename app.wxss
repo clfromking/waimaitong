@@ -42,7 +42,7 @@ view[hidden]{
 .blue{
   color: #256ef6
 }
-.yellow{
+.green{
   color: #13dec9
 }
 .showPassword-view{

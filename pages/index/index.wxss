@@ -11,12 +11,13 @@ page{
   width: 78rpx;
   background: #fff;
   margin-left: 24rpx;
-  
+  border-radius: 50%
 }
 .jw-title-avatarurl-img{
   display: block;
   width: 100%;
-  height: 100%
+  height: 100%;
+  border-radius: 50%
 }
 .jw-title-hint-view{
   height: 78rpx;
@@ -67,8 +68,8 @@ page{
 }
 
 .jw-small-nav-img{
-  width:84rpx;
-  height: 84rpx;
+  width:164rpx;
+  height: 164rpx;
   display: block;
   border-radius: 50%;
   /* border: 1rpx solid red; */
@@ -115,7 +116,7 @@ page{
   width: 160rpx;
   height: 160rpx;
   margin: 20rpx auto 10rpx;
-  border: 1px solid red
+  /* border: 1px solid red */
   /* background: red */
 }
 .jw-item-img{
@@ -134,7 +135,7 @@ page{
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0 auto 5rpx;
   height: 60rpx;
   width: 120rpx
 }

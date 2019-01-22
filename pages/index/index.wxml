@@ -2,11 +2,11 @@
 
 <view class='jw-index-title clear'>
   <view class='jw-title-avatarurl-view left'>
-    <image src='{{avatarUrl}}' class='jw-title-avatarurl-img'></image>
+    <image src='{{avatarUrl||"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png"}}' class='jw-title-avatarurl-img'></image>
   </view>
   <view class='jw-title-hint-view left'>
     <view class='jw-title-hint-top-text white'>
-      <text>{{nickName==''?"请先登录":nickName}}</text>
+      <text bindtap='gologin'>{{nickName==''?"请先登录":nickName}}</text>
     </view>
     <view class='jw-title-hint-bottom-text white'>
       <text>{{isMember==false?"您还不是会员":""}}{{isMember==true?"您已开通会员":""}}</text>
@@ -18,7 +18,7 @@
 <view class='jw-banner-bgview'>
   <view class='jw-banner-radius-bgview'>
   </view>
-  <image src='http://pk1897l3c.bkt.clouddn.com/index_banner1.jpg' class='jw-banner'></image>
+  <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/banner.png' class='jw-banner'></image>
 </view>
 
 
@@ -37,7 +37,7 @@
   <scroll-view class='jw-scroll-x clear' scroll-x="{{true}}">
     <view data-id='{{index}}' bindtap='goZero' wx:for="{{scrollX_msgs}}" wx:key="item" class='jw-scroll-view-item'>
       <view class='jw-item-img-view'>
-        <image class='jw-item-img' mode='aspectFit' src=''></image>
+        <image class='jw-item-img' mode='aspectFit' src='{{item.img_src}}'></image>
       </view>
       <view class='jw-item-alt'>{{item.alt}}</view>
       <view class='jw-item-btn'>{{item.btn_text}}</view>

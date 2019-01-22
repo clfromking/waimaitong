@@ -14,7 +14,7 @@
 </view>
 
 <view class='success' hidden='{{!isSuccess}}'>
-  <image src='http://pk1897l3c.bkt.clouddn.com/createPerson/success.png' mode='widthFix' class='successImg'></image>
+  <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/createPerson/success.png' mode='widthFix' class='successImg'></image>
   <view class='successTitle'>创建成功</view>
   <view class='successAlt'>该成员登录时系统会自动验证其身份</view>
 </view>

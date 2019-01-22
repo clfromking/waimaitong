@@ -199,12 +199,12 @@ textarea{
   display: inline-block;
   width: 38rpx;
   height: 38rpx;
-  background: url('http://pk1897l3c.bkt.clouddn.com/all/nomark.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order_detail/nomark.png') no-repeat;
   background-size: 100% 100%;
   margin-left: 10rpx
 }
 
 .selectScore{
-  background: url('http://pk1897l3c.bkt.clouddn.com/all/mark.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order_detail/mark.png') no-repeat;
   background-size: 100% 100%;
 }

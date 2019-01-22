@@ -9,7 +9,7 @@
         <view class='right'>
           <view class='nameView'>
             <text class='name'>{{item.name}}</text>
-            <image src='http://pk1897l3c.bkt.clouddn.com/personAdmin/dy.png' class='identity'></image>
+            <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/personAdmin/dy.png' class='identity'></image>
           </view>
           <view class='login-type'>微信登录</view>
         </view>
@@ -29,7 +29,7 @@
 
 
 <view class='nothing' hidden='{{!isNothing}}'>
-  <image class='nothingImg' src='http://pk1897l3c.bkt.clouddn.com/personAdmin/nothing.png' mode='widthFix'></image>
+  <image class='nothingImg' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/personAdmin/nothing.png' mode='widthFix'></image>
   <view class='nothingTitle'>还没有成员信息</view>
   <view class='goCreate' bindtap='createPerson'>现在创建</view>
 </view>

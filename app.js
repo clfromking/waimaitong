@@ -50,6 +50,10 @@ App({
               wx.hideLoading()
               return
             }
+            else if (Number(res.data.code) == 403) {
+              wx.hideLoading()
+              return
+            }
             // reject(res)
             wx.showToast({
               title: res.data.msg,
@@ -117,6 +121,11 @@ App({
           else if (Number(res.data.code) >= 300 && Number(res.data.code) <= 499) {
             resolve(res)
             if (Number(res.data.code) == 404) {
+              wx.hideLoading()
+              return
+            }
+            else if (Number(res.data.code) == 403){
+              wx.hideLoading()
               return
             }
             wx.showToast({

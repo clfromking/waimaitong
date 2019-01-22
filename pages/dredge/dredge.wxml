@@ -37,7 +37,8 @@
             <text style='color:#afc7a2' bindtap='goAgree'>续费协议</text>可随时取消
           </view>
         </view>
-        <image class='alts-icon' mode='widthFix' src='../img/b12.png'></image>
+        <!-- <icon class='alts-icon' type='success' size='46rpx' color='#abca9a'></icon> -->
+        <image class='alts-icon' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/cancelRenew/right.png'></image>
       </view>
     </view>
   </view>
@@ -61,7 +62,7 @@
       <view class='forms-item'>
         <view class='forms-title'>所在地区</view>
         <input disabled='{{true}}' style='width:512rpx' placeholder-class="place-font" value='{{poiBasicData.province}}{{poiBasicData.city}}{{poiBasicData.districts}}{{poiBasicData.street}}' placeholder="请选择所在地区"></input>
-        <image hidden='{{true}}' class='go-address right' src='http://pk1897l3c.bkt.clouddn.com/all/black_back.png'></image>
+        <image hidden='{{true}}' class='go-address right' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
       </view>
 
       <view class='forms-item'>
