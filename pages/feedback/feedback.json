@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "会员体验反馈",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

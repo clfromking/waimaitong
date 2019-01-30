@@ -73,6 +73,8 @@
   background: #abca9a;
   z-index: 1
 }
+
+
 .add-btn{
   width: 156rpx;
   height: 156rpx;
@@ -153,7 +155,8 @@
   width: 750rpx;
   bottom: 104rpx;
   left: 0;
-  overflow-y: auto
+  overflow-y: auto;
+  z-index: 2
 }
 .append-item{
   height: 108rpx;

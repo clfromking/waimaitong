@@ -10,7 +10,7 @@
     <view class='renew-msgs clear'>
       <view class='renew-msg-item left'>
         <view class='top-text'>每次续费金额</view>
-        <view>{{poiMemberData.autoFee/100}}/季</view>
+        <view>{{poiMemberData.autoFee/100}}/{{time}}</view>
       </view>
       <view class='renew-msg-item left'>
         <view class='top-text'>支付方式</view>

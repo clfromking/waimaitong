@@ -3,26 +3,62 @@
   <view class='header'>
     <view class='clear moneys-view'>
       <text class='left'>本次服务总计</text>
-      <text class='right'>{{total_money}}元</text>
+      <text class='right'>{{total}}元</text>
     </view>
-    <view class='clear moneys-view'>
-      <text class='left'>新用户立减</text>
-      <text class='right'>{{sub_money}}元</text>
+    <view  class='clear moneys-view'>
+      <text class='left'>立减</text>
+      <text class='right'>-{{discount}}元</text>
     </view>
   </view>
-  <view class='pay-hint clear'>
+  <view class='pay-hint clear' bindtap='changePay' data-payWay='{{actionSheetItems[isSelectItem].payWay}}'>
     <view class='left'>
-      <image class='pay-icon' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/wx_pay.png'></image>
-      <text class='pay-text'>微信支付</text>
+      <image class='pay-icon {{actionSheetItems[isSelectItem].payWay==4?"isHigh":""}}' mode='widthFix' src='{{actionSheetItems[isSelectItem].src}}'></image>
+      <text class='pay-text'>{{actionSheetItems[isSelectItem].text}}</text>
     </view>
     <view class='right'>
       <image class='pay-icon2' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
     </view>
   </view>
-  <view class='fact-pay'>实付<text style='font-size:42rpx'>{{fact_pay_money}}</text>元</view>
+  <view class='fact-pay'>实付<text style='font-size:42rpx'>{{pay}}</text>元</view>
   <view class='invite-view'>
     <text class='invite-text'>邀请商户赚加速金</text>
     <view class='invite-btn'>去邀请</view>
   </view>
-  <view class='pay'>确认支付{{fact_pay_money}}元</view>
+  <view class='pay' bindtap='pay'>确认支付{{pay}}元</view>
 </view>
+
+
+<view hidden='{{!isShowShade}}' class='alert'>
+  <view class='shade-bg' catchtouchmove='true' bindtap='closeShade'></view>
+  <view class='successPay {{top?"top":""}}'>
+    <view class='navsBtn' data-index='0' bindtap='go'>返回首页</view>
+    <view class='navsBtn' data-index='1' bindtap='go'>{{type=="member"?"查看会员":"查看订单"}}</view>
+    <image mode='widthFix' class='successImg' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/success_pay.png'></image>
+    <view class='successText'>支付成功</view>
+  </view>
+</view>
+
+<view hidden='{{!isShowYu}}' class='alert'>
+  <view class='shade-bg' catchtouchmove='true' bindtap='closeYu' ></view>
+  <view class='yueView {{isShowPwd?"showPwd":""}}'>
+    <input adjust-position="{{true}}" type='number' maxlength='6' focus='{{isFocus}}' value='{{password_val}}' bindinput='inputPassword' class='password'></input>
+    <view class='yueTitle'>余额支付{{pay}}元</view>
+    <view class='yueAlt'>输入支付密码</view>
+    <view class='passwordView' >
+      <view class='passwordItem' bindtap='gofocus' wx:for="{{length}}" wx:key="item">
+        <!-- {{password_val[index]?"●":""}} -->
+        <input value='{{password_val[index]}}' disabled='{{true}}' type='password' ></input>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- <action-sheet catchtouchmove='preventMove' hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet" >
+    <block wx:for="{{actionSheetItems}}" wx:key="item"> 
+        <action-sheet-item class='clear' data-id="{{index}}" bindtap="changeSheetText">
+          <image mode='widthFix' class='actionLeft' src='{{item.src}}'>{{item.title}} </image>
+          <text class='actionRight'> {{item.text}}</text>
+        </action-sheet-item>
+    </block>
+    <action-sheet-cancel>取消</action-sheet-cancel>
+</action-sheet> -->

@@ -155,7 +155,7 @@ Page({
     if(options.type=='next'){
       this.setData({
         title:"设置余额密码",
-        alt:"请设置微信支付密码，用于支付验证"
+        alt:"请设置余额支付密码，用于支付验证"
       })
     }
     else if (options.type =="again"){

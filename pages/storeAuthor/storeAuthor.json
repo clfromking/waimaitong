@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "认证授权",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

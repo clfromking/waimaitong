@@ -19,7 +19,7 @@ Page({
   },
 
   selectMoney:function(e){
-    console.log(e.currentTarget.dataset.id)
+    // console.log(e.currentTarget.dataset.id)
     if (e.currentTarget.dataset.id!==undefined){
       this.setData({
         isselectMoney: e.currentTarget.dataset.id,
@@ -91,7 +91,7 @@ Page({
   inputMoney:function(e){
     console.log(e.detail.value)
     this.setData({
-      inputMoney: Number(e.detail.value),
+      inputMoney: e.detail.value,
       topUp: Number(e.detail.value),
       returnMoney: Number(e.detail.value) / 10
     })
@@ -112,15 +112,35 @@ Page({
       app.showToast('充值金额不能少于0元')
     }
     else{
-      var postData = { "accessToken": app.globalData.accessToken,"amount":this.data.topUp*100}
+      wx.showLoading({
+        title: '',
+        mask: true
+      })
+      // var postData = { "accessToken": app.globalData.accessToken,"amount":this.data.topUp*100}
+      var postData = { "accessToken": app.globalData.accessToken, "amount": 1 }
       app.postData('/balance/recharge/in', postData).then(res=>{
         if(res.data.code==200){
-          wx.navigateTo({
-            url: '../pay/pay',
+          wx.hideLoading()
+          app.pay(res.data.data).then(res=>{
+            console.log(res)
+            app.getData('/setting/poi/basic/get?accessToken='+app.globalData.accessToken).then(res=>{
+              if(res.data.code==200){
+                app.globalData.poiBasicData = res.data.data
+                this.setData({
+                  curBalance: ((Number(res.data.data.curBalance)+Number(res.data.data.curRedBalance)) / 100).toFixed(2) || "0.00"
+                })
+              } 
+            })
           })
         }
       })
     }
+  },
+
+  gobalanceRecord:function(){
+    wx.navigateTo({
+      url: '../balanceRecord/balanceRecord',
+    })
   },
 
   /**
@@ -147,7 +167,7 @@ Page({
   onShow: function () {
     // app.globalData.poiBasicData.curBalance=500
     this.setData({
-      curBalance: (Number(app.globalData.poiBasicData.curBalance)/100).toFixed(2)||"0.00"
+      curBalance: ((Number(app.globalData.poiBasicData.curBalance)+Number(app.globalData.poiBasicData.curRedBalance))/100).toFixed(2)||"0.00"
     })
   },  
 

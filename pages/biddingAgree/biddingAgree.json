@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "竞价充值协议",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

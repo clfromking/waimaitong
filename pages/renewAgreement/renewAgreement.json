@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "会员续费协议",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

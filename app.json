@@ -49,6 +49,7 @@
     "pages/renewAdmin/renewAdmin",
     "pages/feedback/feedback",
     "pages/cancelRenewProving/cancelRenewProving",
+    "pages/balanceRecord/balanceRecord",
     "pages/refund/refund",
     "pages/orderDetail/orderDetail",
     "pages/pay/pay",
@@ -62,10 +63,10 @@
   },
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationStyle": "custom",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#abca9a",
+    "navigationStyle":"default",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
   },
   "tabBar":{
     "color":"#000",

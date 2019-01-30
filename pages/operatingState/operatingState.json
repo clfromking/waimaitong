@@ -1,4 +1,6 @@
 {
+  "navigationBarBackgroundColor": "#256ef6",
+  "navigationBarTitleText": "外卖运营",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

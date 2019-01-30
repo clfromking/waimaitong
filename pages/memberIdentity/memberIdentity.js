@@ -7,7 +7,7 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    navText: "开通会员",
+    navText: "会员身份",
     identity_list:[],
     isin:0
   },

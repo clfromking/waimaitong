@@ -25,6 +25,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.type == "freeShop") {
+      wx.setNavigationBarTitle({
+        title: '免租金开店申请'
+      })
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#abca9a',
+      })
+    }
+    else {
+      wx.setNavigationBarTitle({
+        title: '外卖运营申请'
+      })
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#256ef6',
+      })
+    }
     this.setData({
       navType: options.type
     })

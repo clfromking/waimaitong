@@ -81,12 +81,12 @@ Page({
     let placeholder_user =''
     let placeholder_password =''
     if(options.type==0){
-      src ="http://pk1897l3c.bkt.clouddn.com/renewAdmin/promise_icon1.png"
+      src ="http://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/elmlogo.png"
       placeholder_user ="请输入饿了么商户端账号"
       placeholder_password ="请输入饿了么商户端密码"
     }
     else if (options.type==1){
-      src ="http://pk1897l3c.bkt.clouddn.com/renewAdmin/promise_icon2.png"
+      src ="https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/mtlogo.png"
       placeholder_user = "请输入美团外卖商户端账号"
       placeholder_password = "请输入美团外卖商户端密码"
     }

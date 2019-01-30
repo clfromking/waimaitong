@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "会员信息设置",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

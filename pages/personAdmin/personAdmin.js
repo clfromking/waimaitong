@@ -71,6 +71,9 @@ Page({
               app.showToast('删除成功')
               that.showPerson()
             }
+            else if(res.data.code==403){
+              app.showToast(res.data.msg)
+            }
           })
         } 
         else if (res.cancel) {

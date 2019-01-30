@@ -10,7 +10,8 @@ Page({
     navText: "自动续费管理",
     iscancelRenew:false,
     avatarUrl:"",
-    nickName:""
+    nickName:"",
+    time:"",
   },
 
   goAgree:function(){
@@ -31,7 +32,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       avatarUrl:app.globalData.avatarUrl,
-      nickName:app.globalData.nickName
+      nickName:app.globalData.nickName,
+      time:options.time
     })
     app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then((res)=>{
       console.log(res)

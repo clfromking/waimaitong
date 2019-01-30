@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "安全监测",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

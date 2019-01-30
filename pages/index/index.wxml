@@ -10,7 +10,7 @@
     </view>
     <view class='jw-title-hint-bottom-text white'>
       <text>{{isMember==false?"您还不是会员":""}}{{isMember==true?"您已开通会员":""}}</text>
-      <text bindtap='goMember' style="margin-left:38rpx;font-size:24rpx" class='red'>{{isMember==false?"开通会员":""}}{{isMember==true?"会员续费":""}}>></text>
+      <text bindtap='goMember' style="margin-left:38rpx;font-size:24rpx" class='red'>{{isMember==false?"开通会员":""}}{{isMember==true?"会员续费":""}}{{isMember==false||isMember==true?">>":""}}</text>
     </view>
   </view>
 </view>
@@ -35,12 +35,12 @@
     0元抢服务
   </view>
   <scroll-view class='jw-scroll-x clear' scroll-x="{{true}}">
-    <view data-id='{{index}}' bindtap='goZero' wx:for="{{scrollX_msgs}}" wx:key="item" class='jw-scroll-view-item'>
+    <view data-id='{{item.id}}' bindtap='goZero' wx:for="{{scrollX_msgs}}" wx:key="item" class='jw-scroll-view-item'>
       <view class='jw-item-img-view'>
-        <image class='jw-item-img' mode='aspectFit' src='{{item.img_src}}'></image>
+        <image class='jw-item-img' mode='aspectFit' src='{{item.coverImg}}'></image>
       </view>
-      <view class='jw-item-alt'>{{item.alt}}</view>
-      <view class='jw-item-btn'>{{item.btn_text}}</view>
+      <view class='jw-item-alt'>{{item.drcp}}</view>
+      <view class='jw-item-btn'>{{item.name}}</view>
     </view>
   </scroll-view>
 </view>

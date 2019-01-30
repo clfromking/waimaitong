@@ -7,16 +7,7 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "订单详情",
-    order_msgs:{
-      "order_status":"已付款",
-      "order_alt":"您的订单申请已提交成功",
-      "order_btn":"继续下单",
-      "order_list":[
-        { "img": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "name":"清爽一夏主题banner","num":"1","money":"29.00"},
-        { "img": "http://pk1897l3c.bkt.clouddn.com/member/liberty_two_icon.png", "name": "清爽一夏主题banner", "num": "1", "money": "29.00" }
-      ],
-      "business_detail": { "businesser_name": "狗小姐", 'businesser_phone': "12345678912", "business_name": "狗小姐（望京商业街中心店）", "business_address":"北京市朝阳区望京商业中心f座"}
-    },
+    order_msgs:{},
     service_score:[false,false,false,false,false],
     ability_score: [false, false, false, false, false],
     speed_score: [false, false, false, false, false],
@@ -25,7 +16,8 @@ Page({
     nickName:"",
     mobile:"",
     brandName: "",
-    address:""
+    address:"",
+    totalScore:[0,0,0,0,0]
   },
 
   inputTextArea:function(e){
@@ -66,20 +58,29 @@ Page({
   },
 
   goRefund:function(){
+    app.showToast('暂不支持退单')
+    return
     wx.navigateTo({
       url: '../refund/refund?orderId='+this.data.orderId,
     })
   },
 
   continueOrpay:function(){
+    // console.log(this.data)
+    // return
     if (this.data.payStatus==2){
       wx.switchTab({
         url: '../index/index',
       })
     }
     else{
+      var discount = this.data.total - this.data.payment
+      // console.log(this.data.total)
+      // console.log(discount)
+      // console.log(this.data.payment)
+      // return
       wx.navigateTo({
-        url: '../pay/pay',
+        url: '../pay/pay?pay=' + this.data.payment + "&total=" + this.data.total + "&discount=" + discount + '&orderId=' + this.data.orderId + "&type=order",
       })
     }
   },
@@ -107,7 +108,7 @@ Page({
         if(res.data.code==200){
           app.showToast('评价成功')
           setTimeout(function(){
-            wx.redirectTo({
+            wx.switchTab({
               url: '../order/order',
             })
           },1500)
@@ -140,9 +141,32 @@ Page({
         // data.payStatus=2 
         // data.serviceStatus=2
         // data.orderServiceData.commentStatus =1
-
-        
+        data.orderServiceData={
+          totalScore:0
+        }
+        data.orderServiceData.totalScore = 4.5
         if (data.orderServiceData){
+          
+          if (parseInt(data.orderServiceData.totalScore) == data.orderServiceData.totalScore){
+            var totalScore = this.data.totalScore
+            for (let i = 0; i < data.orderServiceData.totalScore; i++){
+              totalScore[i]=1
+            }
+            this.setData({
+              totalScore
+            })
+          }
+          else{
+            var totalScore = this.data.totalScore
+            for (let i = 0; i < parseInt(data.orderServiceData.totalScore); i++) {
+              totalScore[i] = 1
+            }
+            totalScore[parseInt(data.orderServiceData.totalScore)] = 0.5
+            this.setData({
+              totalScore
+            })
+          }
+
           if (data.orderServiceData.commentStatus == 1) {
 
             var score = [false, false, false, false, false]
@@ -173,7 +197,9 @@ Page({
             })
             // console.log(this.data.textArea)
           }
+
         }
+        console.log(this.data.totalScore)
 
         for (let i = 0; i < data.itemList.length; i++) {
           data.itemList[i].unitPrice = (Number(data.itemList[i].unitPrice) / 100).toFixed(2)

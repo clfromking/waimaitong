@@ -60,6 +60,7 @@ Page({
       append_list,
       decorate_options
     })
+    console.log(this.data.append_list)
     this.countPrice()
   },
 
@@ -91,22 +92,47 @@ Page({
     let decorate_options = this.data.decorate_options
     let append_list = this.data.append_list
     if (e.detail.value <= 0) {
-      decorate_options[e.currentTarget.dataset.id].append_num=1
-      for (let i = 0; i < append_list.length; i++) {
-        if (decorate_options[e.currentTarget.dataset.id].id == append_list[i].id) {
-          append_list[i].append_num = 1
-          break
+      if(e.currentTarget.dataset.type=="normal"){
+        decorate_options[e.currentTarget.dataset.id].append_num = 1
+        for (let i = 0; i < append_list.length; i++) {
+          if (decorate_options[e.currentTarget.dataset.id].id == append_list[i].id) {
+            append_list[i].append_num = 1
+            break
+          }
         }
       }
+      else{
+        append_list[e.currentTarget.dataset.id].append_num = 1
+        for (let i = 0; i < decorate_options.length; i++) {
+          if (append_list[e.currentTarget.dataset.id].id == decorate_options[i].id) {
+            decorate_options[i].append_num = 1
+            break
+          }
+        }
+      }
+      
     }
     else{
-      decorate_options[e.currentTarget.dataset.id].append_num = e.detail.value
-      for (let i = 0; i < append_list.length; i++) {
-        if (decorate_options[e.currentTarget.dataset.id].id == append_list[i].id) {
-          append_list[i].append_num = e.detail.value
-          break
+      if(e.currentTarget.dataset.type=="normal"){
+        console.log(e)
+        decorate_options[e.currentTarget.dataset.id].append_num = e.detail.value
+        for (let i = 0; i < append_list.length; i++) {
+          if (decorate_options[e.currentTarget.dataset.id].id == append_list[i].id) {
+            append_list[i].append_num = e.detail.value
+            break
+          }
         }
       }
+      else{
+        append_list[e.currentTarget.dataset.id].append_num = e.detail.value
+        for (let i = 0; i < decorate_options.length; i++) {
+          if (append_list[e.currentTarget.dataset.id].id == decorate_options[i].id) {
+            decorate_options[i].append_num = e.detail.value
+            break
+          }
+        }
+      }
+      
     }
     
     this.setData({
@@ -160,6 +186,7 @@ Page({
       decorate_options,
       append_list
     })
+    
     this.countPrice()
   },
 
@@ -242,8 +269,9 @@ Page({
     app.postData('/order/submit?accessToken=' + app.globalData.accessToken, postData, "application/json; charset=utf-8").then((res)=>{
       console.log(res)
       if(res.data.code==200){
+        var discount = res.data.data.totalCost - res.data.data.totalPayment
         wx.redirectTo({
-          url: '../pay/pay',
+          url: '../pay/pay?pay=' + res.data.data.totalPayment + "&total=" + res.data.data.totalCost + "&discount=" + discount + '&orderId=' + res.data.data.orderId + "&type=order",
         })
       }
     })
@@ -274,7 +302,10 @@ Page({
         data[i].price = (Number(data[i].price) / 100).toFixed(2)
         data[i].isappend=false
         data[i].append_num=0
+        data[i].ismore=false
       }
+      data[2].ismore=true
+      data[4].ismore=true
       this.setData({
         decorate_options:data
       })

@@ -3,11 +3,14 @@ page{
   background: #eee
 }
 .container{
-  background: #fff
+  background: #eee
 }
 .body{
-  width: 680rpx;
-  margin: 0 auto
+  width:750rpx;
+  margin: 0 auto 10rpx;
+  padding: 0 35rpx;
+  background: #fff;
+  box-sizing: border-box
 }
 .title{
   color: #333;

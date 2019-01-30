@@ -41,6 +41,10 @@ Page({
 
   topUp:function(){
     // console.log(this.data.isSelect)
+    wx.showLoading({
+      title: '',
+      mask:true
+    })
     var amount=0
     if(this.data.isSelect==8){
       // console.log(this.data.money)
@@ -51,12 +55,28 @@ Page({
       amount = Number(this.data.money_list[this.data.isSelect]) * 100
     }
     console.log(amount)
-    var postData={"accessToken":app.globalData.accessToken,"amount":amount}
+    // var postData = { "accessToken": app.globalData.accessToken, "amount": amount}
+    var postData = { "accessToken": app.globalData.accessToken, "amount": 1 }
     app.postData('/bidding/recharge/in',postData).then(res=>{
       if(res.data.code==200){
-        wx.navigateTo({
-          url: '../pay/pay',
+        wx.hideLoading()
+        app.pay(res.data.data).then(res => {
+          console.log(res)
+          app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then(res => {
+            if (res.data.code == 200) {
+              app.globalData.poiBasicData = res.data.data
+              this.setData({
+                curBiddingBalance: (Number(res.data.data.curBiddingBalance) / 100).toFixed(2) || "0.00"
+              })
+            }
+          })
         })
+        // wx.navigateTo({
+        //   url: '../pay/pay',
+        // })
+      }
+      else{
+        wx.hideLoading()
       }
     })
   },
@@ -79,7 +99,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      curBiddingBalance: (Number(app.globalData.poiBasicData.curBiddingBalance) / 100).toFixed(2) || "0.00"
+    })
   },
 
   /**

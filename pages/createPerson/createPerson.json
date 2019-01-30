@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "创建成员",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

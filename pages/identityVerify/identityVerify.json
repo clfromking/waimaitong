@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "身份验证",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

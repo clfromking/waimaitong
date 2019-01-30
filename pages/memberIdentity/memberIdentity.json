@@ -1,4 +1,6 @@
 {
+  "navigationBarTitleText": "会员身份",
+  "navigationBarBackgroundColor": "#333",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

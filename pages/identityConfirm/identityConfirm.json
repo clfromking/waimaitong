@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "身份选择",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

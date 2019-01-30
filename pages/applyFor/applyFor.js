@@ -268,6 +268,24 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    if(options.type=="freeShop"){
+      wx.setNavigationBarTitle({
+        title: '免租金开店申请'
+      })
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#abca9a',
+      })
+    }
+    else{
+      wx.setNavigationBarTitle({
+        title: '外卖运营申请'
+      })
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#256ef6',
+      })
+    }
     // options.type="freeShop"
     this.setData({
       navType:options.type

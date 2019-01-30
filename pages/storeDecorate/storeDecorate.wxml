@@ -22,11 +22,11 @@
       </view>
 
       <view class='right btns-view'>
-        <view hidden='{{item.id==2&&item.isappend}}' bindtap='appendItem'  data-id='{{index}}' class='appendBtn {{item.isappend?"isappend":""}}'>{{item.isappend?"已添加":"请添加"}}</view>
+        <view hidden='{{item.ismore&&item.isappend}}' bindtap='appendItem'  data-id='{{index}}' class='appendBtn {{item.isappend?"isappend":""}}'>{{item.isappend?"已添加":"请添加"}}</view>
 
-        <view hidden='{{!(item.id==2&&item.isappend)}}' class='numsView'>
+        <view hidden='{{!(item.ismore&&item.isappend)}}' class='numsView'>
           <image bindtap='sub' data-id='{{index}}' class='btns subBtn' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/sub.png'></image>
-          <input type='number' data-id='{{index}}' bindinput='inputNum' value='{{item.append_num}}'></input>
+          <input type='number' data-type='normal' data-id='{{index}}' bindinput='inputNum' value='{{item.append_num}}'></input>
           <image bindtap='add' data-id='{{index}}' class='btns addBtn' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/add.png'></image>
         </view>
         
@@ -38,8 +38,8 @@
   </view>
   <view class='footer'>
     <view class='PriceView {{isShowShade?"leftView":""}}'>
-      <view class='acPrice'>¥{{isMember==0?totalPrice:totalMemberPrice}}</view>
-      <view class='disPrice'>会员{{isMember==0?"可":"已"}}优惠¥{{discounts}}</view>
+      <view class='acPrice'>¥{{isMember?totalMemberPrice:totalPrice}}</view>
+      <view class='disPrice'>会员{{isMember?"已":"可"}}优惠¥{{discounts}}</view>
     </view>
     <view class='submit-order' bindtap='submitOrder'>提交订单</view>
   </view>
@@ -54,12 +54,12 @@
     <view class='append-list clear'>
       <view class='append-item' wx:for="{{append_list}}" wx:key="item">
         <view class='append-name'>{{item.name}}</view>
-        <view class='append-money'>¥{{isMember==0?item.price:item.memberPrice}}</view>
+        <view class='append-money'>¥{{isMember?item.memberPrice:item.price}}</view>
         <view class='xView right'>
-          <image bindtap='deleteItem' data-id="{{index}}" hidden='{{item.id==2}}' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/x.png' mode='widthFix' class='xImg'></image>
-          <view hidden='{{item.id !==2}}' class='numsView numsView1'>
+          <image bindtap='deleteItem' data-id="{{index}}" hidden='{{item.ismore}}' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/x.png' mode='widthFix' class='xImg'></image>
+          <view hidden='{{item.ismore==false}}' class='numsView numsView1'>
             <image bindtap='subSelect' data-id='{{index}}' class='btns subBtn' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/sub.png'></image>
-            <input type='number' data-id='{{index}}' bindinput='inputNum' value='{{item.append_num}}'></input>
+            <input type='number' data-type='alert' data-id='{{index}}' bindinput='inputNum' value='{{item.append_num}}'></input>
             <image bindtap='addSelect' data-id='{{index}}' class='btns addBtn' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/add.png'></image>
           </view>
         </view>

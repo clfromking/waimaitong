@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "分享金提现明细",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

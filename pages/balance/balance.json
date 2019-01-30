@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "余额充值",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

@@ -12,7 +12,8 @@ Page({
     isNothing:true,
     index:0,
     pageSize:20,
-    total:0
+    total:0,
+    isload:true
   },
 
   //现在下单
@@ -78,7 +79,7 @@ Page({
    */
   onLoad: function (options) {
     wx.showLoading({
-      title: '',
+      title: '加载中',
       mask: true
     })
   },
@@ -94,7 +95,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.setData({
+      islogin:false,
+      isNothing:true,
+      isload:true
+    })
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     wx.getStorage({
       key: 'userInfo',
       success: (res) => {
@@ -219,20 +228,26 @@ Page({
             this.setData({
               orders,
               total:res.data.data.total,
-              isNothing:false
+              isNothing:false,
+              isload: false
             })
             wx.hideLoading()
           }
           else{
             this.setData({
-              isNothing:true
+              isNothing:true,
+              isload: false
             })
             wx.hideLoading()
           }
           
         })
       },
-      fail: function () {
+      fail:()=> {
+        // console.log(1)
+        this.setData({
+          isload:false
+        })
         wx.hideLoading()
       },
       error:function(error){

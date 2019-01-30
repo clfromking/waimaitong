@@ -1,12 +1,14 @@
 <!--pages/zeroRushAll/zeroRushAll.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
 
-<view>
-  <view class='header'>
-    <view class='header-item' wx:for="{{header_navs}}" wx:key="item" wx:if="item">
-      <view class='header-time {{item.status=="已开抢"?"istime":""}}'>{{item.time}}</view>
-      <view class='header-status {{item.status=="已开抢"?"istime":""}}'>{{item.status}}</view>
-    </view>
+<view class='{{!isShowShade?"":"showShade"}}'>
+  <view class='scrollBox'>
+    <scroll-view scroll-x class='header' scroll-left="1500px">
+      <view class='header-item' bindtap='selectTime' data-index='{{index}}' wx:for="{{header_navs}}" wx:key="item" wx:if="item">
+        <view class='header-time {{isSelect==index?"istime":""}}'>{{item.timeFrames}}</view>
+        <view class='header-status {{isSelect==index?"istime":""}}'>{{item.status}}</view>
+      </view>
+    </scroll-view>
   </view>
   <view class='container'>
     <view wx:for="{{decorate_options}}" class='item clear' wx:key="item" data-id='{{index}}'>
@@ -18,25 +20,71 @@
         <view class='name'>{{item.name}}</view>
         <view>
           <!-- <view class='price'>¥{{item.price}}</view> -->
-          <view class='price'>¥0.00</view>
-          <view class='oPrice'>¥{{item.memberPrice}}</view>
+          <view hidden='{{(isnow&&item.isfull)}}' class='price'>¥{{item.disPrice}}</view>
+          <view hidden='{{!(isnow&&item.isfull)}}' class='price'>¥{{item.oriPrice}}</view>
+          <view class='oPrice'>¥{{item.oriPrice}}</view>
         </view>
       </view>
       <view class='right scrape-view'>
-        <view class='scrape-btn scrape-finish'>已结束</view>
-        <view class='scrape-btn scrape-now'>开抢</view>
-        <view class='scrape-btn scrape-will'>即将开抢</view>
+        <view hidden='{{!isbefore}}' class='scrape-btn scrape-finish'>已结束</view>
+        <view hidden='{{!isnow||item.isfull||(item.ismore&&item.isappend)}}' bindtap='appendItem' data-id='{{index}}' class='scrape-btn scrape-now {{item.isappend?"isappend":""}}'>{{item.isappend?"已添加":"可抢"}}</view>
+
+        <view hidden='{{!isnow||!(item.ismore&&item.isappend)}}' class='numsView'>
+          <image bindtap='sub' data-id='{{index}}' class='btns subBtn' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/sub.png'></image>
+          <input type='number' data-type='normal' data-id='{{index}}' bindinput='inputNum' value='{{item.append_num}}'></input>
+          <image bindtap='add' data-id='{{index}}' class='btns addBtn' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/add.png'></image>
+        </view>
+
+        <view hidden='{{!isnow||!item.isfull}}' class="fullText">名额已满</view>
+        <view hidden='{{!isnow||!item.isfull||(item.ismore&&item.isappend)}}' bindtap='appendItem' data-id='{{index}}' class='scrape-btn scrape-finish {{item.isappend?"isappend":""}}'>{{item.isappend?"已添加":"已售罄"}}</view>
+        <view hidden='{{!isafter}}' class='scrape-btn scrape-will'>即将开抢</view>
       </view>
     </view>
   </view>
   <view class='footer'>
-    <view class='PriceView'>
-      <view class='acPrice'>¥588.00</view>
-      <view class='disPrice'>会员已优惠¥2899.00</view>
+    <view class='PriceView {{isShowShade?"leftView":""}}'>
+      <view class='acPrice'>¥{{price}}</view>
+      <!-- <view class='disPrice'>会员已优惠¥2899.00</view> -->
     </view>
-    <view class='submit-order'>提交订单</view>
+    <view class='submit-order' bindtap='submitOrder'>提交订单</view>
   </view>
-  <view class='add-btn'>
-    <view>一键添加</view>
+  <view hidden='{{isShowShade}}' bindtap='append' class='add-btn'>
+    <view class='append-btn {{append_list.length==0?"":"isAppend"}}'>{{append_list.length==0?"一键抢购":"已添加"}}</view>
+    <view hidden='{{append_list.length==0}}' class='list-num'>{{append_list.length}}</view>
   </view>
+
+  <view hidden='{{!isShowShade}}' class='alert'>
+    <view class='shade-bg' catchtouchmove='true' bindtap='closeShade'></view>
+    
+    <view hidden='{{placeOrder}}' class='append-list clear'>
+      <view class='append-item' wx:for="{{append_list}}" wx:key="item">
+        <view class='append-name'>{{item.name}}</view>
+        <view class='append-money' hidden='{{item.isfull}}'>¥{{item.disPrice}}</view>
+        <view class='append-money' hidden='{{!item.isfull}}'>¥{{item.oriPrice}}</view>
+        <view class='xView right'>
+          <image bindtap='deleteItem' data-id="{{index}}" hidden='{{item.ismore}}' hidden ="{{true}}" src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/x.png' mode='widthFix' class='xImg'></image>
+          <view hidden='{{!item.ismore}}' class='numsView numsView1'>
+            <image bindtap='subSelect' data-id='{{index}}' class='btns subBtn' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/sub.png'></image>
+            <input type='number' data-type='alert' data-id='{{index}}' bindinput='inputNum' value='{{item.append_num}}'></input>
+            <image bindtap='addSelect' data-id='{{index}}' class='btns addBtn' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/storeDecorate/add.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view hidden='{{!placeOrder}}' class='placeOrder'>
+      <view class='placeOrder-header'>在您之前还有 <text style="color:#F63F5D">128</text> 人 正在排队抢购</view>
+      <view class='placeOrder-body'>
+        <view class='placeOrder-title'>您的抢中率</view>
+        <view class='placeOrder-chance {{chance>80?"highChance":""}}'>{{chance}}%</view>
+        <view class='snapBtn {{chance==100?"successSnap":""}}'>{{chance==100?"抢购成功，立即支付":"正在抢购，请稍等"}}</view>
+      </view>
+      <view class='placeOrder-footer clear'>
+        <view class='cancelSnap left' bindtap='cancelSnap'>取消下单</view>
+        <view hidden='{{chance==100}}' class='originalSnap right'>原价下单</view>
+      </view>
+    </view>
+
+  </view>
+
 </view>

@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "功能及版本介绍",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

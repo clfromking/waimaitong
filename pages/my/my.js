@@ -15,7 +15,8 @@ Page({
       { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/invite.png", "text": "邀请商户领现金", "other": "已邀请0位" },
       { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/coupons.png", "text": "优惠卷", "other": "0张" },
       { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/collect.png", "text": "我的收藏", "other": "" },
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/feedback.png", "text": "意见反馈", "other": "" }
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/feedback.png", "text": "意见反馈", "other": "" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/set.png", "text": "设置", "other": "" }
     ],
     islogin:false,
     isAuthDone:0,
@@ -23,7 +24,8 @@ Page({
     currShareBalance:0,
     isMember:false,
     nickName:"",
-    avatarUrl:""
+    avatarUrl:"",
+    poiName:""
   },
 
   gologin:function(){
@@ -107,6 +109,11 @@ Page({
         break;
       case 6:
         break;
+      case 7:
+        wx.navigateTo({
+          url: '../set/set',
+        })
+        break;
     }
   },
 
@@ -142,8 +149,8 @@ Page({
       success: (res) => {
         this.setData({
           islogin: true,
-          nickName: app.globalData.nickName,
-          avatarUrl: app.globalData.avatarUrl
+          nickName: app.globalData.nickName||"",
+          avatarUrl: app.globalData.avatarUrl||""
         })
       },
       fail: () => {
@@ -152,6 +159,20 @@ Page({
         })
       }
     })
+    
+    if(app.globalData.poiBasicData){
+      this.setData({
+        poiName: app.globalData.poiBasicData.name
+      })
+    }
+    else{
+      this.setData({
+        poiName: ""
+      })
+    }
+
+    
+
     if (!app.globalData.accessToken){
       this.setData({
         isMember:false
@@ -177,11 +198,25 @@ Page({
         }
         if (res.data.code == 200) {
           options[0].other = (Number(res.data.data.curBiddingBalance) / 100).toFixed(2) || 0.00
-          options[0].other = "¥" + options[0].other + "元"
+          options[0].other = "¥" + parseInt(options[0].other) + "元"
+          var currShareBalance = parseInt((Number(res.data.data.currShareBalance) / 100))
+          var curBalance = ((Number(res.data.data.curBalance) + Number(res.data.data.curRedBalance)) / 100)
+          if (currShareBalance==0){
+            currShareBalance=0
+          }
+          else{
+            currShareBalance = currShareBalance
+          }
+          if (curBalance==0){
+            curBalance=0
+          }
+          else{
+            curBalance = parseInt(curBalance)
+          }
           this.setData({
             options,
-            currShareBalance: Number(res.data.data.currShareBalance) / 100,
-            curBalance: Number(res.data.data.curBalance) / 100,
+            currShareBalance: currShareBalance||0,
+            curBalance: curBalance || 0,
             
           })
         }

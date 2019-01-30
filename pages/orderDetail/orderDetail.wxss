@@ -203,8 +203,34 @@ textarea{
   background-size: 100% 100%;
   margin-left: 10rpx
 }
+.totalscore{
+  display: inline-block;
+  width: 38rpx;
+  height: 38rpx;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order_detail/nomark.png') no-repeat;
+  background-size: 100% 100%;
+  margin-left: 10rpx
+}
 
 .selectScore{
   background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order_detail/mark.png') no-repeat;
   background-size: 100% 100%;
+}
+.right button{
+  border: none;
+  display: inline-block;
+  position: static;
+  background: #eee;
+  border-color: #eee;
+  padding: 0;
+  line-height: normal;
+  border-width: 0
+}
+.right button::after{
+  border: none;
+}
+.contactImg{
+  width: 38rpx;
+  margin-right: 12rpx;
+  vertical-align: top
 }

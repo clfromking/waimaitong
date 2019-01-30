@@ -1,4 +1,5 @@
 {
+  "navigationBarBackgroundColor": "#d5bb8b",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

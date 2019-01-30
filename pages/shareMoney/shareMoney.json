@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "分享金",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

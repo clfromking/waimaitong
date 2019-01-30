@@ -46,18 +46,23 @@
         <text>订单编号：{{orderId}}</text>
       </view>
       <view hidden='{{payStatus!==2}}'>
-        <text>支付编号；23456789789</text>
+        <text>支付编号：{{transactionId}}</text>
       </view>
       <view>
         <text>创建时间：{{createTime}}</text>
       </view>
       <view hidden='{{payStatus!==2}}'>
-        <text>付款时间：{{payTime}}</text>
+        <text>付款时间：{{timeEnd}}</text>
       </view>
-      <view hidden='{{payStatus!==2}}'>
+      <view hidden='{{payStatus!==2||serviceStatus==0}}'>
         <text>接单时间：{{orderServiceData.createTime}}</text>
       </view>
-      <view hidden='{{payStatus!==2||couponPaid==0}}'>
+
+      <view hidden='{{payStatus!==2}}'>
+        <text>支付途径：{{payWay==3?"微信支付":"余额支付"}}</text>
+      </view>
+
+      <!-- <view hidden='{{payStatus!==2||couponPaid==0}}'>
         <text>优惠券扣减金额：{{couponPaid}}</text>
       </view>
       <view hidden='{{payStatus!==2||balancePaid==0}}'>
@@ -65,7 +70,8 @@
       </view>
       <view hidden='{{payStatus!==2||wechatPaid==0}}'>
         <text>微信扣减金额：{{wechatPaid}}</text>
-      </view>
+      </view> -->
+
       <view hidden='{{payStatus!==2}}'>
         <text>商户类别：{{isMember?"会员":"非会员"}}</text>
       </view>
@@ -78,7 +84,8 @@
         <text>在职编号：{{orderServiceData.servicerId}}</text>
       </view>
       <view>
-        <text>综合评分：{{orderServiceData.totalScore}}</text>
+        <text>综合评分：</text>
+        <!-- <text wx:for="{{totalScore}}" wx:key="item" class='totalscore'></text>{{orderServiceData.totalScore}}</text> -->
       </view>
     </view>
     <view hidden='{{payStatus!==2||serviceStatus!==2}}' class='feedback'>
@@ -104,8 +111,11 @@
       <view class='charge-back' bindtap='goRefund'>申请退单</view>
     </view>
     <view class='right'>
-      <view>投诉？</view>
-      <view style='position:absolute;bottom:0;right:0'><text>联系工程师</text></view>
+      <button open-type='contact' style='font-size:30rpx;color:#999'>投诉？</button>
+      <view style='position:absolute;bottom:0;right:0'>
+        <image class='contactImg' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/contact.png'></image>
+        <button open-type='contact' style='font-size:28rpx;color:#666;line-height:46rpx;vertical-align: top'>联系工程师</button>
+      </view>
     </view>
   </view>
 

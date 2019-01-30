@@ -39,7 +39,7 @@ Page({
         break;
       case 2:
         wx.navigateTo({
-          url: '../renewAdmin/renewAdmin',
+          url: '../renewAdmin/renewAdmin?time=' + this.data.poiMemberData.name.substr(0, 1),
         })
         break;
       case 3:
@@ -149,6 +149,7 @@ Page({
           else if (res.data.data.poiMemberData.durationUnit == "YEAR") {
             res.data.data.poiMemberData.name = "年度会员"
           }
+          res.data.data.poiMemberData.costSave = (Number(res.data.data.poiMemberData.costSave)/100).toFixed(2)
           this.setData(res.data.data)
           this.setData({
             isMember: true,

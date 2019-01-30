@@ -1,4 +1,6 @@
 {
+  "navigationBarTitleText": "外卖运营数据",
+  "navigationBarBackgroundColor": "#256ef6",
   "usingComponents": {
     "navtitle": "../components/navigationTitle",
     "ec-canvas": "../../ec-canvas/ec-canvas"

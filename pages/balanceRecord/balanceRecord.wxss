@@ -1,4 +1,4 @@
-/* pages/biddingRecord/biddingRecord.wxss */
+/* pages/balanceRecord/balanceRecord.wxss */
 .navs{
   background: #abca9a;
   text-align: left;
@@ -23,6 +23,7 @@
 }
 .item{
   height: 168rpx;
+  /* margin-bottom: 4rpx; */
   border-bottom: 4rpx solid #fbfbfb
 }
 .topView{

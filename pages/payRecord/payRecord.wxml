@@ -3,7 +3,7 @@
 <view class='container'>
   <view class='body' wx:for="{{list}}" wx:key="item" >
     <view class='title clear'>
-      <text class='left'>订单编号：{{item.id}}</text>
+      <text class='left'>订单编号：{{item.orderId}}</text>
       <text class='right'>{{item.payStatus==1?"未付款":"成功"}}</text>
     </view>
     <view class='content'>

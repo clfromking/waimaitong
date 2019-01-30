@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "取消自动续费管理验证",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

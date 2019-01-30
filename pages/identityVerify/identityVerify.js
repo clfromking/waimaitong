@@ -75,6 +75,10 @@ Page({
       app.showToast("验证码格式不正确")
     }
     else{
+      wx.showLoading({
+        title: '请稍等',
+        mask:true
+      })
       var postData = { "accessToken": app.globalData.accessToken, "mobile": this.data.phone,"name":this.data.name,"smsCode":this.data.smsCode}
       var url=""
       if(this.data.typeId==0){
@@ -88,17 +92,31 @@ Page({
         if(res.data.code==200){
           if (this.data.typeId == 0) {
             app.globalData.isMaster = 2
+            wx.hideLoading()
             wx.redirectTo({
               url: '../certification/certification',
             })
           }
           else{
-            app.showToast("认证成功")
-            app.globalData.isMaster=1
-            wx.switchTab({
-              url: '../index/index',
-            })
+            app.postData('/wechat/login/token',{"accessToken":app.globalData.accessToken}).then(res=>{
+              var double=app.globalData.double
+              var statusBarHeight=app.globalData.statusBarHeight
+              app.globalData=res.data.data
+              app.globalData.double = double
+              app.globalData.statusBarHeight = statusBarHeight
+              app.showToast("认证成功")
+              app.globalData.isMaster = 1
+              console.log(app.globalData)
+              setTimeout(function () {
+                wx.switchTab({
+                  url: '../index/index',
+                })
+              }, 1500)
+            })  
           }
+        }
+        else if(res.data.code==403){
+          app.showToast(res.data.msg)
         }
  
       })

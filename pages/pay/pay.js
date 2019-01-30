@@ -7,15 +7,304 @@ Page({
    */
   data: {
     statusHeight: app.globalData.statusBarHeight,
-    total_money:'398',
-    sub_money:'-100',
-    fact_pay_money:"298.00"
+    total:'',
+    discount:'',
+    pay:"",
+    orderId:"",
+    top:false,
+    isShowShade:false,
+    type:"",
+    payWay:3,
+    actionSheetHidden: true,
+    actionSheetItems: [{ 'src': 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/wx_pay.png', 'text': '微信支付', 'payWay': 3 }, { 'src': 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/yue_pay.png', 'text': '余额支付' ,'payWay':4}],
+    isSelectItem:0,
+    isShowYu:false,
+    isShowPwd:false,
+    length:6,
+    password_val: "",
+    isFocus: false,  //聚焦 
+  },
+
+  inputPassword: function (e) {
+    this.setData({
+      password_val: e.detail.value
+    })
+    if(e.detail.value.length==6){
+      // console.log('请求')
+      this.setData({
+        isShowPwd: false,
+        isFocus: false,
+        password_val: ""
+      })
+      setTimeout(() => {
+        this.setData({
+          isShowYu: false,
+        })
+        wx.showLoading({
+          title: '',
+          mask:true
+        })
+        var postData = { "accessToken": app.globalData.accessToken, "orderId": this.data.orderId, "payWay": this.data.actionSheetItems[this.data.isSelectItem].payWay }
+        var url = ""
+        if (this.data.type == "member") {
+          url = "/member/buy/confirm"
+        }
+        else if (this.data.type == "order") {
+          url = "/order/pay/confirm"
+        }
+        app.postData(url, postData).then(res=>{
+          if(res.data.code==200){
+            wx.hideLoading()
+            app.showToast('支付成功')
+            this.setData({
+              isShowShade: true,
+
+            })
+            if (this.data.isShowShade) {
+              this.setData({
+                top: true
+              })
+            }
+          }
+          else{
+            this.setData({
+              isShowYu: true
+            })
+            if (this.data.isShowYu) {
+              this.setData({
+                isShowPwd: true,
+                // isFocus:true
+              })
+              setTimeout(() => {
+                this.setData({
+                  isFocus: true
+                })
+              }, 400)
+            }
+          }
+        })
+      }, 800)
+    }
+  },
+
+  gofocus: function () {
+    // console.log(this.data.isFocus)
+    this.setData({
+      isFocus: true
+    })
+  },
+
+  changePay:function(){
+    wx.showActionSheet({
+      itemList: ["微信支付","余额支付"],
+      success:(res)=>{
+        console.log(res)
+        this.setData({
+          isSelectItem:res.tapIndex
+        })
+      }
+    })    
+    // this.setData({
+    //   actionSheetHidden: false
+    // })
+    // return
+  },
+
+  pay:function(){
+    wx.showLoading({
+      title: '',
+      mask:true
+    })
+    if (this.data.actionSheetItems[this.data.isSelectItem].payWay == 4 && app.globalData.poiBasicData.balancePwdFree == 0){
+      wx.hideLoading()
+      // console.log('余额') 
+      this.setData({
+        isShowYu:true
+      })
+      if(this.data.isShowYu){
+        this.setData({
+          isShowPwd:true,
+          // isFocus:true
+        })
+        setTimeout(()=>{
+          this.setData({
+            isFocus:true
+          })
+        },400)
+      }
+      return
+    }
+    var postData ={}
+    postData = { "accessToken": app.globalData.accessToken, "orderId": this.data.orderId, "payWay": this.data.actionSheetItems[this.data.isSelectItem].payWay}
+    var url=""
+    if(this.data.type=="member"){
+      url = "/member/buy/confirm"
+    }
+    else if(this.data.type=="order"){
+      url = "/order/pay/confirm"
+    }
+    app.postData(url,postData).then(res=>{
+      if(res.data.code==200){
+        if (this.data.actionSheetItems[this.data.isSelectItem].payWay==3){
+          app.pay(res.data.data).then(res => {
+            wx.hideLoading()
+            this.setData({
+              isShowShade: true,
+
+            })
+            if (this.data.isShowShade) {
+              this.setData({
+                top: true
+              })
+            }
+          })
+        }
+        else{
+          wx.hideLoading()
+          app.showToast('支付成功')
+          this.setData({
+            isShowShade: true,
+
+          })
+          if (this.data.isShowShade) {
+            this.setData({
+              top: true
+            })
+          }
+        }
+        
+      }
+      else if(res.data.code==404){
+        wx.hideLoading()
+        app.showToast(res.data.msg)
+      }
+      else{
+        wx.hideLoading()
+      }
+    }).catch(error=>{
+      wx.hideLoading()
+    })
+    
+  },
+
+  go:function(e){
+    // console.log(this.data.type)
+    if(Number(e.currentTarget.dataset.index)==0){
+      this.setData({
+        top: false
+      })
+      setTimeout(() => {
+        this.setData({
+          isShowShade: false,
+        })
+        wx.showLoading({
+          title: '返回首页',
+          mask: true,
+        })
+        setTimeout(() => {
+          wx.hideLoading()
+          wx.switchTab({
+            url: '../index/index',
+          })
+        }, 1500)
+      }, 800)
+    }
+    else{
+      if(this.data.type=="member"){
+        this.setData({
+          top: false
+        })
+        setTimeout(() => {
+          this.setData({
+            isShowShade: false,
+          })
+          wx.showLoading({
+            title: '查看会员',
+            mask: true,
+          })
+          setTimeout(() => {
+            wx.hideLoading()
+            wx.switchTab({
+              url: '../member/member',
+            })
+          }, 1500)
+        }, 800)
+      }
+      else{
+        this.setData({
+          top: false
+        })
+        setTimeout(() => {
+          this.setData({
+            isShowShade: false,
+          })
+          wx.showLoading({
+            title: '查看订单',
+            mask: true,
+          })
+          setTimeout(() => {
+            wx.hideLoading()
+            wx.switchTab({
+              url: '../order/order',
+            })
+          }, 1500)
+        }, 800)
+      }
+    }
+  },
+
+  closeShade: function () {
+    this.setData({
+      top:false
+    })
+    setTimeout(()=>{
+      this.setData({
+        isShowShade: false,
+      })
+      wx.showLoading({
+        title: '返回首页',
+        mask:true,
+      })
+      setTimeout(()=>{
+        wx.hideLoading()
+        wx.switchTab({
+          url: '../index/index',
+        })
+      },1500)
+    },800)
+    
+    
+  },
+
+  closeYu:function(){
+    this.setData({
+      isShowPwd:false,
+      isFocus:false,
+      password_val:""
+    })
+    setTimeout(()=>{
+      this.setData({
+        isShowYu:false,
+
+      })
+    },800)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    if(options.total){
+      options.total = (Number(options.total)/100).toFixed(2)
+    }
+    if(options.pay){
+      options.pay = (Number(options.pay) / 100).toFixed(2)
+    }
+    if(options.discount){
+      options.discount = (Number(options.discount) / 100).toFixed(2)
+    }
+    this.setData(options)
   },
 
   /**
@@ -65,5 +354,14 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  //列表中取消事件
+  listenerActionSheet: function () {
+    this.setData({
+      //取反
+      actionSheetHidden: !this.data.actionSheetHidden
+    });
+  },
+
 })

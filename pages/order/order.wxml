@@ -4,51 +4,59 @@
   <text>订单</text>
 </view>
 
-<view wx:if="{{!islogin}}" style='position:relative'>
-  <image class='nothing' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order/nologin.png'></image>
-  <view class='nothing-title'>您还没有登录</view>
-  <view bindtap='goLogin' class='nothing-btn'>去登录</view>
-</view>
+<view hidden='{{isload}}' class='container'>
 
-<view class='jw-orders-view' wx:if="{{islogin&&!isNothing}}">
-  <view class='jw-order-item' wx:for="{{orders}}" wx:key="item">
-    <view class='jw-order-item-top clear'>
-      <view class='left jw-order-time'>{{item.createTime}}</view>
-      <view class=' right'>
-        <view class='jw-order-status'>{{item.payStatus==1?"未付款":"已付款"}}</view>
-        <view class='shu' style='display:inline-block'>丨</view>
-        <view bindtap='deleteItem' data-index='{{index}}' class='jw-delete-btn'></view>
+  <view wx:if="{{!islogin}}" style='position:relative'>
+    <image class='nothing' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order/nologin.png'></image>
+    <view class='nothing-title'>您还没有登录</view>
+    <view bindtap='goLogin' class='nothing-btn'>去登录</view>
+  </view>
+
+  <view class='jw-orders-view' wx:if="{{islogin&&!isNothing}}">
+    <view class='jw-order-item' wx:for="{{orders}}" wx:key="item">
+      <view class='jw-order-item-top clear'>
+        <view class='left jw-order-time'>{{item.createTime}}</view>
+        <view class=' right'>
+          <view class='jw-order-status'>{{item.payStatus==1?"未付款":"已付款"}}</view>
+          <view class='shu' style='display:inline-block'>丨</view>
+          <view bindtap='deleteItem' data-index='{{index}}' class='jw-delete-btn'></view>
+        </view>
       </view>
-    </view>
-    <view class='jw-order-item-lists clear' wx:for="{{item.itemList}}" wx:key="item1">
-      <view class='jw-lists-img-view left'>
-        <image class='jw-lists-img' mode="aspectFit" src='{{item.imgUrl}}'></image>
+      <view class='jw-order-item-lists clear' wx:for="{{item.itemList}}" wx:key="item1">
+        <view class='jw-lists-img-view left'>
+          <image class='jw-lists-img' mode="aspectFit" src='{{item.imgUrl}}'></image>
+        </view>
+        <view class='jw-lists-msgs-view right clear'>
+          <text class='jw-lists-name left'>{{item.goodsName}}</text>
+          <text class='jw-lists-number right'>x{{item.num}}</text>
+        </view>
+        
       </view>
-      <view class='jw-lists-msgs-view right clear'>
-        <text class='jw-lists-name left'>{{item.goodsName}}</text>
-        <text class='jw-lists-number right'>x{{item.num}}</text>
-      </view>
-      
-    </view>
-    <view class='jw-order-price'>实付款￥<text style='color:#850000'>{{item.payment}}</text>元</view>
-    <view class='fenge'></view>
-    <view class='jw-order-item-bottom clear'>
-      <view class='jw-order-number left'>
-        <text class=''>订单编号 {{item.orderId}}</text>
-      </view>
-      <view class='right' style='position:relative'>
-        <view class='jw-order-method_views jw-order-payMethod'>{{item.pay_method}}</view>
-        <view class='jw-order-method_views jw-order-detail' data-payStatus='{{item.payStatus}}' data-id='{{item.orderId}}' bindtap='goOrderDetail'>订单详情</view>
+      <view class='jw-order-price'>实付款￥<text style='color:#850000'>{{item.payment}}</text>元</view>
+      <view class='fenge'></view>
+      <view class='jw-order-item-bottom clear'>
+        <view class='jw-order-number left'>
+          <text class=''>订单编号 {{item.orderId}}</text>
+        </view>
+        <view class='right' style='position:relative'>
+          <view class='jw-order-method_views jw-order-payMethod'>{{item.pay_method}}</view>
+          <view class='jw-order-method_views jw-order-detail' data-payStatus='{{item.payStatus}}' data-id='{{item.orderId}}' bindtap='goOrderDetail'>订单详情</view>
+        </view>
       </view>
     </view>
   </view>
+
+
+  
+  <view class='noOrder' wx:if="{{islogin&&isNothing}}">
+    <image class='nothing' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order/nothing.png'></image>
+    <view class='nothing-title'>当前没有订单记录</view>
+    <view bindtap='placeOrder' class='nothing-btn'>现在下单</view>
+  </view>
+
 </view>
 
+<view hidden='{{!isload}}' class='load'>
 
- 
-<view class='noOrder' wx:if="{{islogin&&isNothing}}">
-  <image class='nothing' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order/nothing.png'></image>
-  <view class='nothing-title'>当前没有订单记录</view>
-  <view bindtap='placeOrder' class='nothing-btn'>现在下单</view>
 </view>
 <!-- wx:if="{{islogin&&isNothing}}" -->

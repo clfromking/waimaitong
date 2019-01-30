@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "新手机号更换成功",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

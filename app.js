@@ -87,6 +87,7 @@ App({
     })
     return promise
   },
+
   getData:function(url){
     var that=this
     var promise=new Promise((resolve,reject)=>{
@@ -158,6 +159,7 @@ App({
     })
     return promise
   },
+
   chooseLocation:function(){
     var promise=new Promise((resolve,reject)=>{
       wx.authorize({
@@ -204,6 +206,7 @@ App({
     })
     return promise
   },
+
   onLaunch: function () {
     var that=this
     let userInfo=wx.getStorageSync('userInfo')
@@ -244,12 +247,34 @@ App({
       duration: 1500
     })
   },
+
   onPageScroll: function (e) {
     if (e.scrollTop < 0) {
       wx.pageScrollTo({
         scrollTop: 0
       })
     }
+  },
+
+  pay:function (data){
+    var that=this
+    var promise= new Promise((resolve,reject)=>{
+      wx.requestPayment({
+        timeStamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success: function (res) {
+          resolve(res)
+        },
+        fail: function (res) {
+          that.showToast('支付失败')
+          // reject(res)
+        },
+      })
+    })
+    return promise
   },
 
   globalData: {

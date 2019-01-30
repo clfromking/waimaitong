@@ -1,4 +1,7 @@
 {
+  "navigationBarTitleText": "0元抢服务",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

@@ -42,15 +42,12 @@ Page({
       })
     }
     else{
-      console.log(this.data.plans)
-      console.log(this.data.isin)
-      console.log(this.data.isselect)
       let postData = { "accessToken": app.globalData.accessToken, "memberCardId": this.data.plans[this.data.isselect].id, "feeRenew": 1 }
-      app.postData('/member/buy', postData).then(res=>{
+      app.postData('/member/buy/submit', postData).then(res=>{
         console.log(res)
         if(res.data.code==200){
           wx.navigateTo({
-            url: '../pay/pay',
+            url: '../pay/pay?pay=' + res.data.data.payment + "&total=" + res.data.data.total + "&discount=" + res.data.data.discount + '&orderId=' + res.data.data.orderId+"&type=member",
           })
         }
       })
@@ -93,7 +90,7 @@ Page({
         let data = res.data.data
         if (options.type == "renew") {
           var expiredAt = new Date(res1.data.data.poiMemberData.expiredAt).valueOf()
-          var date = Date.parse(new Date());
+          var buyTime = new Date(res1.data.data.poiMemberData.buyTime).valueOf();
           // res1.data.data.poiMemberData.duration = 1
           for (let i = 0; i < res.data.data.length; i++) {
             if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration) {
@@ -108,7 +105,7 @@ Page({
 
 
           this.setData({
-            expire_time: ((expiredAt - date) / 1000 / 60 / 60 / 24).toFixed(0)
+            expire_time: ((expiredAt - buyTime) / 1000 / 60 / 60 / 24).toFixed(0)
           })
         }
         else if (options.type == "upgrade"){

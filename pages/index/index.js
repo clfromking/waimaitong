@@ -16,12 +16,7 @@ Page({
       { "img": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/operating.png", "text": "外卖运营" },
       // { "img": "http://pk1897l3c.bkt.clouddn.com/icon_4.jpg", "text": "菜品拍摄" },
     ],
-    scrollX_msgs: [
-      { "img_src": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/storeDecorate.png", "alt": "限前200位用户限前200位用户限前200位用户", "btn_text": "店铺装修" },
-      { "img_src": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/zero_2.png", "alt": "再来一次品牌升级", "btn_text": "定制海报" },
-      { "img_src": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/zero_3.png", "alt": "订单搜搜赚翻天", "btn_text": "提升下单神器" },
-      { "img_src": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/zero_4.png", "alt": "限前200位用户", "btn_text": "店铺装修" }
-    ],
+    scrollX_msgs: [],
     guess_title:"猜你想要",
     guess_msgs:[
       { "img_src": "http://pk1897l3c.bkt.clouddn.com/guess_1.jpg", "title": "我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！我这里下雨了,你那里呢！","price":"9.50","member_price":"0.00","scope":"美团外卖、饿了么通用"},
@@ -152,7 +147,7 @@ Page({
   goZero:function(e){
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../zeroRushAll/zeroRushAll',
+      url: '../zeroRushAll/zeroRushAll?id='+e.currentTarget.dataset.id,
     })
   },
 
@@ -161,7 +156,14 @@ Page({
    */
   onLoad: function (options) {
     console.log(app.globalData)
-    
+    app.getData('/snap/cate/list').then(res=>{
+      console.log(res)
+      if(res.data.code==200){
+        this.setData({
+          scrollX_msgs:res.data.data
+        })
+      }
+    })
     // var data = {}
     // wx.navigateToMiniProgram({
     //   appId: 'wxbd687630cd02ce1d', //固定值，这个是填写微信官方签约小程序的id
@@ -249,7 +251,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    wx.stopPullDownRefresh()
   },
 
   /**

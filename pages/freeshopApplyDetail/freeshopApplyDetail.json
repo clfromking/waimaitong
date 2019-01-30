@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "申请详情",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

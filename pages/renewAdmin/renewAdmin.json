@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "自动续费管理",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

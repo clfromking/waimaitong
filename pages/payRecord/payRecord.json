@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "购买记录",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

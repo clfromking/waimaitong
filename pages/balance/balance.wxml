@@ -4,7 +4,7 @@
   <view class='header'>
     <view class='header-title clear'>
       <text class='left'>余额</text>
-      <text class='right'>充值记录</text>
+      <text class='right' bindtap='gobalanceRecord'>充值记录</text>
     </view>
     <view class='header-money'>
       <text>¥</text>
