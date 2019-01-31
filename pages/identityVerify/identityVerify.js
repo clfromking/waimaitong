@@ -12,7 +12,9 @@ Page({
     phone:"",
     smsCode:"",
     typeId:0,
-    getCodeMsg:"获取验证码"
+    getCodeMsg:"获取验证码",
+    showInviteList:false,
+    inviteList:[]
   },
 
   inputMsg:function(e){
@@ -85,7 +87,7 @@ Page({
         url = "/setting/auth/boss/mobile"
       }
       else{
-        url = "/setting/auth/employee/mobile"
+        url = "/setting/employee/upd"
       }
       app.postData(url, postData).then((res) => {
         console.log(res)
@@ -98,21 +100,30 @@ Page({
             })
           }
           else{
-            app.postData('/wechat/login/token',{"accessToken":app.globalData.accessToken}).then(res=>{
-              var double=app.globalData.double
-              var statusBarHeight=app.globalData.statusBarHeight
-              app.globalData=res.data.data
-              app.globalData.double = double
-              app.globalData.statusBarHeight = statusBarHeight
-              app.showToast("认证成功")
-              app.globalData.isMaster = 1
-              console.log(app.globalData)
-              setTimeout(function () {
-                wx.switchTab({
-                  url: '../index/index',
-                })
-              }, 1500)
-            })  
+            app.postData('/setting/poi/invite/list', { "accessToken": app.globalData.accessToken }).then(res => {
+              console.log(res)
+              if (res.data.code == 200) {
+                console.log(res.data.data.length)
+                if(res.data.data.length == 0){
+                  app.showToast('暂无商家邀请您')      
+                  setTimeout(()=>{
+                    wx.navigateBack({
+                      
+                    })
+                  },1500) 
+                }
+                else{
+                  wx.hideLoading()
+                  var inviteList = this.data.inviteList
+                  inviteList = res.data.data
+                  this.setData({
+                    inviteList,
+                    showInviteList: true
+                  })
+                }
+                
+              }
+            })
           }
         }
         else if(res.data.code==403){
@@ -121,6 +132,46 @@ Page({
  
       })
     }
+  },
+
+  joinIn:function(e){
+    wx.showModal({
+      title: '提示',
+      content: '确认加入此店铺么？',
+      cancelText:"取消",
+      confirmText:"确认",
+      success:(res)=>{
+        if (res.confirm) {
+          wx.showLoading({
+            title: '加载中',
+            mask:true
+          })
+          app.postData('/setting/poi/bind',{"accessToken":app.globalData.accessToken,"inviteDataId":e.currentTarget.dataset.id}).then(res=>{
+            if(res.data.code == 200){
+              app.postData('/wechat/login/token', { "accessToken": app.globalData.accessToken }).then(res => {
+                wx.hideLoading()
+                var double = app.globalData.double
+                var statusBarHeight = app.globalData.statusBarHeight
+                app.globalData = res.data.data
+                app.globalData.double = double
+                app.globalData.statusBarHeight = statusBarHeight
+                app.showToast("认证成功")
+                app.globalData.isMaster = 1
+                console.log(app.globalData)
+                setTimeout(function () {
+                  wx.switchTab({
+                    url: '../index/index',
+                  })
+                }, 1500)
+              })  
+            }
+          })
+        } 
+        else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
 
   /**

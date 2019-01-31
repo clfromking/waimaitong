@@ -82,7 +82,7 @@
   <view style='position:relative;height:436rpx'>
     <view class='header'></view>
     <view class='memberMsg'>
-      <image class='memberImg'></image>
+      <image class='memberImg' src='{{memberImg}}'></image>
       <text class='member-species'>{{poiMemberData.name}}</text>
       <text class='member-number'>NO：{{poiMemberData.memberId}}</text>
       <text class='save-title'>已为您节省</text>

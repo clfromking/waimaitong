@@ -345,8 +345,8 @@ page{
   display: block;
   top: 22rpx;
   left: 26rpx;
-  background: #fff;
-  border-radius: 50%
+  border-radius: 50%;
+  border:2rpx solid #fff
 }
 .member-species{
   color: #d2B686;

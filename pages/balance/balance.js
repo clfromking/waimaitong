@@ -49,10 +49,36 @@ Page({
   },
 
   changeSwitch:function(e){
-    // console.log(e.detail.value)
+    // return
+    if (!app.globalData.poiBasicData.balancePwdSet) {
+      this.setData({
+        ischecked:this.data.ischecked
+      })
+      wx.navigateTo({
+        url: '../changePassword/changePassword?type=next&all=false&other=',
+      })
+      return
+    }
+    console.log(e.detail.value)
     this.setData({
       isshowAlert: e.detail.value
     })
+    if(e.detail.value == false){
+      app.postData('/setting/poi/balance/pwd/required',{"accessToken":app.globalData.accessToken,"flag":0}).then(res=>{
+        if(res.data.code == 200){
+          this.setData({
+            ischecked:false
+          })
+          app.showToast('已取消余额免密支付')
+          app.globalData.poiBasicData.balancePwdFree = 0
+        }
+        else{
+          this.setData({
+            ischecked:true
+          })
+        }
+      })
+    }
   },
   
   closeAlert:function(){
@@ -65,6 +91,13 @@ Page({
   know:function(){
     this.setData({
       isshowAlert: false,
+      ischecked:true
+    })
+    app.postData('/setting/poi/balance/pwd/required', { "accessToken": app.globalData.accessToken, "flag": 1 }).then(res => {
+      if (res.data.code == 200) {
+        app.showToast('已开通余额免密支付')
+        app.globalData.poiBasicData.balancePwdFree = 1
+      }
     })
   },
 
@@ -167,7 +200,8 @@ Page({
   onShow: function () {
     // app.globalData.poiBasicData.curBalance=500
     this.setData({
-      curBalance: ((Number(app.globalData.poiBasicData.curBalance)+Number(app.globalData.poiBasicData.curRedBalance))/100).toFixed(2)||"0.00"
+      curBalance: ((Number(app.globalData.poiBasicData.curBalance)+Number(app.globalData.poiBasicData.curRedBalance))/100).toFixed(2)||"0.00",
+      ischecked:app.globalData.poiBasicData.balancePwdFree
     })
   },  
 

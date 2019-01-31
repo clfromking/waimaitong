@@ -18,7 +18,8 @@ page{
   color: #fff;
   padding-left: 20rpx;
   height: 56rpx;
-  line-height: 56rpx
+  line-height: 56rpx;
+  display: none
   /* margin-left: 20rpx */
 }
 .jw-order-nav text{

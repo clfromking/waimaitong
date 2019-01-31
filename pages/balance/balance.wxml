@@ -53,7 +53,7 @@
     <view class='fenge'></view>
     <view class='footer-item clear'>
       <view class='left'>
-        <text>小额免密</text>
+        <text>余额免密</text>
       </view>
       <view class='right'>
         <switch checked='{{ischecked}}' bindchange="changeSwitch"/>
@@ -67,7 +67,7 @@
 </view>
 <view hidden='{{!isshowAlert}}' class='alert-content'>
   <view class='alert-title'>提示</view>
-  <view class='alert-text'>开通小额免密，使用余额支付低于200元消费可免输入密码</view>
+  <view class='alert-text'>开通余额免密，使用余额支付消费可免输入密码</view>
   <view class='alert-fenge'></view>
   <button class='alert-btn' bindtap='know'>我已知晓</button>
 </view>

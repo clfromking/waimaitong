@@ -1,23 +1,40 @@
 <!--pages/identityVerify/identityVerify.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
 
-<image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/changePhone/safe.png' class='safe' mode='widthFix'></image> 
-<view class='safe-text'>为了保证您的账户安全 , 请验证身份</view>
+<view hidden='{{showInviteList}}'>
+  <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/changePhone/safe.png' class='safe' mode='widthFix'></image> 
+  <view class='safe-text'>为了保证您的账户安全 , 请验证身份</view>
 
-<view class='container'>
-<view class='provings-view'>
-    <text  class='title'>真实姓名</text>
-    <input value='{{name}}' placeholder='请输入真实姓名' placeholder-style='font-size:26rpx !important' bindinput='inputMsg' data-id='0' maxlength='14'></input>
-  </view>
+  <view class='container'>
   <view class='provings-view'>
-    <text  class='title'>手机号码</text>
-    <input value='{{phone}}' placeholder='请输入手机号码' placeholder-style='font-size:26rpx !important' bindinput='inputMsg' data-id='1' maxlength='11' type='number'></input>
+      <text  class='title'>真实姓名</text>
+      <input value='{{name}}' placeholder='请输入真实姓名' placeholder-style='font-size:26rpx !important' bindinput='inputMsg' data-id='0' maxlength='14'></input>
+    </view>
+    <view class='provings-view'>
+      <text  class='title'>手机号码</text>
+      <input value='{{phone}}' placeholder='请输入手机号码' placeholder-style='font-size:26rpx !important' bindinput='inputMsg' data-id='1' maxlength='11' type='number'></input>
+    </view>
+    <view class='provings-view'>
+      <text class='title'>验证码</text>
+      <input class='codeInput' placeholder='请输入验证码' placeholder-style='font-size:26rpx !important' bindinput='inputMsg' data-id='2' value='{{smsCode}}' maxlength='6' type='number'></input>
+      <text class='getcode right' bindtap='getCode'>{{getCodeMsg}}</text>
+    </view>
   </view>
-  <view class='provings-view'>
-    <text class='title'>验证码</text>
-    <input class='codeInput' placeholder='请输入验证码' placeholder-style='font-size:26rpx !important' bindinput='inputMsg' data-id='2' value='{{smsCode}}' maxlength='6' type='number'></input>
-    <text class='getcode right' bindtap='getCode'>{{getCodeMsg}}</text>
+  <button class='next' bindtap='next'>下一步</button> 
+</view>
+
+
+
+<view hidden='{{!showInviteList}}'>
+  <view class='inviteListItem' wx:for="{{inviteList}}" wx:key="item">
+    <view class='left'>
+      <view class='poiName'>{{item.poiName}}</view>
+      <view class='createTime'>邀请时间：{{item.createTime}}</view>
+    </view>
+    <view class='right'>
+      <text class='joinBtn right' data-id='{{item.id}}' bindtap='joinIn'>我要加入</text>
+    </view>
   </view>
 </view>
-<button class='next' bindtap='next'>下一步</button> 
+
 <!-- <view class='no-proving'>手机无法验证？</view> -->

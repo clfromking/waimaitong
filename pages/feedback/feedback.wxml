@@ -13,8 +13,8 @@
     </view>
     <view>
       <view class='radios-item' wx:for="{{radio_options}}" wx:key="item">
-        <text class='radios {{item.isselect?"selectRadio":""}}' data-id='{{index}}' bindtap='selectRadio'></text>
-        <text class='option'>{{item.option}}</text>
+        <text class='radios {{isselect==index?"selectRadio":""}}' data-id='{{index}}' bindtap='selectRadio'></text>
+        <text class='option'>{{item}}</text>
       </view>
     </view>
     <view class='body-title'>
@@ -23,8 +23,8 @@
       
     </view>
     <view class='textarea-view'>
-      <textarea placeholder='请输入您的建议' placeholder-style='font-size:30rpx;color:#999'></textarea>
-      <button class='submit'>提交</button>
+      <textarea maxlength='200' placeholder='请输入您的建议' value='{{textAreaValue}}' bindinput='bindInput' placeholder-style='font-size:30rpx;color:#999'></textarea>
+      <button bindtap='submit' class='submit'>提交</button>
     </view>
   </view>
 </view>

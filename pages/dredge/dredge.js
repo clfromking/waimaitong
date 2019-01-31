@@ -20,7 +20,7 @@ Page({
   selectPlan:function(e){
     var pay_money=this.data.pay_money
     if(this.data.newbie){
-      pay_money = (this.data.plans[e.currentTarget.dataset.id].price - this.data.plans[e.currentTarget.dataset.id].newDiscount) / 100
+      pay_money = (this.data.plans[e.currentTarget.dataset.id].price - this.data.plans[e.currentTarget.dataset.id].discount) / 100
     }
     else{
       pay_money = this.data.plans[e.currentTarget.dataset.id].price/100
@@ -35,7 +35,7 @@ Page({
 
   //去支付
   goPay:function(){
-    console.log(app.globalData.poiBasicData.balancePwdSet)
+    // console.log(app.globalData.poiBasicData.isBalancePwdSet)
     if (!app.globalData.poiBasicData.balancePwdSet){
       wx.navigateTo({
         url: '../changePassword/changePassword?type=next&all=false&other=',
@@ -130,7 +130,7 @@ Page({
         var poiBasicData=app.globalData.poiBasicData
         
         if (res1.data.data.newbie) {
-          pay_money = (data[0].price - data[0].newDiscount) / 100
+          pay_money = (data[0].price - data[0].discount) / 100
         }
         else {
           pay_money = data[0].price / 100

@@ -8,12 +8,12 @@
   background: #abca9a;
   padding: 62rpx 0 31rpx;
   width: 750rpx;
-  position: fixed;
+  position: absolute;
   /* top: 0; */
   left: 0;
   z-index: 9;
   /* overflow-x: auto; */
-  height: 104rpx;
+  height: 110rpx;
 }
 .header-item{
   /* width: 100%; */

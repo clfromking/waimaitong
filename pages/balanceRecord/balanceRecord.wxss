@@ -5,7 +5,8 @@
   padding-left: 40rpx;
   position: fixed;
   left: 0;
-  width: 750rpx
+  width: 750rpx;
+  top:0
 }
 .nav{
   display: inline-block;

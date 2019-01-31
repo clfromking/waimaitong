@@ -62,16 +62,24 @@ Page({
         url: '../login/login',
       })
     }
-    else if (!app.globalData.eleAuth && !app.globalData.mtAuth){
+    else if(app.globalData.poiBasicData){
+      if (!app.globalData.poiBasicData.eleAuth && !app.globalData.poiBasicData.mtAuth) {
+        wx.navigateTo({
+          url: '../identityConfirm/identityConfirm',
+        })
+      }
+      else {
+        wx.navigateTo({
+          url: '../dredge/dredge?type=',
+        })
+      }
+    }
+    else if(!app.globalData.poiBasicData){
       wx.navigateTo({
         url: '../identityConfirm/identityConfirm',
       })
     }
-    else{
-      wx.navigateTo({
-        url: '../dredge/dredge?type=',
-      })
-    }
+    
   },
 
   renewal:function(){
@@ -103,9 +111,22 @@ Page({
   onShow: function () {
     // console.log(app.globalData)
     // return
-    this.setData({
-      mobile:app.globalData.mobile||""
-    })
+    if(app.globalData.poiBasicData){
+      this.setData({
+        mobile: app.globalData.poiBasicData.masterMobile || "",
+        memberImg: app.globalData.poiBasicData.logoImg || "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/poiImg.png",
+
+      })
+    }
+    else{
+      this.setData({
+        mobile: "",
+        memberImg:  "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/poiImg.png",
+
+      })
+    }
+
+    
     // app.globalData.isMember = 1
       if(!app.globalData.accessToken){
         wx.hideLoading()

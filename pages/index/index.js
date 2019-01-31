@@ -75,72 +75,80 @@ Page({
         url: '../login/login',
       })
     }
-    else if (app.globalData.accessToken && !app.globalData.eleAuth && !app.globalData.mtAuth){
+    else if (app.globalData.poiBasicData){
+      if (app.globalData.accessToken && !app.globalData.poiBasicData.eleAuth && !app.poiBasicData.globalData.mtAuth) {
+        wx.navigateTo({
+          url: '../identityConfirm/identityConfirm',
+        })
+      }
+      else if (app.globalData.accessToken && (app.globalData.poiBasicData.eleAuth || app.globalData.poiBasicData.mtAuth)) {
+        switch (e.currentTarget.dataset.id) {
+          case 0:
+            app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
+              // console.log(res)
+              // res.data.code=404
+              if (res.data.code == 404) {
+                wx.navigateTo({
+                  url: '../applyFor/applyFor?type=freeShop',
+                })
+              }
+              else if (res.data.code == 200) {
+                wx.navigateTo({
+                  url: '../successApplyFor/successApplyFor?type=freeShop',
+                })
+              }
+
+
+            }).catch((error) => {
+              console.log(error)
+
+            })
+            break;
+          case 1:
+            wx.navigateTo({
+              url: '../storeDecorate/storeDecorate',
+            })
+            break;
+          case 2:
+            app.getData('/go/yunying/get?accessToken=' + app.globalData.accessToken).then((res) => {
+              // res.data.code=404
+              if (res.data.code == 404) {
+                wx.navigateTo({
+                  url: '../operatingState/operatingState',
+                })
+              }
+              else if (res.data.code == 200) {
+                // res.data.data.auditStatus=2
+                if (res.data.data.auditStatus == 2) {
+                  wx.navigateTo({
+                    url: '../operatingCharts/operatingCharts',
+                  })
+                  return
+                }
+                wx.navigateTo({
+                  url: '../successApplyFor/successApplyFor?type=operating',
+                })
+              }
+
+            }).catch((error) => {
+              console.log(error)
+
+            })
+            // wx.navigateTo({
+            //   url: '../applyFor/applyFor?type=operating',
+            // })
+            break;
+          case 3:
+            break;
+        }
+      }
+    }
+    else if (!app.globalData.poiBasicData){
       wx.navigateTo({
         url: '../identityConfirm/identityConfirm',
       })
     }
-    else if (app.globalData.accessToken && (app.globalData.eleAuth || app.globalData.mtAuth)){
-      switch (e.currentTarget.dataset.id) {
-        case 0:
-          app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
-            // console.log(res)
-            // res.data.code=404
-            if(res.data.code==404){
-              wx.navigateTo({
-                url: '../applyFor/applyFor?type=freeShop',
-              }) 
-            }
-            else if(res.data.code==200){
-              wx.navigateTo({
-                url: '../successApplyFor/successApplyFor?type=freeShop',
-              })
-            }
-            
-            
-          }).catch((error) => {
-            console.log(error)
-                      
-          })
-          break;
-        case 1:
-          wx.navigateTo({
-            url: '../storeDecorate/storeDecorate',
-          })
-          break;
-        case 2:
-          app.getData('/go/yunying/get?accessToken=' + app.globalData.accessToken).then((res) => {
-            // res.data.code=404
-            if(res.data.code==404){
-              wx.navigateTo({
-                url: '../operatingState/operatingState',
-              })
-            }
-            else if(res.data.code==200){
-              // res.data.data.auditStatus=2
-              if (res.data.data.auditStatus == 2) {
-                wx.navigateTo({
-                  url: '../operatingCharts/operatingCharts',
-                })
-                return
-              }
-              wx.navigateTo({
-                url: '../successApplyFor/successApplyFor?type=operating',
-              })
-            }
-            
-          }).catch((error) => {
-            console.log(error)
-            
-          })
-          // wx.navigateTo({
-          //   url: '../applyFor/applyFor?type=operating',
-          // })
-          break;
-        case 3:
-          break;
-      }     
-    }
+    
     
   },
 
@@ -157,7 +165,7 @@ Page({
   onLoad: function (options) {
     console.log(app.globalData)
     app.getData('/snap/cate/list').then(res=>{
-      console.log(res)
+      // console.log(res)
       if(res.data.code==200){
         this.setData({
           scrollX_msgs:res.data.data

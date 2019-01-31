@@ -8,19 +8,54 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "会员体验反馈",
-    radio_options: [{ "isselect": true, "option": "非常满意" }, { "isselect": false, "option": "满意" }, { "isselect": false, "option": "试试看" },{ "isselect": false, "option": "很不满意" }]
+    radio_options: ["非常满意","满意" , "试试看","很不满意" ],
+    isselect:0,
+    textAreaValue:""
 
   },
 
   selectRadio:function(e){
-    var radio_options=this.data.radio_options
-    for(let i=0;i<radio_options.length;i++){
-      radio_options[i].isselect=false
-    }
-    radio_options[e.currentTarget.dataset.id].isselect=true
     this.setData({
-      radio_options
+      isselect:e.currentTarget.dataset.id
     })
+    // var radio_options=this.data.radio_options
+    // for(let i=0;i<radio_options.length;i++){
+    //   radio_options[i].isselect=false
+    // }
+    // radio_options[e.currentTarget.dataset.id].isselect=true
+    // this.setData({
+    //   radio_options
+    // })
+  },
+
+  bindInput:function(e){
+    this.setData({
+      textAreaValue: e.detail.value
+    })
+  },
+
+  submit:function(){
+    console.log(this.data.textAreaValue.length)
+    if(this.data.textAreaValue.length <= 10){
+      app.showToast('建议的字数不能少于10个')
+      return
+    }
+    else if (this.data.textAreaValue.length > 200){
+      app.showToast('建议的字数不能多于200个')
+      return
+    }
+    else{
+      var postData = { "accessToken": app.globalData.accessToken, "svcQty": this.data.radio_options[this.data.isselect],"suggestText":this.data.textAreaValue}
+      app.postData('/member/feedback',postData).then(res=>{
+        if(res.data.code == 200){
+          app.showToast('提交成功')
+          this.setData({
+            isselect:0,
+            textAreaValue:""
+          })
+        }
+      })
+    }
   },
 
   /**

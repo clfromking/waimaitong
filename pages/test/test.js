@@ -25,4 +25,16 @@ Page({
     })
   },
 
+  go:function(){
+    wx.navigateTo({
+      url: '../identityConfirm/identityConfirm',
+    })
+  },
+
+  go1:function(){
+    wx.navigateTo({
+      url: '../test1/test1',
+    })
+  }
+
 })

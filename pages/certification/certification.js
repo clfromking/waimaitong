@@ -26,7 +26,13 @@ Page({
    */
   onLoad: function (options) {
     // console.log(app.globalData.eleAuth)
-    var isAuthor=[app.globalData.eleAuth,app.globalData.mtAuth]
+    var isAuthor = []
+    if(app.globalData.poiBasicData){
+      isAuthor = [app.globalData.poiBasicData.eleAuth, app.globalData.poiBasicData.mtAuth]
+    }
+    else{
+      isAuthor = [false,false]
+    }
     this.setData({
       isAuthor
     })

@@ -125,8 +125,10 @@ Page({
       selectTime = new Date(selectTime).getTime()
       var nowTime = new Date().getTime()
       var differ = (selectTime - nowTime)/1000/60
+      // console.log(differ)
+      // console.log(this.data.header_navs)
       //算时间差  5分钟之内才能添加
-      if (differ<=5&&differ>=-1){
+      if (differ <= 5 && differ >= this.data.header_navs[this.data.isSelect].timeArea){
         let decorate_options = this.data.decorate_options
         let append_list = this.data.append_list
         for (let i = 0; i < decorate_options.length; i++) {
@@ -143,7 +145,7 @@ Page({
           decorate_options
         })
       }
-      else if (differ<-1){
+      else if (differ < this.data.header_navs[this.data.isSelect].timeArea){
         app.showToast('商品已售罄，请等待下一个时间进行抢购')
         setTimeout(()=>{
           this.newLoadList()
@@ -564,6 +566,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showLoading({
+      title : '加载中',
+      mask : true,
+    })
     this.newLoadList()
     
     // console.log(this.data.append_list)
@@ -790,9 +796,13 @@ Page({
           for (let j = 0; j < data[i].goodsList.length; j++) {
             data[i].goodsList[j].disPrice = (Number(data[i].goodsList[j].disPrice) / 100).toFixed(2)
             data[i].goodsList[j].oriPrice = (Number(data[i].goodsList[j].oriPrice) / 100).toFixed(2)
+            data[i].goodsList[j].soldNum = data[i].soldNum
+            data[i].goodsList[j].timeFrameStockNum = data[i].timeFrameStockNum
+            // console.log(data[i].goodsList[j].soldNum)
+            // console.log(data[i].goodsList[j].timeFrameStockNum)
             data[i].goodsList[j].isappend = false
             data[i].goodsList[j].append_num = 0
-            if (data[i].goodsList[j].stockNum == data[i].goodsList[j].soldNum) {
+            if (data[i].goodsList[j].timeFrameStockNum == data[i].goodsList[j].soldNum) {
               data[i].goodsList[j].isfull = true
             }
             else { 
@@ -807,7 +817,13 @@ Page({
             }
           }
 
-          data[i].timeFrames = data[i].timeFrames.substr(0, 5)
+          var date = new Date()
+          var startTime = date.getFullYear() + '-' + (date.getMonth() + 1) + "-" + date.getDate() + ' ' + data[i].timeFrameStart
+          var endTime = date.getFullYear() + '-' + (date.getMonth() + 1) + "-" + date.getDate() + ' ' + data[i].timeFrameEnd
+          var differ = (new Date(startTime).getTime() - new Date(endTime).getTime()) / 1000 / 60
+          data[i].timeArea = differ
+          // console.log(data[i].timeArea)
+          data[i].timeFrames = data[i].timeFrameStart.substr(0, 5)
 
 
           if (data[i].frameStatus == 1) {
@@ -891,8 +907,6 @@ Page({
   },
 
   isClear:function(){
-    console.log(this.data.decorate_options)
-    console.log(this.data.append_list)
     var append_list = this.data.append_list
     var decorate_options = this.data.decorate_options
     var date = new Date()
@@ -902,7 +916,7 @@ Page({
     var nowTime = new Date().getTime()
     var differ = (selectTime - nowTime) / 1000 / 60
 
-    if(differ<=5&&differ>=-1){
+    if (differ <= 5 && differ >= this.data.header_navs[this.data.isSelect].timeArea){
       for(let i=0;i<append_list.length;i++){
         for(let j=0;j<decorate_options.length;j++){
           if(append_list[i].goodsId == decorate_options[j].goodsId){
@@ -915,6 +929,7 @@ Page({
         decorate_options,
         append_list
       })
+      wx.hideLoading()
       this.countPrice()
     }
     else{
@@ -922,6 +937,7 @@ Page({
         decorate_options,
         append_list:[]
       })
+      wx.hideLoading()
       this.countPrice()
     }
 

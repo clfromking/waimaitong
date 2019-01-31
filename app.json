@@ -1,9 +1,10 @@
 {
-  "pages":[   
+  "pages":[
     "pages/index/index",
     "pages/member/member",
     "pages/order/order",
     "pages/my/my",
+    "pages/test1/test1",
     "pages/biddingTop/biddingTop",
     "pages/biddingAgree/biddingAgree",
     "pages/biddingRecord/biddingRecord",

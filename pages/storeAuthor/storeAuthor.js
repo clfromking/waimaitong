@@ -53,10 +53,10 @@ Page({
         if(res.data.code==200&&res.data.data){
           app.globalData.poiBasicData=res.data.data
           if (this.data.type == 0){
-            app.globalData.eleAuth = true
+            app.globalData.poiBasicData.eleAuth = true
           }
           else{
-            app.globalData.mtAuth = true
+            app.globalData.poiBasicData.mtAuth = true
           }
           app.showToast('认证成功')      
           console.log(app.globalData)

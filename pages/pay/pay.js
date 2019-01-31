@@ -115,24 +115,31 @@ Page({
       title: '',
       mask:true
     })
-    if (this.data.actionSheetItems[this.data.isSelectItem].payWay == 4 && app.globalData.poiBasicData.balancePwdFree == 0){
-      wx.hideLoading()
-      // console.log('余额') 
-      this.setData({
-        isShowYu:true
-      })
-      if(this.data.isShowYu){
-        this.setData({
-          isShowPwd:true,
-          // isFocus:true
+    if (this.data.actionSheetItems[this.data.isSelectItem].payWay == 4){
+      if (!app.globalData.poiBasicData.balancePwdSet){
+        wx.navigateTo({
+          url: '../changePassword/changePassword?type=next&all=false&other=',
         })
-        setTimeout(()=>{
-          this.setData({
-            isFocus:true
-          })
-        },400)
       }
-      return
+      else if (app.globalData.poiBasicData.balancePwdSet && app.globalData.poiBasicData.balancePwdFree == 0){
+        wx.hideLoading()
+        // console.log('余额') 
+        this.setData({
+          isShowYu: true
+        })
+        if (this.data.isShowYu) {
+          this.setData({
+            isShowPwd: true,
+            // isFocus:true
+          })
+          setTimeout(() => {
+            this.setData({
+              isFocus: true
+            })
+          }, 400)
+        }
+        return
+      }   
     }
     var postData ={}
     postData = { "accessToken": app.globalData.accessToken, "orderId": this.data.orderId, "payWay": this.data.actionSheetItems[this.data.isSelectItem].payWay}

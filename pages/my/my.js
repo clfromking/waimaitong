@@ -54,67 +54,88 @@ Page({
 
   goBalance:function(){
     // console.log(app.globalData.isAuthDone)
-    if (!app.globalData.eleAuth && !app.globalData.mtAuth){
+    if(app.globalData.poiBasicData){
+      if (!app.globalData.poiBasicData.eleAuth && !app.globalData.poiBasicData.mtAuth) {
+        wx.navigateTo({
+          url: '../identityConfirm/identityConfirm',
+        })
+        return
+      }
       wx.navigateTo({
-        url: '../identityConfirm/identityConfirm',
+        url: '../balance/balance',
       })
-      return
     }
-    wx.navigateTo({
-      url: '../balance/balance',
-    })
+    else{
+      wx.navigateTo({
+        url: '../balance/balance',
+      })
+    }
   },
 
   goOtherOption:function(e){
     // app.globalData.isAuthDone=1
-    if (!app.globalData.eleAuth && !app.globalData.mtAuth) {
+    if(app.globalData.poiBasicData){
+      if (!app.globalData.poiBasicData.eleAuth && !app.globalData.poiBasicData.mtAuth) {
+        wx.navigateTo({
+          url: '../identityConfirm/identityConfirm',
+        })
+        return
+      }
+      switch (e.currentTarget.dataset.id) {
+        case 0:
+          wx.navigateTo({
+            url: '../biddingTop/biddingTop',
+          })
+          break;
+        case 1:
+          break;
+        case 2:
+          wx.getStorage({
+            key: 'userInfo',
+            success: function (res) {
+              console.log(res)
+              wx.navigateTo({
+                url: '../certification/certification',
+              })
+            },
+            fail: function () {
+              wx.navigateTo({
+                url: '../login/login',
+              })
+            }
+          })
+
+          break;
+        case 3:
+          break;
+        case 4:
+          wx.navigateTo({
+            url: '../coupons/coupons',
+          })
+          break;
+        case 5:
+          break;
+        case 6:
+          break;
+        case 7:
+          wx.navigateTo({
+            url: '../set/set',
+          })
+          break;
+      }
+    }
+    else{
+      // wx.navigateTo({
+      //   url: '../test/test',
+      // })
+      // return
       wx.navigateTo({
         url: '../identityConfirm/identityConfirm',
       })
       return
     }
-    switch (e.currentTarget.dataset.id){
-      case 0:
-        wx.navigateTo({
-          url: '../biddingTop/biddingTop',
-        })
-        break;
-      case 1:
-        break;
-      case 2:
-        wx.getStorage({
-          key: 'userInfo',
-          success: function(res) {
-            console.log(res)
-            wx.navigateTo({
-              url: '../certification/certification',
-            })
-          },
-          fail:function(){
-            wx.navigateTo({
-              url: '../login/login',
-            })
-          }
-        })
-       
-        break;
-      case 3:
-        break;
-      case 4:
-        wx.navigateTo({
-          url: '../coupons/coupons',
-        })
-        break;
-      case 5:
-        break;
-      case 6:
-        break;
-      case 7:
-        wx.navigateTo({
-          url: '../set/set',
-        })
-        break;
-    }
+    
+    
   },
 
 
@@ -188,14 +209,19 @@ Page({
       })
       app.getData('/setting/poi/basic/get?accessToken=' + app.globalData.accessToken).then(res => {
         let options = this.data.options
+        if(app.globalData.poiBasicData){
+          if (!app.globalData.poiBasicData.eleAuth && !app.globalData.poiBasicData.mtAuth) {
+            options[2].other = "未认证"
+          }
+          else {
+            options[2].other = "已认证"
 
-        if (!app.globalData.eleAuth && !app.globalData.mtAuth) {
+          }
+        }
+        else{
           options[2].other = "未认证"
         }
-        else {
-          options[2].other = "已认证"
-
-        }
+        
         if (res.data.code == 200) {
           options[0].other = (Number(res.data.data.curBiddingBalance) / 100).toFixed(2) || 0.00
           options[0].other = "¥" + parseInt(options[0].other) + "元"
