@@ -236,3 +236,13 @@ switch{
   top: 340rpx;
   left: 137rpx
 }
+
+.prompt{
+  text-align: center;
+  float: right;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 36rpx;
+  color: #fff;
+  padding-right: 40rpx
+}

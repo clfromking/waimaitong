@@ -4,7 +4,6 @@
     "pages/member/member",
     "pages/order/order",
     "pages/my/my",
-    "pages/test1/test1",
     "pages/biddingTop/biddingTop",
     "pages/biddingAgree/biddingAgree",
     "pages/biddingRecord/biddingRecord",
@@ -53,8 +52,9 @@
     "pages/balanceRecord/balanceRecord",
     "pages/refund/refund",
     "pages/orderDetail/orderDetail",
-    "pages/pay/pay",
-    "pages/intoMember/intoMember"
+    "pages/intoMember/intoMember",
+    "pages/pay/pay"
+    
     
   ],
   "permission": {

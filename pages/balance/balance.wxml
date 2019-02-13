@@ -17,16 +17,18 @@
         <view>{{topUp}}</view>
         <view>充值</view>
       </view>
-      <view  class='actual-money-item'>+</view>
-      <view  class='actual-money-item'>
+      <view hidden='{{!isHidePrompt}}' class='actual-money-item'>+</view>
+      <view hidden='{{!isHidePrompt}}' class='actual-money-item'>
         <view>{{returnMoney}}</view>
         <view>返赠</view>
       </view>
-      <view  class='actual-money-item'>=</view>
-      <view  class='actual-money-item'>
+      <view hidden='{{!isHidePrompt}}'  class='actual-money-item'>=</view>
+      <view hidden='{{!isHidePrompt}}'  class='actual-money-item'>
         <view>{{topUp + returnMoney}}</view>
         <view>到账</view>
       </view>
+      <view hidden='{{isHidePrompt}}' class='prompt'>充值金额大于100有返赠</view>
+
     </view>
     <view class='top-up-alt'><text style='margin-right:20rpx'>充100返10</text><text>多充多送</text></view>
     <view class='top-up-btns-view' >

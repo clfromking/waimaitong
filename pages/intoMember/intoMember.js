@@ -8,8 +8,9 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "会员创建成功",
-    member_num:"123456",
-    isshare:false
+    member_num:"",
+    isshare:false,
+    avatarUrl:""
   },
 
   goShare:function(){
@@ -19,7 +20,6 @@ Page({
   },
 
   cancelShare:function(){
-    console.log(11)
     this.setData({
       isshare: false
     })
@@ -37,7 +37,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      avatarUrl: app.globalData.avatarUrl ||"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png"
+    })
+    app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then(res=>{
+      if(res.data.code == 200){
+        this.setData({
+          member_num: res.data.data.poiMemberData.memberId
+        })
+      }
+    })
   },
 
   /**

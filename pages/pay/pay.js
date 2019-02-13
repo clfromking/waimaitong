@@ -55,6 +55,12 @@ Page({
         app.postData(url, postData).then(res=>{
           if(res.data.code==200){
             wx.hideLoading()
+            if (this.data.newbie == true || this.data.newbie == "true") {
+              wx.redirectTo({
+                url: '../intoMember/intoMember',
+              })
+              return
+            }
             app.showToast('支付成功')
             this.setData({
               isShowShade: true,
@@ -152,9 +158,17 @@ Page({
     }
     app.postData(url,postData).then(res=>{
       if(res.data.code==200){
+        console.log(this.data.newbie)
+        console.log(typeof(this.data.newbie))
         if (this.data.actionSheetItems[this.data.isSelectItem].payWay==3){
           app.pay(res.data.data).then(res => {
             wx.hideLoading()
+            if (this.data.newbie == true || this.data.newbie == "true") {
+              wx.redirectTo({
+                url: '../intoMember/intoMember',
+              })
+              return
+            }
             this.setData({
               isShowShade: true,
 
@@ -168,6 +182,12 @@ Page({
         }
         else{
           wx.hideLoading()
+          if (this.data.newbie == true || this.data.newbie == "true") {
+            wx.redirectTo({
+              url: '../intoMember/intoMember',
+            })
+            return
+          }
           app.showToast('支付成功')
           this.setData({
             isShowShade: true,
@@ -302,6 +322,19 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    console.log(options.newbie)
+    if(options.newbie=="true"){
+      // console.log(true)
+      this.setData({
+        newbie:true
+      })
+    }
+    else{
+      // console.log(false)
+      this.setData({
+        newbie:false
+      })
+    }
     if(options.total){
       options.total = (Number(options.total)/100).toFixed(2)
     }

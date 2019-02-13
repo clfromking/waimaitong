@@ -3,8 +3,8 @@
 <view class='container'>
   <view class='shade' hidden='{{!isshare}}' bindtap='cancelShare'></view>
   <view class='main'>
-    <image class='avatarurl' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
-    <text class='member-total'>恭喜您成为第<text style='color:#b79865'>{{member_num}}</text>位外卖通会员炫耀一下吧</text>
+    <image class='avatarurl' mode='widthFix' src='{{avatarUrl}}'></image>
+    <text class='member-total'>恭喜您成为第<text style='color:#b79865'>{{member_num}}</text>位外卖通会员<text style='display:block'>炫耀一下吧</text></text>
   </view>
   <view class='btns'>
     <view class='noshare'>暂不炫耀</view>

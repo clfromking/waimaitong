@@ -202,8 +202,17 @@ Page({
     else{
       app.postData('/member/my/get', { "accessToken": app.globalData.accessToken }).then(res => {
         if (res.data.code == 200) {
+          console.log(app.globalData.shareBalance)
+          var currShareBalance = parseInt((Number(app.globalData.shareBalance) / 100))
+          if (currShareBalance == 0) {
+            currShareBalance = 0
+          }
+          else {
+            currShareBalance = currShareBalance
+          }
           this.setData({
-            isMember: res.data.data.isMember
+            isMember: res.data.data.isMember,
+            currShareBalance: currShareBalance || 0,
           })
         }
       })
@@ -225,14 +234,9 @@ Page({
         if (res.data.code == 200) {
           options[0].other = (Number(res.data.data.curBiddingBalance) / 100).toFixed(2) || 0.00
           options[0].other = "¥" + parseInt(options[0].other) + "元"
-          var currShareBalance = parseInt((Number(res.data.data.currShareBalance) / 100))
+          // var currShareBalance = parseInt((Number(res.data.data.currShareBalance) / 100))
           var curBalance = ((Number(res.data.data.curBalance) + Number(res.data.data.curRedBalance)) / 100)
-          if (currShareBalance==0){
-            currShareBalance=0
-          }
-          else{
-            currShareBalance = currShareBalance
-          }
+          
           if (curBalance==0){
             curBalance=0
           }
@@ -241,7 +245,7 @@ Page({
           }
           this.setData({
             options,
-            currShareBalance: currShareBalance||0,
+            
             curBalance: curBalance || 0,
             
           })

@@ -7,7 +7,7 @@ page{
   width:850rpx;
   margin-left:-50rpx;
   height: 888.55rpx;
-  background: url('http://pk1897l3c.bkt.clouddn.com/intoMemberbg.png') no-repeat;
+  background: url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/intoMember/bg.png') no-repeat;
   background-size: 100% 100%;
   margin-top: 64rpx;
   position: relative;

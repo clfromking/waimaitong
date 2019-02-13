@@ -122,7 +122,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    wx.hideShareMenu()
     var postData = { "accessToken": app.globalData.accessToken, "orderId":options.orderId }
     app.postData('/order/detail', postData).then((res)=>{
       console.log(res)

@@ -15,34 +15,61 @@ Page({
     topUp: '',
     returnMoney:"",
     inputMoney:"",
-    curBalance:"0.00"
+    curBalance:"0.00",
+    isHidePrompt:true
   },
 
   selectMoney:function(e){
     // console.log(e.currentTarget.dataset.id)
     if (e.currentTarget.dataset.id!==undefined){
-      this.setData({
-        isselectMoney: e.currentTarget.dataset.id,
-        topUp: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]),
-        returnMoney: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]) / 10,
-        inputMoney:""
-      })
+      if (Number(this.data.top_up_moneys[e.currentTarget.dataset.id])<100){
+        this.setData({
+          isselectMoney: e.currentTarget.dataset.id,
+          topUp: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]),
+          returnMoney: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]) / 10,
+          inputMoney: "",
+          isHidePrompt:false
+        })
+      }
+      else{
+        this.setData({
+          isselectMoney: e.currentTarget.dataset.id,
+          topUp: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]),
+          returnMoney: Number(this.data.top_up_moneys[e.currentTarget.dataset.id]) / 10,
+          inputMoney: "",
+          isHidePrompt: true
+        })
+      }
+      
       
     }
     else{
       console.log(this.data.inputMoney)
       if (this.data.inputMoney){
-        this.setData({
-          isselectMoney: 8,
-          topUp: Number(this.data.inputMoney),
-          returnMoney: Number(this.data.inputMoney) / 10
-        })
+        if(Number(this.data.inputMoney)<100){
+          this.setData({
+            isselectMoney: 8,
+            topUp: Number(this.data.inputMoney),
+            returnMoney: Number(this.data.inputMoney) / 10,
+            isHidePrompt: false
+          })
+        }
+        else{
+          this.setData({
+            isselectMoney: 8,
+            topUp: Number(this.data.inputMoney),
+            returnMoney: Number(this.data.inputMoney) / 10,
+            isHidePrompt: true
+          })
+        }
+        
         return
       }
       this.setData({
         isselectMoney: 8,
         topUp: 0,
-        returnMoney:0
+        returnMoney:0,
+        isHidePrompt: false
       })
     }
     
@@ -123,11 +150,23 @@ Page({
 
   inputMoney:function(e){
     console.log(e.detail.value)
-    this.setData({
-      inputMoney: e.detail.value,
-      topUp: Number(e.detail.value),
-      returnMoney: Number(e.detail.value) / 10
-    })
+    if(Number(e.detail.value)<100){
+      this.setData({
+        inputMoney: e.detail.value,
+        topUp: Number(e.detail.value),
+        returnMoney: 0,
+        isHidePrompt:false
+      })
+    }
+    else{
+      this.setData({
+        inputMoney: e.detail.value,
+        topUp: Number(e.detail.value),
+        returnMoney: Number(e.detail.value) / 10,
+        isHidePrompt: true
+      })
+    }
+    
   },
 
   Blur:function(e){

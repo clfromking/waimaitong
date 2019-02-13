@@ -47,7 +47,7 @@ Page({
         console.log(res)
         if(res.data.code==200){
           wx.navigateTo({
-            url: '../pay/pay?pay=' + res.data.data.payment + "&total=" + res.data.data.total + "&discount=" + res.data.data.discount + '&orderId=' + res.data.data.orderId+"&type=member",
+            url: '../pay/pay?pay=' + res.data.data.payment + "&total=" + res.data.data.total + "&discount=" + res.data.data.discount + '&orderId=' + res.data.data.orderId+"&type=member&newbie="+this.data.newbie,
           })
         }
       })
