@@ -85,7 +85,7 @@ Page({
           break
         }
       }
-      // console.log(allArr[i].cateId)
+      console.log(allArr[i].cateId)
       // console.log(this.data.region)
       if (!this.data.memberName){
         app.showToast('真实姓名不能为空')
@@ -103,6 +103,7 @@ Page({
         wx.showLoading({
           title: '保存中',
         })
+        console.log(allArr)
         var postData = { "accessToken": app.globalData.accessToken, "poiBrandName": this.data.poiBrandName, "poiCateId": allArr[i].cateId, "poiProvince": this.data.region[0], "poiCity": this.data.region[1], "poiDistricts": this.data.region[2], "poiStreet": "", "poiAddress": this.data.poiAddress, "memberName": this.data.memberName}
         console.log(postData)
         app.postData("/setting/poi/basic/set", postData).then(res=>{

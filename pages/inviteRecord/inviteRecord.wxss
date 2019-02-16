@@ -34,14 +34,14 @@
 .status{
   width: 112rpx;
   height: 44rpx;
-  border: 2rpx solid #ABCA9A;
+  border: 2rpx solid #f63f5d;
   border-radius: 4rpx;
   text-align: center;
   line-height: 44rpx;
   top: 86rpx;
   left: 0;
   font-size: 24rpx;
-  color: #ABCA9A !important
+  color: #f63f5d !important
 }
 .memberType{
   font-size: 24rpx;

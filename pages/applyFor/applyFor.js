@@ -168,7 +168,7 @@ Page({
       app.showToast('品牌名不能为空')
       return
     }
-    else if (!this.data.area){
+    else if (!this.data.address){
       app.showToast('店铺地址不能为空')
       return
     }
@@ -209,6 +209,7 @@ Page({
       let dishCateId = arr[this.data.multiArray[0][this.data.multiIndex[0]]][this.data.multiIndex[1]].cateId
       var postData = { "accessToken": app.globalData.accessToken, "brandName": this.data.brandName,  "address": this.data.address, "platform": platform, "poiType": this.data.index + 1, "dishCateId": dishCateId, "amount": this.data.num,  "smsCode": this.data.code }
       console.log(postData)
+      // return
       app.postData('/go/kaidian/submit', postData).then((res) => {
         console.log(res)
         if(res.data.code==200){
@@ -274,7 +275,7 @@ Page({
       })
       wx.setNavigationBarColor({
         frontColor: '#ffffff',
-        backgroundColor: '#abca9a',
+        backgroundColor: '#3A4BF9',
       })
     }
     else{

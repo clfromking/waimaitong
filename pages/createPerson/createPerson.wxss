@@ -52,7 +52,7 @@ input{
 }
 .successTitle{
   font-size: 40rpx;
-  color: #a6c797;
+  color: #3A4BF9;
   text-align: center
 }
 .successAlt{

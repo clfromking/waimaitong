@@ -11,7 +11,7 @@ Page({
     nickName:"",
     avatarUrl:"",
     small_nav:[
-      { "img": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/freeShop.png", "text": "免租金开店" },
+      { "img": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/freeshop.png", "text": "免租金开店" },
       { "img": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/storeDecorate.png", "text": "店铺装修" },
       { "img": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/operating.png", "text": "外卖运营" },
       // { "img": "http://pk1897l3c.bkt.clouddn.com/icon_4.jpg", "text": "菜品拍摄" },
@@ -86,7 +86,7 @@ Page({
           case 0:
             app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
               // console.log(res)
-              // res.data.code=404
+              // res.data.code=200
               if (res.data.code == 404) {
                 wx.navigateTo({
                   url: '../applyFor/applyFor?type=freeShop',

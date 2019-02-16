@@ -50,7 +50,7 @@ page{
   width: 630rpx;
   height: 96rpx;
   border-radius: 6rpx;  
-  background: #19ad19;
+  background: #3A4BF9;
   color: #fff;
   font-size: 38rpx;
   line-height: 96rpx;

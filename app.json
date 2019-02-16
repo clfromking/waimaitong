@@ -18,7 +18,6 @@
     "pages/goRecord/goRecord",
     "pages/applyFor/applyFor",
     "pages/successApplyFor/successApplyFor",
-    "pages/freeShop/freeShop",
     "pages/certification/certification",
     "pages/storeAuthor/storeAuthor",
     "pages/coupons/coupons",
@@ -66,30 +65,39 @@
   },
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#abca9a",
+    "navigationBarBackgroundColor": "#3A4BF9",
     "navigationStyle":"default",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "white"
   },
   "tabBar":{
     "color":"#000",
-    "selectedColor":"#abca9a",
+    "selectedColor":"#3A4BF9",
+    "backgroundColor":"#fff",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath":"pages/img/index1.png",
+        "selectedIconPath":"pages/img/index.png"
       },
       {
         "pagePath": "pages/member/member",
-        "text": "会员"
+        "text": "会员",
+        "iconPath": "pages/img/member1.png",
+        "selectedIconPath": "pages/img/member.png"
       },
       {
         "pagePath": "pages/order/order",
-        "text": "订单"
+        "text": "订单",
+        "iconPath": "pages/img/order1.png",
+        "selectedIconPath": "pages/img/order.png"
       },
       {
         "pagePath": "pages/my/my",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "pages/img/my1.png",
+        "selectedIconPath": "pages/img/my.png"
       }  
       
     ]

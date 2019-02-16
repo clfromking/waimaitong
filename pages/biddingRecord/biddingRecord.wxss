@@ -1,6 +1,6 @@
 /* pages/biddingRecord/biddingRecord.wxss */
 .navs{
-  background: #abca9a;
+  background: #3A4BF9;
   text-align: left;
   padding-left: 40rpx;
   position: fixed;
@@ -86,5 +86,5 @@
 }
 
 .isOut{
-  color: #abca9a
+  color: #3A4BF9
 }

@@ -17,7 +17,7 @@
 .next{
   width: 326rpx;
   height: 68rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   border-radius: 34rpx;
   color: #fff;
   font-size: 36rpx;

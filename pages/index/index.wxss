@@ -3,7 +3,7 @@ page{
 }
 .jw-index-title{
   height: 78rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   padding: 10rpx 0
 }
 .jw-title-avatarurl-view{
@@ -44,17 +44,17 @@ page{
   position: relative
 }
 .jw-banner-radius-bgview{
-  height: 200rpx;
-  background: #abca9a;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%
+  height: 140rpx;
+  background: #3A4BF9;
+  /* border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50% */
 }
 .jw-banner{
   width: 718rpx;
   height: 264rpx;
   display: block;
   position: absolute;
-  border-radius: 20rpx;
+  /* border-radius: 20rpx; */
   /* background: red; */
   top: 14rpx;
   left: 16rpx
@@ -142,7 +142,7 @@ page{
 .jw-item-btn{
   padding:0 30rpx;
   height: 48rpx;
-  background-color: #abca9a;
+  background-color: #3A4BF9;
 	border-radius: 22rpx;
   font-size: 28rpx;
   color: #fefefe;

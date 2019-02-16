@@ -114,8 +114,8 @@ page{
 .pay{
   width: 274rpx;
   height: 56rpx;
-  background: #abca9a;
-  border-radius: 28rpx;
+  background: #3A4BF9;
+  border-radius: 28rpx; 
   text-align:center;
   line-height: 56rpx;
   color: #fffefe;

@@ -45,6 +45,9 @@ view[hidden]{
 .green{
   color: #13dec9
 }
+.otherBlue{
+  color: #3ABBF9
+}
 .showPassword-view{
   width: 478rpx;
   height: 78rpx;

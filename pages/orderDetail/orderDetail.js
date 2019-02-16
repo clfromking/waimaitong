@@ -15,7 +15,7 @@ Page({
     isMember:false,
     nickName:"",
     mobile:"",
-    brandName: "",
+    name: "",
     address:"",
     totalScore:[0,0,0,0,0]
   },
@@ -224,7 +224,7 @@ Page({
         }
         data.nickName=app.globalData.nickName
         data.mobile=app.globalData.mobile
-        data.brandName=app.globalData.poiBasicData.brandName
+        data.name=app.globalData.poiBasicData.name
         data.address=app.globalData.poiBasicData.address
         this.setData(data)
         console.log(app.globalData)

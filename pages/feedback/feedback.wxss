@@ -42,7 +42,7 @@
   width: 38rpx;
   height: 38rpx;
   border-radius: 50%;
-  border:2rpx solid #abca9a;
+  border:2rpx solid #3A4BF9;
   display: inline-block;
   margin-top: 6rpx;
   margin-right: 28rpx
@@ -71,7 +71,7 @@ textarea{
 .submit{
   width: 336rpx;
   height: 72rpx;
-  background: #abca9a;
+  background: #3A4BF9;
 	border-radius: 36rpx;
   color: #fff;
   font-size: 30rpx;

@@ -1,6 +1,6 @@
 /* pages/balance/balance.wxss */
 .header-title{
-  background: #abca9a;
+  background: #3A4BF9;
   padding: 0 40rpx
 }
 .header-title text{
@@ -19,7 +19,7 @@
 }
 .header-money{
   color: #fff;
-  background: #abca9a;
+  background: #3A4BF9;
   padding: 0 40rpx 20rpx;
   /* height: 60rpx; */
   /* line-height: 60rpx */
@@ -37,11 +37,12 @@
 .actual-money{
   width: 680rpx;
   height: 120rpx;
-  background-image: linear-gradient(202deg, 
+  background: #3ABBF9;
+  /* background-image: linear-gradient(202deg, 
 		#c1a06b 0%, 
-		#e5d1a3 100%);
+		#e5d1a3 100%); */
 	border-style: solid;
-	border-width: 4rpx;
+	border-width: 0rpx;
 	border-image-source: linear-gradient(214deg, 
 		#e5d1a3 0%, 
 		#c1a06b 100%);
@@ -70,10 +71,11 @@
 .top-up-alt{
   font-size: 24rpx;
   text-align: center;
-  background: linear-gradient(203deg, 
+  color: #3A4BF9;
+  /* background: linear-gradient(203deg, 
 		#c1a06b 0%, 
 		#e5d1a3 117%);
-  -webkit-background-clip: text;
+  -webkit-background-clip: text; */
   color: transparent;
 }
 .top-up-btns-view{
@@ -87,11 +89,12 @@
   height: 82rpx;
   border-style: solid;
 	border-width: 4rpx;
-	border-image-source: linear-gradient(0deg, 
+  border: 2rpx solid #cacaca;
+	/* border-image-source: linear-gradient(0deg, 
 		#e5d1a3 0%, 
 		#d3b987 50%, 
 		#c1a06b 100%);
-	border-image-slice: 1;
+	border-image-slice: 1; */
   display: inline-block;
   color: #999;
   font-size: 36rpx;
@@ -113,14 +116,14 @@
 }
 .top-up-btn{
   width: 418rpx;
-  height: 60rpx;
-  background-color: #abca9a;
-	border-radius: 30rpx;
+  height: 74rpx;
+  background-color: #3A4BF9;
+	border-radius: 4rpx;
   color: #fff;
-  line-height: 60rpx;
+  line-height: 74rpx;
   text-align: center;
   font-size: 36rpx;
-  margin-top: 150rpx;
+  margin-top: 110rpx;
   margin-bottom: 46rpx
 }
 .footer-item{
@@ -159,9 +162,8 @@ switch{
 
 
 .isselectItem{
-  background-image: linear-gradient(63deg, 
-		#e5d1a3 0%, 
-		#c1a06b 100%);
+  background:#3A4BF9;
+  border-color: #3A4BF9;
   color: #fff
 }
 .fenge{
@@ -227,7 +229,7 @@ switch{
 .alert-btn{
   width: 326rpx;
 	height: 68rpx;
-	background-color: #abca9a;
+	background-color: #3A4BF9;
 	border-radius: 34px;
   color: #fff;
   line-height: 68rpx;
@@ -268,7 +270,7 @@ switch{
 .next{
   width: 326rpx;
   height: 68rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   border-radius: 34rpx;
   color: #fff;
   font-size: 36rpx;

@@ -44,17 +44,28 @@
   color: #2d2d2d;
   font-size: 36rpx;
   font-weight: bold;
-  
+  max-width: 290rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .price{
   font-size: 24rpx;
   margin-top: 28rpx;
   color: #2d2d2d;
+  max-width: 290rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .mPrice{
   font-size: 28rpx;
   color: #ff6959;
-  margin-top: 2rpx
+  margin-top: 2rpx;
+  max-width: 290rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .bottom{
   height: 70rpx;
@@ -70,7 +81,7 @@
   width: 750rpx;
   bottom: 0;
   left: 0;
-  background: #abca9a;
+  background: #3A4BF9;
   z-index: 1
 }
 
@@ -79,7 +90,7 @@
   width: 156rpx;
   height: 156rpx;
   border-radius: 50%;
-  background-image: radial-gradient(50% 102%, #BEE9A7 50%, #ABCA9A 100%);
+  background-image: radial-gradient(50% 102%, rgb(62, 139, 255) 50%, #3A4BF9 100%);
   text-align: center;
   font-size: 36rpx;
   color: #fff;
@@ -103,7 +114,7 @@
   position: absolute;
   top: 4rpx;
   left: 252rpx;
-  color: #2d2d2d
+  color: #fff
 }
 .acPrice{
   font-size: 36rpx;
@@ -172,7 +183,11 @@
 .append-name{
   font-size: 28rpx;
   color: #2d2d2d;
-  width: 212rpx
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;  
+  margin-right: 12rpx
 }
 .append-money{
   font-size: 24rpx;
@@ -185,7 +200,7 @@
   width: 124rpx;
   height: 40rpx;
   border-radius: 8rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   color: #fff;
   font-size: 24rpx;
   text-align: center;

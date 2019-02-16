@@ -22,7 +22,7 @@
 .item{
   width: 196rpx;
   height: 72rpx;
-  border: 2rpx solid #abca9a;
+  border: 2rpx solid #3A4BF9;
   box-sizing: border-box;
   text-align: center;
   line-height: 72rpx;
@@ -69,7 +69,7 @@
 .topBtn{
   width: 606rpx;
   height: 68rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   border-radius: 8rpx;
   text-align: center;
   margin: 0 auto;
@@ -80,7 +80,8 @@
 
 
 .isSelect{
-  background: #abca9a
+  background: #3A4BF9;
+  color: #fff
 }
 
 text[hidden]{

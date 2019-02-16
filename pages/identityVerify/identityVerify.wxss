@@ -52,7 +52,7 @@
 .next{
   width: 402rpx;
 	height: 58rpx;
-	background: #abca9a;
+	background: #3A4BF9;
 	border-radius: 30rpx;
   text-align: center;
   line-height: 58rpx;

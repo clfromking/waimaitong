@@ -22,7 +22,7 @@ button{
   margin-top: 130rpx;
   width:296rpx;
   height: 58rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   color: #fff;
   border-radius: 28rpx;
   font-size: 36rpx;
@@ -51,7 +51,7 @@ button{
   margin: 0;
   border-radius: 0;
   line-height: 76rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   color: #fff;
   font-size: 36rpx;
   text-align: center

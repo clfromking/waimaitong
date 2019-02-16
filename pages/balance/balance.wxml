@@ -1,5 +1,5 @@
 <!--pages/balance/balance.wxml-->
-<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<navtitle status-height="{{statusHeight}}" status-bgcolor="#3A4BF9" nav-bgcolor="#3A4BF9" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
 <view hidden='{{isSetPws}}'>
   <view  class='container'>
     <view class='header'>
@@ -36,11 +36,11 @@
         <view bindtap='selectMoney' data-id='{{index}}' class='btns-view-item {{isselectMoney==index?"isselectItem":""}}' wx:for="{{top_up_moneys}}" wx:key="item">
           {{item}}元
         </view>
-        <view bindtap='selectMoney' class='btns-view-item {{isselectMoney==8?"isselectItem":""}}'>
+        <view bindtap='selectMoney' style='background:#fff;color:#999' class='btns-view-item {{isselectMoney==8?"isselectItem":""}}'>
           <input placeholder='其他金额' bindblur='Blur' bindinput='inputMoney' value='{{inputMoney}}'></input>
         </view>
       </view>
-      <view class='agreement'>点击立即充值，即表示您已阅读并同意<text style="color:#abca9a" bindtap='goAgreement'>《充值协议》</text></view>
+      <view class='agreement'>点击立即充值，即表示您已阅读并同意<text style="color:#3A4BF9" bindtap='goAgreement'>《充值协议》</text></view>
       <button class='top-up-btn' bindtap='topUp'>立即充值</button>
     </view>
     <view class='footer'>
@@ -59,7 +59,7 @@
           <text>余额免密</text>
         </view>
         <view class='right'>
-          <switch checked='{{ischecked}}' bindchange="changeSwitch"/>
+          <switch checked='{{ischecked}}' color='#3A4BF9' bindchange="changeSwitch"/>
         </view>
       </view>
     </view>

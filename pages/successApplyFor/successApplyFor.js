@@ -31,7 +31,7 @@ Page({
       })
       wx.setNavigationBarColor({
         frontColor: '#ffffff',
-        backgroundColor: '#abca9a',
+        backgroundColor: '#3A4BF9',
       })
     }
     else {
@@ -50,7 +50,7 @@ Page({
     if (options.type=="freeShop"){
       app.getData('/go/kaidian/get?accessToken=' + app.globalData.accessToken).then((res) => {
         console.log(res)
-        // res.data.data.auditStatus=1
+        // res.data.data.auditStatus=0
         if(res.data.data.auditStatus==0){
           this.setData({
             isprocess:true

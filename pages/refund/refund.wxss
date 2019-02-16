@@ -58,7 +58,7 @@ page{
   width: 184rpx;
   height: 54rpx;
   border-radius: 28rpx;
-  background: #abca9a;
+  background: #3a4bf9;
   text-align: center;
   line-height: 54rpx;
   color: #fff;
@@ -85,7 +85,7 @@ page{
   display: inline-block;
   height: 36rpx;
   width: 114rpx;
-  border: solid 2rpx #abca9a;
+  border: solid 2rpx #3a4bf9;
   box-sizing: border-box;
   margin-top: 20rpx;
   /* margin-right: 60rpx; */
@@ -97,10 +97,10 @@ page{
   width: 40rpx;
   height: 40rpx;
   border-radius: 50%;
-  border: 2rpx solid #abca9a;
+  border: 2rpx solid #3a4bf9;
   text-align: center;
   line-height: 40rpx;
-  color: #abca9a;
+  color: #3a4bf9;
   vertical-align: top;
   margin-top: 23rpx
 }

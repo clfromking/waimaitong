@@ -29,7 +29,7 @@ button{
   display: block;
   width: 178rpx;
   height: 58rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   color: #Fff;
   font-size: 30rpx;
   line-height: 58rpx;

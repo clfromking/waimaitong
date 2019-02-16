@@ -45,7 +45,7 @@ picker{
   width: 32rpx;
   height: 32rpx;
   display: inline-block;
-  /* border: 4rpx solid #abca9a; */
+  /* border: 4rpx solid #3A4BF9; */
   border-radius: 50%;
   vertical-align: top;
   margin-top: 24rpx
@@ -97,7 +97,7 @@ picker{
 .getCode{
   width: 146rpx;
   height: 56rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   border-radius: 8rpx;
   text-align: center;
   line-height: 56rpx;
@@ -112,7 +112,7 @@ picker{
   text-align: center;
   color: #fff;
   font-size: 36rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   border-radius: 16rpx;
   margin-top:20rpx 
 }
@@ -132,7 +132,7 @@ picker{
   width: 16rpx;
   height: 16rpx;
   display: inline-block;
-  background: #abca9a;
+  background: #3A4BF9;
   position: absolute;
   top: 0;
   left: 0;

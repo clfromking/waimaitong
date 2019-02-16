@@ -36,4 +36,4 @@
   <button bindtap='getSmsCode' disabled='{{getCode_msg!=="获取验证码"}}'  class='getCode right'>{{getCode_msg}}</button>
 </view>
 
-<button bindtap='next' disabled='{{smsCode.length<6}}' class="next">下一步</button>
+<button bindtap='next' disabled='{{smsCode.length<6}}' class="next {{smsCode.length<6?'isRight':''}}">下一步</button>

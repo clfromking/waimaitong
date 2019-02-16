@@ -48,7 +48,7 @@
 .confirm{
   width: 292rpx;
 	height: 72rpx;
-	background: #abca9a;
+	background: #3a4bf9;
 	border-radius: 36rpx;
   line-height: 72rpx;
   color: #fff;

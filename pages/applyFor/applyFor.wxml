@@ -40,8 +40,15 @@
     <text class='right selectView-title'>已上线外卖平台</text>
   </view>
 
-  <view class="section item">
-    <view class="section__title item-title item-picker-title">选择门店类型</view>
+  <view class='item'>
+    <view  class="section__title item-title item-picker-title">选择门店类型</view>
+    <picker  disabled='{{isdisabled}}' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">{{array[index]}}</view>
+    </picker>
+  </view>
+
+  <view class="section item" hidden='{{navType=="operating"}}'>
+    <view class="section__title item-title item-picker-title">选择经营品类</view>
     <picker  disabled='{{isdisabled}}' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
       <view class="picker">
         {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
@@ -50,35 +57,30 @@
   </view>
 
 
-  <view class='item' hidden='{{navType=="operating"}}'>
-    <view  class="section__title item-title item-picker-title">选择经营品类</view>
-    <picker  disabled='{{isdisabled}}' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="picker">{{array[index]}}</view>
-    </picker>
-  </view>
+  
 
   <view class='item numberView clear'> 
     <text class='item-title'>门店品牌数量</text>
     <view class='right'>
-      <image class='sub' src='{{navType=="freeShop"?"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/sub_free.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/sub_operating.png"}}' bindtap='sub'></image>
+      <image class='sub' src='{{navType=="freeShop"?"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/sub_operating.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/sub_operating.png"}}' bindtap='sub'></image>
       <input type='number' class='number-input' bindinput='inputMsgs' data-id='2' value='{{num}}'></input>
-      <image class='add' src='{{navType=="freeShop"?"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/add_free.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/add_operating.png"}}' bindtap='add'></image>
+      <image class='add' src='{{navType=="freeShop"?"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/add_operating.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/applyFor/add_operating.png"}}' bindtap='add'></image>
     </view>
   </view>
 
   <view class='item nameView'>
     <text  class='item-title'>姓名</text>
-    <input  disabled='{{isdisabled}}' bindinput='inputMsgs' data-id='3' value='{{name}}'></input>
+    <input  disabled='{{isdisabled}}' placeholder='请输入姓名' placeholder-style='color:#ccc' bindinput='inputMsgs' data-id='3' value='{{name}}'></input>
   </view>
 
   <view class='item phoneView'>
     <text class='item-title'>手机号码</text>
-    <input type='number' maxlength='11' disabled='{{isdisabled}}' bindinput='inputMsgs' data-id='4' value='{{phone}}'></input>
+    <input type='number' maxlength='11' placeholder='请输入手机号码' placeholder-style='color:#ccc' disabled='{{isdisabled}}' bindinput='inputMsgs' data-id='4' value='{{phone}}'></input>
   </view>
 
   <view class='item codeView'>
     <text class='item-title'>手机验证码</text>
-    <input type='number' maxlength='6' bindinput='inputMsgs' data-id='5' value='{{code}}'></input>
+    <input type='number' maxlength='6' placeholder='请输入验证码' placeholder-style='color:#ccc' bindinput='inputMsgs' data-id='5' value='{{code}}'></input>
     <view class='getCode right {{navType=="freeShop"?"":"getCode-blue"}}' bindtap='getCode'>{{smsCodeText}}</view>
   </view>
 

@@ -10,7 +10,7 @@
     </view>
     <view class='jw-title-hint-bottom-text white'>
       <text>{{isMember==false?"您还不是会员":""}}{{isMember==true?"您已开通会员":""}}</text>
-      <text bindtap='goMember' style="margin-left:38rpx;font-size:24rpx" class='red'>{{isMember==false?"开通会员":""}}{{isMember==true?"会员续费":""}}{{isMember==false||isMember==true?">>":""}}</text>
+      <text bindtap='goMember' style="margin-left:38rpx;font-size:24rpx" class='otherBlue'>{{isMember==false?"开通会员":""}}{{isMember==true?"会员续费":""}}{{isMember==false||isMember==true?">>":""}}</text>
     </view>
   </view>
 </view>

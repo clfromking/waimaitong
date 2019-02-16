@@ -35,7 +35,7 @@
         <text>{{mobile}}</text>
       </view>
       <view class='business-detail-two'>
-        <text>店名：  {{brandName}}</text>
+        <text>店名：  {{name}}</text>
       </view>
       <view class='business-detail-three'>
         <text>地址： {{address}}</text>

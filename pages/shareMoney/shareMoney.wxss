@@ -1,6 +1,6 @@
 /* pages/shareMoney/shareMoney.wxss */
 .header{
-  background: #abca9a
+  background: #3A4BF9
 }
 .title text{
   display: inline-block;

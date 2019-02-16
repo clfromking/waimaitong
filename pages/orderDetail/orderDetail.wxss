@@ -27,7 +27,7 @@ page{
 .continue-btn{
   width: 194rpx;
   height: 50rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   border-radius: 24rpx;
   color: #fff;
   font-size: 30rpx;
@@ -143,7 +143,7 @@ textarea{
   height: 68rpx;
   line-height: 68rpx;
   margin: 36rpx auto 0;
-  background: #abca9a;
+  background: #3A4BF9;
   border-radius: 34rpx;
   color: #fff;
   font-size: 36rpx;

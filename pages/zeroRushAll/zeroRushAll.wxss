@@ -5,7 +5,7 @@
 }
 .header{
   /* display: flex; */
-  background: #abca9a;
+  background: #3A4BF9;
   padding: 62rpx 0 31rpx;
   width: 750rpx;
   position: absolute;
@@ -26,12 +26,12 @@
 }
 .header-time{
   font-size: 48rpx;
-  color: #f4f4f4;
+  color: #ADB3FA;
   font-weight: bold
 }
 .header-status{
   font-size: 24rpx;
-  color: #f4f4f4;
+  color: #ADB3FA;
   margin-top: 10rpx
 }
 .container{
@@ -67,7 +67,10 @@
   color: #2d2d2d;
   font-size: 36rpx;
   font-weight: bold;
-  
+  max-width: 300rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .price{
   font-size: 36rpx;
@@ -130,13 +133,13 @@
   width: 750rpx;
   bottom: 0;
   left: 0;
-  background: #abca9a
+  background: #3A4BF9
 }
 .add-btn{
   width: 156rpx;
   height: 156rpx;
   border-radius: 50%;
-  background-image: radial-gradient(50% 102%, #BEE9A7 50%, #ABCA9A 100%);
+  background-image: radial-gradient(50% 102%, rgb(62, 139, 255) 50%, #3A4BF9 100%);
   text-align: center;
   font-size: 36rpx;
   color: #fff;
@@ -160,7 +163,7 @@
   position: absolute;
   top: 4rpx;
   left: 252rpx;
-  color: #2d2d2d
+  color: #fff
 }
 .acPrice{
   font-size: 36rpx;
@@ -251,7 +254,7 @@
 }
 .placeOrder-chance{
   font-size: 64rpx;
-  color: #abca9a;
+  color: #3A4BF9;
   text-align: center;
   font-weight: bolder
 }
@@ -290,11 +293,16 @@
 .append-name{
   font-size: 28rpx;
   color: #2d2d2d;
-  width: 212rpx
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;  
+  margin-right: 12rpx
 }
 .append-money{
   font-size: 24rpx;
-  color: #f53958
+  color: #f53958;
+  vertical-align: top
 }
 .btns-view{
   height: 192rpx
@@ -303,7 +311,7 @@
   width: 124rpx;
   height: 40rpx;
   border-radius: 8rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   color: #fff;
   font-size: 24rpx;
   text-align: center;
@@ -366,12 +374,12 @@
 }
 
 .istime{
-  color: #2d2d2d
+  color: #fff
 }
 
 .highChance{
   color: #f63f5d
 }
 .successSnap{
-  background: #abca9a
+  background: #3A4BF9
 }

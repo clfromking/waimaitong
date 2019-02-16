@@ -8,7 +8,7 @@
 }
 .downCode{
   font-size: 30rpx;
-  color: #9ab58b;
+  color: #3A4BF9;
   text-align: center;
   margin-top: 52rpx
 }

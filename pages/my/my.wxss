@@ -5,7 +5,7 @@ page{
 }
 .jw-my-header{
   height: 542rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   position: relative
 }
 .jw-user-msgs{

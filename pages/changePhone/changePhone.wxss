@@ -51,7 +51,7 @@
 .next{
   width: 402rpx;
 	height: 58rpx;
-	background: #abca9a;
+	background: #3A4BF9;
 	border-radius: 30rpx;
   text-align: center;
   line-height: 58rpx;
@@ -131,7 +131,7 @@ icon{
   height: 84rpx;
   text-align: center;
   line-height: 84rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   color: #fff;
   font-size: 32rpx
 }
@@ -142,7 +142,7 @@ icon{
   line-height: 68rpx;
   color: #fff;
   font-size: 28rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   margin: 62rpx auto 38rpx;
 }
 button[disabled]:not([type]){
@@ -160,4 +160,10 @@ button[disabled]:not([type]){
   text-align: center;
   font-weight: bold;
   margin-bottom: 62rpx
+}
+
+.isRight{
+  background: #3A4BF9 !important;
+  opacity: 0.5;
+  color: #fff !important
 }

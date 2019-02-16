@@ -53,9 +53,9 @@
 .reason-body{
   width: 100%;
   height: 108rpx;
-  background: #abca9a;
+  background: rgb(238, 238, 238);
   border-radius: 8rpx;
-  color: #fff;
+  color: #2d2d2d;
   font-size: 24rpx;
   position: relative;
   /* box-sizing: border-box;
@@ -124,17 +124,17 @@
   width: 128rpx;
   height: 56rpx;
   border-radius: 8rpx;
-  background: #abca9a;
+  background: #3A4BF9;
   text-align: center;
   line-height: 56rpx;
   font-size: 24rpx;
-  color: #2d2d2d;
+  color: #fff;
   z-index: 9999;
   margin-right: 40rpx;
   margin-top: 20rpx
 }
 .Green{
-  color: #ABCA9A !important;
+  color: #3A4BF9 !important;
 }
 .Red{
   color: #FF6959 !important;
