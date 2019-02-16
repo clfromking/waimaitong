@@ -207,6 +207,92 @@ App({
     return promise
   },
 
+  savePhoto:function(data){
+    var that = this
+    var promise =  new Promise((resolve,reject)=>{
+      wx.downloadFile({
+        url: data,
+        success: function (res) {
+          if (res.statusCode == 200) {
+            wx.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success: function (res) {
+                console.log(res)
+                that.showToast('保存成功，请到相册中查看')
+              },
+              fail: function () {
+                wx.getSetting({
+                  success(res) {
+                    if (res.authSetting["scope.writePhotosAlbum"]) {
+                    }
+                    else {
+                      wx.navigateTo({
+                        url: '../authorization/authorization',
+                      })
+                    }
+                  }
+                })
+              }
+            })
+          }
+        },
+        fail: function () {
+          that.showToast('下载失败，请重试')
+        }
+      })
+    })
+    return promise
+  },
+
+  allShare:function(path){
+    console.log(path)
+    var imageUrl = ''
+    var title = ''
+    if(path == 'freeShop'){
+      title = '诚邀你一起免房租开店'
+      imageUrl = 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/share/kd.png'
+    }
+    else if(path == 'storeDecorate'){
+      title = '限时豪送外卖店铺装修'
+      imageUrl = 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/share/zx.png'
+    }
+    else if(path == 'operating'){
+      title = '外卖通免费外卖代运营正在持续助力餐饮商户'
+      imageUrl = 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/share/yy.png'
+    }
+    else if(path == 'zero'){
+      title = '外卖新福利即将开抢'
+      imageUrl = 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/share/zero.png'
+    }
+    else if(path == 'member'){
+      title = '立即加入外卖通成为免费运营合作伙伴吧'
+      imageUrl = 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/share/hy.png'
+    }
+    else if(path == 'invite1'){       //邀请商户领现金主页以及今日邀请，历史邀请
+      title = '外卖通免费外卖代运营正在持续助力餐饮商户'
+      imageUrl = 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/share/yq1.png'
+    }
+    else if(path == 'invite2'){
+      title = '人脉既钱脉，我愿持续助力餐饮商户'
+      imageUrl = 'https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/share/yq2.png'
+    }
+    return {
+      title: title,
+      path: 'pages/member/member?inviterId=' + this.globalData.puid + "&type=share",
+      imageUrl: imageUrl
+    }
+  },
+
+  openFree:function(){
+    var that = this
+    var promise = new Promise((resolve,reject)=>{
+      that.postData('/setting/poi/balance/pwd/required', { "accessToken": that.globalData.accessToken, "flag": 1 }).then(res => {
+        resolve(res.data.code)
+      })
+    })
+    return promise
+  },
+
   onLaunch: function () {
     var that=this
     let userInfo=wx.getStorageSync('userInfo')

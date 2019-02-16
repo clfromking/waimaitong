@@ -53,7 +53,8 @@ Page({
   },
 
   goBalance:function(){
-    // console.log(app.globalData.isAuthDone)
+    console.log(app.globalData)
+    // return
     if(app.globalData.poiBasicData){
       if (!app.globalData.poiBasicData.eleAuth && !app.globalData.poiBasicData.mtAuth) {
         wx.navigateTo({
@@ -67,7 +68,7 @@ Page({
     }
     else{
       wx.navigateTo({
-        url: '../balance/balance',
+        url: '../identityConfirm/identityConfirm',
       })
     }
   },
@@ -107,6 +108,9 @@ Page({
 
           break;
         case 3:
+          wx.navigateTo({
+            url: '../invite/invite',
+          })
           break;
         case 4:
           wx.navigateTo({
@@ -125,24 +129,58 @@ Page({
       }
     }
     else{
-      // wx.navigateTo({
-      //   url: '../test/test',
-      // })
-      // return
-      wx.navigateTo({
-        url: '../identityConfirm/identityConfirm',
-      })
+      switch (e.currentTarget.dataset.id) {
+        case 0:
+          wx.navigateTo({
+            url: '../identityConfirm/identityConfirm',
+          })
+          break;
+        case 1:
+          break;
+        case 2:
+          wx.navigateTo({
+            url: '../identityConfirm/identityConfirm',
+          })
+
+          break;
+        case 3:
+          wx.navigateTo({
+            url: '../invite/invite',
+          })
+          break;
+        case 4:
+          wx.navigateTo({
+            url: '../identityConfirm/identityConfirm',
+          })
+          break;
+        case 5:
+          break;
+        case 6:
+          break;
+        case 7:
+          wx.navigateTo({
+            url: '../set/set',
+          })
+          break;
+      }
+      
       return
     }
     
     
   },
 
+  // goSet:function(){
+  //   wx.navigateTo({
+  //     url: '../set/set',
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()
     wx.getStorage({
       key: 'userInfo',
       success:(res)=>{
@@ -251,6 +289,15 @@ Page({
           })
         }
       })
+      app.getData('/invite/home?accessToken='+app.globalData.accessToken).then(res=>{
+        if(res.data.code == 200){
+          var options = this.data.options
+          options[3].other = '已邀请' + res.data.data.allNum + '位'
+          this.setData({
+            options
+          })
+        }
+      })
     }
     
     // app.globalData.isAuthDone=1
@@ -279,7 +326,24 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    app.postData('/wechat/login/token',{"accessToken":app.globalData.accessToken}).then(res=>{
+      if(res.data.code == 200){
+        app.globalData.shareBalance = res.data.data.shareBalance
+        var currShareBalance = parseInt((Number(app.globalData.shareBalance) / 100))
+        if (currShareBalance == 0) {
+          currShareBalance = 0
+        }
+        else {
+          currShareBalance = currShareBalance
+        }
+        this.setData({
+          // isMember: res.data.data.isMember,
+          currShareBalance: currShareBalance || 0,
+        })
+        wx.stopPullDownRefresh()
+      }
+    })
+    
   },
 
   /**

@@ -18,5 +18,6 @@
   <view class='body-state'>托管期间品牌方只需做好出餐准备工作，其余工作均有外卖通完成帮助商户做好外卖是外卖通的使命</view>
   <view class='body-title'>免基础服务费，按效果付费</view>
   <view class='body-state'>外卖通采用双保模式，外买通智能测算系统，将会根据品牌方营业数据、品类、商圈等众多维度，进行智能测算自动给出未来盈利预测，外买通以系统预测数据为基准，托管期间为品牌方提升至预测数据则按月收取4%实际到账佣金，相反则不抽取任何费用</view>
-  <view class='submit-btn' bindtap='submit'>提交运营申请</view>
+  
 </view>
+<view class='submit-btn' bindtap='submit'>提交运营申请</view>

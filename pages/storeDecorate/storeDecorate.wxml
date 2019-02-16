@@ -52,6 +52,11 @@
   <view hidden='{{!isShowShade}}' class='alert'>
     <view class='shade-bg' catchtouchmove='true' bindtap='closeShade'></view>
     <view class='append-list clear'>
+      <view class='deleteAll clear' >
+        <view class='deleteText right' bindtap='delectAll'>清空</view>
+        <image mode='widthFix' bindtap='delectAll' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/delete.png' class='deleteImg right'></image>
+        
+      </view>
       <view class='append-item' wx:for="{{append_list}}" wx:key="item">
         <view class='append-name'>{{item.name}}</view>
         <view class='append-money'>¥{{isMember?item.memberPrice:item.price}}</view>

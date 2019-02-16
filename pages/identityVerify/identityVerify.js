@@ -152,9 +152,20 @@ Page({
                 wx.hideLoading()
                 var double = app.globalData.double
                 var statusBarHeight = app.globalData.statusBarHeight
-                app.globalData = res.data.data
-                app.globalData.double = double
-                app.globalData.statusBarHeight = statusBarHeight
+                var inviterId = ''
+                if(app.globalData.scene){
+                  inviterId = app.globalData.inviterId
+                  app.globalData = res.data.data
+                  app.globalData.double = double
+                  app.globalData.statusBarHeight = statusBarHeight
+                  app.globalData.inviterId = inviterId
+                }
+                else{
+                  app.globalData = res.data.data
+                  app.globalData.double = double
+                  app.globalData.statusBarHeight = statusBarHeight
+                }
+                
                 app.showToast("认证成功")
                 app.globalData.isMaster = 1
                 console.log(app.globalData)
@@ -179,6 +190,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.typeId)
+    wx.hideShareMenu()
     this.setData({
       typeId:options.typeId
     })

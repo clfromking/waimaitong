@@ -47,7 +47,7 @@ Page({
         if (res.confirm) {
           var postData = { "accessToken": app.globalData.accessToken, "orderId": this.data.orders[e.currentTarget.dataset.index].orderId }
           app.postData('/order/rm',postData).then(res=>{
-            // console.log(res)
+            console.log(res)
             if(res.data.code==200){
               // console.log(this.data.orders[e.currentTarget.dataset.index].orderId)
               var orders = this.data.orders
@@ -64,6 +64,9 @@ Page({
                 total: total - 1
               })
               app.showToast('删除成功')
+            }
+            else if(res.data.code == 403){
+              app.showToast(res.data.msg)
             }
           })
         } else if (res.cancel) {
@@ -295,111 +298,6 @@ Page({
       console.log(postData)
       app.postData('/order/my', postData).then(res=>{   
         if(res.data.code==200){
-          // res.data.data = {
-          //   "total": 11,
-          //   "list": [
-          //     {
-          //       "orderId": "20190107094396062010",
-          //       "goodsType": 2,
-          //       "createTime": "2019-01-01 11:31:35",
-          //       "payStatus": 1,
-          //       "payment": 69900,
-          //       "serviceStatus": 1,
-          //       "itemList": [
-          //         {
-          //           "id": 1,
-          //           "goodsId": 1,
-          //           "goodsName": "LOGO设计",
-          //           "imgUrl": "",
-          //           "num": 1,
-          //           "unitPrice": 5900,
-          //           "total": 5900
-          //         },
-          //         {
-          //           "id": 2,
-          //           "goodsId": 2,
-          //           "goodsName": "海报设计",
-          //           "imgUrl": "",
-          //           "num": 1,
-          //           "unitPrice": 5900,
-          //           "total": 5900
-          //         },
-          //         {
-          //           "id": 3,
-          //           "goodsId": 3,
-          //           "goodsName": "招牌设计",
-          //           "imgUrl": "",
-          //           "num": 1,
-          //           "unitPrice": 5900,
-          //           "total": 5900
-          //         },
-          //         {
-          //           "id": 4,
-          //           "goodsId": 4,
-          //           "goodsName": "菜单设计",
-          //           "imgUrl": "",
-          //           "num": 1,
-          //           "unitPrice": 5900,
-          //           "total": 5900
-          //         },
-          //         {
-          //           "id": 5,
-          //           "goodsId": 5,
-          //           "goodsName": "爆品梳理",
-          //           "imgUrl": "",
-          //           "num": 1,
-          //           "unitPrice": 5900,
-          //           "total": 5900
-          //         },
-          //         {
-          //           "id": 6,
-          //           "goodsId": 6,
-          //           "goodsName": "成本把控",
-          //           "imgUrl": "",
-          //           "num": 1,
-          //           "unitPrice": 5900,
-          //           "total": 5900
-          //         },
-          //         {
-          //           "id": 7,
-          //           "goodsId": 7,
-          //           "goodsName": "主推菜品",
-          //           "imgUrl": "",
-          //           "num": 1,
-          //           "unitPrice": 5900,
-          //           "total": 5900
-          //         },
-          //         {
-          //           "id": 8,
-          //           "goodsId": 8,
-          //           "goodsName": "活动设置",
-          //           "imgUrl": "",
-          //           "num": 1,
-          //           "unitPrice": 5900,
-          //           "total": 5900
-          //         }
-          //       ]
-          //     },
-          //     {
-          //       "orderId": "20190107094396062003",
-          //       "goodsType": 1,
-          //       "createTime": "2019-01-01 11:31:35",
-          //       "payStatus": 1,
-          //       "payment": 69900,
-          //       "serviceStatus": 0,
-          //       "itemList": []
-          //     },
-          //     {
-          //       "orderId": "20190107094396062007",
-          //       "goodsType": 1,
-          //       "createTime": "2019-01-01 11:21:42",
-          //       "payStatus": 1,
-          //       "payment": 49900,
-          //       "serviceStatus": 0,
-          //       "itemList": []
-          //     }
-          //   ]
-          // }
           console.log(res.data.data)
           if (res.data.data) {
             let orders = res.data.data.list

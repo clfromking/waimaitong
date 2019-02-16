@@ -21,11 +21,13 @@ Page({
       password_val:e.detail.value
     })
   },
+
   gofocus:function(){
     this.setData({
       isFocus:true
     })
   },
+  
   next:function(){
     console.log(this.data.password_val)
     if(!this.data.password_val){
@@ -82,12 +84,17 @@ Page({
             console.log('忘记了设置')
             app.postData('/setting/poi/balance/forget/set', { "accessToken": app.globalData.accessToken, "newPwd": this.data.password_val}).then(res=>{
               if(res.data.code==200){
-                app.showToast('设置成功')
-                setTimeout(function () {
-                  wx.redirectTo({
-                    url: '../balance/balance',
-                  })
-                }, 1500)
+                app.openFree().then(res=>{
+                  if(res == 200){
+                    app.globalData.poiBasicData.balancePwdFree = 1
+                    app.showToast('设置成功')
+                    setTimeout(function () {
+                      wx.redirectTo({
+                        url: '../balance/balance',
+                      })
+                    }, 1500)
+                  }
+                })     
               }
             })
           }
@@ -97,13 +104,18 @@ Page({
               console.log(res)
               if (res.data.code == 200) {
                 app.globalData.poiBasicData.balancePwdSet = true
-                console.log(app.globalData)
-                app.showToast('设置成功')
-                setTimeout(function () {
-                  wx.navigateBack({
+                app.openFree().then(res=>{
+                  if(res == 200){
+                    console.log(app.globalData)
+                    app.globalData.poiBasicData.balancePwdFree = 1
+                    app.showToast('设置成功')
+                    setTimeout(function () {
+                      wx.navigateBack({
 
-                  })
-                }, 1500)
+                      })
+                    }, 1500)
+                  }
+                })              
               }
             })
           }
@@ -138,6 +150,7 @@ Page({
    */
   onLoad: function (options) {  
     console.log(options)
+    wx.hideShareMenu()
     this.setData({
       all:options.all,
       other:options.other

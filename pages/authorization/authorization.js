@@ -11,14 +11,9 @@ Page({
 
   },
 
-  openSetting:function(){
-    wx.openSetting({
-      success:function(res){
-        console.log(res)
-        wx.navigateBack({
-          delta:1
-        })
-      }
+  openSettingTap:function(){
+    wx.navigateBack({
+      delta: 1
     })
   },
 
@@ -26,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.hideShareMenu()
   },
 
   /**

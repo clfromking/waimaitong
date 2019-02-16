@@ -76,6 +76,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.type)
+    wx.hideShareMenu()
     // options.type=1
     let src=""
     let placeholder_user =''

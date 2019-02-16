@@ -1,0 +1,33 @@
+<!--pages/invite/invite.wxml-->
+<view class='container'>
+  <view class='title'>邀请商户开通会员赚现金</view>
+  <view class='body'>
+    <view class='clear remindView'>
+      <switch class='right' color="#F63F5D"></switch>
+      <view class='right remindText'>邀请提醒</view>
+    </view>
+    <view class='userView'>
+      <image class='avatarurl' src='{{myAvatarurl}}'></image>
+      <text class='nickName'>{{myNickname}}</text>
+    </view>
+    <view class='alt' style='margin-bottom:6rpx'>邀请一位商户开通会员</view>
+    <view class='alt'>最高可领取200元现金</view>
+    <image class='altImg' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/invite/ch_yq.png'></image>
+    <button open-type='share' class='shareBtn'>邀请领现金</button>
+    <view class='likeBtn'>{{allNum}}位好友已接受邀请开通会员</view>
+    <view class='bottom'>
+      <view class='item' data-index='0' bindtap='go'>
+        <view class='num'>{{todayNum}}</view>
+        <view class='text'>今日邀请</view>
+      </view>
+      <view class='item' data-index='1' bindtap='go'>
+        <view class='num'>{{allNum}}</view>
+        <view class='text'>历史邀请</view>
+      </view>
+      <view class='item' data-index='2' bindtap='go'>
+        <view class='num'>{{totalIncome}}</view>
+        <view class='text'>累积赚取</view>
+      </view>
+    </view>
+  </view>
+</view>

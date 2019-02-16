@@ -8,14 +8,24 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "我的邀请二维码",
-
+    Qr_code:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()
+    app.postData('/invite/getwxacodeunlimit?accessToken=' + app.globalData.accessToken + '&pageUrlIndex=0').then(res=>{
+      console.log(res)
+      this.setData({
+        Qr_code:res.data.data
+      })
+    })
+  },
 
+  downCode:function(){
+    app.savePhoto(this.data.Qr_code)
   },
 
   /**

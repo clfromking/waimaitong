@@ -32,6 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()
     app.getData('/card/list?accessToken='+app.globalData.accessToken).then(res=>{
       console.log(res)
       for(let i=0;i<res.data.data.length;i++){
@@ -121,8 +122,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
+  },  
 
   /**
    * 用户点击右上角分享

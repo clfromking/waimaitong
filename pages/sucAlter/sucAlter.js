@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    wx.hideShareMenu()
     this.setData({
       phone:options.phone
     })

@@ -4,30 +4,34 @@
   <view class='shade' hidden='{{!isshare}}' bindtap='cancelShare'></view>
   <view class='main'>
     <image class='avatarurl' mode='widthFix' src='{{avatarUrl}}'></image>
-    <text class='member-total'>恭喜您成为第<text style='color:#b79865'>{{member_num}}</text>位外卖通会员<text style='display:block'>炫耀一下吧</text></text>
+    <text class='member-total'>恭喜您成为第<text style='color:#fff;display:block;font-size:136rpx'>{{member_num}}<text style='font-size:28rpx'>位</text></text>外卖通合作伙伴<text style='display:block;font-size:28rpx;margin-top:296rpx;margin-left:30rpx'>炫耀一下吧～～～</text></text>
   </view>
-  <view class='btns'>
-    <view class='noshare'>暂不炫耀</view>
-    <view class='share' bindtap='goShare'>炫耀一下</view>
+  <view class='btns clear'>
+    <view class='noshare left' bindtap='not'>暂不炫耀</view>
+    <view class='share right' bindtap='goShare'>炫耀一下</view>
   </view>
   <!-- <image mode='widthFix' style="width:850rpx;margin-left:-50rpx" src='http://pk1897l3c.bkt.clouddn.com/intoMemberbg.png'></image> -->
 </view>
 
-<view class='alert' bindtap='cancelShare' hidden='{{!isshare}}'>
-  <view class="container" bindtap='cancelShare'>
-    <view class='main alert-main'>
-      <image class='avatarurl' mode='widthFix' src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png'></image>
-      <text class='member-total alert-member-total'>恭喜您成为第<text style='color:#b79865'>{{member_num}}</text>位餐饮加速器成员快来帮我提升加速值吧</text>
-      <view style='width:500rpx;height:2rpx;background:#fff;margin:50rpx auto 0'></view>
-      <view class='alert-alts clear'>
-        <image src='http://pk1897l3c.bkt.clouddn.com/member/liberty_three_icon.png' class='alert-avatarurl left'></image>
-        <text  class='right alert-alts-text'>长按小程序二维码帮我提升加速值</text>
-      </view>
-      
-    </view>
-    <view class='alert-btns'>
-      <view class='share-ring' catchtap='shareRing'>分享到朋友圈</view>
-      <view class='share-friend' catchtap='shareFriend'>分享给微信好友</view>
-    </view>
+<view class='alert' hidden='{{!isshare}}'>
+  <view class="container1" bindtap='cancelShare'>
+    
   </view>
+  <view class='alert-body'>
+    <image class='alert-avatarurl' mode='widthFix' src='{{shareImg}}'></image>
+  </view>
+  <view class='btns clear alert_btns'>
+    <view class='noshare left alert_btn' catchtap='shareRing'>分享到朋友圈</view>
+    <button class='share right alert_btn' open-type='share' catchtap='shareFriend'>分享给好友</button>
+  </view>
+  <!-- <view class='alert-btns'>
+    <view class='share-ring' catchtap='shareRing'>分享到朋友圈</view>
+    <view class='share-friend' catchtap='shareFriend'>分享给微信好友</view>
+  </view> -->
+
 </view>
+
+
+<canvas canvas-id='myCanvas' class='myCanvas'></canvas>
+
+<canvas canvas-id='myCanvas1' class='myCanvas1'></canvas>

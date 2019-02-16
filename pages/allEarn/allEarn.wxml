@@ -1,0 +1,14 @@
+<!--pages/allEarn/allEarn.wxml-->
+<image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/invite/ch_money.png' class='moneyImg'></image>
+<view class='title'>累积赚取</view>
+<view class="allMoney">¥{{totalIncome}}</view>
+<button open-type='share' class='shareBtn'>炫耀一下</button>
+<view class='lists' >
+  <view class='listTitle'>邀请排行榜</view>
+  <view class='listItem clear' wx:for="{{list}}" wx:key="item">
+    <view class='left itemId'>{{index+1}}.</view>
+    <image class='left itemImg' src='{{item.userAvatarUrl||"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png"}}'></image>
+    <view class='left itemName'>{{item.userNickName}}</view>
+    <view class='right itemMoney'>¥{{item.totalShare}}</view>
+  </view>
+</view>

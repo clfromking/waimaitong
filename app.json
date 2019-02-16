@@ -53,9 +53,11 @@
     "pages/refund/refund",
     "pages/orderDetail/orderDetail",
     "pages/intoMember/intoMember",
+    "pages/closeFreeAuth/closeFreeAuth",
+    "pages/invite/invite",
+    "pages/inviteRecord/inviteRecord",
+    "pages/allEarn/allEarn",
     "pages/pay/pay"
-    
-    
   ],
   "permission": {
     "scope.userLocation": {

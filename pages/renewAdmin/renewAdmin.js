@@ -21,7 +21,7 @@ Page({
   },
 
   cancel:function(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../cancelRenewProving/cancelRenewProving',
     })
   },
@@ -30,6 +30,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    wx.hideShareMenu()
     this.setData({
       avatarUrl:app.globalData.avatarUrl,
       nickName:app.globalData.nickName,

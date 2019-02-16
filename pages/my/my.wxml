@@ -23,7 +23,7 @@
 </view>
 <view class='jw-my-body'>
   <!-- <view class='body-list-options clear' hidden='{{index==1||index>=3}}' bindtap='goOtherOption' data-id='{{index}}' wx:for="{{options}}" wx:key="item"> -->
-  <view data-id='{{index}}' hidden='{{index==1||(index>=3&&index<=5)}}' style='position:relative' wx:for="{{options}}" wx:key="item">
+  <view data-id='{{index}}' hidden='{{index==1||(index>3&&index<=5)}}' style='position:relative' wx:for="{{options}}" wx:key="item">
     <view class='body-list-options clear' bindtap='goOtherOption' data-id='{{index}}'>
       <view class='left'>
         

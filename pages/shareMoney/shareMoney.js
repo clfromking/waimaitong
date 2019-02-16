@@ -8,16 +8,20 @@ Page({
   data: {
     statusHeight: app.globalData.statusBarHeight,
     navText: "分享金",
-    money:"388.97"
+    money:""
 
   },
   goWithdrawal:function(){
+    app.showToast('此功能暂未开放')
+    return
     wx.navigateTo({
       url: '../withdrawal/withdrawal',
     })
   },
 
   goMoneyDetail:function(){
+    app.showToast('此功能暂未开放')
+    return
     wx.navigateTo({
       url: '../moneyDetail/moneyDetail',
     })
@@ -28,7 +32,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.hideShareMenu()
+    app.postData('/wechat/login/token', { "accessToken": app.globalData.accessToken }).then(res => {
+      if (res.data.code == 200) {
+        app.globalData.shareBalance = res.data.data.shareBalance
+        var currShareBalance = (Number(app.globalData.shareBalance) / 100).toFixed(2)
+        this.setData({
+          // isMember: res.data.data.isMember,
+          money: currShareBalance,
+        })
+        // wx.stopPullDownRefresh()
+      }
+    })
   },
 
   /**

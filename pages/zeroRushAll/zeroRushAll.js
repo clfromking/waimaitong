@@ -122,10 +122,10 @@ Page({
       var date = new Date()
       var selectTime = date.getFullYear() + '-' + (date.getMonth() + 1) + "-" + date.getDate()+' '+this.data.header_navs[this.data.isSelect].timeFrames+":00"
      
-      selectTime = new Date(selectTime).getTime()
+      selectTime = new Date(selectTime.replace(/-/g, '/')).getTime()
       var nowTime = new Date().getTime()
       var differ = (selectTime - nowTime)/1000/60
-      // console.log(differ)
+      console.log(selectTime)
       // console.log(this.data.header_navs)
       //算时间差  5分钟之内才能添加
       if (differ <= 5 && differ >= this.data.header_navs[this.data.isSelect].timeArea){
@@ -587,7 +587,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return app.allShare('zero')
   },
 
   loadList:function(){
@@ -820,7 +820,7 @@ Page({
           var date = new Date()
           var startTime = date.getFullYear() + '-' + (date.getMonth() + 1) + "-" + date.getDate() + ' ' + data[i].timeFrameStart
           var endTime = date.getFullYear() + '-' + (date.getMonth() + 1) + "-" + date.getDate() + ' ' + data[i].timeFrameEnd
-          var differ = (new Date(startTime).getTime() - new Date(endTime).getTime()) / 1000 / 60
+          var differ = (new Date(startTime.replace(/-/g, '/')).getTime() - new Date(endTime.replace(/-/g, '/')).getTime()) / 1000 / 60
           data[i].timeArea = differ
           // console.log(data[i].timeArea)
           data[i].timeFrames = data[i].timeFrameStart.substr(0, 5)
@@ -912,7 +912,7 @@ Page({
     var date = new Date()
     var selectTime = date.getFullYear() + '-' + (date.getMonth() + 1) + "-" + date.getDate() + ' ' + this.data.header_navs[this.data.isSelect].timeFrames + ":00"
 
-    selectTime = new Date(selectTime).getTime()
+    selectTime = new Date(selectTime.replace(/-/g, '/')).getTime()
     var nowTime = new Date().getTime()
     var differ = (selectTime - nowTime) / 1000 / 60
 

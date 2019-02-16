@@ -162,6 +162,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()
     app.getData('/dish/allcate?accessToken=' + app.globalData.accessToken).then((res) => {
       allArr = res.data.data
       for (let i = 0; i < res.data.data.length; i++) {

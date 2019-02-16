@@ -163,6 +163,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.scene)
+    wx.hideShareMenu()
+    if(options.scene){
+      var scene = decodeURIComponent(options.scene)
+      app.globalData.inviterId = scene
+    }
+    else{
+      
+    }
     console.log(app.globalData)
     app.getData('/snap/cate/list').then(res=>{
       // console.log(res)

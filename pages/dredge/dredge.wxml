@@ -30,7 +30,7 @@
         <text hidden='{{!newbie||type!==""}}'>新用户首次{{pay_money}}元</text>
         <text hidden='{{type!=="renew"}}'>续费应支付{{pay_money}}元</text>
       </view>
-      <view class='right'>
+      <view class='right' style='display:none'>
         <view style='display:inline-block'>
           <view>到期自动续费包月卡</view>
           <view>

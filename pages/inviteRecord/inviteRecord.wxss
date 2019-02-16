@@ -1,0 +1,59 @@
+/* pages/todayInvite/todayInvite.wxss */
+.item{
+  height: 216rpx;
+  width: 670rpx;
+  margin: 0 auto;
+  border-bottom: 4rpx solid #f6f6f6
+}
+.top{
+  height: 166rpx;
+
+}
+.avatarurl{
+  display: block;
+  width: 84rpx;
+  height: 84rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  /* background: #000 */
+}
+.right view{
+  position: absolute;
+  color: #2d2d2d
+}
+.nickName{
+  font-size: 36rpx;
+  top: 20rpx;
+  left: 0
+}
+.status{
+  width: 112rpx;
+  height: 44rpx;
+  border: 2rpx solid #ABCA9A;
+  border-radius: 4rpx;
+  text-align: center;
+  line-height: 44rpx;
+  top: 86rpx;
+  left: 0;
+  font-size: 24rpx;
+  color: #ABCA9A !important
+}
+.memberType{
+  font-size: 24rpx;
+  top: 40rpx;
+  right: 0
+}
+.getMoney{
+  font-size: 24rpx;
+  top: 78rpx;
+  right: 0
+}
+.bottom{
+  font-size: 24rpx;
+  color: #b0b0b0
+}

@@ -1,4 +1,10 @@
-<!--pages/authorization/authorization.wxml-->
-<navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-text="{{navText}}" nav-textcolor="#fff"></navtitle>
-
-<button  bindtap="openSetting">打开设置页</button>
+<navtitle status-height="{{statusHeight}}" nav-bgcolor="#abca9a" status-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
+<view class='jw-art-logo'><image src="https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/logo.png"></image></view>
+<text class='jw-art-name'>外卖通</text>
+<view class='jw-fenge'></view>
+<view class='jw-author-body'>
+  <text class='jw-author-title'>请同意授权</text>
+  <text class='jw-author-alt'>· 以便外卖通为你提供更好的服务</text>
+  <!-- <button open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>获取手机号</button> -->
+  <button hidden='{{issaveImg}}' bindopensetting='openSettingTap' open-type='openSetting' class='jw-author-btn'>确认授权</button>
+</view>

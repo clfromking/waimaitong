@@ -16,7 +16,17 @@ Page({
     returnMoney:"",
     inputMoney:"",
     curBalance:"0.00",
-    isHidePrompt:true
+    isHidePrompt:true,
+    isSetPws:false,
+
+    password_length: 6,
+    password_val: "",
+    before_pws:"",
+    title: "设置余额密码",
+    alt: "请设置余额支付密码，用于支付验证",
+    type: "",
+    isFocus: false,  //聚焦,
+    type:"" 
   },
 
   selectMoney:function(e){
@@ -91,6 +101,10 @@ Page({
       isshowAlert: e.detail.value
     })
     if(e.detail.value == false){
+      wx.navigateTo({
+        url: '../closeFreeAuth/closeFreeAuth',
+      })
+      /*
       app.postData('/setting/poi/balance/pwd/required',{"accessToken":app.globalData.accessToken,"flag":0}).then(res=>{
         if(res.data.code == 200){
           this.setData({
@@ -105,6 +119,7 @@ Page({
           })
         }
       })
+      */
     }
   },
   
@@ -178,8 +193,109 @@ Page({
     }
   },
 
+  next:function(){
+    if (!this.data.password_val) {
+      app.showToast('余额密码不能为空')
+      return
+    }
+    else if (this.data.password_val.length < 6) {
+      app.showToast('余额密码不得少于6位')
+      return
+    }
+    if(this.data.type == 'again'){
+      if(this.data.before_pws == this.data.password_val){
+        app.postData('/setting/poi/balance/pwd/set', { "accessToken": app.globalData.accessToken, "pwd": this.data.password_val }).then(res => {
+          console.log(res)
+          if (res.data.code == 200) {
+            app.globalData.poiBasicData.balancePwdSet = true   
+            app.openFree().then(res => {
+              if(res == 200){
+                app.globalData.poiBasicData.balancePwdFree = 1
+                app.showToast('设置成功')
+                setTimeout(() => {
+                  this.setData({
+                    title: "设置余额密码",
+                    alt: "请设置余额支付密码，用于支付验证",
+                    before_pws: "",
+                    password_val: "",
+                    type: "",
+                    isSetPws: false,
+                    isFocus: false
+                  })
+                }, 1500)
+              }
+            })
+          }
+        })
+      }
+      else{
+        app.showToast('两次密码不一致，请重新输入')
+        setTimeout(()=>{
+          this.setData({
+            title: "设置余额密码",
+            alt: "请设置余额支付密码，用于支付验证",
+            before_pws: "",
+            password_val: "",
+            type: "",     
+          })
+        },1500)
+      }
+    }
+    else{
+      this.setData({
+        title: "设置余额密码",
+        alt: "请再次填写以确认",
+        before_pws: this.data.password_val,
+        password_val: "",
+        type: "again"
+      })
+    }
+    
+  },
+
+  drmp:function(){
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定要跳过设置余额支付密码吗？',
+      success(res) {
+        if (res.confirm) {
+          that.setData({
+            title: "设置余额密码",
+            alt: "请设置余额支付密码，用于支付验证",
+            before_pws: "",
+            password_val: "",
+            type: "",
+            isSetPws: false,
+            isFocus: false
+          })
+          wx.setStorage({
+            key: 'drmp',
+            data: true,
+          })
+        } 
+        else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })
+    
+  },
+
   topUp:function(){
-    console.log(this.data.topUp)
+    const value = wx.getStorageSync('drmp')
+    if (!app.globalData.poiBasicData.balancePwdSet){
+      if(value == true || value == "true"){
+
+      }
+      else{
+        this.setData({
+          isSetPws: true,
+          isFocus: true
+        })
+        return
+      }
+    }
     if(this.data.topUp<=0){
       app.showToast('充值金额不能少于0元')
     }
@@ -215,10 +331,32 @@ Page({
     })
   },
 
+
+
+  inputPassword: function (e) {
+    console.log(e)
+    this.setData({
+      password_val: e.detail.value
+    })
+  },
+
+  gofocus: function () {
+    
+    this.setData({
+      isFocus: true
+    })
+    console.log(this.data.isFocus)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.openFree().then(res=>{
+      console.log(res)
+    })
+    console.log()
+    wx.hideShareMenu()
     this.setData({
       topUp:Number(this.data.top_up_moneys[this.data.isselectMoney]),
       returnMoney: Number(this.data.top_up_moneys[this.data.isselectMoney])/10
@@ -238,10 +376,23 @@ Page({
    */
   onShow: function () {
     // app.globalData.poiBasicData.curBalance=500
-    this.setData({
-      curBalance: ((Number(app.globalData.poiBasicData.curBalance)+Number(app.globalData.poiBasicData.curRedBalance))/100).toFixed(2)||"0.00",
-      ischecked:app.globalData.poiBasicData.balancePwdFree
-    })
+    if (app.globalData.poiBasicData){
+      var ischecked = false
+      if (app.globalData.poiBasicData.balancePwdFree == 0){
+        ischecked = false
+      }
+      else{
+        ischecked = true
+      }
+      this.setData({
+        curBalance: ((Number(app.globalData.poiBasicData.curBalance) + Number(app.globalData.poiBasicData.curRedBalance)) / 100).toFixed(2) || "0.00",
+        ischecked: ischecked
+      })
+    }
+    else {
+      
+    }
+    
   },  
 
   /**

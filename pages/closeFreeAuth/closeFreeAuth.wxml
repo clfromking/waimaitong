@@ -1,0 +1,12 @@
+<view style='text-align:center'>
+  <input type='number' maxlength='6' focus='{{isFocus}}' value='{{password_val}}' bindinput='inputPassword' class='password'></input>
+  <view class='title'>{{title}}</view>
+  <view class="alt">{{alt}}</view>
+  <view class='showPassword-view clear'>
+    <view class='left showPassword-item' bindtap='gofocus' wx:for="{{password_length}}" wx:key="item">
+      {{password_val[index]}}
+    </view>
+  </view>
+  <!-- <view  class='forgetPassword' bindtap='drmp'>跳过</view> -->
+  <button class='next' bindtap='next'>确认关闭</button>
+</view>

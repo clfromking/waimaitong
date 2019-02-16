@@ -1,0 +1,122 @@
+/* pages/invite/invite.wxss */
+.container{
+  width: 750rpx;
+  height: 100vh;
+  background: url(https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/invite/yq_bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+.title{
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  padding-top: 40rpx;
+  /* font-weight: bold */
+}
+
+.body{
+  width: 670rpx;
+  height: 1038rpx;
+  background: #fff;
+  border-radius: 8rpx 8rpx 0 0;
+  margin: 56rpx auto 0;
+  position: relative;
+  text-align: center
+}
+.remindView{
+  padding-top: 14rpx
+}
+.remindText{
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 24rpx;
+  color: #2d2d2d;
+  font-weight: bold
+}
+switch{
+  margin-right: 44rpx;
+  margin-left: 12rpx
+}
+.userView{
+  text-align: center;
+  /* margin-top: 10rpx; */
+  margin-bottom: 6rpx
+}
+.avatarurl{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: pink;
+  display: inline-block;
+}
+.nickName{
+  display: inline-block;
+  height: 120rpx;
+  line-height: 120rpx;
+  vertical-align: top;
+  font-size: 36rpx;
+  color: #2d2d2d;
+  margin-left: 14rpx
+}
+.alt{
+  text-align: center;
+  font-size: 28rpx;
+  color: #2D2D2D;
+  font-weight: bolder
+}
+.altImg{
+  display: block;
+  width: 418rpx;
+  height: 164rpx;
+  margin: 110rpx auto 0
+}
+.shareBtn{
+  margin: 36rpx auto 24rpx;
+  display: block;
+  text-align: center;
+  width: 376rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  background: #f63f5d;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 80rpx
+}
+.likeBtn{
+  /* width: 376rpx; */
+  height: 52rpx;
+  border-radius: 8rpx;
+  background: #f63f5d;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 52rpx;
+  text-align: center;
+  padding: 0 36.5rpx;
+  display: inline-block
+  /* margin: 0 auto */
+}
+.bottom{
+  height: 198rpx;
+  background: #FFFBF4;
+  margin-top: 78rpx;
+  display: flex;
+  width: 670rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0
+}
+.bottom .item{
+  height: 198rpx;
+  /* background: aqua; */
+  width: 100%
+}
+.item{
+  text-align: center;
+  color: #2d2d2d
+}
+.num{
+  font-size: 36rpx;
+  margin: 36rpx 0 34rpx
+}
+.text{
+  font-size: 32rpx
+}

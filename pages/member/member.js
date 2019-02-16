@@ -88,10 +88,45 @@ Page({
     })
   },
 
+  gologin: function () {
+    if (app.globalData.accessToken) {
+
+    }
+    else {
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.inviterId) {
+      var inviterId = decodeURIComponent(options.inviterId)
+      app.globalData.inviterId = inviterId
+    }
+    else {
+
+    }
+
+    if(options.type){
+      if(options.type == "share"){
+        wx.getStorage({
+          key: 'userInfo',
+          success: (res) => {
+
+          },
+          fail: () => {
+            this.gologin()
+          }
+        })
+      }
+    }
+    
     wx.showLoading({
       title: '加载中',
       mask:true
@@ -109,7 +144,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // console.log(app.globalData)
+    console.log(app.globalData.puid)
+    if (app.globalData.puid){
+      wx.showShareMenu()
+    }
+    else{
+      wx.hideShareMenu()
+    }
     // return
     if(app.globalData.poiBasicData){
       this.setData({
@@ -214,7 +255,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    return app.allShare('member')
   }
 })

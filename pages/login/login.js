@@ -11,16 +11,27 @@ Page({
   },
 
   getuserinfo:function(e){
-    console.log(e)
     if(e.detail.userInfo){
+      wx.showLoading({
+        title: '请稍候',
+        mask:true
+      })
       wx.login({
         success:function(res){
-          console.log(res)
           wx.getUserInfo({
             withCredentials:true,
             success:(res1)=>{
-              console.log(res1)
-              var postData = { 'code': res.code, 'encryptedData': res1.encryptedData, 'iv': res1.iv }
+              var postData = {}
+              console.log(app.globalData.inviterId)
+              if(app.globalData.inviterId){
+                // console.log('you')
+                postData = { 'code': res.code, 'encryptedData': res1.encryptedData, 'iv': res1.iv ,'inviterId':app.globalData.inviterId}
+              }
+              else {
+                // console.log('meiy')
+                postData = { 'code': res.code, 'encryptedData': res1.encryptedData, 'iv': res1.iv }
+              }
+             
               app.postData('/wechat/login',postData).then((res)=>{
                 console.log(res)
                 var timestamp = new Date().getTime();
@@ -32,9 +43,20 @@ Page({
                       
                       wx.getSystemInfo({
                         success: function (res2) {
-                          app.globalData=res.data.data
-                          app.globalData.double=750/res2.screenWidth
-                          app.globalData.statusBarHeight = Number(res2.statusBarHeight)
+                          var inviterId = ''
+                          if(app.globalData.inviterId){
+                            inviterId = app.globalData.inviterId
+                            app.globalData = res.data.data
+                            app.globalData.double = 750 / res2.screenWidth
+                            app.globalData.statusBarHeight = Number(res2.statusBarHeight)
+                            app.globalData.inviterId = inviterId
+                          }
+                          else {
+                            app.globalData = res.data.data
+                            app.globalData.double = 750 / res2.screenWidth
+                            app.globalData.statusBarHeight = Number(res2.statusBarHeight)
+                          }
+                          
                           console.log(app.globalData)
                           wx.showToast({
                             title: '登录成功',
@@ -96,6 +118,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()
     // app.getData('/go/form/get?accessToken=' + app.globalData.accessToken).then((res) => {
     //   console.log(res)
 

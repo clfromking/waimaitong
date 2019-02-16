@@ -29,13 +29,36 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "ceshi",
+					"pathName": "pages/index/index",
+					"query": "scene=111"
+				},
+				{
+					"id": -1,
+					"name": "ceshi",
+					"pathName": "pages/login/login",
+					"query": "scene=ac4c7954b27f48c0bbcbd4e8a85ca056"
+				},
+				{
+					"id": -1,
+					"name": "ceshi2",
+					"pathName": "pages/index/index",
+					"query": "scene=ac4c7954b27f48c0bbcbd4e8a85ca056"
+				}
+			]
 		}
 	}
 }

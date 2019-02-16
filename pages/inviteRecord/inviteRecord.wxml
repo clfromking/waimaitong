@@ -1,0 +1,17 @@
+<!--pages/todayInvite/todayInvite.wxml-->
+<view class='item' wx:for="{{list}}" wx:key="item">
+  <view class="top clear">
+    <view class='left' style='position:relative;width:84rpx;height:100%'>
+      <image class='avatarurl' src='{{item.avatarUrl||"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png"}}'></image>
+    </view>
+    <view class='right' style='width:536rpx;height:100%;position:relative'>
+      <view class='nickName'>{{item.nickName}}</view>
+      <view class='status'>已开通</view>
+      <view class='memberType'>{{item.name}}</view>
+      <view class='getMoney'>已获分享金：<text style='color:#f63f5d'>{{item.share}}元</text></view>
+    </view>
+  </view>
+  <view class='bottom'>
+    会员开通时间：{{item.createDate}}
+  </view>
+</view>

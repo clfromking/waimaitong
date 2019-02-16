@@ -17,6 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()
     app.postData('/member/bought/rd/list',{"accessToken":app.globalData.accessToken,"index":this.data.index,"pageSize":this.data.pageSize}).then((res)=>{
       console.log(res)
       if(res.data.code==404){

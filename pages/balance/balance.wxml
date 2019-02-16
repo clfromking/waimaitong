@@ -1,75 +1,92 @@
 <!--pages/balance/balance.wxml-->
 <navtitle status-height="{{statusHeight}}" status-bgcolor="#abca9a" nav-bgcolor="#abca9a" nav-textcolor="#fff" nav-text="{{navText}}"></navtitle>
-<view  class='container'>
-  <view class='header'>
-    <view class='header-title clear'>
-      <text class='left'>余额</text>
-      <text class='right' bindtap='gobalanceRecord'>充值记录</text>
+<view hidden='{{isSetPws}}'>
+  <view  class='container'>
+    <view class='header'>
+      <view class='header-title clear'>
+        <text class='left'>余额</text>
+        <text class='right' bindtap='gobalanceRecord'>充值记录</text>
+      </view>
+      <view class='header-money'>
+        <text>¥</text>
+        <text>{{curBalance}}</text>
+      </view>
     </view>
-    <view class='header-money'>
-      <text>¥</text>
-      <text>{{curBalance}}</text>
-    </view>
-  </view>
-  <view class='body'>
-    <view class='actual-money'>
-      <view class='actual-money-item'>
-        <view>{{topUp}}</view>
-        <view>充值</view>
-      </view>
-      <view hidden='{{!isHidePrompt}}' class='actual-money-item'>+</view>
-      <view hidden='{{!isHidePrompt}}' class='actual-money-item'>
-        <view>{{returnMoney}}</view>
-        <view>返赠</view>
-      </view>
-      <view hidden='{{!isHidePrompt}}'  class='actual-money-item'>=</view>
-      <view hidden='{{!isHidePrompt}}'  class='actual-money-item'>
-        <view>{{topUp + returnMoney}}</view>
-        <view>到账</view>
-      </view>
-      <view hidden='{{isHidePrompt}}' class='prompt'>充值金额大于100有返赠</view>
+    <view class='body'>
+      <view class='actual-money'>
+        <view class='actual-money-item'>
+          <view>{{topUp}}</view>
+          <view>充值</view>
+        </view>
+        <view hidden='{{!isHidePrompt}}' class='actual-money-item'>+</view>
+        <view hidden='{{!isHidePrompt}}' class='actual-money-item'>
+          <view>{{returnMoney}}</view>
+          <view>返赠</view>
+        </view>
+        <view hidden='{{!isHidePrompt}}'  class='actual-money-item'>=</view>
+        <view hidden='{{!isHidePrompt}}'  class='actual-money-item'>
+          <view>{{topUp + returnMoney}}</view>
+          <view>到账</view>
+        </view>
+        <view hidden='{{isHidePrompt}}' class='prompt'>充值金额大于100有返赠</view>
 
-    </view>
-    <view class='top-up-alt'><text style='margin-right:20rpx'>充100返10</text><text>多充多送</text></view>
-    <view class='top-up-btns-view' >
-      <view bindtap='selectMoney' data-id='{{index}}' class='btns-view-item {{isselectMoney==index?"isselectItem":""}}' wx:for="{{top_up_moneys}}" wx:key="item">
-        {{item}}元
       </view>
-      <view bindtap='selectMoney' class='btns-view-item {{isselectMoney==8?"isselectItem":""}}'>
-        <input placeholder='其他金额' bindblur='Blur' bindinput='inputMoney' value='{{inputMoney}}'></input>
+      <view class='top-up-alt'><text style='margin-right:20rpx'>充100返10</text><text>多充多送</text></view>
+      <view class='top-up-btns-view' >
+        <view bindtap='selectMoney' data-id='{{index}}' class='btns-view-item {{isselectMoney==index?"isselectItem":""}}' wx:for="{{top_up_moneys}}" wx:key="item">
+          {{item}}元
+        </view>
+        <view bindtap='selectMoney' class='btns-view-item {{isselectMoney==8?"isselectItem":""}}'>
+          <input placeholder='其他金额' bindblur='Blur' bindinput='inputMoney' value='{{inputMoney}}'></input>
+        </view>
+      </view>
+      <view class='agreement'>点击立即充值，即表示您已阅读并同意<text style="color:#abca9a" bindtap='goAgreement'>《充值协议》</text></view>
+      <button class='top-up-btn' bindtap='topUp'>立即充值</button>
+    </view>
+    <view class='footer'>
+      <view class='fenge'></view>
+      <view class='footer-item clear' bindtap='changePassword'>
+        <view class='left'>
+          <text>修改密码</text>
+        </view>
+        <view class='right'>
+          <image class='goChangePhone-icon' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
+        </view>
+      </view>
+      <view class='fenge'></view>
+      <view class='footer-item clear'>
+        <view class='left'>
+          <text>余额免密</text>
+        </view>
+        <view class='right'>
+          <switch checked='{{ischecked}}' bindchange="changeSwitch"/>
+        </view>
       </view>
     </view>
-    <view class='agreement'>点击立即充值，即表示您已阅读并同意<text style="color:#abca9a" bindtap='goAgreement'>《充值协议》</text></view>
-    <button class='top-up-btn' bindtap='topUp'>立即充值</button>
   </view>
-  <view class='footer'>
-    <view class='fenge'></view>
-    <view class='footer-item clear' bindtap='changePassword'>
-      <view class='left'>
-        <text>修改密码</text>
-      </view>
-      <view class='right'>
-        <image class='goChangePhone-icon' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
-      </view>
-    </view>
-    <view class='fenge'></view>
-    <view class='footer-item clear'>
-      <view class='left'>
-        <text>余额免密</text>
-      </view>
-      <view class='right'>
-        <switch checked='{{ischecked}}' bindchange="changeSwitch"/>
-      </view>
-    </view>
+
+  <view hidden='{{!isshowAlert}}' class='alert' bindtap='closeAlert'>
+    
   </view>
+  <view hidden='{{!isshowAlert}}' class='alert-content'>
+    <view class='alert-title'>提示</view>
+    <view class='alert-text'>开通余额免密，使用余额支付消费可免输入密码</view>
+    <view class='alert-fenge'></view>
+    <button class='alert-btn' bindtap='know'>我已知晓</button>
+  </view>
+
 </view>
 
-<view hidden='{{!isshowAlert}}' class='alert' bindtap='closeAlert'>
-  
-</view>
-<view hidden='{{!isshowAlert}}' class='alert-content'>
-  <view class='alert-title'>提示</view>
-  <view class='alert-text'>开通余额免密，使用余额支付消费可免输入密码</view>
-  <view class='alert-fenge'></view>
-  <button class='alert-btn' bindtap='know'>我已知晓</button>
+
+<view hidden='{{!isSetPws}}' style='text-align:center'>
+  <input type='number' maxlength='6' focus='{{isFocus}}' value='{{password_val}}' bindinput='inputPassword' class='password'></input>
+  <view class='title'>{{title}}</view>
+  <view class="alt">{{alt}}</view>
+  <view class='showPassword-view clear'>
+    <view class='left showPassword-item' bindtap='gofocus' wx:for="{{password_length}}" wx:key="item">
+      {{password_val[index]}}
+    </view>
+  </view>
+  <view  class='forgetPassword' bindtap='drmp'>跳过</view>
+  <button class='next' bindtap='next'>{{type=="again"?"完成":"下一步"}}</button>
 </view>

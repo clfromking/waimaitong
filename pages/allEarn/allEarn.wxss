@@ -1,0 +1,57 @@
+/* pages/allEarn/allEarn.wxss */
+.moneyImg{
+  width: 162rpx;
+  height: 190.3rpx;
+  margin: 80rpx auto 45.7rpx;
+  display: block
+}
+.title{
+  text-align: center;
+  font-size: 32rpx;
+  color: #2d2d2d;
+  margin-bottom: 5rpx;
+}
+.allMoney{
+  font-size: 48rpx;
+  color: #f63f5d;
+  text-align: center;
+  margin-bottom: 25rpx;
+}
+.shareBtn{
+  width: 212rpx;
+  height: 56rpx;
+  margin: 0 auto;
+  background: #F63F5D;
+  border-radius: 4rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  text-align: center;
+  margin-bottom: 42rpx;
+}
+.lists{
+  width: 670rpx;
+  margin: 0 auto
+}
+.listTitle{
+  font-size: 28rpx;
+  color: #2d2d2d;
+  font-weight: bold;
+  margin-bottom: 36rpx
+}
+.listItem{
+  height: 72rpx;
+  margin-bottom: 32rpx;
+}
+.listItem view{
+  height: 100%;
+  font-size: 28rpx;
+  color: #2d2d2d;
+  line-height: 72rpx
+}
+.itemImg{
+  width: 72rpx;
+  height: 72rpx;
+  margin: 0 46rpx 0 32rpx;
+  border-radius: 50%
+}

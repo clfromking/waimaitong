@@ -60,6 +60,7 @@ Page({
    */
   onLoad: function (options) {
     // console.log(app.globalData.mobile)
+    wx.hideShareMenu()
     var mobile = app.globalData.mobile.substr(0, 3) + "****" + app.globalData.mobile.substr(7)
     // console.log(mobile)
     this.setData({

@@ -67,12 +67,79 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.type)
+    wx.hideShareMenu()
     this.setData({
       type:options.type
     })
     this.setData(app.globalData)
     app.postData('/member/my/get', { "accessToken": app.globalData.accessToken }).then(res1 => {
-      console.log(app.globalData)
+      if(res1.data.code == 200){
+        this.setData(res1.data.data)
+        app.getData('/card/list?accessToken=' + app.globalData.accessToken).then(res => {
+          let data = res.data.data
+          if (options.type == "renew") {
+            var expiredAt = new Date(res1.data.data.poiMemberData.expiredAt.replace(/-/g, '/')).getTime()
+            var buyTime = new Date(res1.data.data.poiMemberData.buyTime.replace(/-/g, '/')).getTime();
+
+            // res1.data.data.poiMemberData.duration = 1
+            for (let i = 0; i < res.data.data.length; i++) {
+              if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration) {
+                this.setData({
+                  isin: i,
+                  isselect: i
+                })
+                console.log(i)
+                break
+              }
+            }
+
+
+            this.setData({
+              expire_time: ((expiredAt - buyTime) / 1000 / 60 / 60 / 24).toFixed(0)
+            })
+
+            console.log(this.data.expire_time)
+            console.log(((expiredAt - buyTime) / 1000 / 60 / 60 / 24).toFixed(0))
+          }
+          else if (options.type == "upgrade") {
+            // res1.data.data.poiMemberData.duration = 3
+            // res1.data.data.poiMemberData.durationUnit="YEAR"
+            for (let i = 0; i < res.data.data.length; i++) {
+              if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration) {
+                console.log(i)
+                this.setData({
+                  isin: i,
+                  // isselect: i
+                })
+
+                break
+              }
+            }
+            this.setData({
+              isselect: options.id
+            })
+          }
+          var pay_money = this.data.pay_money
+          var poiBasicData = app.globalData.poiBasicData
+          // console.log(poiBasicData)
+          if (res1.data.data.newbie) {
+            pay_money = (data[0].price - data[0].discount) / 100
+          }
+          else {
+            pay_money = data[0].price / 100
+          }
+
+          if (options.type == "upgrade" || options.type == "renew") {
+            pay_money = data[this.data.isselect].price / 100
+          }
+
+          this.setData({
+            plans: data,
+            pay_money,
+            poiBasicData
+          })
+        })
+      }
       // res1.data.data.newbie = false
       // res1.data.data.isMember = true
       // res1.data.data.poiMemberData = {
@@ -85,67 +152,7 @@ Page({
       //   "autoFee": 38800,
       //   "memberId":1
       // }
-      this.setData(res1.data.data)
-      app.getData('/card/list?accessToken=' + app.globalData.accessToken).then(res => {
-        let data = res.data.data
-        if (options.type == "renew") {
-          var expiredAt = new Date(res1.data.data.poiMemberData.expiredAt).valueOf()
-          var buyTime = new Date(res1.data.data.poiMemberData.buyTime).valueOf();
-          // res1.data.data.poiMemberData.duration = 1
-          for (let i = 0; i < res.data.data.length; i++) {
-            if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration) {
-              this.setData({
-                isin: i,
-                isselect:i
-              })
-              console.log(i)
-              break
-            }
-          }
-
-
-          this.setData({
-            expire_time: ((expiredAt - buyTime) / 1000 / 60 / 60 / 24).toFixed(0)
-          })
-        }
-        else if (options.type == "upgrade"){
-          // res1.data.data.poiMemberData.duration = 3
-          // res1.data.data.poiMemberData.durationUnit="YEAR"
-          for (let i = 0; i < res.data.data.length; i++) {
-            if (res1.data.data.poiMemberData.durationUnit == res.data.data[i].durationUnit && res1.data.data.poiMemberData.duration == res.data.data[i].duration) {
-              console.log(i)
-              this.setData({
-                isin: i,
-                // isselect: i
-              })
-
-              break
-            }
-          }
-          this.setData({
-            isselect:options.id
-          })
-        }
-        var pay_money = this.data.pay_money
-        var poiBasicData=app.globalData.poiBasicData
-        
-        if (res1.data.data.newbie) {
-          pay_money = (data[0].price - data[0].discount) / 100
-        }
-        else {
-          pay_money = data[0].price / 100
-        }
-
-        if (options.type == "upgrade" || options.type == "renew"){
-          pay_money = data[this.data.isselect].price / 100
-        }
-        
-        this.setData({
-          plans: data,
-          pay_money,
-          poiBasicData
-        })
-      })
+      
     })
   },
 

@@ -323,6 +323,7 @@ Page({
   onLoad: function (options) {
     console.log(options)
     console.log(options.newbie)
+    wx.hideShareMenu()
     if(options.newbie=="true"){
       // console.log(true)
       this.setData({

@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

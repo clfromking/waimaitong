@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "会员创建成功",
+  "navigationBarBackgroundColor":"#163D93",
   "usingComponents": {
     "navtitle": "../components/navigationTitle"
   }

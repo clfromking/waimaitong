@@ -98,7 +98,7 @@
       <image mode='widthFix' class='bodyImg'></image>
       <view class='bodyTitle'>
         <text class='invitation'>邀请商户赚加速金</text>
-        <view class='invitation-btn'>去邀请</view>
+        <button open-type='share' class='invitation-btn'>去邀请</button>
       </view>
       <view class='lists'>
         <view bindtap='goOther' data-id='0' class='list-item clear'>
@@ -119,7 +119,7 @@
             <image class='list-item-go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
           </view>
         </view>
-        <view bindtap='goOther' data-id='2' class='list-item clear'>
+        <view bindtap='goOther' data-id='2' hidden='{{true}}' class='list-item clear'>
           <view class='left clear'>
             <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/list_icon3.png' class='list-item-icon left'></image>
             <text class='list-item-title left'>自动续费管理</text>

@@ -46,6 +46,22 @@ Page({
     this.countPrice()
   },
 
+  delectAll:function(){
+    let decorate_options = this.data.decorate_options
+    let append_list = this.data.append_list
+    for (let i = 0; i < decorate_options.length; i++){
+      decorate_options[i].isappend = false
+      decorate_options[i].append_num = 0
+    }
+    append_list = []
+    this.setData({
+      append_list,
+      decorate_options,
+      isShowShade: false
+    })
+    this.countPrice()
+  },
+
   //添加项
   appendItem:function(e){
     let append_list=this.data.append_list
@@ -304,8 +320,8 @@ Page({
         data[i].append_num=0
         data[i].ismore=false
       }
-      data[2].ismore=true
-      data[4].ismore=true
+      // data[1].ismore=true
+      // data[4].ismore=true
       this.setData({
         decorate_options:data
       })
@@ -360,7 +376,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return app.allShare('storeDecorate')
   },
 
   //计算价钱
