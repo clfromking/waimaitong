@@ -7,7 +7,8 @@ Page({
    */
   data: {
     index: 0,
-    pageSize: 6
+    pageSize: 6,
+    nothing:false
   },
 
   /**
@@ -36,6 +37,10 @@ Page({
       console.log(res)
       if(res.data.code == 200){
         if(res.data.data.total <= 0){
+          this.setData({
+            nothing:true
+          })
+          return
           if(options.type == 'today'){
             app.showToast('暂无今日邀请记录')
             setTimeout(()=>{

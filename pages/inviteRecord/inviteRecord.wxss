@@ -57,3 +57,16 @@
   font-size: 24rpx;
   color: #b0b0b0
 }
+
+
+.nothing{
+  width: 491rpx;
+  height: 514rpx;
+  display: block;
+  margin: 168rpx auto 110rpx
+}
+.nothing-title{
+  color: #f63f5d;
+  font-size: 40rpx;
+  text-align: center;
+}

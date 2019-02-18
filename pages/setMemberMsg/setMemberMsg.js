@@ -23,6 +23,25 @@ Page({
 
   },
 
+  deleteInput:function(e){
+    console.log(e)
+    var input = ''
+    switch(Number(e.currentTarget.dataset.id)){
+      case 0:
+        input = 'memberName'
+        break;
+      case 1:
+        input = 'poiAddress'
+        break;
+      case 2:
+        input = 'poiBrandName'
+        break;
+    }
+    this.setData({
+      [input]:""
+    })
+  },
+
   changePhone:function(){
     if(this.data.isdisabled){
       return

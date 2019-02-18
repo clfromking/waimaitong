@@ -1,7 +1,9 @@
 /* pages/storeDecorate/storeDecorate.wxss */
 .notice{
   height: 64rpx;
-
+  width: 670rpx;
+  margin: 0 auto;
+  border-bottom:4rpx solid #f6f6f6
 }
 .notice image,.notice text{
   display: block;
@@ -10,7 +12,7 @@
   width: 48rpx;
   height: 48rpx;
   margin-top: 8rpx;
-  margin-left: 42rpx
+  margin-left: 28rpx
 }
 .notice text{
   height: 64rpx;
@@ -191,7 +193,8 @@
 }
 .append-money{
   font-size: 24rpx;
-  color: #f53958
+  color: #f53958;
+  vertical-align: top
 }
 .btns-view{
   height: 192rpx
@@ -275,4 +278,8 @@
 .showShade{
   height: 80vh;
   overflow: hidden
+}
+
+.isgray{
+  color: rgb(112, 123, 245)
 }

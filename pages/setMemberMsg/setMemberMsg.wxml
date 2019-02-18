@@ -4,12 +4,13 @@
   <view class='item'>
     <text>手机号码：</text>
     <input bindtap='changePhone' disabled='{{true}}' value='{{memberMobile}}'></input>
-    <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/set/go.png' ></image>
+    <image bindtap='changePhone' hidden='{{isdisabled}}' class='right go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/set/go.png' ></image>
   </view>
   <view class='item'>
     <text>真实姓名：</text>
-    <input disabled='{{isdisabled}}' data-id='0' bindinput='bindInput' value='{{memberName}}'></input>
-    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
+    <input disabled='{{isdisabled}}' placeholder='请输入真实姓名' data-id='0' bindinput='bindInput' value='{{memberName}}'></input>
+    <image bindtap='deleteInput'  data-id='0' hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
+
   </view>
 
   <!-- <view class="section item" bindtap='location'>
@@ -31,19 +32,33 @@
         
       </view>
     </picker>
+
+    <picker disabled='{{isdisabled}}'
+      mode="region"
+      bindchange="bindRegionChange"
+      value="{{region}}"
+      custom-item="{{customItem}}"
+      class='coverPicker'
+    >
+      <view class="picker">
+      {{region[0]}} {{region[1]}} {{region[2]}}
+        
+      </view>
+    </picker>
+
   </view>
 
 
 
   <view class='item'>
     <text>店铺位置：</text>
-    <input disabled='{{isdisabled}}' data-id='1' bindinput='bindInput' value='{{poiAddress}}'></input>
-    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
+    <input disabled='{{isdisabled}}' placeholder='请输入店铺位置' data-id='1' bindinput='bindInput' value='{{poiAddress}}'></input>
+    <image bindtap='deleteInput' data-id='1' hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
   </view>
   <view class='item'>
     <text>品牌名称：</text>
-    <input disabled='{{isdisabled}}' data-id='2' bindinput='bindInput' value='{{poiBrandName}}'></input>
-    <image hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
+    <input disabled='{{isdisabled}}' placeholder='请输入品牌名称' data-id='2' bindinput='bindInput' value='{{poiBrandName}}'></input>
+    <image bindtap='deleteInput' data-id='2' hidden='{{isdisabled}}' class='right close' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/close.png'></image>
   </view>
 
   <view class="section item">
@@ -54,6 +69,14 @@
       </view>
     </picker>
     <image hidden='{{isdisabled}}' class='right go' mode='widthFix' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/set/go.png' ></image>
+
+    <picker disabled='{{isdisabled}}' class='coverPicker' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+      </view>
+    </picker>
+
+
   </view>
   <button class='changeBtn' bindtap='changeAll'>{{isdisabled?"编辑":"保存"}}</button>
 </view>

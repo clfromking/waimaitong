@@ -4,7 +4,7 @@
   <text bindtap='changeNav' data-index='0' class='nav {{isSelect==0?"isSelectNav":""}}'>充值记录</text>
   <text bindtap='changeNav' data-index='1' class='nav {{isSelect==1?"isSelectNav":""}}'>消费记录</text>
 </view>
-<view class='container'>
+<view hidden='{{nothing}}' class='container'>
   <view class='item' wx:for="{{list}}" wx:key="item">
     <view class='topView clear'>
       <image hidden='{{isSelect==1}}' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/biddingRecord/top.png' class='top-up left'></image>
@@ -20,4 +20,10 @@
       <view class='right top-id'>{{isSelect==0?"充值单号":"消费单号"}}：{{isSelect==0?item.orderId:item.orderId}}</view>
     </view>
   </view>
+</view>
+
+
+<view hidden='{{!nothing}}'>
+  <image class='nothing' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/order/nothing.png' mode='widthFix'></image>
+  <view class='nothing-title'>暂无记录</view>
 </view>

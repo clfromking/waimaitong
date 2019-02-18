@@ -29,7 +29,8 @@
   </view>
 
   <view class='clear item selectView'>
-    <view  class='right'>
+    <text class='selectView-title'>已上线外卖平台</text>
+    <view  class=''>
       <view wx:for="{{radios}}" class='item-radio' wx:key="item" >
         <text bindtap='selectRadio' data-id='{{index}}' class='radios'>
           <text class='{{item.isselect?"selectRadio":""}}'></text>
@@ -37,7 +38,7 @@
         <text>{{item.name}}</text>
       </view>
     </view>
-    <text class='right selectView-title'>已上线外卖平台</text>
+    
   </view>
 
   <view class='item'>

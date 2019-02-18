@@ -96,10 +96,10 @@
   <view class='container'>
     <view class='body'>
       <image mode='widthFix' class='bodyImg'></image>
-      <view class='bodyTitle'>
-        <text class='invitation'>邀请商户赚加速金</text>
-        <button open-type='share' class='invitation-btn'>去邀请</button>
-      </view>
+      <button open-type='share' class='bodyTitle'>
+        <!-- <text class='invitation'>邀请商户赚加速金</text>
+        <button  class='invitation-btn'>去邀请</button> -->
+      </button>
       <view class='lists'>
         <view bindtap='goOther' data-id='0' class='list-item clear'>
           <view class='left clear'>

@@ -167,3 +167,9 @@ button[disabled]:not([type]){
   opacity: 0.5;
   color: #fff !important
 }
+
+button[disabled]{
+  background: #3A4BF9 !important;
+  opacity: 0.5;
+  color: #fff !important
+}

@@ -75,7 +75,8 @@ page{
   width: 4rpx;
   background: #fff;
   height: 98rpx;
-  display: inline-block
+  display: inline-block;
+  opacity: 0.5
 }
 .body-list-options{
   height: 108rpx;

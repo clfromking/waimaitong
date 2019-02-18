@@ -50,17 +50,17 @@ page{
   border-bottom-right-radius: 50% */
 }
 .jw-banner{
-  width: 718rpx;
+  width: 670rpx;
   height: 264rpx;
   display: block;
   position: absolute;
   /* border-radius: 20rpx; */
   /* background: red; */
   top: 14rpx;
-  left: 16rpx
+  left: 40rpx
 }
 .jw-small-nav-view{
-  margin-top: 56rpx;
+  margin-top: 38.4rpx;
   display: flex
 }
 .jw-small-nav-view view{
@@ -68,8 +68,8 @@ page{
 }
 
 .jw-small-nav-img{
-  width:164rpx;
-  height: 164rpx;
+  width:120rpx;
+  height: 120rpx;
   display: block;
   border-radius: 50%;
   /* border: 1rpx solid red; */
@@ -77,8 +77,8 @@ page{
 
 }
 .jw-rob-service{
-  width: 708rpx;
-  margin: 60rpx auto 0;
+  width: 670rpx;
+  margin: 57rpx auto 0;
   overflow:hidden;
   white-space: nowrap
 }
@@ -90,27 +90,29 @@ page{
 }
 .jw-scroll-x{
   width: 703rpx;
-  height: 326rpx;
-  border-radius: 20rpx;
-  /* background-color: #ffffff; */
+  /* height: 326rpx; */
+  height: 312rpx;
+  /* border-radius: 20rpx;
   box-shadow: 0px 6rpx 28rpx 0px 
 		rgba(112, 112, 112, 0.23);
-  margin-bottom: 6rpx;
+  margin-bottom: 6rpx; */
 	
   margin-left: 3rpx
 }
 .jw-scroll-view-item{
-  margin-right: 78rpx;
+  margin-right: 20rpx;
   display: inline-block;
-  height: 100%;
+  /* height: 100%; */
+  width: 212rpx;
+  height: 312rpx;
   text-align: center
   /* width: 100px */
 }
 .jw-scroll-view-item:first-child{
-  margin-left: 28rpx
+  /* margin-left: 28rpx */
 }
 .jw-scroll-view-item:last-child{
-  margin-right: 28rpx
+  margin-right: 55rpx
 }
 .jw-item-img-view{
   width: 160rpx;
@@ -125,30 +127,26 @@ page{
   display: block
 }
 .jw-item-alt{
-  font-size: 22rpx;
+  font-size: 20rpx;
   display: block;
-  color: #010101;
+  color: #fff;
   text-align: center;
   /* width: 132rpx; */
-  white-space: pre-wrap;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
   overflow: hidden;
-  margin: 0 auto 5rpx;
-  height: 60rpx;
-  width: 120rpx
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .jw-item-btn{
-  padding:0 30rpx;
-  height: 48rpx;
-  background-color: #3A4BF9;
-	border-radius: 22rpx;
-  font-size: 28rpx;
-  color: #fefefe;
+  /* padding:0 30rpx; */
+  /* height: 48rpx; */
+  /* background-color: #3A4BF9; */
+	/* border-radius: 22rpx; */
+  font-size: 32rpx;
+  color: #fff;
   text-align: center;
-  line-height: 48rpx;
+  /* line-height: 48rpx; */
   display: inline-block;
+  margin-top: 230rpx;
   /* position: absolute;
   bottom: 0;
   top: 0;
@@ -246,4 +244,11 @@ page{
 }
 .jw-recommend-item:last-child{
   margin-bottom: 34rpx
+}
+
+
+.crow{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 22rpx
 }

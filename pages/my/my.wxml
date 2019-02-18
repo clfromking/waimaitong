@@ -5,7 +5,7 @@
   <view class='jw-user-msgs'>
     <image class='jw-user-avatarurl' src='{{islogin?avatarUrl||"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png":"https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/avatarUrl.png"}}'></image>
     <text class='login-alt' bindtap='gologin'>{{islogin?nickName:"请先登录"}}</text>
-    <text style='margin-top:14rpx' class='login-alt'>{{poiName?poiName:"您还没有店铺"}}</text>
+    <text style='margin-top:14rpx;font-size:30rpx' class='login-alt'>{{poiName?poiName:"您还没有店铺"}}</text>
     <!-- <open-data class='login-alt' hidden="{{!islogin}}" type="userNickName"></open-data> -->
     <view class='dredge-member' bindtap='goMember'>{{isMember?"会员续费":"开通会员"}}>></view>
   </view>

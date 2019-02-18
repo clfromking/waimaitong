@@ -8,9 +8,10 @@
     <view class='jw-title-hint-top-text white'>
       <text bindtap='gologin'>{{nickName==''?"请先登录":nickName}}</text>
     </view>
-    <view class='jw-title-hint-bottom-text white'>
-      <text>{{isMember==false?"您还不是会员":""}}{{isMember==true?"您已开通会员":""}}</text>
-      <text bindtap='goMember' style="margin-left:38rpx;font-size:24rpx" class='otherBlue'>{{isMember==false?"开通会员":""}}{{isMember==true?"会员续费":""}}{{isMember==false||isMember==true?">>":""}}</text>
+    <view class='jw-title-hint-bottom-text clear white'>
+      <text class='left'>{{isMember==false?"您还不是会员":""}}{{isMember==true?"您已开通会员":""}}</text>
+      <image mode='widthFix' bindtap='goMember' class='crow left' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/index/icon_crow.png'></image>
+      <text class='left' bindtap='goMember' style="font-size:24rpx" class='otherBlue'>{{isMember==false?"开通会员":""}}{{isMember==true?"会员续费":""}}{{isMember==false||isMember==true?">>":""}}</text>
     </view>
   </view>
 </view>
@@ -35,12 +36,12 @@
     0元抢服务
   </view>
   <scroll-view class='jw-scroll-x clear' scroll-x="{{true}}">
-    <view data-id='{{item.id}}' bindtap='goZero' wx:for="{{scrollX_msgs}}" wx:key="item" class='jw-scroll-view-item'>
-      <view class='jw-item-img-view'>
+    <view data-id='{{item.id}}' bindtap='goZero' style='background:url({{item.coverImg}}) no-repeat;background-size:100% 100%' wx:for="{{scrollX_msgs}}" wx:key="item" class='jw-scroll-view-item'>
+      <!-- <view class='jw-item-img-view'>
         <image class='jw-item-img' mode='aspectFit' src='{{item.coverImg}}'></image>
-      </view>
-      <view class='jw-item-alt'>{{item.drcp}}</view>
+      </view> -->
       <view class='jw-item-btn'>{{item.name}}</view>
+      <view class='jw-item-alt'>{{item.drcp}}</view>
     </view>
   </scroll-view>
 </view>

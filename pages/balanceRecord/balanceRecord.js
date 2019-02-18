@@ -11,6 +11,7 @@ Page({
     isSelect: 0,
     index: 0,
     pageSize: 20,
+    nothing: false
   },
 
   changeNav: function (e) {
@@ -58,12 +59,16 @@ Page({
       if (res.data.code == 404) {
         this.setData({
           total: 0,
-          list: []
+          list: [],
+          nothing: true
         })
-        app.showToast(res.data.msg)
+        // app.showToast(res.data.msg)
       }
       else if (res.data.code == 200) {
         this.setData(res.data.data)
+        this.setData({
+          nothing: false
+        })
       }
     })
   },
@@ -75,50 +80,21 @@ Page({
   onLoad: function (options) {
     wx.hideShareMenu()
     var postData = { "accessToken": app.globalData.accessToken, "index": this.data.index, "pageSize": this.data.pageSize }
-    // var data = {
-    //   "total": 3,
-    //   "list": [
-    //     {
-    //       "id": 3,
-    //       "poiId": "c7ea3c983fd849fea7bcdb4e8db74343",
-    //       "userId": "c226527e25c5425ea95d9340486cf2d9",
-    //       "amount": 25000,
-    //       "rechargeNo": "",
-    //       "createTime": "2019-01-08 19:42:39",
-    //       "balance": 95000
-    //     },
-    //     {
-    //       "id": 2,
-    //       "poiId": "c7ea3c983fd849fea7bcdb4e8db74343",
-    //       "userId": "c226527e25c5425ea95d9340486cf2d9",
-    //       "amount": 10000,
-    //       "rechargeNo": "",
-    //       "createTime": "2019-01-08 19:42:02",
-    //       "balance": 40000
-    //     },
-    //     {
-    //       "id": 1,
-    //       "poiId": "c7ea3c983fd849fea7bcdb4e8db74343",
-    //       "userId": "c226527e25c5425ea95d9340486cf2d9",
-    //       "amount": 30000,
-    //       "rechargeNo": "",
-    //       "createTime": "2019-01-08 19:41:45",
-    //       "balance": 30000
-    //     }
-    //   ]
-    // }
-    // this.setData(data)
     app.postData('/balance/recharge/in/list', postData).then((res) => {
       console.log(res)
       if (res.data.code == 404) {
         this.setData({
           total: 0,
-          list: []
+          list: [],
+          nothing: true
         })
-        app.showToast(res.data.msg)
+        // app.showToast(res.data.msg)
       }
       else if (res.data.code == 200) {
         this.setData(res.data.data)
+        this.setData({
+          nothing: false
+        })
       }
     })
   },

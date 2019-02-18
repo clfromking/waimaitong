@@ -1,6 +1,6 @@
 /* pages/dredge/dredge.wxss */
 page{
-  background: #eee;
+  background: #fff;
   
 }
 .container{
@@ -66,7 +66,7 @@ page{
 }
 .fenge{
   height: 20rpx;
-	background-color: #eeeeee;
+	background-color: #fff;
 }
 .body{
   /* height: 654rpx; */
@@ -85,7 +85,7 @@ page{
 }
 .forms-item{
   height: 86rpx;
-  border-bottom: 2rpx solid #aaa
+  border-bottom: 2rpx solid rgb(223, 223, 223)
 }
 .forms-item:last-child{
   border: none;
@@ -120,7 +120,7 @@ page{
   line-height: 56rpx;
   color: #fffefe;
   font-size: 30rpx;
-  margin: 60rpx auto 50rpx
+  margin: 228rpx auto 50rpx
 }
 .pay-hint{
   font-size: 20rpx;

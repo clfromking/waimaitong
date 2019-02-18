@@ -8,7 +8,7 @@
       <image src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/identity/identity_icon.png' class='identity-icon' mode='widthFix'></image>
       <image hidden='{{isin!==index}}' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/identity/identity_top.png' class='identity-top' mode='widthFix'></image>
       <view class='identity-text'>{{item.name}}</view>
-      <button data-id='{{index}}' bindtap='upgradeCard' disabled='{{index<isin}}' class='identity-btn {{index==0?"ibtnOne":""}} {{index==1?"ibtnTwo":""}} {{index==2?"ibtnThree":""}}'>{{isin!==index?"升级会员卡":"自动续费管理"}}</button>
+      <button data-id='{{index}}' bindtap='upgradeCard' disabled='{{index<isin}}' class='identity-btn {{index==0?"ibtnOne":""}} {{index==1?"ibtnTwo":""}} {{index==2?"ibtnThree":""}}'>{{isin!==index?"升级会员卡":"此卡续费"}}</button>
     </view>
   </view>
 </view>

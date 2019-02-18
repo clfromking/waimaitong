@@ -9,14 +9,14 @@ Page({
     statusHeight: app.globalData.statusBarHeight,
     navText: "我的",
     options: [
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/bidding.png", "text":"外卖平台竞价排名充值","other":"¥0.00元"},
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/admin.png", "text": "店铺管理", "other": "" },
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/author.png", "text": "店铺认证", "other": "未认证" },
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/invite.png", "text": "邀请商户领现金", "other": "已邀请0位" },
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/coupons.png", "text": "优惠卷", "other": "0张" },
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/collect.png", "text": "我的收藏", "other": "" },
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/feedback.png", "text": "意见反馈", "other": "" },
-      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/set.png", "text": "设置", "other": "" }
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/bidding1.png", "text":"外卖平台竞价排名充值","other":"¥0.00元"},
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/admin1.png", "text": "店铺管理", "other": "" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/author1.png", "text": "店铺认证", "other": "未认证" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/invite1.png", "text": "邀请商户领现金", "other": "已邀请0位" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/coupons1.png", "text": "优惠卷", "other": "0张" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/collect1.png", "text": "我的收藏", "other": "" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/feedback1.png", "text": "意见反馈", "other": "" },
+      { "icon": "https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/my/set1.png", "text": "设置", "other": "" }
     ],
     islogin:false,
     isAuthDone:0,
@@ -41,9 +41,17 @@ Page({
   },
 
   goMember:function(){
-    wx.switchTab({
-      url: '../member/member',
-    })
+    if(this.data.isMember == true || this.data.isMember == 'true'){
+      wx.navigateTo({
+        url: '../dredge/dredge?type=renew',
+      })
+    }
+    else{
+      wx.switchTab({
+        url: '../member/member',
+      })
+    }
+    
   },
 
   goShareMoney:function(){

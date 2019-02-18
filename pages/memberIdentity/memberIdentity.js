@@ -13,9 +13,16 @@ Page({
   },
 
   upgradeCard:function(e){
-    console.log(e.currentTarget.dataset.id)
-    console.log(this.data.isin)
+    // console.log(e.currentTarget.dataset.id)
+    // console.log(this.data.isin)
+    
+    // return
     if (e.currentTarget.dataset.id == this.data.isin){
+      wx.navigateTo({
+        url: '../dredge/dredge?type=renew',
+      })
+      // app.showToast('暂未开放')
+      return
       wx.navigateTo({
         url: '../renewAdmin/renewAdmin',
       })

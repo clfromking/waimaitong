@@ -15,7 +15,7 @@ page{
 .title{
   color: #333;
   font-size: 26rpx;
-  border-bottom: 2rpx solid #7d7d7d
+  border-bottom: 2rpx solid #fff
 }
 .title text{
   display: inline-block;
@@ -25,7 +25,7 @@ page{
 .content{
   height: 115rpx;
   padding: 20rpx 0;
-  border-bottom: 2rpx solid #7d7d7d
+  border-bottom: 2rpx solid #fff
 }
 .content-img{
   width: 100rpx;

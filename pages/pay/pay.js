@@ -44,7 +44,7 @@ Page({
           title: '',
           mask:true
         })
-        var postData = { "accessToken": app.globalData.accessToken, "orderId": this.data.orderId, "payWay": this.data.actionSheetItems[this.data.isSelectItem].payWay }
+        var postData = { "accessToken": app.globalData.accessToken, "orderId": this.data.orderId, "payWay": 4 }
         var url = ""
         if (this.data.type == "member") {
           url = "/member/buy/confirm"
@@ -117,10 +117,89 @@ Page({
   },
 
   pay:function(){
+    // console.log(this.data.pay)
     wx.showLoading({
       title: '',
       mask:true
     })
+
+    if (Number(this.data.pay) == 0) {
+
+      if (!app.globalData.poiBasicData.balancePwdSet) {
+        wx.navigateTo({
+          url: '../changePassword/changePassword?type=next&all=false&other=',
+        })
+      }
+      else if (app.globalData.poiBasicData.balancePwdSet && app.globalData.poiBasicData.balancePwdFree == 0) {
+        wx.hideLoading()
+        // console.log('余额') 
+        this.setData({
+          isShowYu: true
+        })
+        if (this.data.isShowYu) {
+          this.setData({
+            isShowPwd: true,
+            // isFocus:true
+          })
+          setTimeout(() => {
+            this.setData({
+              isFocus: true
+            })
+          }, 400)
+        }
+        return
+      }
+
+      var postData = {}
+      postData = { "accessToken": app.globalData.accessToken, "orderId": this.data.orderId, "payWay": 4 }
+      var url = ""
+      if (this.data.type == "member") {
+        url = "/member/buy/confirm"
+      }
+      else if (this.data.type == "order") {
+        url = "/order/pay/confirm"
+      }
+      app.postData(url, postData).then(res => {
+        if (res.data.code == 200) {
+          wx.hideLoading()
+          if (this.data.newbie == true || this.data.newbie == "true") {
+            wx.redirectTo({
+              url: '../intoMember/intoMember',
+            })
+            return
+          }
+          app.showToast('支付成功')
+          this.setData({
+            isShowShade: true,
+
+          })
+          if (this.data.isShowShade) {
+            this.setData({
+              top: true
+            })
+          }
+        }
+        else {
+          this.setData({
+            isShowYu: true
+          })
+          if (this.data.isShowYu) {
+            this.setData({
+              isShowPwd: true,
+              // isFocus:true
+            })
+            setTimeout(() => {
+              this.setData({
+                isFocus: true
+              })
+            }, 400)
+          }
+        }
+      })
+      return
+    }
+
+
     if (this.data.actionSheetItems[this.data.isSelectItem].payWay == 4){
       if (!app.globalData.poiBasicData.balancePwdSet){
         wx.navigateTo({
@@ -160,7 +239,7 @@ Page({
       if(res.data.code==200){
         console.log(this.data.newbie)
         console.log(typeof(this.data.newbie))
-        if (this.data.actionSheetItems[this.data.isSelectItem].payWay==3){
+        if (this.data.actionSheetItems[this.data.isSelectItem].payWay==3){ 
           app.pay(res.data.data).then(res => {
             wx.hideLoading()
             if (this.data.newbie == true || this.data.newbie == "true") {

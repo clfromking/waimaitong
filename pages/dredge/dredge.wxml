@@ -59,19 +59,19 @@
         <!-- <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view> -->
       </view>
 
-      <view class='forms-item'>
+      <view class='forms-item' hidden='{{true}}'>
         <view class='forms-title'>所在地区</view>
         <input disabled='{{true}}' style='width:512rpx' placeholder-class="place-font" value='{{poiBasicData.province}}{{poiBasicData.city}}{{poiBasicData.districts}}{{poiBasicData.street}}' placeholder="请选择所在地区"></input>
         <image hidden='{{true}}' class='go-address right' src='https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/all/black_back.png'></image>
       </view>
 
-      <view class='forms-item'>
+      <view class='forms-item' hidden='{{true}}'>
         <view class='forms-title'>店铺位置</view>
         <input disabled='{{true}}' placeholder-class="place-font" value='{{poiBasicData.address}}' placeholder="请输入店铺详细位置"></input>
         <!-- <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view> -->
       </view>
       
-      <view class='forms-item'>
+      <view class='forms-item' hidden='{{true}}'>
         <view class='forms-title'>品牌名称</view>
         <input disabled='{{true}}' placeholder-class="place-font" value='{{poiBasicData.brandName}}' placeholder="如 真功夫（中关村南路店）"></input>
         <!-- <view style="margin-right:14rpx;color:#9cb88d" class='right'>修改</view> -->

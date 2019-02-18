@@ -13,7 +13,17 @@ picker,input{
 .item{
   font-size: 24rpx;
   color: #2d2d2d;
-  border-bottom: 2rpx solid #f6f6f6
+  border-bottom: 2rpx solid #f6f6f6;
+  position: relative
+}
+.coverPicker{
+  position: absolute;
+  width: 750rpx;
+  height: 80rpx;
+  left: 0;
+  top: 0;
+  background: red;
+  opacity: 0
 }
 
 .item text{

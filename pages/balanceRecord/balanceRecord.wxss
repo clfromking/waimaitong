@@ -89,3 +89,17 @@
 .isOut{
   color: #3A4BF9
 }
+
+
+
+.nothing{
+  width: 491rpx;
+  height: 514rpx;
+  display: block;
+  margin: 168rpx auto 110rpx
+}
+.nothing-title{
+  color: #3A4BF9;
+  font-size: 40rpx;
+  text-align: center;
+}

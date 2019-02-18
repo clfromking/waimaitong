@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='title'>邀请商户开通会员赚现金</view>
   <view class='body'>
-    <view class='clear remindView'>
+    <view class='clear remindView' style='visibility:hidden'>
       <switch class='right' color="#F63F5D"></switch>
       <view class='right remindText'>邀请提醒</view>
     </view>

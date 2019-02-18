@@ -40,9 +40,16 @@ Page({
   },
 
   goMember:function(){
-    wx.switchTab({
-      url: '../member/member',
-    })
+    if (this.data.isMember == true || this.data.isMember == 'true') {
+      wx.navigateTo({
+        url: '../dredge/dredge?type=renew',
+      })
+    }
+    else {
+      wx.switchTab({
+        url: '../member/member',
+      })
+    }
   },
 
   gologin:function(){

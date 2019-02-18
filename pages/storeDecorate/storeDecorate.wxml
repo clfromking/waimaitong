@@ -38,10 +38,10 @@
   </view>
   <view class='footer'>
     <view class='PriceView {{isShowShade?"leftView":""}}'>
-      <view class='acPrice'>¥{{isMember?totalMemberPrice:totalPrice}}</view>
-      <view class='disPrice'>会员{{isMember?"已":"可"}}优惠¥{{discounts}}</view>
+      <view class='acPrice {{append_list.length<=0?"isgray":""}}'>¥{{isMember?totalMemberPrice:totalPrice}}</view>
+      <view class='disPrice {{append_list.length<=0?"isgray":""}}'>会员{{isMember?"已":"可"}}优惠¥{{discounts}}</view>
     </view>
-    <view class='submit-order' bindtap='submitOrder'>提交订单</view>
+    <view class='submit-order {{append_list.length<=0?"isgray":""}}' bindtap='submitOrder'>提交订单</view>
   </view>
 
   <view hidden='{{isShowShade}}' class='add-btn'>

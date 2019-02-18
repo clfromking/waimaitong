@@ -71,6 +71,9 @@ App({
         },
         fail:function(){
           console.log('chucuo')
+          wx.navigateBack({
+            
+          })
           that.showToast('网络错误，请重试')
         },  
         error: function (e) {

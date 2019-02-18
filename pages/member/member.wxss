@@ -418,7 +418,7 @@ page{
 .bodyTitle{
   width: 100%;
   height: 176rpx;
-  background:url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/ban_bg.png') no-repeat;
+  background:url('https://waimaitong.oss-cn-beijing.aliyuncs.com/wechat/member/sy_banner.png') no-repeat;
   background-size: 100% 100%;
   position: relative;
   border-radius: 10rpx;
@@ -544,4 +544,10 @@ page{
   background: #000;
   z-index: 2;
   opacity: 0.8
+}
+
+
+
+button::after{
+  border: none
 }
