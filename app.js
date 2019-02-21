@@ -44,7 +44,7 @@ App({
             })
           }
 
-          
+
           else if (Number(res.data.code)>=300&&Number(res.data.code)<=499){
             resolve(res)
             
@@ -73,6 +73,9 @@ App({
             })
             // setTimeout(function () {
             //   wx.navigateBack({
+
+
+
 
             //   })
             // }, 1500)
