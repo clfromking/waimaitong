@@ -72,10 +72,7 @@ App({
               duration: 1500
             })
             // setTimeout(function () {
-            //   wx.navigateBack({
-
-
-
+            //   wx.navigateBack({ 试一下上传
             //   })
             // }, 1500)
           }
