@@ -48,7 +48,7 @@ Page({
         // console.log(this.data.password_val)
         var postData = { "accessToken": app.globalData.accessToken, "orderId": this.data.orderId, "payWay": 4, "balancePwd": e.detail.value}
         var url = ""
-        if (this.data.type == "member") {
+        if (this.data.type == "member") { 
           url = "/member/buy/confirm"
         }
         else if (this.data.type == "order") {
