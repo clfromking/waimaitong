@@ -3,8 +3,8 @@
 <view class='container'>
   <image class="logo" src='{{logo}}'></image>
   <input hidden='{{!(type==2)}}' class='msg-input' placeholder="请输入店铺老板真实姓名"></input>
-  <input value='{{account}}' data-index='0' bindinput='inputMsg' hidden='{{type==2}}' placeholder='{{placeholder_user}}' type='number' class='msg-input'></input>
-  <input value='{{password}}' data-index='1' bindinput='inputMsg' placeholder='{{placeholder_password}}' type='number' class='msg-input'></input>
+  <input value='{{account}}' data-index='0' bindinput='inputMsg' hidden='{{type==2}}' placeholder='{{placeholder_user}}'  class='msg-input'></input>
+  <input value='{{password}}' data-index='1' bindinput='inputMsg' placeholder='{{placeholder_password}}'  class='msg-input'></input>
   <view  hidden='{{!(type==2)}}' class='code-view clear'>
     <view class='left'>
       <input placeholder='请输入验证码'></input>

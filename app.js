@@ -35,7 +35,7 @@ App({
           else if (res.data.code == 200) {
             resolve(res)
           }
-          else if((Number(res.data.code)>=1&&Number(res.data.code)<=199)||(Number(res.data.code)>=500&&Number(res.data.code)<=9999)){
+          else if((Number(res.data.code)>=1&&Number(res.data.code)<=199)||(Number(res.data.code)>500&&Number(res.data.code)<=9999)){
             wx.showToast({
               title: '服务器错误，请重试！',
               icon:'none',
@@ -120,7 +120,7 @@ App({
           else if (res.data.code == 200) {
             resolve(res)
           }
-          else if ((Number(res.data.code) >= 1 && Number(res.data.code) <= 199) || (Number(res.data.code) >= 500 && Number(res.data.code) <= 9999)) {
+          else if ((Number(res.data.code) >= 1 && Number(res.data.code) <= 199) || (Number(res.data.code) > 500 && Number(res.data.code) <= 9999)) {
             wx.showToast({
               title: '服务器错误，请重试！',
               icon: 'none',
