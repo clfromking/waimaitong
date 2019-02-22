@@ -71,7 +71,14 @@ Page({
     this.setData({
       type:options.type
     })
-    this.setData(app.globalData)
+    app.postData('/wechat/login/token',{"accessToken":app.globalData.accessToken}).then(res=>{
+      if(res.data.code == 200){
+        app.globalData.name = res.data.data.name
+        app.globalData.mobile = res.data.data.mobile
+        this.setData(app.globalData)
+      }
+    })
+    
     app.postData('/member/my/get', { "accessToken": app.globalData.accessToken }).then(res1 => {
       if(res1.data.code == 200){
         this.setData(res1.data.data)
