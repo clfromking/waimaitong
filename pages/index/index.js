@@ -161,9 +161,39 @@ Page({
 
   goZero:function(e){
     console.log(e.currentTarget.dataset.id)
-    wx.navigateTo({
-      url: '../zeroRushAll/zeroRushAll?id='+e.currentTarget.dataset.id,
-    })
+    console.log(app.globalData.accessToken)
+    if(app.globalData.accessToken){
+      app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then(res=>{
+        console.log(res)
+        if(res.data.code == 200){
+          if(res.data.data.isMember == false || res.data.data.isMember == 'false'){
+            app.showToast('请先开通会员')
+            setTimeout(()=>{
+              wx.switchTab({
+                url: '../member/member',
+              })
+            },1500)
+            
+          }
+          else{
+            wx.navigateTo({
+              url: '../zeroRushAll/zeroRushAll?id=' + e.currentTarget.dataset.id,
+            })
+          }
+        }
+        else if(res.data.code == 403){
+          app.showToast('您还没有店铺，请先认证')
+          setTimeout(()=>{
+            wx.navigateTo({
+              url: '../identityConfirm/identityConfirm',
+            })
+          },1500)
+        }
+      })
+    }
+    else{
+      this.gologin()
+    }
   },
 
   /**
