@@ -160,8 +160,10 @@ Page({
   },
 
   goZero:function(e){
-    console.log(e.currentTarget.dataset.id)
-    console.log(app.globalData.accessToken)
+    // wx.navigateTo({
+    //   url: '../zeroRushAll/zeroRushAll?id=' + e.currentTarget.dataset.id,
+    // })
+    // return
     if(app.globalData.accessToken){
       app.postData('/member/my/get',{"accessToken":app.globalData.accessToken}).then(res=>{
         console.log(res)
