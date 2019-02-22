@@ -7,7 +7,7 @@
         <view bindtap='selectPlan' class='plan-item left {{isselect==index?"select-plan":""}}' data-id='{{index}}'>
           <view class='plan-title'>{{item.name}}</view>
           <view class='plan-money'>￥{{item.price/100}}</view>
-          <view class='plan-alt' hidden='{{isselect!==index||!newbie||type!==""}}'>新用户立减{{item.discount/100}}元</view>
+          <view class='plan-alt' hidden='{{isselect!==index||!newbie||type!==""}}'>新用户立减{{item.newDiscount/100}}元</view>
           <!-- <text class='plan-alt' hidden='{{type!=="renew"}}' style='{{type=="renew"?"display:block":""}}'>{{item.mainRecmd==1?"推荐":""}}</text> -->
           <text class='plan-alt Cred' hidden='{{type!=="renew"||isin!==index}}'>{{expire_time}}天后到期</text>
         </view>
